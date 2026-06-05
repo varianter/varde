@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "bun --filter '*' build",
-    "build:docs": "bun --filter '@varianter/*' build",
+    "build:docs": "bun --filter '@varde/*' build",
     "dev": "bun --filter '*' dev",
     "format": "bunx --bun @biomejs/biome format --write",
     "check": "bunx --bun @biomejs/biome check && tsc --noEmit"
