@@ -60,14 +60,15 @@ app.use(
                    grid-template-columns: 240px 1fr;
                    grid-template-rows: max-content auto;
                    grid-template-areas: 'header header' 'nav main';
-                   min-height: 100vh;"
+                   min-height: 100vh;
+                   background: oklch(from var(--surface-raised) l c h / 0.5);"
           >
             <header
               class="stack b-b b-faint px-m "
               style="grid-area: header; display: grid; grid-template-columns: subgrid; position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto;"
             >
               <a
-                href="/varde/"
+                href="/varde"
                 class="py-m px-xl t-bold b-r b-faint gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
