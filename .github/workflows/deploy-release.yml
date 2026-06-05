@@ -1,0 +1,107 @@
+name: Deploy Release
+run-name: "Deploy Release — v${{ inputs.version || github.event.release.tag_name }}"
+
+# Builds and uploads versioned CDN assets to Azure Blob Storage. Triggered
+# automatically when a GitHub release is published, or manually with an
+# explicit version number (useful for re-deploying a past release).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to deploy (without leading v, e.g. 0.0.3)"
+        required: true
+  workflow_call:
+    inputs:
+      version:
+        description: "Version to deploy (without leading v, e.g. 0.0.3)"
+        required: true
+        type: string
+
+# Workload identity federation — no long-lived secrets needed.
+# id-token:write lets the GitHub OIDC provider mint a token that Azure trusts.
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  STORAGE_ACCOUNT: vardecdn
+  SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+# Prevent two deploys from racing. If a newer run starts while one is in
+# progress, the older run is cancelled rather than left to finish out of order.
+concurrency:
+  group: cdn-deploy
+  queue: max
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.CDN_BASE_URL }}v/${{ steps.version.outputs.version }}/
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.9"
+
+      # Normalise the version string to a plain semver number (e.g. "1.2.3").
+      # Release tag names carry a leading "v" (e.g. "v1.2.3"), so we strip it.
+      # Manual runs supply the version directly via the workflow input.
+      - name: Resolve version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            VERSION="${{ github.event.release.tag_name }}"
+            VERSION="${VERSION#v}"
+          else
+            VERSION="${{ inputs.version }}"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        run: bun install
+      - name: Build
+        run: bun run build
+
+      - name: Azure login
+        uses: ./.github/actions/azure-login
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.SUBSCRIPTION_ID }}
+
+      # Uploads the build output to the CDN origin under the resolved version
+      # path. See infra/deploy.sh for the exact container layout and any
+      # cache-control / content-type rules applied per file type.
+      - name: Deploy CDN assets
+        run: bash infra/deploy.sh --version ${{ steps.version.outputs.version }}
+
+      # Print the deployed URL to the job summary visible on the workflow run page.
+      # Prefers the CDN_BASE_URL environment variable (set in the GitHub
+      # 'production' environment) so a custom domain is reflected automatically.
+      # Falls back to querying the storage account's own web endpoint.
+      - name: Summary
+        env:
+          CDN_BASE_URL: ${{ vars.CDN_BASE_URL }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          BASE="${CDN_BASE_URL:-}"
+          echo "### ✅ Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: [\`${{ github.sha }}\`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Files:**" >> $GITHUB_STEP_SUMMARY
+          for path in \
+            "v/${VERSION}/styles.css" \
+            "v/${VERSION}/themes.css" \
+            "v/latest/styles.css" \
+            "v/latest/themes.css"; do
+            echo "- [\`${BASE}${path}\`](${BASE}${path})" >> $GITHUB_STEP_SUMMARY
+          done
