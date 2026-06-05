@@ -50,8 +50,7 @@ export function TypographyPage() {
                 .{label}
               </code>
               <span class={`fs-l ${cls}`}>
-                The quick brown fox{" "}
-                <span class="fs-xs fg-muted t-regular">({weight})</span>
+                The quick brown fox <span class="fs-xs fg-muted t-regular">({weight})</span>
               </span>
             </div>
           ))}

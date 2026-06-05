@@ -26,9 +26,10 @@
 
   > :nth-child(-n + 10) {
     animation-delay: calc(
-      var(--_reveal-initial-delay) + (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
-        var(--_child-index) /
-        (var(--_max-stagger-items) * var(--_max-stagger-items) / var(--_max-stagger-items))
+      var(--_reveal-initial-delay) +
+      (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
+      var(--_child-index) /
+      (var(--_max-stagger-items) * var(--_max-stagger-items) / var(--_max-stagger-items))
     );
   }
 
