@@ -1,0 +1,98 @@
+name: Deploy Static Assets
+run-name: "Deploy Static — ${{ github.ref_name }} @ ${{ github.sha }}"
+
+# Syncs the contents of packages/static/ to the $web container in Azure Blob
+# Storage, which serves as the origin for the CDN. Runs automatically on pushes
+# to main that touch the static package, or can be triggered manually.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/static/**"
+  workflow_dispatch:
+
+# Workload identity federation — no long-lived secrets needed.
+# id-token:write lets the GitHub OIDC provider mint a token that Azure trusts.
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  STORAGE_ACCOUNT: vardecdn
+  SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+# Prevent two deploys from racing. If a newer run starts while one is in
+# progress, the older run is cancelled rather than left to finish out of order.
+concurrency:
+  group: static-deploy
+  queue: max
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: ${{ vars.CDN_BASE_URL }}static/
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Azure login
+        uses: ./.github/actions/azure-login
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.SUBSCRIPTION_ID }}
+
+      # Mirrors packages/static/ → $web/static/, removing any blobs in the
+      # destination that no longer exist in the source (--delete-destination).
+      # '$web' is the reserved Azure Static Website container name.
+      - name: Sync static assets
+        run: |
+          az storage blob sync \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container '$web' \
+            --source packages/static/ \
+            --destination static \
+            --delete-destination true \
+            --auth-mode login \
+            --only-show-errors
+
+      # 'az storage blob sync' doesn't support setting content headers directly,
+      # so we apply Cache-Control in a follow-up pass. 604800 seconds = 1 week.
+      - name: Set cache-control headers
+        run: |
+          az storage blob list \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --prefix static/ \
+            --auth-mode login \
+            --query "[].name" \
+            --output tsv | \
+          xargs -I{} az storage blob update \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --name "{}" \
+            --content-cache-control "public, max-age=604800" \
+            --auth-mode login \
+            --only-show-errors
+
+      # Print the deployed URLs to the job summary visible on the workflow run page.
+      # Prefers the CDN_BASE_URL environment variable (set in the GitHub
+      # 'production' environment) so a custom domain is reflected automatically.
+      - name: Summary
+        env:
+          CDN_BASE_URL: ${{ vars.CDN_BASE_URL }}
+        run: |
+          BASE="${CDN_BASE_URL:-}"
+          echo "### ✅ Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: [\`${{ github.sha }}\`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Files:**" >> $GITHUB_STEP_SUMMARY
+          find packages/static/ -type f | sort | while read -r f; do
+            rel="${f#packages/static/}"
+            echo "- [\`${rel}\`](${BASE}static/${rel})" >> $GITHUB_STEP_SUMMARY
+          done

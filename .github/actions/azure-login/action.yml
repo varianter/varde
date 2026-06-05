@@ -1,0 +1,26 @@
+name: Azure Login (OIDC)
+description: >
+  Authenticates to Azure using workload identity federation (OIDC).
+  No long-lived secrets required — the GitHub OIDC provider mints a
+  short-lived token that Azure trusts via the configured federated credential.
+
+inputs:
+  client-id:
+    description: "Azure AD application (client) ID"
+    required: true
+  tenant-id:
+    description: "Azure AD tenant ID"
+    required: true
+  subscription-id:
+    description: "Azure subscription ID"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Azure login
+      uses: azure/login@v3
+      with:
+        client-id: ${{ inputs.client-id }}
+        tenant-id: ${{ inputs.tenant-id }}
+        subscription-id: ${{ inputs.subscription-id }}
