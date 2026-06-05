@@ -1,0 +1,54 @@
+@layer {
+  :where(html) {
+    scrollbar-color: var(--foreground-muted) transparent;
+    scrollbar-width: thin;
+  }
+
+  ::selection {
+    color: var(--foreground-control-selection);
+    background-color: var(--background-control-selection);
+  }
+  [hidden] {
+    display: none !important;
+  }
+
+  :where(:focus-visible) {
+    outline-color: var(--input-focus-ring-color);
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 4px;
+    border-radius: var(--border-radius-s);
+  }
+
+  :where(b, strong, th) {
+    font-weight: var(--font-weight-bold);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-medium);
+  }
+  :where(:any-link) {
+    text-decoration: none;
+    color: currentColor;
+  }
+  /*
+  // Maybe I'd rather just keep links unstyled
+  // Then have .link and a default style in .typeset
+  :where(a:any-link:not([class*='button'])) {
+    color: var(--foreground-link-default);
+    font-weight: var(--font-weight-medium);
+    text-decoration-skip-ink: auto;
+    cursor: pointer;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 2px;
+    &:hover {
+      color: var(--foreground-link-hover);
+      text-decoration-color: var(--foreground-link-hover);
+    }
+  }*/
+
+  :where(hr) {
+    border: none;
+    border-block-start: 1px solid var(--border-default);
+  }
+}

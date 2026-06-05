@@ -1,0 +1,35 @@
+@layer spinner {
+  .spinner {
+    /* The spinner should scale to line-height. */
+    --_spinner-size: var(--spinner-size, 1.25lh);
+    --_spinner-color: var(--spinner-color, currentColor);
+    --_spinner-speed: var(--spinner-speed, 1s);
+    --_spinner-border-width: var(--spinner-border-width, calc(var(--_spinner-size) / 8));
+
+    display: inline-block;
+    height: var(--_spinner-size);
+    width: var(--_spinner-size);
+    aspect-ratio: 1;
+
+    background: var(--_spinner-color);
+    padding: var(--_spinner-border-width);
+    border-radius: 50%;
+
+    mask:
+      conic-gradient(#0000 10%, var(--_spinner-color)),
+      linear-gradient(var(--_spinner-color)) content-box;
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+
+    animation-name: spinner;
+    animation-duration: var(--_spinner-speed);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes spinner {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}

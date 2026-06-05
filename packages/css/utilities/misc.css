@@ -1,0 +1,15 @@
+.of-hidden {
+  overflow: hidden;
+}
+
+.of-clip {
+  overflow: clip;
+}
+
+.of-scroll {
+  overflow: scroll;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}

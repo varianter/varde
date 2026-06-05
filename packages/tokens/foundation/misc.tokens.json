@@ -1,0 +1,22 @@
+{
+  "interaction": {
+    "transition": {
+      "duration": {
+        "quick": {
+          "$type": "duration",
+          "$value": { "value": 150, "unit": "ms" }
+        }
+      },
+      "easing": {
+        "default": {
+          "$type": "cubicBezier",
+          "$value": [0.25, 0.1, 0.25, 1]
+        }
+      }
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": { "value": 0.25, "unit": "rem" }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/*
+ * .overlap — stacks all children on top of each other in the same grid cell.
+ * Unlike position: absolute, children remain in normal flow, so the container
+ * automatically sizes to the tallest child. Use z-index and align/justify-self
+ * to control layering and individual positioning.
+ */
+.overlap {
+  display: grid;
+  align-items: center;
+}
+
+.overlap > :where(*) {
+  grid-area: 1 / 1;
+}

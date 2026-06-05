@@ -1,0 +1,144 @@
+@layer {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    block-size: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-block-size: 100%;
+  }
+
+  img,
+  iframe,
+  audio,
+  video,
+  canvas {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  svg {
+    max-inline-size: 100%;
+  }
+
+  svg:not([fill]) {
+    fill: currentColor;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  fieldset,
+  iframe {
+    border: none;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+    font-variant-numeric: proportional-nums;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-variant-numeric: lining-nums;
+    text-wrap: balance;
+  }
+
+  p,
+  blockquote,
+  q,
+  figcaption,
+  li {
+    /* places « » outside outside of text flow, making text align better */
+    hanging-punctuation: first allow-end last;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  math,
+  time,
+  table {
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+  }
+
+  code {
+    font-variant-numeric: slashed-zero;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  abbr {
+    font-variant-caps: all-small-caps;
+    text-decoration: none;
+
+    &[title] {
+      cursor: help;
+      text-decoration: underline dotted;
+    }
+  }
+
+  sup,
+  sub {
+    line-height: 0;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  /* biome-ignore-start lint/complexity/noImportantStyles: We really want these to take precedence */
+  @media (prefers-reduced-motion) {
+    :is(*, ::before, ::after) {
+      animation-delay: 0ms !important;
+      animation-duration: 0s !important;
+      animation-iteration-count: 1 !important;
+      transition-delay: 0s !important;
+      transition-duration: 0s !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  /* biome-ignore-end lint/complexity/noImportantStyles: We really want these to take precedence */
+}

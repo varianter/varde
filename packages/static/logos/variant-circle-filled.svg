@@ -1,0 +1,9 @@
+<svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-path { fill: #282828; }
+    @media (prefers-color-scheme: dark) {
+      .logo-path { fill: #ffffff; }
+    }
+  </style>
+  <path class="logo-path" fill-rule="evenodd" clip-rule="evenodd" d="M44.8 89.6C69.5424 89.6 89.6 69.5424 89.6 44.8C89.6 20.0576 69.5424 0 44.8 0C20.0576 0 0 20.0576 0 44.8C0 69.5424 20.0576 89.6 44.8 89.6ZM21.0811 22.9998L37.9707 68.6145H37.9732C38.9838 71.3455 41.5991 73.1612 44.5225 73.1612C47.4409 73.1612 50.0513 71.3553 51.0668 68.6317L68.092 22.9998H58.0278L44.5496 61.0276L31.0024 22.9998H21.0811Z"/>
+</svg>

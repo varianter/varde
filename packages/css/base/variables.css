@@ -1,0 +1,90 @@
+:root {
+  font-family: BSV, system-ui, sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.4;
+
+  --typescale: 1.2;
+  --base-font-size: 1rem; /* might have to go unitless */
+
+  --font-size-xs: calc(var(--base-font-size) * pow(var(--typescale), -2));
+  --font-size-s: calc(var(--base-font-size) * pow(var(--typescale), -1));
+  --font-size-m: var(--base-font-size); /*  17px   */
+  --font-size-l: calc(var(--base-font-size) * pow(var(--typescale), 1));
+  --font-size-xl: calc(var(--base-font-size) * pow(var(--typescale), 2));
+  --font-size-2xl: calc(var(--base-font-size) * pow(var(--typescale), 3));
+  --font-size-3xl: calc(var(--base-font-size) * pow(var(--typescale), 4));
+  --font-size-4xl: calc(var(--base-font-size) * pow(var(--typescale), 5));
+
+  --font-size-xs: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+  --font-size-s: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+  --font-size-m: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  --font-size-l: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+  --font-size-xl: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+  --font-size-2xl: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+  --font-size-3xl: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+  --font-size-4xl: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+
+  /* --font-size-xs: clamp(0.7813rem, 0.7457rem + 0.1578vw, 0.8681rem);
+  --font-size--s: clamp(0.9375rem, 0.8949rem + 0.1894vw, 1.0417rem);
+  --font-size-m: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  --font-size-l: clamp(1.35rem, 1.2886rem + 0.2727vw, 1.5rem);
+  --font-size-xl: clamp(1.62rem, 1.5464rem + 0.3273vw, 1.8rem);
+  --font-size-2xl: clamp(1.944rem, 1.8556rem + 0.3927vw, 2.16rem);
+  --font-size-3xl: clamp(2.3328rem, 2.2268rem + 0.4713vw, 2.592rem);
+  --font-size-4xl: clamp(2.7994rem, 2.6721rem + 0.5655vw, 3.1104rem); */
+
+  --font-weight-default: 300;
+
+  --font-weight-regular: var(--font-weight-default);
+  --font-weight-medium: 450;
+  --font-weight-bold: 550;
+
+  /* line-height */
+  --leading: 1.4;
+  --leading-short: 1.3;
+  --leading-slim: 1.2;
+  --leading-fine: 1.1;
+  --leading-flat: 1;
+  --leading-mini: 0.9;
+  --leading-micro: 0.8;
+
+  /* letter-spacing */
+  --kerning: normal;
+  --kerning-tight: -0.04ch;
+  --kerning-loose: 0.1ch;
+  --heading-kerning: -0.015em;
+
+  --base-root: 1rem;
+
+  /* Tight, fine-grained control */
+  --spacing-3xs: calc(0.125 * var(--base-root));
+  --spacing-2xs: calc(0.25 * var(--base-root));
+  --spacing-xs: calc(0.5 * var(--base-root));
+  --spacing-s: calc(0.75 * var(--base-root));
+  --spacing-m: calc(1 * var(--base-root));
+  --spacing-l: calc(1.5 * var(--base-root));
+  --spacing-xl: calc(2 * var(--base-root));
+
+  /* Accelerating jumps */
+  --spacing-2xl: calc(3 * var(--base-root));
+  --spacing-3xl: calc(4 * var(--base-root));
+  --spacing-4xl: calc(6 * var(--base-root));
+  --spacing-5xl: calc(8 * var(--base-root));
+  --spacing-6xl: calc(12 * var(--base-root));
+
+  --border-radius-xs: 2px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+}
+
+/* ============================================
+   SHARED SIZING (Inputs & Buttons)
+   ============================================ */
+:root {
+  --size-control-height-small: calc(2.25 * var(--font-size-s)); /* ~32px */
+  --size-control-height-medium: calc(2.5 * var(--font-size-m)); /* 40px */
+  --size-control-height-large: calc(2.5 * var(--font-size-l)); /* ~45px */
+}

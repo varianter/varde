@@ -1,0 +1,11 @@
+.list {
+  list-style-position: inside;
+}
+
+.list:where(ul) {
+  list-style-type: square;
+}
+
+.list :where(ul, li)::marker {
+  color: var(--foreground-brand-subtle);
+}

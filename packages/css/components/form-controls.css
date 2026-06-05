@@ -1,0 +1,268 @@
+@layer forms.base, forms.public, forms.state, forms.base-select;
+
+@layer forms.public {
+  :root {
+    --input-border-radius: var(--interaction-radius);
+    --input-focus-ring-color: var(--border-control-focused);
+
+    --input-background: var(--background-control-default);
+    --input-foreground: var(--foreground-default);
+    --input-border: var(--border-control-default);
+    --input-placeholder: var(--foreground-control-placeholder);
+
+    --input-checked-foreground: var(--foreground-control-selected);
+  }
+
+  :where(.input, .select, .textarea, .checkbox, .radio) {
+    --_input-background: var(--input-background);
+    --_input-foreground: var(--input-foreground);
+    --_input-border: var(--input-border);
+  }
+
+  /* Text input sizing */
+
+  :where(.input, .select, .textarea) {
+    --_input-height: var(--size-control-height-medium);
+    --_input-font-size: var(--font-size-s);
+    --_input-padding-inline: var(--spacing-s);
+  }
+
+  :where(.input, .select, .textarea):where([data-size='small']) {
+    --_input-height: var(--size-control-height-small);
+    --_input-font-size: var(--font-size-s);
+    --_input-padding-inline: var(--spacing-xs);
+  }
+
+  :where(.input, .select, .textarea):where([data-size='large']) {
+    --_input-height: var(--size-control-height-large);
+    --_input-font-size: var(--font-size-l);
+    --_input-padding-inline: var(--spacing-m);
+  }
+
+  /* Checkbox & radio sizing */
+
+  :where(.radio, .checkbox) {
+    --_input-height: 1.5em;
+  }
+}
+
+@layer forms.state {
+  :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
+    border-color: var(--border-control-hover);
+    outline-color: var(--border-control-hover);
+  }
+
+  :where(.input, .select, .textarea, .checkbox, .radio):focus-visible {
+    border-color: var(--border-control-focused);
+    outline-color: var(--input-focus-ring-color);
+  }
+
+  :where(.checkbox, .radio):checked::after {
+    color: var(--input-checked-foreground);
+  }
+
+  :where(.input, .textarea, .select):where([aria-invalid='true']):not(:focus-visible) {
+    --_input-border: var(--border-control-error);
+    --_input-foreground: var(--foreground-control-error);
+  }
+}
+
+@layer forms.base {
+  :where(.input, .select, .textarea, .checkbox, .radio) {
+    appearance: none;
+    font: inherit;
+
+    background: var(--_input-background);
+    color: var(--_input-foreground);
+    border-color: var(--_input-border);
+    border-radius: var(--input-border-radius);
+    border-width: 1px;
+    border-style: solid;
+
+    min-height: var(--_input-height);
+    font-size: var(--_input-font-size);
+
+    outline-width: 1px;
+    outline-offset: 0px;
+    outline-color: transparent;
+    outline-style: solid;
+
+    transition:
+      outline-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default),
+      border-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+
+    &::placeholder {
+      color: var(--input-placeholder);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  :where(.input, .select, .textarea) {
+    padding-inline: var(--_input-padding-inline);
+    padding-block: var(--spacing-2xs);
+  }
+
+  /* Checkbox & radio */
+
+  :where(.radio, .checkbox) {
+    width: var(--_input-height);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  :where(.radio) {
+    border-radius: 50%;
+  }
+
+  :where(.radio, .checkbox)::after {
+    content: '';
+    width: 90%;
+    aspect-ratio: 1;
+    color: transparent;
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    pointer-events: none;
+    transition: color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+    @supports (width: round(90%, 2px)) {
+      width: round(90%, 2px);
+    }
+  }
+
+  :where(.radio)::after {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Ccircle cx="12" cy="12" r="8" /%3E%3C/svg%3E');
+  }
+
+  :where(.checkbox)::after {
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" /%3E%3C/svg%3E');
+  }
+
+  /* Select */
+
+  :where(.select) {
+    padding-inline-end: calc(var(--_input-padding-inline, 1em) + 1.5em + var(--spacing-2xs));
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(94, 117, 131)" viewBox="0 0 24 24"><path d="M12.7 15.7a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 1.4-1.4l5.3 5.29 5.3-5.3a1 1 0 1 1 1.4 1.42z"/></svg>');
+    background-position: calc(100% - var(--_input-padding-inline, 1em));
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+  }
+}
+
+/* ============================================
+   Base-select: customizable native <select>
+   Progressive enhancement — unsupported browsers
+   fall back to the regular styled select above.
+   ============================================ */
+
+@layer forms.base-select {
+  @supports (appearance: base-select) {
+    :where(.select) {
+      appearance: base-select;
+      align-items: center;
+      min-width: 10rem; /* base-select does not consider the width of it's <options> */
+      /* base-select provides its own arrow, remove the manual one */
+      background-image: none;
+      padding-inline-end: var(--_input-padding-inline);
+    }
+
+    /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
+    :where(.select)::picker-icon {
+      color: var(--_input-foreground);
+      opacity: 0.6;
+    }
+
+    /*:where(.select) selectedcontent {
+      font-size: var(--_input-font-size);
+      color: var(--_input-foreground);
+    }*/
+
+    /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
+    :where(.select)::picker(select) {
+      appearance: base-select;
+      background: var(--surface-raised, var(--input-background));
+      color: var(--_input-foreground);
+      border: 1px solid var(--_input-border);
+      border-radius: var(--input-border-radius);
+      padding: var(--spacing-2xs);
+      box-shadow:
+        0 4px 16px rgb(0 0 0 / 0.12),
+        0 1px 4px rgb(0 0 0 / 0.08);
+      /*
+
+      transition:
+        opacity var(--interaction-transition-duration-quick)
+        var(--interaction-transition-easing-default),
+        display var(--interaction-transition-duration-quick)
+        var(--interaction-transition-easing-default) allow-discrete,
+        overlay var(--interaction-transition-duration-quick)
+        var(--interaction-transition-easing-default) allow-discrete;
+
+        */
+    }
+
+    /*
+    These we can hold off on for a little while.
+    :where(.select)::picker(select):popover-open {
+
+      opacity: 1;
+    }
+
+    @starting-style {
+      :where(.select)::picker(select):popover-open {
+        opacity: 0;
+      }
+    }*/
+
+    /* Options inside the dropdown */
+    :where(.select) option {
+      padding-block: var(--spacing-2xs);
+      padding-inline: var(--spacing-2xs) var(--spacing-s);
+      border-radius: calc(var(--input-border-radius) - 2px);
+      color: var(--foreground-default);
+      outline-offset: 0;
+    }
+
+    :where(.select) option:hover {
+      background-color: var(--background-control-hover);
+    }
+
+    :where(.select) option:checked {
+      font-weight: var(--font-weight-medium);
+    }
+
+    /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
+    :where(.select) option::checkmark {
+      color: var(--input-checked-foreground);
+    }
+
+    /* Disabled options */
+    :where(.select) option:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Optgroup labels */
+    :where(.select) optgroup {
+      font-weight: var(--font-weight-medium);
+      font-size: var(--font-size-xs);
+      color: var(--foreground-muted, var(--input-placeholder));
+      padding-block: var(--spacing-2xs);
+    }
+
+    /* hr as separator inside the select */
+    :where(.select) hr {
+      border: none;
+      border-block-start: 1px solid var(--border-faint, var(--_input-border));
+      margin-block: var(--spacing-2xs);
+    }
+  }
+}

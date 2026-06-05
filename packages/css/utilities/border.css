@@ -1,0 +1,70 @@
+@layer border {
+  .b-t {
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+  .b-r {
+    border-right-width: 1px;
+    border-right-style: solid;
+  }
+  .b-b {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+  .b-l {
+    border-left-width: 1px;
+    border-left-style: solid;
+  }
+  .b-all {
+    border-style: solid;
+    border-width: 1px;
+  }
+  .b-last-none:last-child {
+    border: 0;
+  }
+  .b-first-none:first-child {
+    border: 0;
+  }
+}
+
+@layer border-radius {
+  .br-none {
+    border-radius: 0;
+  }
+
+  .br-inherit {
+    border-radius: inherit;
+  }
+
+  .br-xs {
+    border-radius: calc(var(--border-radius-xs, 2px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-s {
+    border-radius: calc(var(--border-radius-s, 4px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-m {
+    border-radius: calc(var(--border-radius-m, 8px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-l {
+    border-radius: calc(var(--border-radius-l, 12px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-xl {
+    border-radius: calc(var(--border-radius-xl, 16px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-2xl {
+    border-radius: calc(var(--border-radius-2xl, 24px) * var(--border-radius-modifier, 1));
+  }
+
+  .br-pill {
+    border-radius: 9999px;
+  }
+
+  .br-circle {
+    border-radius: 50%;
+  }
+}

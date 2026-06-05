@@ -1,0 +1,74 @@
+:root {
+  /* Base configuration */
+  --width-base: 4rem;
+  --width-factor: 1.414;
+  --width-round: 0.25rem; /* round to nearest quarter rem for cleaner values */
+
+  /* Primitive scale — pure steps, no semantics */
+  --width-0: var(--width-base);
+  --width-1: round(calc(var(--width-base) * pow(var(--width-factor), 1)), var(--width-round));
+  --width-2: round(calc(var(--width-base) * pow(var(--width-factor), 2)), var(--width-round));
+  --width-3: round(calc(var(--width-base) * pow(var(--width-factor), 3)), var(--width-round));
+  --width-4: round(calc(var(--width-base) * pow(var(--width-factor), 4)), var(--width-round));
+  --width-5: round(calc(var(--width-base) * pow(var(--width-factor), 5)), var(--width-round));
+  --width-6: round(calc(var(--width-base) * pow(var(--width-factor), 6)), var(--width-round));
+  --width-7: round(calc(var(--width-base) * pow(var(--width-factor), 7)), var(--width-round));
+  --width-8: round(calc(var(--width-base) * pow(var(--width-factor), 8)), var(--width-round));
+  --width-9: round(calc(var(--width-base) * pow(var(--width-factor), 9)), var(--width-round));
+  --width-10: round(calc(var(--width-base) * pow(var(--width-factor), 10)), var(--width-round));
+}
+
+/* Max-width utilities */
+.mw-0 {
+  max-width: var(--width-0);
+}
+.mw-1 {
+  max-width: var(--width-1);
+}
+.mw-2 {
+  max-width: var(--width-2);
+}
+.mw-3 {
+  max-width: var(--width-3);
+}
+.mw-4 {
+  max-width: var(--width-4);
+}
+.mw-5 {
+  max-width: var(--width-5);
+}
+.mw-6 {
+  max-width: var(--width-6);
+}
+.mw-7 {
+  max-width: var(--width-7);
+}
+.mw-8 {
+  max-width: var(--width-8);
+}
+.mw-9 {
+  max-width: var(--width-9);
+}
+.mw-10 {
+  max-width: var(--width-10);
+}
+
+/* Base width utilities — the common cases */
+.w-full {
+  width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.w-fit {
+  width: fit-content;
+}
+.w-min {
+  width: min-content;
+}
+
+/* Min-width (just the essential one) */
+/* flex child escape hatch */
+.minw-0 {
+  min-width: 0;
+}

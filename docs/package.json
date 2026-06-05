@@ -1,0 +1,19 @@
+{
+  "name": "@varde/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.tsx",
+    "build": "bun run src/build.tsx",
+    "preview": "bun run build && bunx http-server dist -p 1337 --open /varde/"
+  },
+  "dependencies": {
+    "@varde/css": "workspace:*",
+    "@varde/tokens": "workspace:*",
+    "hono": "^4.12.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

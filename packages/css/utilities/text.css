@@ -1,0 +1,39 @@
+@layer text {
+  .t-regular {
+    font-weight: var(--font-weight-regular);
+  }
+  .t-medium {
+    font-weight: var(--font-weight-medium);
+  }
+  .t-bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .t-center {
+    text-align: center;
+  }
+  .t-left {
+    text-align: left;
+  }
+  .t-right {
+    text-align: right;
+  }
+
+  .t-uppercase {
+    text-transform: uppercase;
+  }
+
+  .lh-tight {
+    line-height: 1.1;
+  }
+  .lh-normal {
+    line-height: 1.5;
+  }
+  .lh-relaxed {
+    line-height: 1.7;
+  }
+
+  .t-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

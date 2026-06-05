@@ -1,0 +1,12 @@
+.link {
+  color: var(--foreground-link-default);
+  font-weight: var(--font-weight-medium);
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 2px;
+  &:hover {
+    color: var(--foreground-link-hover);
+    text-decoration-color: var(--foreground-link-hover);
+  }
+}

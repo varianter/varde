@@ -1,0 +1,29 @@
+{
+  "name": "varde",
+  "description": "Variant Designsystem: Varde",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "bun --filter '*' build",
+    "build:docs": "bun --filter '@varianter/*' build",
+    "dev": "bun --filter '*' dev",
+    "format": "bunx --bun @biomejs/biome format --write",
+    "check": "bunx --bun @biomejs/biome check && tsc --noEmit"
+  },
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "catalog": {
+    "@biomejs/biome": "2.4.3",
+    "typescript": "^5.9.3",
+    "@types/bun": "latest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6",
+    "@types/bun": "^1.3.10"
+  }
+}

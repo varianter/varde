@@ -1,0 +1,74 @@
+@keyframes stagger-reveal-enter {
+  0% {
+    transform: translateY(2px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+:where([stagger-reveal]) {
+  --_max-stagger-items: 10;
+  --_reveal-max-delay: var(--reveal-max-delay, 0.25s);
+  --_reveal-initial-delay: var(--reveal-initial-delay, 0.085s);
+  --_reveal-duration: var(--reveal-duration, 0.2s);
+  --_reveal-timing-function: ease-out;
+  --_reveal-animation: var(--reveal-animation, stagger-reveal-enter);
+
+  > :where(*) {
+    animation: var(--_reveal-animation, stagger-reveal-enter) var(--_reveal-duration)
+      var(--_reveal-timing-function) both;
+    animation-delay: var(--_reveal-max-delay);
+  }
+
+  > :nth-child(-n + 10) {
+    animation-delay: calc(
+      var(--_reveal-initial-delay) + (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
+        var(--_child-index) /
+        (var(--_max-stagger-items) * var(--_max-stagger-items) / var(--_max-stagger-items))
+    );
+  }
+
+  > :nth-child(1) {
+    --_child-index: 1;
+  }
+
+  > :nth-child(2) {
+    --_child-index: 2;
+  }
+
+  > :nth-child(3) {
+    --_child-index: 3;
+  }
+
+  > :nth-child(4) {
+    --_child-index: 4;
+  }
+
+  > :nth-child(5) {
+    --_child-index: 5;
+  }
+
+  > :nth-child(6) {
+    --_child-index: 6;
+  }
+
+  > :nth-child(7) {
+    --_child-index: 7;
+  }
+
+  > :nth-child(8) {
+    --_child-index: 8;
+  }
+
+  > :nth-child(9) {
+    --_child-index: 9;
+  }
+
+  > :nth-child(10) {
+    --_child-index: 10;
+  }
+}

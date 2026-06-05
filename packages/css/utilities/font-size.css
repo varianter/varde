@@ -1,0 +1,39 @@
+@layer font-size {
+  .fs-xs {
+    font-size: var(--font-size-xs);
+  }
+  .fs-s {
+    font-size: var(--font-size-s);
+  }
+  .fs-m {
+    font-size: var(--font-size-m);
+  }
+  .fs-l {
+    font-size: var(--font-size-l);
+  }
+  .fs-xl {
+    font-size: var(--font-size-xl);
+  }
+  .fs-2xl {
+    font-size: var(--font-size-2xl);
+  }
+  .fs-3xl {
+    font-size: var(--font-size-3xl);
+  }
+  .fs-4xl {
+    font-size: var(--font-size-4xl);
+  }
+
+  :where(.fs-xl) {
+    line-height: var(--leading-short);
+  }
+  :where(.fs-2xl) {
+    line-height: var(--leading-slim);
+  }
+  :where(.fs-3xl) {
+    line-height: var(--leading-fine);
+  }
+  :where(.fs-4xl) {
+    line-height: var(--leading-fine);
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+.sessions.json
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+dist/
+cdn/dist/
+.vercel
+.DS_Store
