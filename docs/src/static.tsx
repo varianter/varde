@@ -2,7 +2,7 @@ import { join } from "node:path";
 import { Hono } from "hono";
 
 // Serves files from packages/static at /static/* during local dev.
-// by build.tsx so they're available when served statically (e.g. GitHub Pages).
+// build.tsx copies them into dist/static/ for the static build.
 //
 // IMPORTANT: The path below is relative to import.meta.dir (docs/src/),
 // not the process working directory. Don't change it to a relative string

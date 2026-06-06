@@ -1,31 +1,32 @@
-import { cp } from "node:fs/promises";
+import { cp, readdir, mkdir, rename } from "node:fs/promises";
 import { join } from "node:path";
 import { toSSG } from "hono/bun";
 import { app } from "./index";
 
 const STATIC_SRC = join(import.meta.dir, "../../packages/static");
-// IMPORTANT: Fonts are copied into `varde/static` (not just `static`) because the
-// GitHub Actions workflow uploads `docs/dist/varde` as the Pages artifact root —
-// meaning GitHub Pages serves that directory at `/`. So `/static/fonts/...` in the
-// CSS resolves to `dist/varde/static/fonts/...` here.
-// If you change the artifact upload path in .github/workflows/github-pages.yml,
-// you must update this destination path to match.
-const STATIC_DEST = join("./dist", "varde", "static");
+const STATIC_DEST = join("./dist", "static");
 
-// Generate static files
 const _result = await toSSG(app, {
   dir: "./dist",
 });
 
-// toSSG writes the basePath root as `varde.html` instead of `varde/index.html`.
-// Copy it so GitHub Pages can serve it at `/varde/`. The cp is wrapped in .catch
-// because toSSG may not always generate the file (e.g. if the route isn't registered).
-const src = join("./dist", "varde.html");
-const dest = join("./dist", "varde", "index.html");
+// Azure Blob Storage static websites serve /foo/index.html for requests to /foo/.
+// toSSG generates foo.html by default, so we convert to directory/index.html style.
+async function toDirectoryStyle(dir: string): Promise<void> {
+  const entries = await readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      await toDirectoryStyle(fullPath);
+    } else if (entry.isFile() && entry.name.endsWith(".html") && entry.name !== "index.html") {
+      const slug = entry.name.slice(0, -5);
+      const subdir = join(dir, slug);
+      await mkdir(subdir, { recursive: true });
+      await rename(fullPath, join(subdir, "index.html"));
+    }
+  }
+}
 
-await cp(src, dest).catch(() => {
-  // If the file doesn't exist, that's fine – nothing to copy.
-});
+await toDirectoryStyle("./dist");
 
-// Copy static assets (fonts, etc.) into dist so they're available when served statically.
 await cp(STATIC_SRC, STATIC_DEST, { recursive: true });
