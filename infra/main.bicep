@@ -50,6 +50,16 @@ resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2023-05-01'
   }
 }
 
+// Front Door wiring — deployed to shared-rg so it can attach to the shared profile
+module cdn './varde-cdn.bicep' = {
+  scope: resourceGroup('shared-rg')
+  name: 'vardeCdnModule'
+  params: {
+    // primaryEndpoints.web is 'https://<host>/' — strip scheme and trailing slash
+    storageStaticWebsiteHostname: replace(replace(storageAccount.properties.primaryEndpoints.web, 'https://', ''), '/', '')
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Outputs
 // ---------------------------------------------------------------------------
@@ -60,3 +70,6 @@ output storageAccountName string = storageAccount.name
 output staticWebsiteUrl string = storageAccount.properties.primaryEndpoints.web
 
 output resourceGroupName string = resourceGroup().name
+
+@description('Copy this into vardeDomainValidationToken in shared-infrastructure dns-zone params, then redeploy.')
+output vardeDomainValidationToken string = cdn.outputs.vardeDomainValidationToken
