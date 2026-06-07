@@ -50,10 +50,8 @@ rootApp.get("/", (c) =>
         <h2 class="fs-l t-bold">Versions</h2>
         <ul class="stack gap-xs" id="versions">
           <li>
-            <a href="/v/latest/" class="fg-default">
-              <strong>latest</strong>
-              <span class="fg-muted fs-s"> — /v/latest/styles.css, /v/latest/themes.css</span>
-            </a>
+            <strong>latest</strong>
+            <span class="fg-muted fs-s"> — <a class="fg-default" href="/v/latest/styles.css">/v/latest/styles.css</a>, <a class="fg-default" href="/v/latest/themes.css">/v/latest/themes.css</a></span>
           </li>
         </ul>
         <noscript>
@@ -66,7 +64,7 @@ rootApp.get("/", (c) =>
               var ul = document.getElementById('versions');
               versions.forEach(function(v) {
                 var li = document.createElement('li');
-                li.innerHTML = '<a href="/v/' + v + '/" class="fg-default">' + v + '<span class="fg-muted fs-s"> — /v/' + v + '/styles.css, /v/' + v + '/themes.css</span></a>';
+                li.innerHTML = '<span class="fg-default">' + v + '</span><span class="fg-muted fs-s"> — <a class="fg-default" href="/v/' + v + '/styles.css">/v/' + v + '/styles.css</a>, <a class="fg-default" href="/v/' + v + '/themes.css">/v/' + v + '/themes.css</a></span>';
                 ul.appendChild(li);
               });
             })
