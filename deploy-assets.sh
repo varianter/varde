@@ -83,6 +83,7 @@ VERSIONS=$(az storage blob list \
   --container-name '$web' \
   --prefix 'v/' \
   --query "[?ends_with(name, '/styles.css') && !contains(name, 'latest')].name" \
+  --auth-mode login \
   --output tsv \
   | sed 's|v/\(.*\)/styles\.css|\1|' \
   | sort -Vr)
