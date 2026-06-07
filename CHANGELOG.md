@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/varianter/varde/compare/varde-v0.0.3...varde-v0.0.4) (2026-06-07)
+
+
+### Bug Fixes
+
+* Release flow with packages ([#13](https://github.com/varianter/varde/issues/13)) ([161e955](https://github.com/varianter/varde/commit/161e955946a5f66f1f08a03a3ca34f88276ec6b6))
+
 ## [0.0.3](https://github.com/varianter/varde/compare/varde-v0.0.2...varde-v0.0.3) (2026-06-07)
 
 
