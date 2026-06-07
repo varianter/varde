@@ -8,7 +8,7 @@ import type { FC } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { staticApp } from "./static";
 
-const app = new Hono({ strict: false }).basePath("/varde");
+const app = new Hono({ strict: false }).basePath("/docs");
 
 app.get("/styles.css", (c) => {
   c.header("Content-Type", "text/css");
@@ -50,8 +50,8 @@ app.use(
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="icon" type="image/svg+xml" href="/static/logos/variant-favicon.svg" />
             <title>Varde – Variant design system documentation</title>
-            <link rel="stylesheet" href="/varde/themes.css" />
-            <link rel="stylesheet" href="/varde/styles.css" />
+            <link rel="stylesheet" href="/docs/themes.css" />
+            <link rel="stylesheet" href="/docs/styles.css" />
           </head>
           <body
             class="fs-m"
@@ -68,7 +68,7 @@ app.use(
               style="grid-area: header; display: grid; grid-template-columns: subgrid; position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto;"
             >
               <a
-                href="/varde"
+                href="/docs/"
                 class="py-m px-xl t-bold b-r b-faint gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
@@ -83,40 +83,40 @@ app.use(
             <nav class="stack gap-l  p-l b-r b-faint" style="grid-area: nav;">
               <div class="stack gap-xs">
                 <span class="fs-xs fg-muted t-bold ">Utilities</span>
-                <a class="fg-default" href="/varde/utilities/spacing">
+                <a class="fg-default" href="/docs/utilities/spacing/">
                   Spacing
                 </a>
-                <a class="fg-default" href="/varde/utilities/colors">
+                <a class="fg-default" href="/docs/utilities/colors/">
                   Colors
                 </a>
-                <a class="fg-default" href="/varde/utilities/layout">
+                <a class="fg-default" href="/docs/utilities/layout/">
                   Layout
                 </a>
-                <a class="fg-default" href="/varde/utilities/typography">
+                <a class="fg-default" href="/docs/utilities/typography/">
                   Typography
                 </a>
-                <a class="fg-default" href="/varde/utilities/typeset">
+                <a class="fg-default" href="/docs/utilities/typeset/">
                   Typeset
                 </a>
               </div>
               <div class="stack gap-xs">
                 <span class="fs-xs fg-muted t-bold">Components</span>
-                <a class="fg-default" href="/varde/components/buttons">
+                <a class="fg-default" href="/docs/components/buttons/">
                   Buttons
                 </a>
-                <a class="fg-default" href="/varde/components/form-controls">
+                <a class="fg-default" href="/docs/components/form-controls/">
                   Form Controls
                 </a>
-                <a class="fg-default" href="/varde/components/tables">
+                <a class="fg-default" href="/docs/components/tables/">
                   Tables
                 </a>
               </div>
               <div class="stack gap-xs">
                 <span class="fs-xs fg-muted t-bold">Tokens</span>
-                <a class="fg-default" href="/varde/tokens/palette">
+                <a class="fg-default" href="/docs/tokens/palette/">
                   Palette
                 </a>
-                <a class="fg-default" href="/varde/tokens/color-modes">
+                <a class="fg-default" href="/docs/tokens/color-modes/">
                   Color Modes
                 </a>
               </div>
