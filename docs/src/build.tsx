@@ -2,16 +2,17 @@ import { cp, readdir, mkdir, rename } from "node:fs/promises";
 import { join } from "node:path";
 import { toSSG } from "hono/bun";
 import { app } from "./index";
+import { rootApp } from "./root";
 
 const STATIC_SRC = join(import.meta.dir, "../../packages/static");
 const STATIC_DEST = join("./dist", "static");
 
-const _result = await toSSG(app, {
-  dir: "./dist",
-});
+await toSSG(app, { dir: "./dist" });
+await toSSG(rootApp, { dir: "./dist" });
 
 // Azure Blob Storage static websites serve /foo/index.html for requests to /foo/.
 // toSSG generates foo.html by default, so we convert to directory/index.html style.
+// index.html files (including the root page) are left as-is.
 async function toDirectoryStyle(dir: string): Promise<void> {
   const entries = await readdir(dir, { withFileTypes: true });
   for (const entry of entries) {

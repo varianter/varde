@@ -63,6 +63,21 @@ jobs:
             --auth-mode login \
             --only-show-errors
 
+      # Uploads the root index page separately so it can't accidentally delete
+      # other root-level blobs (/v/, /static/).
+      - name: Upload root index page
+        run: |
+          az storage blob upload \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --file docs/dist/index.html \
+            --name index.html \
+            --content-type "text/html" \
+            --content-cache-control "public, max-age=300" \
+            --overwrite true \
+            --auth-mode login \
+            --only-show-errors
+
       - name: Summary
         run: |
           echo "### ✅ Docs deployed" >> $GITHUB_STEP_SUMMARY

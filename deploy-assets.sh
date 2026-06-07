@@ -72,6 +72,35 @@ echo "Uploading latest assets to /v/latest/ ..."
 upload_file "$CSS_FILE"    "v/latest" "public, max-age=300"
 upload_file "$TOKENS_FILE" "v/latest" "public, max-age=300"
 
+# ---------------------------------------------------------------------------
+# Update /v/index.json — list of all deployed versions, newest first
+# ---------------------------------------------------------------------------
+echo ""
+echo "Updating /v/index.json ..."
+
+VERSIONS=$(az storage blob list \
+  --account-name "$STORAGE_ACCOUNT" \
+  --container-name '$web' \
+  --prefix 'v/' \
+  --query "[?ends_with(name, '/styles.css') && !contains(name, 'latest')].name" \
+  --output tsv \
+  | sed 's|v/\(.*\)/styles\.css|\1|' \
+  | sort -Vr)
+
+TMPFILE=$(mktemp)
+echo "$VERSIONS" | awk 'BEGIN{printf "["} NR>1{printf ","} {printf "\"%s\"", $0} END{print "]"}' > "$TMPFILE"
+az storage blob upload \
+  --account-name "$STORAGE_ACCOUNT" \
+  --container-name '$web' \
+  --file "$TMPFILE" \
+  --name 'v/index.json' \
+  --content-type 'application/json' \
+  --content-cache-control 'public, max-age=300' \
+  --overwrite true \
+  --auth-mode login \
+  --only-show-errors
+rm "$TMPFILE"
+
 echo ""
 echo "Deploy complete!"
 echo ""
