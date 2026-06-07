@@ -78,10 +78,10 @@ jobs:
           subscription-id: ${{ env.SUBSCRIPTION_ID }}
 
       # Uploads the build output to the CDN origin under the resolved version
-      # path. See infra/deploy.sh for the exact container layout and any
+      # path. See deploy-assets.sh for the exact container layout and any
       # cache-control / content-type rules applied per file type.
       - name: Deploy CDN assets
-        run: bash infra/deploy.sh --version ${{ steps.version.outputs.version }}
+        run: bash deploy-assets.sh --version ${{ steps.version.outputs.version }}
 
       # Print the deployed URL to the job summary visible on the workflow run page.
       # Prefers the CDN_BASE_URL environment variable (set in the GitHub
