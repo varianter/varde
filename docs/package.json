@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
     "build": "bun run src/build.tsx",
-    "preview": "bun run build && bunx http-server dist -p 1337 --open /"
+    "preview": "bun run build && bunx http-server dist -p 1337 --open /docs/"
   },
   "dependencies": {
     "@varde/css": "workspace:*",

@@ -50,16 +50,16 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ env.SUBSCRIPTION_ID }}
 
-      # Syncs docs/dist/ to the root of the $web container.
-      # --delete-destination is intentionally omitted so blobs managed by other
-      # workflows (/v/* versioned CSS, /static/* fonts) are not deleted.
+      # Syncs only the docs/ subdirectory of the build output to the $web/docs/
+      # prefix, keeping /v/* and /static/* managed by other workflows untouched.
       - name: Sync docs to Azure Storage
         run: |
           az storage blob sync \
             --account-name "$STORAGE_ACCOUNT" \
             --container '$web' \
-            --source docs/dist/ \
-            --destination '' \
+            --source docs/dist/docs/ \
+            --destination docs \
+            --delete-destination true \
             --auth-mode login \
             --only-show-errors
 
