@@ -50,7 +50,7 @@ export function NavLinks() {
         <div class={`stack gap-xs`} key={section.label}>
           <span class="fs-xs fg-muted t-bold">{section.label}</span>
           {section.items.map((item) => (
-            <a class="fg-default" href={`${base}${item.path}/`} key={item.label}>
+            <a class="fg-default" href={`${base}${item.path}`} key={item.label}>
               {item.label}
             </a>
           ))}
