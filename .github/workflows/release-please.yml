@@ -8,7 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  id-token: write
+  actions: write
 
 jobs:
   release-please:
@@ -27,10 +27,11 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-  deploy:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
-    uses: ./.github/workflows/deploy-release.yml
-    with:
-      version: ${{ needs.release-please.outputs.major }}.${{ needs.release-please.outputs.minor }}.${{ needs.release-please.outputs.patch }}
-    secrets: inherit
+      - name: Trigger CDN deploy
+        if: steps.release.outputs.release_created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run deploy-release.yml \
+            --ref main \
+            --field version=${{ steps.release.outputs.version }}

@@ -1,9 +1,9 @@
 name: Deploy Release
 run-name: "Deploy Release — v${{ inputs.version }}"
 
-# Builds and uploads versioned CDN assets to Azure Blob Storage. Triggered
-# automatically when a GitHub release is published, or manually with an
-# explicit version number (useful for re-deploying a past release).
+# Builds and uploads versioned CDN assets to Azure Blob Storage.
+# Called by release-please.yml when a release is created, or
+# triggered manually to re-deploy a past version.
 
 on:
   workflow_dispatch:
@@ -49,12 +49,10 @@ jobs:
         with:
           bun-version-file: ".bun-version"
 
-      # Normalise the version string to a plain semver number (e.g. "1.2.3").
-      # Release tag names carry a leading "v" (e.g. "v1.2.3"), so we strip it.
-      # Manual runs supply the version directly via the workflow input.
       - name: Resolve version
         id: version
-        run: echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
         run: bun install
