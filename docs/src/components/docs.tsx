@@ -13,7 +13,7 @@ export function DocsPage({
     <article class="stack gap-2xl mx-auto py-xl px-xl" style="max-width: 1200px;">
       <header class="pt-2xl pb-2xl">
         <div class="stack gap-xs">
-          <h2 class="fs-4xl t-bold">{title}</h2>
+          <h2 class="fs-3xl t-bold">{title}</h2>
           <p class="fs-l fg-muted mw-7">{description}</p>
         </div>
       </header>

@@ -80,7 +80,7 @@ function ColorModeDemo({ mode }: { mode: string }) {
               <textarea
                 class="textarea"
                 id="demo-message"
-                rows="3"
+                rows={3}
                 placeholder="Write something…"
               ></textarea>
             </div>

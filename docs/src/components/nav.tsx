@@ -36,10 +36,7 @@ const sections: NavSection[] = [
   },
   {
     label: "Tokens",
-    items: [
-      { label: "Palette", path: "/tokens/palette" },
-      { label: "Color Modes", path: colorModesPath },
-    ],
+    items: [{ label: "Color Modes", path: colorModesPath }],
   },
 ];
 
