@@ -44,11 +44,17 @@ app.use(
                   border: 1px solid var(--border-brand-medium);
                       text-shadow: 0px 0px 3px var(--surface-default), 0px 0px 6px var(--surface-default);
                 }
-              `}
+
+
+                `}
             </Style>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="icon" type="image/svg+xml" href="/static/logos/variant-favicon.svg" />
+            <link
+              rel="icon"
+              type="image/svg+xml"
+              href="//vardecdn.z1.web.core.windows.net/static/logos/variant-favicon.svg"
+            />
             <title>Varde – Variant design system documentation</title>
             <link rel="stylesheet" href="/docs/themes.css" />
             <link rel="stylesheet" href="/docs/styles.css" />
@@ -72,7 +78,7 @@ app.use(
                 class="py-m px-xl t-bold b-r b-faint gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
-                  src="/static/logos/variant-circle-filled.svg"
+                  src="https://vardecdn.z1.web.core.windows.net/static/logos/variant-circle-filled.svg"
                   alt="Varde"
                   width="24"
                   height="24"
