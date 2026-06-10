@@ -6,14 +6,16 @@
   --typescale: 1.2;
   --base-font-size: 1rem; /* might have to go unitless */
 
+  /*
   --font-size-xs: calc(var(--base-font-size) * pow(var(--typescale), -2));
   --font-size-s: calc(var(--base-font-size) * pow(var(--typescale), -1));
-  --font-size-m: var(--base-font-size); /*  17px   */
+  --font-size-m: var(--base-font-size);
   --font-size-l: calc(var(--base-font-size) * pow(var(--typescale), 1));
   --font-size-xl: calc(var(--base-font-size) * pow(var(--typescale), 2));
   --font-size-2xl: calc(var(--base-font-size) * pow(var(--typescale), 3));
   --font-size-3xl: calc(var(--base-font-size) * pow(var(--typescale), 4));
   --font-size-4xl: calc(var(--base-font-size) * pow(var(--typescale), 5));
+  */
 
   --font-size-xs: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
   --font-size-s: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
@@ -24,14 +26,16 @@
   --font-size-3xl: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
   --font-size-4xl: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
 
-  /* --font-size-xs: clamp(0.7813rem, 0.7457rem + 0.1578vw, 0.8681rem);
+  /*
+  --font-size-xs: clamp(0.7813rem, 0.7457rem + 0.1578vw, 0.8681rem);
   --font-size--s: clamp(0.9375rem, 0.8949rem + 0.1894vw, 1.0417rem);
   --font-size-m: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
   --font-size-l: clamp(1.35rem, 1.2886rem + 0.2727vw, 1.5rem);
   --font-size-xl: clamp(1.62rem, 1.5464rem + 0.3273vw, 1.8rem);
   --font-size-2xl: clamp(1.944rem, 1.8556rem + 0.3927vw, 2.16rem);
   --font-size-3xl: clamp(2.3328rem, 2.2268rem + 0.4713vw, 2.592rem);
-  --font-size-4xl: clamp(2.7994rem, 2.6721rem + 0.5655vw, 3.1104rem); */
+  --font-size-4xl: clamp(2.7994rem, 2.6721rem + 0.5655vw, 3.1104rem);
+  */
 
   --font-weight-default: 300;
 

@@ -33,9 +33,7 @@
   }
 
   :where(.typeset) :where(:any-link) {
-    color: currentColor;
     text-decoration-thickness: 0.5px;
-    text-decoration-thickness: from-font;
     text-underline-offset: 2px;
     color: var(--foreground-link-default); /*TODO: Swap this with a proper variable*/
     font-weight: var(--font-weight-medium);
@@ -92,8 +90,7 @@
   }
 
   :where(.typeset) li::marker {
-    color: blue; /*TODO: Swap this with a proper variable*/
-    opacity: 0.6;
+    color: var(--foreground-default); /*TODO: Swap this with a proper variable*/
   }
 
   :where(.typeset) :where(li, blockquote) {
@@ -106,6 +103,6 @@
     font-family: monospace;
     font-size: 0.75em;
     padding: 0.25em 0.35em;
-    background-color: var(--color-code-bg, bisque);
+    background-color: var(--background-control-default);
   }
 }

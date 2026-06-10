@@ -9,6 +9,7 @@
     background-color: var(--background-control-selection);
   }
   [hidden] {
+    /* biome-ignore lint/complexity/noImportantStyles: because when something uses hidden, it better be hidden */
     display: none !important;
   }
 
