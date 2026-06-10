@@ -14,7 +14,7 @@ export function DocsPage({
       <header class="pt-2xl pb-2xl">
         <div class="stack gap-xs">
           <h2 class="fs-4xl t-bold">{title}</h2>
-          <p class="fs-xl fg-muted mw-7">{description}</p>
+          <p class="fs-l fg-muted mw-7">{description}</p>
         </div>
       </header>
 

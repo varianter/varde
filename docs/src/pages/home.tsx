@@ -3,7 +3,7 @@ export const path = "/";
 export default function HomePage() {
   return (
     <article class="stack gap-4xl mx-auto py-4xl px-xl" style="max-width: 1200px;">
-      <header class="pt-4xl pb-xl">
+      <header>
         <div class="stack gap-l">
           <div class="stack gap-m">
             <h1 class="fs-4xl t-bold lh-tight">Varde</h1>
