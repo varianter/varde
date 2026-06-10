@@ -23,7 +23,11 @@ env:
   SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
 jobs:
+  lint:
+    uses: ./.github/workflows/verify.yml
+
   deploy:
+    needs: lint
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
