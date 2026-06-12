@@ -1,10 +1,6 @@
 :root {
-  font-family: BSV, system-ui, sans-serif;
   --font-size-base: 1rem;
   --line-height-base: 1.4;
-
-  --typescale: 1.2;
-  --base-font-size: 1rem; /* might have to go unitless */
 
   --font-size-xs: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
   --font-size-s: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
@@ -64,6 +60,8 @@
   --interaction-radius: 0.65rem;
   --interaction-transition-duration-quick: 150ms;
   --interaction-transition-easing-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --scroll-padding-top: var(--size-control-height-medium);
 }
 
 /* ============================================

@@ -10,12 +10,6 @@
     Makes thing yank less when navigation between pages with longer to shorter content.
     */
     scrollbar-gutter: stable;
-
-    /*
-    Offsets anchor scroll targets below a fixed header.
-    Override --scroll-padding-top on :root to customize.
-    */
-    --scroll-padding-top: var(--size-control-height-medium);
     scroll-padding-top: var(--scroll-padding-top);
   }
 
