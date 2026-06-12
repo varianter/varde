@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/varianter/varde/compare/varde-v0.1.0...varde-v0.1.1) (2026-06-12)
+
+
+### Bug Fixes
+
+* Add checkout step to release-please workflow ([8b0ff03](https://github.com/varianter/varde/commit/8b0ff037a7fda0ded47c874c7449819de498086a))
+
 ## [0.1.0](https://github.com/varianter/varde/compare/varde-v0.0.4...varde-v0.1.0) (2026-06-12)
 
 
