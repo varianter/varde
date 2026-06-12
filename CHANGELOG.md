@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.0](https://github.com/varianter/varde/compare/varde-v0.0.4...varde-v0.1.0) (2026-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Re-worked A LOT of the CSS package
+
+### Features
+
+* Re-worked A LOT of the CSS package ([9367f43](https://github.com/varianter/varde/commit/9367f43ffdbf872b4a56fdf1ab7f59fdff458183))
+
 ## [0.0.4](https://github.com/varianter/varde/compare/varde-v0.0.3...varde-v0.0.4) (2026-06-07)
 
 
