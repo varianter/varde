@@ -11,7 +11,7 @@ export function ButtonsPage() {
       {/* Colors & Variants */}
       <Section
         title="Colors & Variants"
-        description='Combine data-color ("primary", "secondary", "danger") with data-variant ("filled", "tinted", "plain"). Primary filled is the default.'
+        description='Combine data-color ("primary", "secondary", "danger", "inherit") with data-variant ("filled", "outline", "plain"). Primary filled is the default.'
       >
         <ExamplePanel>
           <div class="stack gap-m">
@@ -21,8 +21,8 @@ export function ButtonsPage() {
                 <button type="button" class="button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="tinted">
-                  Tinted
+                <button type="button" class="button" data-variant="outline">
+                  Outline
                 </button>
                 <button type="button" class="button" data-variant="plain">
                   Plain
@@ -35,8 +35,8 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-color="secondary">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="secondary" data-variant="tinted">
-                  Tinted
+                <button type="button" class="button" data-color="secondary" data-variant="outline">
+                  Outline
                 </button>
                 <button type="button" class="button" data-color="secondary" data-variant="plain">
                   Plain
@@ -49,10 +49,25 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-color="danger">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="danger" data-variant="tinted">
-                  Tinted
+                <button type="button" class="button" data-color="danger" data-variant="outline">
+                  Outline
                 </button>
                 <button type="button" class="button" data-color="danger" data-variant="plain">
+                  Plain
+                </button>
+              </div>
+            </div>
+
+            <div class="stack gap-2xs">
+              <span class="fs-xs fg-muted t-medium">Inherit</span>
+              <div class="stack-horizontal gap-m">
+                <button type="button" class="button" data-color="inherit">
+                  Filled
+                </button>
+                <button type="button" class="button" data-color="inherit" data-variant="outline">
+                  Outline
+                </button>
+                <button type="button" class="button" data-color="inherit" data-variant="plain">
                   Plain
                 </button>
               </div>
@@ -94,11 +109,11 @@ export function ButtonsPage() {
                 <button type="button" class="button">
                   <span class="icon" data-icon="plus" /> Add item
                 </button>
-                <button type="button" class="button" data-variant="tinted">
+                <button type="button" class="button" data-variant="outline">
                   <span class="icon" data-icon="pencil" /> Edit
                 </button>
                 <button type="button" class="button" data-variant="plain">
-                  <span class="icon" data-icon="cage" /> Cages
+                  <span class="icon" data-icon="pencil" /> Edit
                 </button>
               </div>
             </div>
@@ -119,7 +134,7 @@ export function ButtonsPage() {
                 <button type="button" class="button" aria-label="Add">
                   <span class="icon" data-icon="plus" />
                 </button>
-                <button type="button" class="button" data-variant="tinted" aria-label="Edit">
+                <button type="button" class="button" data-variant="outline" aria-label="Edit">
                   <span class="icon" data-icon="pencil" />
                 </button>
                 <button
@@ -127,9 +142,9 @@ export function ButtonsPage() {
                   class="button"
                   data-color="danger"
                   data-variant="plain"
-                  aria-label="Cages"
+                  aria-label="Pencil"
                 >
-                  <span class="icon" data-icon="cage" />
+                  <span class="icon" data-icon="plus" />
                 </button>
               </div>
             </div>
@@ -162,7 +177,7 @@ export function ButtonsPage() {
               <button type="button" class="button">
                 <span class="spinner" /> Saving…
               </button>
-              <button type="button" class="button" data-variant="tinted">
+              <button type="button" class="button" data-variant="outline">
                 <span class="spinner" /> Saving…
               </button>
               <button type="button" class="button" data-variant="plain">

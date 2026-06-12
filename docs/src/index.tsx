@@ -1,7 +1,6 @@
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: decorative icons do not need titles */
 
 import stylesCSS from "@varde/css" with { type: "text" };
-import themesCSS from "@varde/tokens" with { type: "text" };
 import { Hono } from "hono";
 import { css, Style } from "hono/css";
 import type { FC } from "hono/jsx";
@@ -14,11 +13,6 @@ const app = new Hono({ strict: false }).basePath("/docs");
 app.get("/styles.css", (c) => {
   c.header("Content-Type", "text/css");
   return c.body(stylesCSS);
-});
-
-app.get("/themes.css", (c) => {
-  c.header("Content-Type", "text/css");
-  return c.body(themesCSS);
 });
 
 app.use(
@@ -126,7 +120,6 @@ app.use(
               href="https://varde.variant.dev/static/logos/variant-favicon.svg"
             />
             <title>Varde – Variant design system documentation</title>
-            <link rel="stylesheet" href="/docs/themes.css" />
             <link rel="stylesheet" href="/docs/styles.css" />
           </head>
           <body class="fs-m">

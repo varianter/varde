@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@varde/css": "workspace:*",
-    "@varde/tokens": "workspace:*",
     "hono": "^4.12.4"
   },
   "devDependencies": {

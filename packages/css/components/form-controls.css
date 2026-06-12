@@ -1,19 +1,13 @@
 @layer forms.base, forms.public, forms.state, forms.base-select;
 
 @layer forms.public {
-  :root {
-    --input-border-radius: var(--interaction-radius);
-    --input-focus-ring-color: var(--border-control-focused);
-
+  :where(.input, .select, .textarea, .checkbox, .radio) {
     --input-background: var(--background-control-default);
     --input-foreground: var(--foreground-default);
     --input-border: var(--border-control-default);
     --input-placeholder: var(--foreground-control-placeholder);
-
     --input-checked-foreground: var(--foreground-control-selected);
-  }
 
-  :where(.input, .select, .textarea, .checkbox, .radio) {
     --_input-background: var(--input-background);
     --_input-foreground: var(--input-foreground);
     --_input-border: var(--input-border);
@@ -50,11 +44,13 @@
   :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
     border-color: var(--border-control-hover);
     outline-color: var(--border-control-hover);
+    background-color: var(--background-control-hover);
   }
 
   :where(.input, .select, .textarea, .checkbox, .radio):focus-visible {
     border-color: var(--border-control-focused);
     outline-color: var(--input-focus-ring-color);
+    background-color: var(--background-control-hover);
   }
 
   :where(.checkbox, .radio):checked::after {
@@ -91,6 +87,8 @@
       outline-color var(--interaction-transition-duration-quick)
       var(--interaction-transition-easing-default),
       border-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default),
+      background-color var(--interaction-transition-duration-quick)
       var(--interaction-transition-easing-default);
 
     &::placeholder {

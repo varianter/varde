@@ -4,6 +4,7 @@
 /* Base */
 @import './base/reset.css';
 @import './base/variables.css';
+@import './base/palette.css';
 @import './base/global.css';
 
 /* Components */
@@ -30,3 +31,4 @@
 @import './helpers/typeset.css';
 @import './helpers/stagger-reveal.css';
 @import './helpers/color-mode.css';
+@import './helpers/color-mode.generated.css';

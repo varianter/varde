@@ -1,12 +1,6 @@
 @layer buttons.base, buttons.public, buttons.state;
 
 @layer buttons.public {
-  :root {
-    --button-border-radius: var(--interaction-radius);
-    --button-font-weight: var(--font-weight-bold);
-    --button-focus-ring-color: var(--border-control-focused);
-  }
-
   /* Color axis */
 
   :where(.button:not([data-color]), .button[data-color='primary']) {
@@ -33,6 +27,14 @@
     --_button-on-surface: var(--button-danger-on-surface);
   }
 
+  :where(.button[data-color='inherit']) {
+    --_button-base: var(--button-inherit-base);
+    --_button-on-base: var(--button-inherit-on-base);
+    --_button-subtle: var(--button-inherit-subtle);
+    --_button-on-subtle: var(--button-inherit-on-subtle);
+    --_button-on-surface: var(--button-inherit-on-surface);
+  }
+
   /* Variant axis */
 
   :where(.button:not([data-variant]), .button[data-variant='filled']) {
@@ -41,10 +43,10 @@
     --_button-border: var(--_button-base);
   }
 
-  :where(.button[data-variant='tinted']) {
-    --_button-background: var(--_button-subtle);
-    --_button-foreground: var(--_button-on-subtle);
-    --_button-border: var(--_button-subtle);
+  :where(.button[data-variant='outline']) {
+    --_button-background: transparent;
+    --_button-foreground: var(--_button-on-surface);
+    --_button-border: var(--_button-base);
   }
 
   :where(.button[data-variant='plain']) {
@@ -60,6 +62,7 @@
     --_button-padding-inline: var(--spacing-m);
     --_button-font-size: var(--font-size-m);
     --_button-gap: var(--spacing-xs);
+    --_button-border-radius: var(--border-radius-m);
   }
 
   :where(.button[data-size='small']) {
@@ -67,6 +70,7 @@
     --_button-padding-inline: var(--spacing-s);
     --_button-font-size: var(--font-size-s);
     --_button-gap: var(--spacing-2xs);
+    --_button-border-radius: var(--border-radius-m);
   }
 
   :where(.button[data-size='large']) {
@@ -74,6 +78,7 @@
     --_button-padding-inline: var(--spacing-l);
     --_button-font-size: var(--font-size-l);
     --_button-gap: var(--spacing-xs);
+    --_button-border-radius: var(--border-radius-l);
   }
 }
 
@@ -92,8 +97,8 @@
 
     background: var(--_button-background);
     color: var(--_button-foreground);
-    border: 1px solid var(--_button-border);
-    border-radius: var(--button-border-radius);
+    border: 2px solid var(--_button-border);
+    border-radius: var(--_button-border-radius);
     min-height: var(--_button-height);
 
     padding-block: 0;
@@ -114,7 +119,8 @@
       outline 0.1s ease-out,
       filter 0.1s ease-out,
       transform 0.1s ease-out,
-      background-color 0.1s ease-out;
+      background-color 0.2s ease-out,
+      border 0.2s ease-out;
   }
 }
 
@@ -123,10 +129,12 @@
     filter: brightness(1.05);
   }
 
+  :where(.button[data-variant='outline']):hover,
   :where(.button[data-variant='plain']):hover {
     --_button-background: var(--_button-subtle);
     filter: none;
     --_button-foreground: var(--_button-on-subtle);
+    --_button-border: var(--_button-subtle);
   }
 
   :where(.button):active {

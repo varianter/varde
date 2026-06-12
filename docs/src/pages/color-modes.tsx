@@ -30,6 +30,37 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
         Vi mener lønn bør være enkelt, åpent og forutsigbart. Derfor designet vi en transparent
         lønnsmodell som likestiller alle ansatte.
       </p>
+      <div className="stack-horizontal gap-s mt-xl">
+        <input type="text" class="input flex-1" />
+        <button type="button" data-color="inherit" class="button" style="width: max-content;">
+          Knapp
+        </button>
+      </div>
+      <div class="stack-horizontal gap-s mt-s">
+        <button
+          type="button"
+          data-color="inherit"
+          data-variant="outline"
+          class="button"
+          style="width: 20ch;"
+        >
+          Outline
+        </button>
+        <button
+          type="button"
+          data-color="inherit"
+          data-variant="plain"
+          class="button"
+          style="width: max-content;"
+        >
+          Plain
+        </button>
+        <div class="stack-horizontal gap-s">
+          <input type="checkbox" class="checkbox" />
+          <input type="radio" name="radio" value="one" class="radio" checked />
+          <input type="radio" name="radio" value="two" class="radio" />
+        </div>
+      </div>
     </div>
   );
 }

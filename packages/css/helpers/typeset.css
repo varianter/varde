@@ -32,7 +32,7 @@
     font-size: var(--font-size-m);
   }
 
-  :where(.typeset) :where(:any-link) {
+  :where(.typeset) :any-link {
     text-decoration-thickness: 0.5px;
     text-underline-offset: 2px;
     color: var(--foreground-link-default); /*TODO: Swap this with a proper variable*/
@@ -54,7 +54,6 @@
     --flow-space: 0.5rem;
   }
 
-  /* Definition lists — term/description pairs */
   :where(.typeset) dl {
     display: grid;
     grid-template-columns: max-content 1fr;

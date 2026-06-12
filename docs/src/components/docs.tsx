@@ -83,7 +83,7 @@ export function ExampleGroup({ children }: { children: Child }) {
 export function DemoBox({ children, label }: { children?: Child; label?: string }) {
   return (
     <div class="fs-s t-medium p-s br-m demo-box">
-      <span class="fg-default">{children || label || "Item"}</span>
+      <span class="fg-default t-bold">{children || label || "Item"}</span>
     </div>
   );
 }

@@ -3,6 +3,8 @@
  * Unlike position: absolute, children remain in normal flow, so the container
  * automatically sizes to the tallest child. Use z-index and align/justify-self
  * to control layering and individual positioning.
+ *
+ * Kevin Powell has a good video on this: https://www.youtube.com/watch?v=CU8Plk-53RU
  */
 .overlap {
   display: grid;

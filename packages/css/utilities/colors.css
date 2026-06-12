@@ -1,6 +1,4 @@
 @layer colors.background {
-  /* ─── Structural: Surfaces ─── */
-
   .bg-surface-default {
     background-color: var(--surface-default);
   }
@@ -12,73 +10,9 @@
   .bg-surface-sunken {
     background-color: var(--surface-sunken);
   }
-
-  /* ─── Intent: Backgrounds ─── */
-
-  .bg-brand-subtle {
-    background-color: var(--background-brand-subtle);
-  }
-
-  .bg-brand-medium {
-    background-color: var(--background-brand-medium);
-  }
-
-  .bg-brand-strong {
-    background-color: var(--background-brand-strong);
-  }
-
-  .bg-danger-subtle {
-    background-color: var(--background-danger-subtle);
-  }
-
-  .bg-danger-medium {
-    background-color: var(--background-danger-medium);
-  }
-
-  .bg-danger-strong {
-    background-color: var(--background-danger-strong);
-  }
-
-  .bg-warning-subtle {
-    background-color: var(--background-warning-subtle);
-  }
-
-  .bg-warning-medium {
-    background-color: var(--background-warning-medium);
-  }
-
-  .bg-warning-strong {
-    background-color: var(--background-warning-strong);
-  }
-
-  .bg-success-subtle {
-    background-color: var(--background-success-subtle);
-  }
-
-  .bg-success-medium {
-    background-color: var(--background-success-medium);
-  }
-
-  .bg-success-strong {
-    background-color: var(--background-success-strong);
-  }
-
-  .bg-info-subtle {
-    background-color: var(--background-info-subtle);
-  }
-
-  .bg-info-medium {
-    background-color: var(--background-info-medium);
-  }
-
-  .bg-info-strong {
-    background-color: var(--background-info-strong);
-  }
 }
 
 @layer colors.foreground {
-  /* ─── Structural: Foreground ─── */
-
   .fg-default {
     color: var(--foreground-default);
   }
@@ -90,77 +24,9 @@
   .fg-emphasis {
     color: var(--foreground-emphasis);
   }
-
-  .fg-inverted {
-    color: var(--foreground-inverted);
-  }
-
-  /* ─── Intent: Foreground ─── */
-
-  .fg-brand-subtle {
-    color: var(--foreground-brand-subtle);
-  }
-
-  .fg-brand-medium {
-    color: var(--foreground-brand-medium);
-  }
-
-  .fg-brand-strong {
-    color: var(--foreground-brand-strong);
-  }
-
-  .fg-danger-subtle {
-    color: var(--foreground-danger-subtle);
-  }
-
-  .fg-danger-medium {
-    color: var(--foreground-danger-medium);
-  }
-
-  .fg-danger-strong {
-    color: var(--foreground-danger-strong);
-  }
-
-  .fg-warning-subtle {
-    color: var(--foreground-warning-subtle);
-  }
-
-  .fg-warning-medium {
-    color: var(--foreground-warning-medium);
-  }
-
-  .fg-warning-strong {
-    color: var(--foreground-warning-strong);
-  }
-
-  .fg-success-subtle {
-    color: var(--foreground-success-subtle);
-  }
-
-  .fg-success-medium {
-    color: var(--foreground-success-medium);
-  }
-
-  .fg-success-strong {
-    color: var(--foreground-success-strong);
-  }
-
-  .fg-info-subtle {
-    color: var(--foreground-info-subtle);
-  }
-
-  .fg-info-medium {
-    color: var(--foreground-info-medium);
-  }
-
-  .fg-info-strong {
-    color: var(--foreground-info-strong);
-  }
 }
 
 @layer colors.border {
-  /* ─── Structural: Borders ─── */
-
   .b-default {
     border-color: var(--border-default);
   }
@@ -171,145 +37,5 @@
 
   .b-prominent {
     border-color: var(--border-prominent);
-  }
-
-  /* ─── Intent: Borders ─── */
-
-  .b-brand-subtle {
-    border-color: var(--border-brand-subtle);
-  }
-
-  .b-brand-medium {
-    border-color: var(--border-brand-medium);
-  }
-
-  .b-brand-strong {
-    border-color: var(--border-brand-strong);
-  }
-
-  .b-danger-subtle {
-    border-color: var(--border-danger-subtle);
-  }
-
-  .b-danger-medium {
-    border-color: var(--border-danger-medium);
-  }
-
-  .b-danger-strong {
-    border-color: var(--border-danger-strong);
-  }
-
-  .b-warning-subtle {
-    border-color: var(--border-warning-subtle);
-  }
-
-  .b-warning-medium {
-    border-color: var(--border-warning-medium);
-  }
-
-  .b-warning-strong {
-    border-color: var(--border-warning-strong);
-  }
-
-  .b-success-subtle {
-    border-color: var(--border-success-subtle);
-  }
-
-  .b-success-medium {
-    border-color: var(--border-success-medium);
-  }
-
-  .b-success-strong {
-    border-color: var(--border-success-strong);
-  }
-
-  .b-info-subtle {
-    border-color: var(--border-info-subtle);
-  }
-
-  .b-info-medium {
-    border-color: var(--border-info-medium);
-  }
-
-  .b-info-strong {
-    border-color: var(--border-info-strong);
-  }
-}
-
-@layer colors.stroke {
-  /* ─── Structural: Strokes ─── */
-
-  .stroke-default {
-    stroke: var(--border-default);
-  }
-
-  .stroke-faint {
-    stroke: var(--border-faint);
-  }
-
-  .stroke-prominent {
-    stroke: var(--border-prominent);
-  }
-
-  /* ─── Intent: Strokes ─── */
-
-  .stroke-brand-subtle {
-    stroke: var(--border-brand-subtle);
-  }
-
-  .stroke-brand-medium {
-    stroke: var(--border-brand-medium);
-  }
-
-  .stroke-brand-strong {
-    stroke: var(--border-brand-strong);
-  }
-
-  .stroke-danger-subtle {
-    stroke: var(--border-danger-subtle);
-  }
-
-  .stroke-danger-medium {
-    stroke: var(--border-danger-medium);
-  }
-
-  .stroke-danger-strong {
-    stroke: var(--border-danger-strong);
-  }
-
-  .stroke-warning-subtle {
-    stroke: var(--border-warning-subtle);
-  }
-
-  .stroke-warning-medium {
-    stroke: var(--border-warning-medium);
-  }
-
-  .stroke-warning-strong {
-    stroke: var(--border-warning-strong);
-  }
-
-  .stroke-success-subtle {
-    stroke: var(--border-success-subtle);
-  }
-
-  .stroke-success-medium {
-    stroke: var(--border-success-medium);
-  }
-
-  .stroke-success-strong {
-    stroke: var(--border-success-strong);
-  }
-
-  .stroke-info-subtle {
-    stroke: var(--border-info-subtle);
-  }
-
-  .stroke-info-medium {
-    stroke: var(--border-info-medium);
-  }
-
-  .stroke-info-strong {
-    stroke: var(--border-info-strong);
   }
 }
