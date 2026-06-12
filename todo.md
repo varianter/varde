@@ -1,0 +1,7 @@
+- Change from [data-mode] to a custom element <color-mode invert palette="periwinkle">
+-
+- Helpers:
+- - Add details animations (currently in global.css)
+- - Add popover animation helpers
+- - Add documentation to helpers
+- - Add different timing to stagger-reveal helper
