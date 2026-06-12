@@ -1,10 +1,14 @@
-[data-mode],
-[data-mode-inverted='true'] {
+/* color-mode {
+  display: contents;
+} */
+
+color-mode,
+color-mode[inverted] {
   color: var(--foreground-default);
 }
 
-[data-mode='grey'],
-[data-mode],
+color-mode[palette='grey'],
+color-mode:not([palette]):not([inverted]),
 :root {
   --palette-inherit-0: var(--palette-grey-0);
   --palette-inherit-50: var(--palette-grey-50);
@@ -28,7 +32,7 @@
   --palette-inherit-950: var(--palette-grey-950);
 }
 
-[data-mode='coral'] {
+color-mode[palette='coral'] {
   --palette-inherit-0: var(--palette-coral-0);
   --palette-inherit-50: var(--palette-coral-50);
   --palette-inherit-100: var(--palette-coral-100);
@@ -51,7 +55,7 @@
   --palette-inherit-950: var(--palette-coral-950);
 }
 
-[data-mode='blue'] {
+color-mode[palette='blue'] {
   --palette-inherit-0: var(--palette-blue-0);
   --palette-inherit-50: var(--palette-blue-50);
   --palette-inherit-100: var(--palette-blue-100);
@@ -74,7 +78,7 @@
   --palette-inherit-950: var(--palette-blue-950);
 }
 
-[data-mode='yellow'] {
+color-mode[palette='yellow'] {
   --palette-inherit-0: var(--palette-yellow-0);
   --palette-inherit-50: var(--palette-yellow-50);
   --palette-inherit-100: var(--palette-yellow-100);
@@ -97,7 +101,7 @@
   --palette-inherit-950: var(--palette-yellow-950);
 }
 
-[data-mode='green'] {
+color-mode[palette='green'] {
   --palette-inherit-0: var(--palette-green-0);
   --palette-inherit-50: var(--palette-green-50);
   --palette-inherit-100: var(--palette-green-100);
@@ -120,7 +124,7 @@
   --palette-inherit-950: var(--palette-green-950);
 }
 
-[data-mode='orange'] {
+color-mode[palette='orange'] {
   --palette-inherit-0: var(--palette-orange-0);
   --palette-inherit-50: var(--palette-orange-50);
   --palette-inherit-100: var(--palette-orange-100);
@@ -143,7 +147,7 @@
   --palette-inherit-950: var(--palette-orange-950);
 }
 
-[data-mode='purple'] {
+color-mode[palette='purple'] {
   --palette-inherit-0: var(--palette-purple-0);
   --palette-inherit-50: var(--palette-purple-50);
   --palette-inherit-100: var(--palette-purple-100);
@@ -166,7 +170,7 @@
   --palette-inherit-950: var(--palette-purple-950);
 }
 
-[data-mode='teal'] {
+color-mode[palette='teal'] {
   --palette-inherit-0: var(--palette-teal-0);
   --palette-inherit-50: var(--palette-teal-50);
   --palette-inherit-100: var(--palette-teal-100);
@@ -189,7 +193,7 @@
   --palette-inherit-950: var(--palette-teal-950);
 }
 
-[data-mode='periwinkle'] {
+color-mode[palette='periwinkle'] {
   --palette-inherit-0: var(--palette-periwinkle-0);
   --palette-inherit-50: var(--palette-periwinkle-50);
   --palette-inherit-100: var(--palette-periwinkle-100);

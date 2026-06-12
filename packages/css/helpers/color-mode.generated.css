@@ -2,7 +2,7 @@
 
 /* ── Light, default ──────────────────────────────── */
 :root,
-[data-mode] {
+color-mode {
   --surface-raised: var(--palette-inherit-0);
   --surface-default: var(--palette-inherit-50);
   --surface-sunken: var(--palette-inherit-150);
@@ -54,7 +54,7 @@
 }
 
 /* ── Light, inverted ─────────────────────────────── */
-[data-mode-inverted='true'] {
+color-mode[inverted] {
   --surface-raised: var(--palette-inherit-950);
   --surface-default: var(--palette-inherit-900);
   --surface-sunken: var(--palette-inherit-800);
@@ -108,7 +108,7 @@
 /* ── Dark, default ───────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root,
-  [data-mode]:not([data-mode-inverted='false']) {
+  color-mode:not([inverted]) {
     --surface-raised: var(--palette-inherit-800);
     --surface-default: var(--palette-inherit-850);
     --surface-sunken: var(--palette-inherit-900);
@@ -160,7 +160,7 @@
   }
 
   /* ── Dark, inverted ──────────────────────────── */
-  [data-mode-inverted='true'] {
+  color-mode[inverted] {
     --surface-raised: var(--palette-inherit-0);
     --surface-default: var(--palette-inherit-50);
     --surface-sunken: var(--palette-inherit-150);

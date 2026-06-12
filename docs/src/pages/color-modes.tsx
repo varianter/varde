@@ -18,12 +18,10 @@ const lol = [
   { surface: "default", inverted: false },
   { surface: "default", inverted: true },
 ];
+
 function DemoCard({ surface, inverted }: (typeof lol)[number]) {
-  return (
-    <div
-      class={`bg-surface-${surface} br-m  p-l stack justify-end typset`}
-      data-mode-inverted={inverted}
-    >
+  const inner = (
+    <div class={`bg-surface-${surface} br-m  p-l stack justify-end typset`}>
       {surface} - inverted: {inverted.toString()}
       <h2 class="mt-3xl">Lønnskalkulator</h2>
       <p class="fs-m fg-muted">
@@ -40,11 +38,11 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
         <button
           type="button"
           data-color="inherit"
-          data-variant="outline"
+          data-variant="outlined"
           class="button"
           style="width: 20ch;"
         >
-          Outline
+          Outlined
         </button>
         <button
           type="button"
@@ -63,71 +61,78 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
       </div>
     </div>
   );
+
+  if (inverted) {
+    return <color-mode inverted>{inner}</color-mode>;
+  }
+  return inner;
 }
 
 function ColorModeDemo({ mode }: { mode: string }) {
   return (
-    <div data-mode={mode} class="stack gap-m p-m br-m  b-default bg-surface-raised">
+    <color-mode palette={mode} class="stack gap-m p-m br-m  b-default bg-surface-raised">
       <h3 class="fs-l t-bold fg-emphasis" style="text-transform: capitalize;">
         {mode}
       </h3>
-      <div class="gap-m" style="display: grid; grid-auto-flow: column;">
-        <div class="gap-m" style="display: grid; grid-template-columns: 1fr 1fr;">
-          {lol.map((item) => (
-            <DemoCard {...item} />
-          ))}
-        </div>
+      <div>
+        <div class="gap-m" style="display: grid; grid-auto-flow: column;">
+          <div class="gap-m" style="display: grid; grid-template-columns: 1fr 1fr;">
+            {lol.map((item) => (
+              <DemoCard {...item} />
+            ))}
+          </div>
 
-        <div class="p-m stack" style=" width: 40ch;" hidden>
-          <form class="stack gap-m">
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-email">
-                Email
-              </label>
-              <input
-                class="input"
-                type="email"
-                id="demo-email"
-                value="not-an-email"
-                aria-invalid="true"
-              />
-              <p class="fs-s fg-danger-medium">Please enter a valid email address</p>
-            </div>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-country">
-                Country
-              </label>
-              <select class="select" id="demo-country">
-                <option value="">Choose…</option>
-                <option value="no">Norway</option>
-                <option value="se">Sweden</option>
-                <option value="dk">Denmark</option>
-              </select>
-            </div>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-message">
-                Message
-              </label>
-              <textarea
-                class="textarea"
-                id="demo-message"
-                rows={3}
-                placeholder="Write something…"
-              ></textarea>
-            </div>
-            <div class="stack-horizontal items-start gap-s">
-              <input class="checkbox" type="checkbox" id="demo-terms" />
-              <label class="fs-s" for="demo-terms">
-                I accept the terms and conditions
-              </label>
-            </div>
-            <button class="button ml-auto px-xl" type="submit">
-              Submit
-            </button>
-          </form>
+          <div class="p-m stack" style=" width: 40ch;" hidden>
+            <form class="stack gap-m">
+              <div class="stack gap-xs">
+                <label class="fs-s fg-muted" for="demo-email">
+                  Email
+                </label>
+                <input
+                  class="input"
+                  type="email"
+                  id="demo-email"
+                  value="not-an-email"
+                  aria-invalid="true"
+                />
+                <p class="fs-s fg-danger-medium">Please enter a valid email address</p>
+              </div>
+              <div class="stack gap-xs">
+                <label class="fs-s fg-muted" for="demo-country">
+                  Country
+                </label>
+                <select class="select" id="demo-country">
+                  <option value="">Choose…</option>
+                  <option value="no">Norway</option>
+                  <option value="se">Sweden</option>
+                  <option value="dk">Denmark</option>
+                </select>
+              </div>
+              <div class="stack gap-xs">
+                <label class="fs-s fg-muted" for="demo-message">
+                  Message
+                </label>
+                <textarea
+                  class="textarea"
+                  id="demo-message"
+                  rows={3}
+                  placeholder="Write something…"
+                ></textarea>
+              </div>
+              <div class="stack-horizontal items-start gap-s">
+                <input class="checkbox" type="checkbox" id="demo-terms" />
+                <label class="fs-s" for="demo-terms">
+                  I accept the terms and conditions
+                </label>
+              </div>
+              <button class="button ml-auto px-xl" type="submit">
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </color-mode>
   );
 }
 
@@ -137,8 +142,9 @@ export default function ColorModesPage() {
       <header class="pt-2xl pb-xl">
         <h2 class="fs-4xl t-bold">Color Modes</h2>
         <p class="fs-l fg-muted mw-7">
-          Every palette shown simultaneously. Each block is scoped with <code>data-mode</code> so
-          semantic tokens resolve against that mode's <code>--color-N</code> variables.
+          Every palette shown simultaneously. Each block is scoped with{" "}
+          <code>&lt;color-mode&gt;</code> so semantic tokens resolve against that mode's{" "}
+          <code>--color-N</code> variables.
         </p>
       </header>
 
