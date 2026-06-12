@@ -20,6 +20,8 @@ jobs:
       minor: ${{ steps.release.outputs.minor }}
       patch: ${{ steps.release.outputs.patch }}
     steps:
+      - uses: actions/checkout@v6
+
       - uses: googleapis/release-please-action@v5
         id: release
         with:
