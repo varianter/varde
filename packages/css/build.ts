@@ -31,24 +31,24 @@ function generateTokens(): string {
 
 /* ── Light, default ──────────────────────────────── */
 :root,
-[data-mode] {
+color-mode {
 ${indent(lightDefault, 2)}
 }
 
 /* ── Light, inverted ─────────────────────────────── */
-[data-mode-inverted='true'] {
+color-mode[inverted] {
 ${indent(lightInverted, 2)}
 }
 
 /* ── Dark, default ───────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root,
-  [data-mode]:not([data-mode-inverted='false']) {
+  color-mode:not([inverted]) {
 ${indent(darkDefault, 4)}
   }
 
   /* ── Dark, inverted ──────────────────────────── */
-  [data-mode-inverted='true'] {
+  color-mode[inverted] {
 ${indent(darkInverted, 4)}
   }
 }
