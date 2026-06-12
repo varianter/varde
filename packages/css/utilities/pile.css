@@ -1,0 +1,17 @@
+/*
+ * .pile — stacks all children on top of each other in the same grid cell.
+ * Unlike position: absolute, children remain in normal flow, so the container
+ * automatically sizes to the largest element inside it.
+ * Use z-index and align/justify-self to control layering and individual positioning.
+ *
+ * Kevin Powell has a good video on this: https://www.youtube.com/watch?v=CU8Plk-53RU
+ */
+
+.pile {
+  display: grid;
+  place-items: center;
+}
+
+.pile > :where(*) {
+  grid-area: 1 / 1;
+}
