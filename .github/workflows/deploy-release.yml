@@ -93,8 +93,6 @@ jobs:
           echo "**Files:**" >> $GITHUB_STEP_SUMMARY
           for path in \
             "v/${VERSION}/styles.css" \
-            "v/${VERSION}/themes.css" \
-            "v/latest/styles.css" \
-            "v/latest/themes.css"; do
+            "v/latest/styles.css"; do
             echo "- [\`${BASE}${path}\`](${BASE}${path})" >> $GITHUB_STEP_SUMMARY
           done

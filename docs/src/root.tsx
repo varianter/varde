@@ -16,7 +16,6 @@ rootApp.use(
             content="A utility-first CSS framework and design token system by Variant."
           />
           <link rel="icon" type="image/svg+xml" href="/static/logos/variant-favicon.svg" />
-          <link rel="stylesheet" href="/v/latest/themes.css" />
           <link rel="stylesheet" href="/v/latest/styles.css" />
         </head>
         <body class="fs-m">{children}</body>
@@ -59,15 +58,14 @@ rootApp.get("/", (c) =>
       <section class="stack gap-l b-t b-faint pt-4xl">
         <h2 class="fs-l t-bold">Usage</h2>
         <p class="fg-muted">
-          Add both stylesheets to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
+          Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
           the newest release, or pin to a specific version.
         </p>
         <pre
           class="fs-s"
           style="background: var(--surface-raised); padding: var(--space-m); border-radius: 4px; overflow-x: auto;"
         >
-          <code>{`<link rel="stylesheet" href="https://varde.variant.dev/v/latest/themes.css" />
-<link rel="stylesheet" href="https://varde.variant.dev/v/latest/styles.css" />`}</code>
+          <code>{`<link rel="stylesheet" href="https://varde.variant.dev/v/latest/styles.css" />`}</code>
         </pre>
       </section>
 
@@ -81,10 +79,6 @@ rootApp.get("/", (c) =>
               —{" "}
               <a class="fg-default" href="/v/latest/styles.css">
                 /v/latest/styles.css
-              </a>
-              ,{" "}
-              <a class="fg-default" href="/v/latest/themes.css">
-                /v/latest/themes.css
               </a>
             </span>
           </li>
@@ -104,7 +98,7 @@ rootApp.get("/", (c) =>
               var ul = document.getElementById('versions');
               versions.forEach(function(v) {
                 var li = document.createElement('li');
-                li.innerHTML = '<span class="fg-default">' + v + '</span><span class="fg-muted fs-s"> — <a class="fg-default" href="/v/' + v + '/styles.css">/v/' + v + '/styles.css</a>, <a class="fg-default" href="/v/' + v + '/themes.css">/v/' + v + '/themes.css</a></span>';
+                li.innerHTML = '<span class="fg-default">' + v + '</span><span class="fg-muted fs-s"> — <a class="fg-default" href="/v/' + v + '/styles.css">/v/' + v + '/styles.css</a></span>';
                 ul.appendChild(li);
               });
             })

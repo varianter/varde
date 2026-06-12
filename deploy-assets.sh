@@ -24,9 +24,8 @@ fi
 # Verify source files exist
 # ---------------------------------------------------------------------------
 CSS_FILE="packages/css/dist/styles.css"
-TOKENS_FILE="packages/tokens/dist/themes.css"
 
-for f in "$CSS_FILE" "$TOKENS_FILE"; do
+for f in "$CSS_FILE"; do
   if [ ! -f "$f" ]; then
     echo "Error: $f does not exist. Run 'bun run build' first."
     exit 1
@@ -62,7 +61,6 @@ upload_file() {
 echo ""
 echo "Uploading versioned assets to /v/${VERSION}/ ..."
 upload_file "$CSS_FILE"    "v/${VERSION}" "public, max-age=31536000, immutable"
-upload_file "$TOKENS_FILE" "v/${VERSION}" "public, max-age=31536000, immutable"
 
 # ---------------------------------------------------------------------------
 # Upload latest files  (/v/latest/*)  — short-lived, 5 minutes
@@ -70,7 +68,6 @@ upload_file "$TOKENS_FILE" "v/${VERSION}" "public, max-age=31536000, immutable"
 echo ""
 echo "Uploading latest assets to /v/latest/ ..."
 upload_file "$CSS_FILE"    "v/latest" "public, max-age=300"
-upload_file "$TOKENS_FILE" "v/latest" "public, max-age=300"
 
 # ---------------------------------------------------------------------------
 # Update /v/index.json — list of all deployed versions, newest first
