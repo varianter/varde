@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/varianter/varde/compare/varde-v0.1.1...varde-v0.1.2) (2026-06-12)
+
+
+### Bug Fixes
+
+* Because package/tokens is now gone, we no longer need a themes.css ([90d0599](https://github.com/varianter/varde/commit/90d0599ed67e9d409530ba83342b008d20d3afd3))
+
 ## [0.1.1](https://github.com/varianter/varde/compare/varde-v0.1.0...varde-v0.1.1) (2026-06-12)
 
 
