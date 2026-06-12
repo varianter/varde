@@ -1,21 +1,20 @@
+/* This file includes the more opinionated base styling */
+
 @layer {
+  ::selection {
+    color: var(--foreground-control-selection);
+    background-color: var(--background-control-selection);
+  }
+
   :where(html) {
     color: var(--foreground-default);
 
     scrollbar-color: var(--foreground-muted) transparent; /* @TODO: proper variable */
     scrollbar-width: thin;
-
-    /*
-    This makes pages that doesn't have a scrollbar reserve the space.
-    Makes thing yank less when navigation between pages with longer to shorter content.
-    */
     scrollbar-gutter: stable;
     scroll-padding-top: var(--scroll-padding-top);
-  }
 
-  ::selection {
-    color: var(--foreground-control-selection);
-    background-color: var(--background-control-selection);
+    interpolate-size: allow-keywords;
   }
 
   :where(:focus-visible) {
@@ -24,6 +23,35 @@
     outline-width: 2px;
     outline-offset: 4px;
     border-radius: var(--border-radius-s);
+  }
+
+  :where(body) {
+    min-block-size: 100svh;
+  }
+
+  /* TODO: Perhaps move this to it's own helper instead. */
+  @supports selector(::details-content) {
+    details::details-content {
+      block-size: 0;
+      transition:
+        block-size 250ms,
+        content-visibility 250ms allow-discrete;
+      transition-timing-function: ease-out;
+      overflow: clip;
+    }
+
+    details[open]::details-content {
+      block-size: auto;
+    }
+
+    details summary ~ * {
+      opacity: 0.5;
+      transition: opacity 250ms;
+      transition-timing-function: ease-out;
+    }
+    details[open] summary ~ * {
+      opacity: 1;
+    }
   }
 
   :where(b, strong, th) {
@@ -43,4 +71,23 @@
     border: none;
     border-block-start: 1px solid var(--border-default);
   }
+
+  [hidden] {
+    /* biome-ignore lint/complexity/noImportantStyles: because when something uses hidden, it better be hidden */
+    display: none !important;
+  }
+
+  /* biome-ignore-start lint/complexity/noImportantStyles: We really want these to take precedence */
+  @media (prefers-reduced-motion: reduce) {
+    :is(*, ::before, ::after) {
+      interpolate-size: unset !important;
+      animation-delay: 0ms !important;
+      animation-duration: 0s !important;
+      animation-iteration-count: 1 !important;
+      transition-delay: 0s !important;
+      transition-duration: 0s !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  /* biome-ignore-end lint/complexity/noImportantStyles: We really want these to take precedence */
 }

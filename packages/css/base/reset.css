@@ -136,22 +136,4 @@
   summary {
     cursor: pointer;
   }
-
-  [hidden] {
-    /* biome-ignore lint/complexity/noImportantStyles: because when something uses hidden, it better be hidden */
-    display: none !important;
-  }
-
-  /* biome-ignore-start lint/complexity/noImportantStyles: We really want these to take precedence */
-  @media (prefers-reduced-motion) {
-    :is(*, ::before, ::after) {
-      animation-delay: 0ms !important;
-      animation-duration: 0s !important;
-      animation-iteration-count: 1 !important;
-      transition-delay: 0s !important;
-      transition-duration: 0s !important;
-      scroll-behavior: auto !important;
-    }
-  }
-  /* biome-ignore-end lint/complexity/noImportantStyles: We really want these to take precedence */
 }
