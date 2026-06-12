@@ -11,7 +11,7 @@ export function ButtonsPage() {
       {/* Colors & Variants */}
       <Section
         title="Colors & Variants"
-        description='Combine data-color ("primary", "secondary", "danger", "inherit") with data-variant ("filled", "outline", "plain"). Primary filled is the default.'
+        description='Combine data-color ("primary", "secondary", "danger", "inherit") with data-variant ("filled", "outlined", "plain"). Primary filled is the default.'
       >
         <ExamplePanel>
           <div class="stack gap-m">
@@ -21,8 +21,8 @@ export function ButtonsPage() {
                 <button type="button" class="button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="outline">
-                  Outline
+                <button type="button" class="button" data-variant="outlined">
+                  Outlined
                 </button>
                 <button type="button" class="button" data-variant="plain">
                   Plain
@@ -35,8 +35,8 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-color="secondary">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="secondary" data-variant="outline">
-                  Outline
+                <button type="button" class="button" data-color="secondary" data-variant="outlined">
+                  Outlined
                 </button>
                 <button type="button" class="button" data-color="secondary" data-variant="plain">
                   Plain
@@ -49,8 +49,8 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-color="danger">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="danger" data-variant="outline">
-                  Outline
+                <button type="button" class="button" data-color="danger" data-variant="outlined">
+                  Outlined
                 </button>
                 <button type="button" class="button" data-color="danger" data-variant="plain">
                   Plain
@@ -64,8 +64,8 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-color="inherit">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="inherit" data-variant="outline">
-                  Outline
+                <button type="button" class="button" data-color="inherit" data-variant="outlined">
+                  Outlined
                 </button>
                 <button type="button" class="button" data-color="inherit" data-variant="plain">
                   Plain
@@ -109,7 +109,7 @@ export function ButtonsPage() {
                 <button type="button" class="button">
                   <span class="icon" data-icon="plus" /> Add item
                 </button>
-                <button type="button" class="button" data-variant="outline">
+                <button type="button" class="button" data-variant="outlined">
                   <span class="icon" data-icon="pencil" /> Edit
                 </button>
                 <button type="button" class="button" data-variant="plain">
@@ -134,7 +134,7 @@ export function ButtonsPage() {
                 <button type="button" class="button" aria-label="Add">
                   <span class="icon" data-icon="plus" />
                 </button>
-                <button type="button" class="button" data-variant="outline" aria-label="Edit">
+                <button type="button" class="button" data-variant="outlined" aria-label="Edit">
                   <span class="icon" data-icon="pencil" />
                 </button>
                 <button
@@ -177,7 +177,7 @@ export function ButtonsPage() {
               <button type="button" class="button">
                 <span class="spinner" /> Saving…
               </button>
-              <button type="button" class="button" data-variant="outline">
+              <button type="button" class="button" data-variant="outlined">
                 <span class="spinner" /> Saving…
               </button>
               <button type="button" class="button" data-variant="plain">

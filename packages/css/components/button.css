@@ -43,7 +43,7 @@
     --_button-border: var(--_button-base);
   }
 
-  :where(.button[data-variant='outline']) {
+  :where(.button[data-variant='outlined']) {
     --_button-background: transparent;
     --_button-foreground: var(--_button-on-surface);
     --_button-border: var(--_button-base);
@@ -129,7 +129,7 @@
     filter: brightness(1.05);
   }
 
-  :where(.button[data-variant='outline']):hover,
+  :where(.button[data-variant='outlined']):hover,
   :where(.button[data-variant='plain']):hover {
     --_button-background: var(--_button-subtle);
     filter: none;
