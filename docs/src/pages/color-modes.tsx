@@ -119,7 +119,7 @@ function ColorModeDemo({ mode }: { mode: string }) {
                   placeholder="Write something…"
                 ></textarea>
               </div>
-              <div class="stack-horizontal items-start gap-s">
+              <div class="stack-horizontal gap-s">
                 <input class="checkbox" type="checkbox" id="demo-terms" />
                 <label class="fs-s" for="demo-terms">
                   I accept the terms and conditions

@@ -17,26 +17,26 @@ export function TablesPage() {
           <table class="table">
             <thead>
               <tr>
-                <th>Species</th>
-                <th>Locality</th>
+                <th>Consultant</th>
+                <th>Client</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Atlantic salmon</td>
-                <td>Frøya</td>
+                <td>Emma Berg</td>
+                <td>Acme Corp</td>
                 <td>Active</td>
               </tr>
               <tr>
-                <td>Rainbow trout</td>
-                <td>Hitra</td>
+                <td>Lars Holm</td>
+                <td>TechVent</td>
                 <td>Active</td>
               </tr>
               <tr>
-                <td>Arctic char</td>
-                <td>Senja</td>
-                <td>Fallow</td>
+                <td>Mia Andersson</td>
+                <td>FinHub</td>
+                <td>Bench</td>
               </tr>
             </tbody>
           </table>
@@ -55,30 +55,36 @@ export function TablesPage() {
               <table class="table" data-density="compact">
                 <thead>
                   <tr>
-                    <th>Pen</th>
-                    <th>Species</th>
-                    <th>Count</th>
-                    <th>Avg. weight</th>
+                    <th>Consultant</th>
+                    <th>Client</th>
+                    <th>Booked</th>
+                    <th>Invoiced</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>A-01</td>
-                    <td>Atlantic salmon</td>
-                    <td>185 000</td>
-                    <td>4.2 kg</td>
+                    <td>Emma Berg</td>
+                    <td>Acme Corp</td>
+                    <td>
+                      34.5 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>92%</td>
                   </tr>
                   <tr>
-                    <td>A-02</td>
-                    <td>Atlantic salmon</td>
-                    <td>192 000</td>
-                    <td>3.8 kg</td>
+                    <td>Lars Holm</td>
+                    <td>TechVent</td>
+                    <td>
+                      28.0 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>75%</td>
                   </tr>
                   <tr>
-                    <td>B-01</td>
-                    <td>Rainbow trout</td>
-                    <td>145 000</td>
-                    <td>3.1 kg</td>
+                    <td>Mia Andersson</td>
+                    <td>FinHub</td>
+                    <td>
+                      37.5 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>100%</td>
                   </tr>
                 </tbody>
               </table>
@@ -91,30 +97,36 @@ export function TablesPage() {
               <table class="table" data-density="relaxed">
                 <thead>
                   <tr>
-                    <th>Pen</th>
-                    <th>Species</th>
-                    <th>Count</th>
-                    <th>Avg. weight</th>
+                    <th>Consultant</th>
+                    <th>Client</th>
+                    <th>Booked</th>
+                    <th>Invoiced</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>A-01</td>
-                    <td>Atlantic salmon</td>
-                    <td>185 000</td>
-                    <td>4.2 kg</td>
+                    <td>Emma Berg</td>
+                    <td>Acme Corp</td>
+                    <td>
+                      34.5 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>92%</td>
                   </tr>
                   <tr>
-                    <td>A-02</td>
-                    <td>Atlantic salmon</td>
-                    <td>192 000</td>
-                    <td>3.8 kg</td>
+                    <td>Lars Holm</td>
+                    <td>TechVent</td>
+                    <td>
+                      28.0 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>75%</td>
                   </tr>
                   <tr>
-                    <td>B-01</td>
-                    <td>Rainbow trout</td>
-                    <td>145 000</td>
-                    <td>3.1 kg</td>
+                    <td>Mia Andersson</td>
+                    <td>FinHub</td>
+                    <td>
+                      37.5 <span class="fg-muted">/ 37.5h</span>
+                    </td>
+                    <td>100%</td>
                   </tr>
                 </tbody>
               </table>
@@ -130,46 +142,46 @@ export function TablesPage() {
       >
         <ExamplePanel>
           <table class="table">
-            <caption>Harvest by locality — 2024 (gutted weight, tonnes)</caption>
+            <caption>Booked hours by consultant — H1 2026</caption>
             <thead>
               <tr>
-                <th>Locality</th>
-                <th>Q1</th>
-                <th>Q2</th>
-                <th>Q3</th>
-                <th>Q4</th>
+                <th>Consultant</th>
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Frøya</td>
-                <td>820</td>
-                <td>1 140</td>
-                <td>1 350</td>
-                <td>960</td>
+                <td>Emma Berg</td>
+                <td>148</td>
+                <td>156</td>
+                <td>142</td>
+                <td>150</td>
               </tr>
               <tr>
-                <td>Hitra</td>
-                <td>640</td>
-                <td>890</td>
-                <td>1 020</td>
-                <td>750</td>
+                <td>Lars Holm</td>
+                <td>132</td>
+                <td>140</td>
+                <td>138</td>
+                <td>145</td>
               </tr>
               <tr>
-                <td>Senja</td>
-                <td>510</td>
-                <td>720</td>
-                <td>680</td>
-                <td>590</td>
+                <td>Mia Andersson</td>
+                <td>150</td>
+                <td>148</td>
+                <td>155</td>
+                <td>152</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <th>Total</th>
-                <td>1 970</td>
-                <td>2 750</td>
-                <td>3 050</td>
-                <td>2 300</td>
+                <td>430</td>
+                <td>444</td>
+                <td>435</td>
+                <td>447</td>
               </tr>
             </tfoot>
           </table>

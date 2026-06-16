@@ -101,13 +101,13 @@ export function FormControlsPage() {
           <ExampleGroup>
             <Example label=".checkbox">
               <div class="stack gap-s">
-                <div class="stack-horizontal items-start gap-s">
+                <div class="stack-horizontal  gap-s">
                   <input class="checkbox" type="checkbox" id="demo-cb1" checked />
                   <label class="fs-s" for="demo-cb1">
                     Checked
                   </label>
                 </div>
-                <div class="stack-horizontal items-start gap-s">
+                <div class="stack-horizontal  gap-s">
                   <input class="checkbox" type="checkbox" id="demo-cb2" />
                   <label class="fs-s" for="demo-cb2">
                     Unchecked
@@ -118,13 +118,13 @@ export function FormControlsPage() {
 
             <Example label=".radio">
               <div class="stack gap-s">
-                <div class="stack-horizontal items-start gap-s">
+                <div class="stack-horizontal gap-s">
                   <input class="radio" type="radio" name="demo-radio" id="demo-r1" checked />
                   <label class="fs-s" for="demo-r1">
                     Option A
                   </label>
                 </div>
-                <div class="stack-horizontal items-start gap-s">
+                <div class="stack-horizontal gap-s">
                   <input class="radio" type="radio" name="demo-radio" id="demo-r2" />
                   <label class="fs-s" for="demo-r2">
                     Option B
@@ -227,7 +227,7 @@ export function FormControlsPage() {
                 />
               </div>
 
-              <div class="stack-horizontal items-start gap-s">
+              <div class="stack-horizontal gap-s">
                 <input class="checkbox" type="checkbox" id="demo-terms" />
                 <label class="fs-s" for="demo-terms">
                   I accept the terms and conditions
@@ -238,6 +238,18 @@ export function FormControlsPage() {
                 Submit
               </button>
             </form>
+          </ExamplePanel>
+        </Section>
+
+        <Section
+          title="Example Form"
+          description="A realistic form combining labels, layout, validation, and multiple control types."
+        >
+          <ExamplePanel>
+            <div class="input stack-horizontal stack-nowrap">
+              <input type="text" class="flex-1" />
+              <span class="ml-auto">boop</span>
+            </div>
           </ExamplePanel>
         </Section>
       </div>

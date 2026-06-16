@@ -35,11 +35,10 @@ app.use(
                   justify-content: center;
                   background: repeating-linear-gradient(
                     125deg,
-                    var(--border-brand-medium) 0 1px,
+                    var(--border-default) 0 1px,
                     transparent 0px 7px
                   );
                   border: 1px solid var(--border-default);
-                  border: 1px solid var(--border-brand-medium);
                   text-shadow:
                     0px 0px 3px var(--surface-default),
                     0px 0px 6px var(--surface-default);
