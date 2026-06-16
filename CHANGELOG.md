@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/varianter/varde/compare/varde-v0.1.2...varde-v0.2.0) (2026-06-16)
+
+
+### Features
+
+* Add self-alignment utility classes ([5842951](https://github.com/varianter/varde/commit/58429512f7438e99ab706b125942c5c2e69b099d))
+* added shadows! ([53df1bb](https://github.com/varianter/varde/commit/53df1bbffb64eed0305ca6a3d42c5412e4cad954))
+
 ## [0.1.2](https://github.com/varianter/varde/compare/varde-v0.1.1...varde-v0.1.2) (2026-06-12)
 
 
