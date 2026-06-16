@@ -51,7 +51,6 @@
     color: inherit;
     border: none;
     border-radius: 0;
-    cursor: pointer;
     text-align: inherit;
     line-height: inherit;
   }
@@ -135,5 +134,11 @@
 
   summary {
     cursor: pointer;
+  }
+
+  [popover] {
+    color: currentColor;
+    border: none;
+    background-color: none;
   }
 }

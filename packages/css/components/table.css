@@ -3,7 +3,7 @@
 @layer table.public {
   /* Density axis */
 
-  :where(.table:not([data-density]), .table[data-density='default']) {
+  :where(.table:not([data-density]), .table[data-density='default'], .typeset table) {
     --_table-padding-block: var(--spacing-s);
     --_table-padding-inline: var(--spacing-m);
   }
@@ -20,7 +20,7 @@
 }
 
 @layer table.base {
-  :where(.table) {
+  :where(.table, .typeset table) {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -29,7 +29,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  :where(.table) :where(th) {
+  :where(.table, .typeset table) :where(th) {
     font-weight: var(--font-weight-bold);
     text-align: inherit;
     color: var(--foreground-emphasis);
@@ -38,29 +38,29 @@
     border-block-end: 1px solid var(--border-default);
   }
 
-  :where(.table) :where(td) {
+  :where(.table, .typeset table) :where(td) {
     padding-block: var(--_table-padding-block);
     padding-inline: var(--_table-padding-inline);
     border-block-end: 1px solid var(--border-faint);
     color: var(--foreground-default);
   }
 
-  :where(.table) :where(thead th) {
+  :where(.table, .typeset table) :where(thead th) {
     vertical-align: bottom;
   }
 
-  :where(.table) :where(tbody th) {
+  :where(.table, .typeset table) :where(tbody th) {
     font-weight: var(--font-weight-medium);
   }
 
-  :where(.table) :where(tfoot td, tfoot th) {
+  :where(.table, .typeset table) :where(tfoot td, tfoot th) {
     border-block-end: none;
     border-block-start: 1px solid var(--border-default);
     font-weight: var(--font-weight-medium);
     color: var(--foreground-emphasis);
   }
 
-  :where(.table) :where(caption) {
+  :where(.table, .typeset table) :where(caption) {
     padding-block: var(--_table-padding-block);
     color: var(--foreground-muted);
     caption-side: bottom;
@@ -69,14 +69,8 @@
   }
 
   /* Remove bottom border from last row in tbody when there is no tfoot */
-  :where(.table) :where(tbody:last-child tr:last-child td, tbody:last-child tr:last-child th) {
+  :where(.table, .typeset table)
+    :where(tbody:last-child tr:last-child td, tbody:last-child tr:last-child th) {
     border-block-end: none;
-  }
-}
-
-@layer table.state {
-  /* Hoverable rows — on by default, opt out with data-hoverable="false" */
-  :where(.table:not([data-hoverable='false'])) :where(tbody tr):hover {
-    background-color: var(--surface-sunken);
   }
 }

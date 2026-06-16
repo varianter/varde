@@ -1,7 +1,7 @@
 @layer typeset {
   :where(.typeset) {
     --flow-space: 0.75em;
-    max-width: 65ch;
+    max-width: 58ch;
     line-height: 1.4;
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-m);
@@ -32,15 +32,15 @@
     font-size: var(--font-size-m);
   }
 
-  :where(.typeset) :any-link {
+  /* :where(.typeset) :any-link {
     text-decoration-thickness: 0.5px;
     text-underline-offset: 2px;
-    color: var(--foreground-link-default); /*TODO: Swap this with a proper variable*/
+    color: var(--foreground-link-default);
     font-weight: var(--font-weight-medium);
-  }
+  } */
 
   /* Spacious gap before headings preceded by body content */
-  :where(.typeset) > :is(p, ul, ol, blockquote) + :is(h2, h3, h4) {
+  :where(.typeset) > :is(p, ul, ol, blockquote, table) + :is(h2, h3, h4, h5, h6) {
     --flow-space: 2em;
   }
 
@@ -50,7 +50,7 @@
   }
 
   /* Close gap after headings into body */
-  :where(.typeset) > :is(h2, h3, h4) + :is(p, ul, ol, blockquote) {
+  :where(.typeset) > :is(h2, h3, h4, h5, h6) + :is(p, ul, ol, blockquote, table) {
     --flow-space: 0.5rem;
   }
 
@@ -63,8 +63,8 @@
 
   :where(.typeset) dt {
     grid-column: 1;
-    opacity: 0.6;
     white-space: nowrap;
+    color: var(--foreground-marker);
   }
 
   :where(.typeset) dd {
@@ -89,7 +89,7 @@
   }
 
   :where(.typeset) li::marker {
-    color: var(--foreground-default); /*TODO: Swap this with a proper variable*/
+    color: var(--foreground-marker);
   }
 
   :where(.typeset) :where(li, blockquote) {

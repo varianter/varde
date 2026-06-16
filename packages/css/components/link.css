@@ -1,10 +1,12 @@
-.link {
+.link,
+:where(.typeset :any-link) {
   color: var(--foreground-link-default);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-regular);
   text-decoration-skip-ink: auto;
   cursor: pointer;
-  text-decoration-thickness: from-font;
   text-underline-offset: 2px;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
   &:hover {
     color: var(--foreground-link-hover);
     text-decoration-color: var(--foreground-link-hover);

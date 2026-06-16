@@ -63,7 +63,7 @@
   }
   :where(:any-link) {
     /* By default, links are unstyled. Use .typeset or .link */
-    text-decoration: none;
+    text-decoration-color: transparent;
     color: currentColor;
   }
 
