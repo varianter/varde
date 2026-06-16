@@ -24,6 +24,15 @@
     align-items: stretch;
   }
 
+  .self-start {
+    align-self: start;
+  }
+  .self-end {
+    align-self: end;
+  }
+  .self-center {
+    align-self: center;
+  }
   .self-stretch {
     align-self: stretch;
   }
