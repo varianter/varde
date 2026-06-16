@@ -15,6 +15,12 @@
 @import './components/icons.css';
 @import './components/link.css';
 
+/* Helpers */
+@import './helpers/typeset.css';
+@import './helpers/stagger-reveal.css';
+@import './helpers/color-mode.css';
+@import './helpers/color-mode.generated.css';
+
 /* Utilities */
 @import './utilities/spacing.css';
 @import './utilities/stack.css';
@@ -27,9 +33,4 @@
 @import './utilities/misc.css';
 @import './utilities/width.css';
 @import './utilities/pile.css';
-
-/* Helpers */
-@import './helpers/typeset.css';
-@import './helpers/stagger-reveal.css';
-@import './helpers/color-mode.css';
-@import './helpers/color-mode.generated.css';
+@import './utilities/shadow.css';

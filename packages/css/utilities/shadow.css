@@ -1,0 +1,38 @@
+.shadow-low {
+  --_shadow-color: var(--shadow, var(--palette-grey-800));
+  --_shadow-elevation-low:
+    0px 0.5px 0.5px oklch(from var(--_shadow-color) l c h / 0.54),
+    0px 0.8px 0.7px -1.9px oklch(from var(--_shadow-color) l c h / 0.41),
+    0px 2.2px 2px -3.9px oklch(from var(--_shadow-color) l c h / 0.28);
+  box-shadow: var(--_shadow-elevation-low);
+}
+.shadow-medium {
+  --_shadow-color: var(--shadow, var(--palette-grey-800));
+  --_shadow-elevation-medium:
+    0px 0.5px 0.5px oklch(from var(--_shadow-color) l c h / 0.57),
+    0px 1.3px 1.2px -1.3px oklch(from var(--_shadow-color) l c h / 0.47),
+    0px 4px 3.7px -2.6px oklch(from var(--_shadow-color) l c h / 0.36),
+    0px 10.8px 9.9px -3.9px oklch(from var(--_shadow-color) l c h / 0.26);
+  box-shadow: var(--_shadow-elevation-medium);
+}
+.shadow-high {
+  --_shadow-color: var(--shadow, var(--palette-grey-800));
+  --_shadow-elevation-high:
+    0px 0.5px 0.5px oklch(from var(--_shadow-color) l c h / 0.53),
+    0px 1.8px 1.6px -0.6px oklch(from var(--_shadow-color) l c h / 0.48),
+    0px 3.6px 3.3px -1.1px oklch(from var(--_shadow-color) l c h / 0.43),
+    0px 6.9px 6.3px -1.7px oklch(from var(--_shadow-color) l c h / 0.39),
+    0px 12.7px 11.6px -2.2px oklch(from var(--_shadow-color) l c h / 0.34),
+    -0.1px 21.9px 20px -2.8px oklch(from var(--_shadow-color) l c h / 0.29),
+    -0.1px 35.4px 32.4px -3.3px oklch(from var(--_shadow-color) l c h / 0.24),
+    -0.2px 54.2px 49.6px -3.9px oklch(from var(--_shadow-color) l c h / 0.2);
+  box-shadow: var(--_shadow-elevation-high);
+}
+
+@media (prefers-color-scheme: dark) {
+  .shadow-low,
+  .shadow-medium,
+  .shadow-high {
+    box-shadow: none;
+  }
+}

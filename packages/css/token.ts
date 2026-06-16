@@ -41,6 +41,7 @@ const light = {
     default: { palette: "inherit", default: 650, inverted: 150 },
     emphasis: { palette: "inherit", default: 750, inverted: 100 },
     muted: { palette: "inherit", default: 550, inverted: 250 },
+    marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
       default: { palette: "periwinkle", default: 600, inverted: 600 },
       hover: { palette: "periwinkle", default: 700, inverted: 700 },
@@ -52,14 +53,16 @@ const light = {
       placeholder: { palette: "inherit", default: 400, inverted: 500 },
       active: { palette: "inherit", default: 900, inverted: 900 },
       selected: { palette: "inherit", default: 600, inverted: 400 },
+      selection: { palette: "periwinkle", default: 700, inverted: 700 },
       error: { palette: "coral", default: 650, inverted: 150 },
     },
   },
   background: {
     control: {
-      default: { palette: "inherit", default: 100, inverted: 750 },
-      hover: { palette: "inherit", default: 100, inverted: 700 },
+      default: { palette: "inherit", default: 50, inverted: 750 },
+      hover: { palette: "inherit", default: 50, inverted: 700 },
       active: { palette: "periwinkle", default: 100, inverted: 700 },
+      selection: { palette: "periwinkle", default: 250, inverted: 250 },
       error: { palette: "coral", default: 100, inverted: 100 },
     },
   },
@@ -76,6 +79,7 @@ const light = {
       error: { palette: "coral", default: 400, inverted: 450 },
     },
   },
+  shadow: { palette: "inherit", default: 300, inverted: 300 },
   button: {
     primary: buttonStepValues("periwinkle").light,
     secondary: buttonStepValues("grey").light,
@@ -96,6 +100,7 @@ const dark = {
     default: { palette: "inherit", default: 150, inverted: 650 },
     emphasis: { palette: "inherit", default: 100, inverted: 750 },
     muted: { palette: "inherit", default: 250, inverted: 550 },
+    marker: { palette: "inherit", default: 200, inverted: 600 },
     link: {
       default: { palette: "periwinkle", default: 350, inverted: 350 },
       hover: { palette: "periwinkle", default: 300, inverted: 300 },
@@ -107,6 +112,7 @@ const dark = {
       placeholder: { palette: "inherit", default: 500, inverted: 400 },
       active: { palette: "inherit", default: 900, inverted: 900 },
       selected: { palette: "inherit", default: 400, inverted: 600 },
+      selection: { palette: "periwinkle", default: 150, inverted: 150 },
       error: { palette: "coral", default: 150, inverted: 650 },
     },
   },
@@ -115,6 +121,7 @@ const dark = {
       default: { palette: "inherit", default: 750, inverted: 150 },
       hover: { palette: "inherit", default: 700, inverted: 200 },
       active: { palette: "periwinkle", default: 700, inverted: 150 },
+      selection: { palette: "periwinkle", default: 500, inverted: 500 },
       error: { palette: "coral", default: 100, inverted: 100 },
     },
   },
@@ -131,6 +138,9 @@ const dark = {
       error: { palette: "coral", default: 450, inverted: 400 },
     },
   },
+  // Note: Shadows are not used in dark mode, this is only to please the system.
+  // See shadow.css
+  shadow: { palette: "inherit", default: 300, inverted: 300 },
   button: {
     primary: buttonStepValues("periwinkle").dark,
     secondary: buttonStepValues("grey").dark,
