@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/varianter/varde/compare/varde-v0.2.0...varde-v0.3.0) (2026-06-17)
+
+
+### Features
+
+* added .popover helper to bring you niceness! ([252c613](https://github.com/varianter/varde/commit/252c61387e092a1b347b379c0563c299f5267d5b))
+* spacing units are now fluid units. ([32d89d6](https://github.com/varianter/varde/commit/32d89d6f117b07d93f6eb682cfad3213a6c690e8))
+
+
+### Bug Fixes
+
+* tweaked buttons/forms as a result of changing spacing units ([d7634cf](https://github.com/varianter/varde/commit/d7634cf9996144595fb298cbc701f3127ee4470e))
+
 ## [0.2.0](https://github.com/varianter/varde/compare/varde-v0.1.2...varde-v0.2.0) (2026-06-16)
 
 
