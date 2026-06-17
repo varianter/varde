@@ -35,7 +35,7 @@ const light = {
   surface: {
     raised: { palette: "inherit", default: 0, inverted: 950 },
     default: { palette: "inherit", default: 50, inverted: 900 },
-    sunken: { palette: "inherit", default: 150, inverted: 800 },
+    sunken: { palette: "inherit", default: 100, inverted: 800 },
   },
   foreground: {
     default: { palette: "inherit", default: 650, inverted: 150 },
@@ -68,8 +68,8 @@ const light = {
   },
   border: {
     default: { palette: "inherit", default: 250, inverted: 700 },
-    faint: { palette: "inherit", default: 200, inverted: 750 },
-    prominent: { palette: "inherit", default: 400, inverted: 550 },
+    faint: { palette: "inherit", default: 150, inverted: 750 },
+    prominent: { palette: "inherit", default: 350, inverted: 550 },
     control: {
       default: { palette: "inherit", default: 300, inverted: 500 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
@@ -79,7 +79,8 @@ const light = {
       error: { palette: "coral", default: 400, inverted: 450 },
     },
   },
-  shadow: { palette: "inherit", default: 300, inverted: 300 },
+  shadow: { palette: "inherit", default: 400, inverted: 400 },
+  backdrop: { palette: "inherit", default: 300, inverted: 300 },
   button: {
     primary: buttonStepValues("periwinkle").light,
     secondary: buttonStepValues("grey").light,
@@ -141,6 +142,7 @@ const dark = {
   // Note: Shadows are not used in dark mode, this is only to please the system.
   // See shadow.css
   shadow: { palette: "inherit", default: 300, inverted: 300 },
+  backdrop: { palette: "inherit", default: 900, inverted: 900 },
   button: {
     primary: buttonStepValues("periwinkle").dark,
     secondary: buttonStepValues("grey").dark,

@@ -40,7 +40,7 @@ export function SpacingPage() {
                     {size}
                   </code>
                   <div
-                    class={`bg-brand-medium`}
+                    class={`bg-currentcolor fg-muted`}
                     style={`width: var(--spacing-${size}); height: 1.5rem;`}
                   />
                 </div>

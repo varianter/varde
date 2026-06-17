@@ -15,8 +15,8 @@ export function FormControlsPage() {
           description="Use .input on any text-like input element. Includes built-in focus ring and placeholder styling."
         >
           <ExamplePanel>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-text">
+            <div class="stack gap-2xs">
+              <label class="form-label" for="demo-text">
                 Full name
               </label>
               <input class="input" type="text" id="demo-text" placeholder="e.g. Ola Nordmann" />
@@ -27,8 +27,8 @@ export function FormControlsPage() {
         {/* Textarea */}
         <Section title="Textarea" description="Use .textarea on a native textarea element.">
           <ExamplePanel>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-textarea">
+            <div class="stack gap-2xs">
+              <label class="form-label" for="demo-textarea">
                 Description
               </label>
               <textarea
@@ -47,8 +47,8 @@ export function FormControlsPage() {
           description="Use .select on a native select element. A custom chevron is provided via background-image."
         >
           <ExamplePanel>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-select">
+            <div class="stack gap-2xs">
+              <label class="form-label" for="demo-select">
                 Country
               </label>
               <select class="select" id="demo-select">
@@ -142,9 +142,24 @@ export function FormControlsPage() {
         >
           <ExamplePanel>
             <div class="stack gap-s">
-              <input class="input" type="text" data-size="small" placeholder="Small" />
-              <input class="input" type="text" placeholder="Medium (default)" />
-              <input class="input" type="text" data-size="large" placeholder="Large" />
+              <div class="stack-horizontal gap-s">
+                <input class="input grow" type="text" data-size="small" placeholder="Small" />
+                <button type="button" class="button" data-size="small">
+                  Small button
+                </button>
+              </div>
+              <div class="stack-horizontal gap-s">
+                <input class="input grow" type="text" data-size="medium" placeholder="medium" />
+                <button type="button" class="button" data-size="medium">
+                  medium button
+                </button>
+              </div>
+              <div class="stack-horizontal gap-s">
+                <input class="input grow" type="text" data-size="large" placeholder="large" />
+                <button type="button" class="button" data-size="large">
+                  large button
+                </button>
+              </div>
             </div>
           </ExamplePanel>
         </Section>
@@ -157,8 +172,8 @@ export function FormControlsPage() {
           }
         >
           <ExamplePanel>
-            <div class="stack gap-xs">
-              <label class="fs-s fg-muted" for="demo-error">
+            <div class="stack gap-2xs">
+              <label class="form-label" for="demo-error">
                 Organization number
               </label>
               <input class="input" type="text" id="demo-error" value="asdf" aria-invalid="true" />
@@ -175,22 +190,22 @@ export function FormControlsPage() {
           <ExamplePanel>
             <form class="stack gap-m">
               <div class="stack-horizontal items-start gap-m">
-                <div class="stack gap-xs grow">
-                  <label class="fs-s fg-muted" for="demo-first">
+                <div class="stack gap-2xs grow">
+                  <label class="form-label" for="demo-first">
                     First name
                   </label>
                   <input class="input" type="text" id="demo-first" placeholder="Ola" />
                 </div>
-                <div class="stack gap-xs grow">
-                  <label class="fs-s fg-muted" for="demo-last">
+                <div class="stack gap-2xs grow">
+                  <label class="form-label" for="demo-last">
                     Last name
                   </label>
                   <input class="input" type="text" id="demo-last" placeholder="Nordmann" />
                 </div>
               </div>
 
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-email">
+              <div class="stack gap-2xs">
+                <label class="form-label" for="demo-email">
                   Email
                 </label>
                 <input
@@ -203,8 +218,8 @@ export function FormControlsPage() {
                 <p class="fs-s fg-danger-medium">Please enter a valid email address</p>
               </div>
 
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-country">
+              <div class="stack gap-2xs">
+                <label class="form-label" for="demo-country">
                   Country
                 </label>
                 <select class="select" id="demo-country">
@@ -215,8 +230,8 @@ export function FormControlsPage() {
                 </select>
               </div>
 
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-message">
+              <div class="stack gap-2xs">
+                <label class="form-label" for="demo-message">
                   Message
                 </label>
                 <textarea

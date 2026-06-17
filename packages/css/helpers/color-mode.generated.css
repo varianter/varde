@@ -5,7 +5,7 @@
 color-mode {
   --surface-raised: var(--palette-inherit-0);
   --surface-default: var(--palette-inherit-50);
-  --surface-sunken: var(--palette-inherit-150);
+  --surface-sunken: var(--palette-inherit-100);
   --foreground-default: var(--palette-inherit-650);
   --foreground-emphasis: var(--palette-inherit-750);
   --foreground-muted: var(--palette-inherit-550);
@@ -26,15 +26,16 @@ color-mode {
   --background-control-selection: var(--palette-periwinkle-250);
   --background-control-error: var(--palette-coral-100);
   --border-default: var(--palette-inherit-250);
-  --border-faint: var(--palette-inherit-200);
-  --border-prominent: var(--palette-inherit-400);
+  --border-faint: var(--palette-inherit-150);
+  --border-prominent: var(--palette-inherit-350);
   --border-control-default: var(--palette-inherit-300);
   --border-control-focused: var(--palette-periwinkle-400);
   --border-control-hover: var(--palette-inherit-400);
   --border-control-active: var(--palette-periwinkle-700);
   --border-control-selected: var(--palette-periwinkle-600);
   --border-control-error: var(--palette-coral-400);
-  --shadow: var(--palette-inherit-300);
+  --shadow: var(--palette-inherit-400);
+  --backdrop: var(--palette-inherit-300);
   --button-primary-base: var(--palette-periwinkle-600);
   --button-primary-on-base: var(--palette-periwinkle-50);
   --button-primary-subtle: var(--palette-periwinkle-100);
@@ -90,7 +91,8 @@ color-mode[inverted] {
   --border-control-active: var(--palette-periwinkle-600);
   --border-control-selected: var(--palette-periwinkle-600);
   --border-control-error: var(--palette-coral-450);
-  --shadow: var(--palette-inherit-300);
+  --shadow: var(--palette-inherit-400);
+  --backdrop: var(--palette-inherit-300);
   --button-primary-base: var(--palette-periwinkle-300);
   --button-primary-on-base: var(--palette-periwinkle-950);
   --button-primary-subtle: var(--palette-periwinkle-600);
@@ -149,6 +151,7 @@ color-mode[inverted] {
     --border-control-selected: var(--palette-periwinkle-600);
     --border-control-error: var(--palette-coral-450);
     --shadow: var(--palette-inherit-300);
+    --backdrop: var(--palette-inherit-900);
     --button-primary-base: var(--palette-periwinkle-250);
     --button-primary-on-base: var(--palette-periwinkle-850);
     --button-primary-subtle: var(--palette-periwinkle-700);
@@ -205,6 +208,7 @@ color-mode[inverted] {
     --border-control-selected: var(--palette-periwinkle-600);
     --border-control-error: var(--palette-coral-400);
     --shadow: var(--palette-inherit-300);
+    --backdrop: var(--palette-inherit-900);
     --button-primary-base: var(--palette-periwinkle-600);
     --button-primary-on-base: var(--palette-periwinkle-50);
     --button-primary-subtle: var(--palette-periwinkle-350);

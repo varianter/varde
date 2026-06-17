@@ -20,6 +20,7 @@
 @import './helpers/stagger-reveal.css';
 @import './helpers/color-mode.css';
 @import './helpers/color-mode.generated.css';
+@import './helpers/popover.css';
 
 /* Utilities */
 @import './utilities/spacing.css';

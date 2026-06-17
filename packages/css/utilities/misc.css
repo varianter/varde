@@ -13,3 +13,11 @@
 .aspect-ratio-1-1 {
   aspect-ratio: 1 / 1;
 }
+
+.block {
+  display: block;
+}
+
+.grid {
+  display: grid;
+}
