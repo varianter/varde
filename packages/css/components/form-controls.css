@@ -1,5 +1,12 @@
 @layer forms.base, forms.public, forms.state, forms.base-select;
 
+:where(.form-label) {
+  font-size: var(--font-size-s);
+  line-height: var(--leading-flat);
+  color: var(--foreground-muted);
+  font-weight: var(--font-weight-medium);
+}
+
 @layer forms.public {
   :where(.input, .select, .textarea, .checkbox, .radio) {
     --input-background: var(--background-control-default);
@@ -11,32 +18,41 @@
     --_input-background: var(--input-background);
     --_input-foreground: var(--input-foreground);
     --_input-border: var(--input-border);
-  }
 
-  /* Text input sizing */
+    --_input-border-radius: var(--border-radius-m);
+  }
 
   :where(.input, .select, .textarea) {
     --_input-height: var(--size-control-height-medium);
-    --_input-font-size: var(--font-size-s);
-    --_input-padding-inline: var(--spacing-s);
+    --_input-font-size: var(--font-size-m);
+    --_input-padding-inline: var(--spacing-xs);
+    --_input-padding-block: var(--spacing-3xs);
+    --_input-border-radius: var(--border-radius-l);
   }
 
   :where(.input, .select, .textarea):where([data-size='small']) {
     --_input-height: var(--size-control-height-small);
     --_input-font-size: var(--font-size-s);
     --_input-padding-inline: var(--spacing-xs);
+    --_input-padding-block: var(--spacing-3xs);
+    --_input-border-radius: var(--border-radius-m);
   }
 
   :where(.input, .select, .textarea):where([data-size='large']) {
     --_input-height: var(--size-control-height-large);
     --_input-font-size: var(--font-size-l);
-    --_input-padding-inline: var(--spacing-m);
+    --_input-padding-inline: var(--spacing-xs);
+    --_input-padding-block: var(--spacing-3xs);
+    --_input-border-radius: var(--border-radius-xl);
   }
 
   /* Checkbox & radio sizing */
 
   :where(.radio, .checkbox) {
     --_input-height: 1.5em;
+  }
+  :where(.textarea) {
+    --_input-padding-block: var(--spacing-xs);
   }
 }
 
@@ -67,11 +83,12 @@
   :where(.input, .select, .textarea, .checkbox, .radio) {
     appearance: none;
     font: inherit;
+    font-weight: var(--font-weight-medium);
 
     background: var(--_input-background);
     color: var(--_input-foreground);
     border-color: var(--_input-border);
-    border-radius: var(--input-border-radius);
+    border-radius: var(--_input-border-radius);
     border-width: 1px;
     border-style: solid;
 
@@ -102,7 +119,7 @@
 
   :where(.input, .select, .textarea) {
     padding-inline: var(--_input-padding-inline);
-    padding-block: var(--spacing-2xs);
+    padding-block: var(--_input-padding-block);
   }
 
   /* Checkbox & radio */
@@ -194,6 +211,7 @@
       box-shadow:
         0 4px 16px rgb(0 0 0 / 0.12),
         0 1px 4px rgb(0 0 0 / 0.08);
+      margin-block: var(--spacing-3xs);
       /*
 
       transition:
@@ -203,7 +221,6 @@
         var(--interaction-transition-easing-default) allow-discrete,
         overlay var(--interaction-transition-duration-quick)
         var(--interaction-transition-easing-default) allow-discrete;
-
         */
     }
 
@@ -222,8 +239,8 @@
 
     /* Options inside the dropdown */
     :where(.select) option {
-      padding-block: var(--spacing-2xs);
-      padding-inline: var(--spacing-2xs) var(--spacing-s);
+      padding-block: var(--spacing-4xs);
+      padding-inline: var(--spacing-3xs) var(--spacing-xs);
       border-radius: calc(var(--input-border-radius) - 2px);
       color: var(--foreground-default);
       outline-offset: 0;
@@ -253,14 +270,14 @@
       font-weight: var(--font-weight-medium);
       font-size: var(--font-size-xs);
       color: var(--foreground-muted, var(--input-placeholder));
-      padding-block: var(--spacing-2xs);
+      padding-block: var(--spacing-3xs);
     }
 
     /* hr as separator inside the select */
     :where(.select) hr {
       border: none;
       border-block-start: 1px solid var(--border-faint, var(--_input-border));
-      margin-block: var(--spacing-2xs);
+      margin-block: var(--spacing-3xs);
     }
   }
 }
