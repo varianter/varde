@@ -1,0 +1,161 @@
+@layer popover.base, popover.state;
+
+/** .popover ONLY cares about transitions and position of itself
+ * This means two things:
+ * 1. You don't put other classes on the same element as .popover, especially not `.stack` or other `display` rules.
+ * 2. You must add backgrounds, border-radius and shadows on an element inside.
+ **/
+
+@layer popover.base {
+  :where(.popover) {
+    margin: auto;
+    padding: 0;
+    border: none;
+    overflow: visible;
+  }
+
+  :where(.popover[data-type='drawer']) {
+    margin: 0;
+  }
+
+  /* Right (default): unstick the left edge, stretch height */
+  :where(.popover[data-type='drawer']:not([data-position])),
+  :where(.popover[data-type='drawer'][data-position='right']) {
+    left: auto;
+    height: 100%;
+  }
+
+  /* Left: unstick the right edge */
+  :where(.popover[data-type='drawer'][data-position='left']) {
+    right: auto;
+    height: 100%;
+  }
+
+  /* Top: unstick the bottom edge */
+  :where(.popover[data-type='drawer'][data-position='top']) {
+    bottom: auto;
+    width: 100%;
+  }
+
+  /* Bottom: unstick the top edge */
+  :where(.popover[data-type='drawer'][data-position='bottom']) {
+    top: auto;
+    width: 100%;
+  }
+
+  /* --- Tooltip: implicit anchor positioning --- */
+  /* The popover's implicit anchor is its triggering element (popovertarget).
+     position-area positions relative to it automatically — no anchor-name needed. */
+
+  :where(.popover[data-type='tooltip']:not([data-position])),
+  :where(.popover[data-type='tooltip'][data-position='top']) {
+    position-area: top;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='bottom']) {
+    position-area: bottom;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='left']) {
+    position-area: left;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='right']) {
+    position-area: right;
+  }
+
+  /* --- Backdrop --- */
+
+  :where(.popover[data-backdrop])::backdrop {
+    background: oklch(from var(--backdrop) l c h / 0.2);
+  }
+}
+
+/* ============================================
+   State: Transitions
+   ============================================ */
+
+@layer popover.state {
+  /* Shared transition mechanics */
+  :where(.popover) {
+    transition:
+      opacity 0.2s ease-out,
+      transform 0.2s ease-out,
+      overlay 0.2s ease-out allow-discrete,
+      display 0.2s ease-out allow-discrete;
+
+    /* Exit transition */
+    opacity: var(--_popover-exit-opacity, 0);
+    transform: var(--_popover-exit-transform, none);
+  }
+
+  :where(.popover):popover-open {
+    /* Resting transition */
+    opacity: 1;
+    transform: none;
+    @starting-style {
+      /* Enter transition */
+      opacity: var(--_popover-enter-opacity, 0);
+      transform: var(--_popover-enter-transform, none);
+    }
+  }
+
+  :where(.popover:not([data-type])) {
+    --_popover-enter-transform: translateY(-0.5rem);
+    --_popover-exit-transform: translateY(0rem);
+  }
+
+  :where(.popover[data-type='dialog']) {
+    --_popover-enter-transform: translateY(-1rem);
+    --_popover-exit-transform: translateY(0rem);
+  }
+
+  :where(.popover[data-type='drawer']:not([data-position])),
+  :where(.popover[data-type='drawer'][data-position='right']) {
+    --_popover-enter-transform: translateX(100%);
+    --_popover-exit-transform: translateX(100%);
+    --_popover-enter-opacity: 1;
+    --_popover-exit-opacity: 1;
+  }
+
+  /* Drawer: left */
+  :where(.popover[data-type='drawer'][data-position='left']) {
+    --_popover-enter-transform: translateX(-100%);
+    --_popover-exit-transform: translateX(-100%);
+    --_popover-enter-opacity: 1;
+    --_popover-exit-opacity: 1;
+  }
+
+  /* Drawer: top */
+  :where(.popover[data-type='drawer'][data-position='top']) {
+    --_popover-enter-transform: translateY(-100%);
+    --_popover-exit-transform: translateY(-100%);
+    --_popover-enter-opacity: 1;
+    --_popover-exit-opacity: 1;
+  }
+
+  /* Drawer: bottom */
+  :where(.popover[data-type='drawer'][data-position='bottom']) {
+    --_popover-enter-transform: translateY(100%);
+    --_popover-exit-transform: translateY(100%);
+    --_popover-enter-opacity: 1;
+    --_popover-exit-opacity: 1;
+  }
+
+  /* Backdrop fade */
+  :where(.popover[data-backdrop])::backdrop {
+    transition:
+      opacity 0.2s ease-out,
+      overlay 0.2s ease-out allow-discrete,
+      display 0.2s ease-out allow-discrete;
+    opacity: 0;
+  }
+
+  :where(.popover[data-backdrop]):popover-open::backdrop {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}

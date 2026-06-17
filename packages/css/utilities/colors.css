@@ -10,6 +10,11 @@
   .bg-surface-sunken {
     background-color: var(--surface-sunken);
   }
+
+  /* This is an escape hatch. Please use sparingly. */
+  .bg-currentcolor {
+    background-color: currentColor;
+  }
 }
 
 @layer colors.foreground {

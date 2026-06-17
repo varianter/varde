@@ -137,8 +137,8 @@
   }
 
   [popover] {
-    color: currentColor;
+    color: inherit;
+    background-color: transparent;
     border: none;
-    background-color: none;
   }
 }

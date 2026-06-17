@@ -3,6 +3,7 @@ import { path as colorModesPath } from "../pages/color-modes";
 import { path as colorsPath } from "../pages/colors";
 import { path as formControlsPath } from "../pages/form-controls";
 import { path as layoutPath } from "../pages/layout";
+import { path as popoverPath } from "../pages/popover";
 import { path as spacingPath } from "../pages/spacing";
 import { path as tablesPath } from "../pages/tables";
 import { path as typesetPath } from "../pages/typeset";
@@ -31,6 +32,7 @@ const sections: NavSection[] = [
     items: [
       { label: "Buttons", path: buttonsPath },
       { label: "Form Controls", path: formControlsPath },
+      { label: "Popover", path: popoverPath },
       { label: "Tables", path: tablesPath },
     ],
   },
