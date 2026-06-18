@@ -1,4 +1,4 @@
-.link,
+:where(.link),
 :where(.typeset :any-link) {
   color: var(--foreground-link-default);
   font-weight: var(--font-weight-regular);

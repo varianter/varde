@@ -24,14 +24,13 @@
 
 /* Utilities */
 @import './utilities/spacing.css';
-@import './utilities/stack.css';
 @import './utilities/text.css';
 @import './utilities/font-size.css';
 @import './utilities/colors.css';
 @import './utilities/list.css';
 @import './utilities/border.css';
-@import './utilities/chart.css';
 @import './utilities/misc.css';
 @import './utilities/width.css';
 @import './utilities/pile.css';
 @import './utilities/shadow.css';
+@import './utilities/stack.css';

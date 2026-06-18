@@ -72,6 +72,15 @@
     border-block-start: 1px solid var(--border-default);
   }
 
+  :where(mark) {
+    background: var(--palette-inherit-200);
+    color: var(--palette-inherit-600);
+    font-weight: var(--font-weight-medium);
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
   [hidden] {
     /* biome-ignore lint/complexity/noImportantStyles: because when something uses hidden, it better be hidden */
     display: none !important;
