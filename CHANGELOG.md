@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1](https://github.com/varianter/varde/compare/varde-v0.3.0...varde-v0.3.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* removed chart.css, added default `mark` styles, .link got a :where ([15e39d9](https://github.com/varianter/varde/commit/15e39d968b3231268c94755f2016f546e4b9d164))
+* updated margin between list items inside of `.typeset` ([0cd9ee0](https://github.com/varianter/varde/commit/0cd9ee0f66dbb53cb33206b807a09eed40190240))
+
 ## [0.3.0](https://github.com/varianter/varde/compare/varde-v0.2.0...varde-v0.3.0) (2026-06-17)
 
 
