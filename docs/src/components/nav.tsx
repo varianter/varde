@@ -44,15 +44,17 @@ const sections: NavSection[] = [
 
 export function NavLinks() {
   return (
-    <div class="py-m stack gap-xl">
+    <div class="py-m stack gap-m">
       {sections.map((section) => (
-        <div class={`stack gap-xs`} key={section.label}>
-          <span class="fs-xs fg-muted t-bold">{section.label}</span>
-          {section.items.map((item) => (
-            <a class="fg-default" href={`${base}${item.path}`} key={item.label}>
-              {item.label}
-            </a>
-          ))}
+        <div key={section.label}>
+          <h5 class="fs-xs fg-muted t-bold mb-2xs">{section.label}</h5>
+          <ul class="stack gap-3xs">
+            {section.items.map((item) => (
+              <a class="fg-default" href={`${base}${item.path}`} key={item.label}>
+                {item.label}
+              </a>
+            ))}
+          </ul>
         </div>
       ))}
     </div>

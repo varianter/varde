@@ -27,8 +27,8 @@ rootApp.use(
 
 rootApp.get("/", (c) =>
   c.render(
-    <main class="stack gap-4xl mx-auto py-4xl px-xl" style="max-width: 800px;">
-      <header class="stack gap-m pt-4xl">
+    <main class="stack gap-3xl mx-auto py-3xl px-xl" style="max-width: 800px;">
+      <header class="stack gap-m pt-3xl">
         <div class="stack-horizontal gap-s" style="align-items: center;">
           <img src="/static/logos/variant-circle-filled.svg" alt="" width="32" height="32" />
           <h1 class="fs-3xl t-bold lh-tight">Varde</h1>
@@ -55,7 +55,7 @@ rootApp.get("/", (c) =>
         </div>
       </header>
 
-      <section class="stack gap-l b-t b-faint pt-4xl">
+      <section class="stack gap-l b-t b-faint pt-2xl">
         <h2 class="fs-l t-bold">Usage</h2>
         <p class="fg-muted">
           Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
@@ -69,7 +69,7 @@ rootApp.get("/", (c) =>
         </pre>
       </section>
 
-      <section class="stack gap-l b-t b-faint pt-4xl">
+      <section class="stack gap-l b-t b-faint pt-2xl">
         <h2 class="fs-l t-bold">Versions</h2>
         <ul class="stack gap-xs" id="versions">
           <li>
@@ -108,7 +108,7 @@ rootApp.get("/", (c) =>
         />
       </section>
 
-      <section class="stack gap-l b-t b-faint pt-4xl">
+      <section class="stack gap-l b-t b-faint pt-2xl">
         <h2 class="fs-l t-bold">Static assets</h2>
         <p class="fg-muted">
           Fonts and logos served at <code class="fs-s">/static/</code>:

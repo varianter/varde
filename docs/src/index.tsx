@@ -35,10 +35,10 @@ app.use(
                   justify-content: center;
                   background: repeating-linear-gradient(
                     125deg,
-                    var(--border-default) 0 1px,
+                    var(--border-faint) 0 1px,
                     transparent 0px 7px
                   );
-                  border: 1px solid var(--border-default);
+                  border: 1px solid var(--border-faint);
                   text-shadow:
                     0px 0px 3px var(--surface-default),
                     0px 0px 6px var(--surface-default);
@@ -122,10 +122,10 @@ app.use(
             <link rel="stylesheet" href="/docs/styles.css" />
           </head>
           <body class="fs-m">
-            <header class="site-header stack b-b b-faint px-l ">
+            <header class="site-header stack b-b b-faint px-s-m ">
               <a
                 href="/docs"
-                class="site-link py-m t-bold gap-xs stack-horizontal inline-flex self-stretch"
+                class="site-link py-xs t-bold gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
                   src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"
@@ -149,10 +149,10 @@ app.use(
                 </button>
               </div>
               <div id="nav-popover" popover>
-                <div class="px-l">
+                <div class="px-s-m">
                   <NavLinks />
 
-                  <div class="site-external-links py-l">
+                  <div class="site-external-links py-s">
                     <a
                       href="https://github.com/varianter/varde"
                       target="_blank"

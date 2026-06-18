@@ -2,7 +2,7 @@ export const path = "/";
 
 export default function HomePage() {
   return (
-    <article class="stack gap-4xl mx-auto py-4xl px-xl" style="max-width: 1200px;">
+    <article class="stack gap-4xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
       <header>
         <div class="stack gap-l">
           <div class="stack gap-m">
@@ -15,7 +15,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section class="stack gap-xl b-t b-faint pt-4xl">
+      <section class="stack gap-xl b-t b-faint pt-3xl">
         <div class="stack gap-l" style="max-width: 720px;">
           <div class="stack gap-s">
             <h2 class="fs-l t-bold">Why it exists</h2>

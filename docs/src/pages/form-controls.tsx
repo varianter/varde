@@ -177,7 +177,9 @@ export function FormControlsPage() {
                 Organization number
               </label>
               <input class="input" type="text" id="demo-error" value="asdf" aria-invalid="true" />
-              <p class="fs-s fg-danger-medium">You may only enter numbers</p>
+              <color-mode palette="coral">
+                <p class="fs-s t-medium">– You may only enter numbers</p>
+              </color-mode>
             </div>
           </ExamplePanel>
         </Section>
@@ -204,8 +206,8 @@ export function FormControlsPage() {
                 </div>
               </div>
 
-              <div class="stack gap-2xs">
-                <label class="form-label" for="demo-email">
+              <div class="stack">
+                <label class="form-label mb-3xs" for="demo-email">
                   Email
                 </label>
                 <input
@@ -215,7 +217,9 @@ export function FormControlsPage() {
                   value="not-an-email"
                   aria-invalid="true"
                 />
-                <p class="fs-s fg-danger-medium">Please enter a valid email address</p>
+                <color-mode palette="coral">
+                  <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
+                </color-mode>
               </div>
 
               <div class="stack gap-2xs">

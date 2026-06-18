@@ -32,7 +32,6 @@ export function SpacingPage() {
               { size: "xl", label: "Spacious — major sections, emphasis" },
               { size: "2xl", label: "Very spacious — page sections, hero spacing" },
               { size: "3xl", label: "Generous — page-level spacing" },
-              { size: "4xl", label: "Maximum — rare, for dramatic separation" },
             ].map(({ size, label }) => (
               <div class="stack-horizontal items-start gap-s">
                 <div class="stack-horizontal gap-2xs" style="min-width: 140px;">

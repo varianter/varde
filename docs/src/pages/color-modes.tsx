@@ -140,7 +140,7 @@ export default function ColorModesPage() {
   return (
     <article class="stack gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
-        <h2 class="fs-4xl t-bold">Color Modes</h2>
+        <h2 class="fs-3xl t-bold">Color Modes</h2>
         <p class="fs-l fg-muted mw-7">
           Every palette shown simultaneously. Each block is scoped with{" "}
           <code>&lt;color-mode&gt;</code> so semantic tokens resolve against that mode's{" "}
