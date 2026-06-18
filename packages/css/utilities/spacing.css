@@ -241,28 +241,6 @@
     margin-block: var(--spacing-3xl);
   }
 
-  .m-4xl {
-    margin: var(--spacing-4xl);
-  }
-  .ml-4xl {
-    margin-inline-start: var(--spacing-4xl);
-  }
-  .mr-4xl {
-    margin-inline-end: var(--spacing-4xl);
-  }
-  .mt-4xl {
-    margin-block-start: var(--spacing-4xl);
-  }
-  .mb-4xl {
-    margin-block-end: var(--spacing-4xl);
-  }
-  .mx-4xl {
-    margin-inline: var(--spacing-4xl);
-  }
-  .my-4xl {
-    margin-block: var(--spacing-4xl);
-  }
-
   /* Interpolation margin utilities */
   .m-4xs-3xs {
     margin: var(--spacing-4xs-3xs);
@@ -659,28 +637,6 @@
   }
   .my--3xl {
     margin-block: calc(var(--spacing-3xl) * -1);
-  }
-
-  .m--4xl {
-    margin: calc(var(--spacing-4xl) * -1);
-  }
-  .ml--4xl {
-    margin-inline-start: calc(var(--spacing-4xl) * -1);
-  }
-  .mr--4xl {
-    margin-inline-end: calc(var(--spacing-4xl) * -1);
-  }
-  .mt--4xl {
-    margin-block-start: calc(var(--spacing-4xl) * -1);
-  }
-  .mb--4xl {
-    margin-block-end: calc(var(--spacing-4xl) * -1);
-  }
-  .mx--4xl {
-    margin-inline: calc(var(--spacing-4xl) * -1);
-  }
-  .my--4xl {
-    margin-block: calc(var(--spacing-4xl) * -1);
   }
 
   /* Negative interpolation margin utilities */
@@ -1104,28 +1060,6 @@
     padding-block: var(--spacing-3xl);
   }
 
-  .p-4xl {
-    padding: var(--spacing-4xl);
-  }
-  .pl-4xl {
-    padding-inline-start: var(--spacing-4xl);
-  }
-  .pr-4xl {
-    padding-inline-end: var(--spacing-4xl);
-  }
-  .pt-4xl {
-    padding-block-start: var(--spacing-4xl);
-  }
-  .pb-4xl {
-    padding-block-end: var(--spacing-4xl);
-  }
-  .px-4xl {
-    padding-inline: var(--spacing-4xl);
-  }
-  .py-4xl {
-    padding-block: var(--spacing-4xl);
-  }
-
   /* Interpolation padding utilities */
   .p-4xs-3xs {
     padding: var(--spacing-4xs-3xs);
@@ -1327,10 +1261,6 @@
 }
 
 @layer spacing.gap {
-  .gap-4xl {
-    gap: var(--spacing-4xl);
-  }
-
   .gap-3xl {
     gap: var(--spacing-3xl);
   }
@@ -1371,10 +1301,6 @@
     gap: 0;
   }
 
-  .gap-row-4xl {
-    row-gap: var(--spacing-4xl);
-  }
-
   .gap-row-3xl {
     row-gap: var(--spacing-3xl);
   }
@@ -1413,10 +1339,6 @@
 
   .gap-row-none {
     row-gap: 0;
-  }
-
-  .gap-column-4xl {
-    column-gap: var(--spacing-4xl);
   }
 
   .gap-column-3xl {

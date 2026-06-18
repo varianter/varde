@@ -47,13 +47,9 @@ app.use(
                 body {
                   display: grid;
                   min-height: 100vh;
-                  background: oklch(from var(--surface-raised) l c h / 0.5);
-                  grid-template-columns: 1fr;
+                  grid-template-columns: 1fr max-content;
                   grid-auto-rows: max-content;
-                  grid-template-areas:
-                    "header"
-                    "nav"
-                    "main";
+                  grid-template-areas: "header nav" "main main";
                 }
 
                 .site-header {
@@ -71,7 +67,7 @@ app.use(
                   grid-area: main;
                 }
 
-                #nav-popover:popover-open {
+                #nav-popover{
                   inset: auto;
                   top: anchor(bottom);
                   left: 0;
@@ -140,15 +136,16 @@ app.use(
               <div class="stack justify-center">
                 <button
                   type="button"
-                  popovertarget="nav-popover"
                   data-size="small"
+                  data-color="inherit"
+                  popovertarget="nav-popover"
                   class="button menu-toggle mx-xl my-xs"
                   aria-label="Toggle navigation menu"
                 >
                   <span aria-hidden="true">☰</span> Menu
                 </button>
               </div>
-              <div id="nav-popover" popover>
+              <div id="nav-popover" popover="auto" class="popover">
                 <div class="px-s-m">
                   <NavLinks />
 

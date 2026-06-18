@@ -33,12 +33,12 @@ export function Section({
   children: Child;
 }) {
   return (
-    <section class="stack gap-m py-xl">
+    <section data-component="Section" class="stack gap-m py-xl">
       <div>
         <h3 class="fs-xl t-bold">{title}</h3>
         {description && <p class="fg-muted fs-s">{description}</p>}
       </div>
-      <div class="mt-l">{children}</div>
+      <div>{children}</div>
     </section>
   );
 }
@@ -46,6 +46,7 @@ export function Section({
 export function ExamplePanel({ children, resize = false }: { children: Child; resize?: boolean }) {
   return (
     <div
+      data-component="ExamplePanel"
       class="stack gap-s bg-surface-raised p-l br-m of-scroll"
       style={resize ? "resize: horizontal;" : undefined}
     >
@@ -66,7 +67,7 @@ export function Example({
   children: Child;
 }) {
   return (
-    <div class="stack gap-2xs">
+    <div data-component="Example" class="stack gap-2xs">
       <div class="fs-xs fg-muted">
         <code>{label}</code>
         {description && <span> — {description}</span>}

@@ -2,7 +2,7 @@ export const path = "/";
 
 export default function HomePage() {
   return (
-    <article class="stack gap-4xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
+    <article class="stack gap-2xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
       <header>
         <div class="stack gap-l">
           <div class="stack gap-m">
