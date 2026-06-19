@@ -13,10 +13,10 @@ const modes = [
 ] as const;
 
 const lol = [
-  { surface: "sunken", inverted: false },
-  { surface: "sunken", inverted: true },
-  { surface: "default", inverted: false },
-  { surface: "default", inverted: true },
+  { surface: "raised", inverted: false },
+  { surface: "raised", inverted: true },
+  // { surface: "default", inverted: false },
+  // { surface: "default", inverted: true },
 ];
 
 function DemoCard({ surface, inverted }: (typeof lol)[number]) {
@@ -70,7 +70,7 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
 
 function ColorModeDemo({ mode }: { mode: string }) {
   return (
-    <color-mode palette={mode} class="stack gap-m p-m br-m  b-default bg-surface-raised">
+    <color-mode palette={mode} class="stack gap-m p-m br-m  b-default">
       <h3 class="fs-l t-bold fg-emphasis" style="text-transform: capitalize;">
         {mode}
       </h3>

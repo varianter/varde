@@ -13,7 +13,7 @@ type TokenNode = StepValue | { [key: string]: TokenNode };
 function buttonStepValues(palette: Palette) {
   return {
     light: {
-      base: { palette: palette, default: 600, inverted: 300 },
+      base: { palette: palette, default: 650, inverted: 100 },
       "on-base": { palette: palette, default: 50, inverted: 950 },
       subtle: { palette: palette, default: 100, inverted: 600 },
       "on-subtle": { palette: palette, default: 800, inverted: 100 },
@@ -33,19 +33,22 @@ function buttonStepValues(palette: Palette) {
 
 const light = {
   surface: {
-    raised: { palette: "inherit", default: 0, inverted: 950 },
-    default: { palette: "inherit", default: 50, inverted: 900 },
-    sunken: { palette: "inherit", default: 100, inverted: 800 },
+    raised: { palette: "inherit", default: 100, inverted: 600 },
+    default: { palette: "inherit", default: 0, inverted: 750 },
+    sunken: { palette: "inherit", default: 100, inverted: 900 },
   },
   foreground: {
-    default: { palette: "inherit", default: 650, inverted: 150 },
-    emphasis: { palette: "inherit", default: 750, inverted: 100 },
-    muted: { palette: "inherit", default: 550, inverted: 250 },
+    default: { palette: "inherit", default: 650, inverted: 100 },
+    emphasis: { palette: "inherit", default: 750, inverted: 50 },
+    muted: { palette: "inherit", default: 550, inverted: 150 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
-      default: { palette: "periwinkle", default: 600, inverted: 600 },
-      hover: { palette: "periwinkle", default: 700, inverted: 700 },
-      decoration: { palette: "periwinkle", default: 450, inverted: 450 },
+      default: { palette: "inherit", default: 600, inverted: 100 },
+      hover: { palette: "inherit", default: 700, inverted: 50 },
+      decoration: {
+        idle: { palette: "inherit", default: 450, inverted: 400 },
+        hover: { palette: "inherit", default: 400, inverted: 250 },
+      }
     },
     control: {
       default: { palette: "inherit", default: 800, inverted: 800 },
@@ -93,27 +96,30 @@ const light = {
 
 const dark = {
   surface: {
-    raised: { palette: "inherit", default: 800, inverted: 0 },
-    default: { palette: "inherit", default: 850, inverted: 50 },
+    raised: { palette: "inherit", default: 800, inverted: 450 },
+    default: { palette: "inherit", default: 850, inverted: 600 },
     sunken: { palette: "inherit", default: 900, inverted: 150 },
   },
   foreground: {
-    default: { palette: "inherit", default: 150, inverted: 650 },
-    emphasis: { palette: "inherit", default: 100, inverted: 750 },
-    muted: { palette: "inherit", default: 250, inverted: 550 },
+    default: { palette: "inherit", default: 150, inverted: 850 },
+    emphasis: { palette: "inherit", default: 100, inverted: 900 },
+    muted: { palette: "inherit", default: 250, inverted: 750 },
     marker: { palette: "inherit", default: 200, inverted: 600 },
     link: {
-      default: { palette: "periwinkle", default: 350, inverted: 350 },
-      hover: { palette: "periwinkle", default: 300, inverted: 300 },
-      decoration: { palette: "periwinkle", default: 450, inverted: 450 },
+      default: { palette: "inherit", default: 350, inverted: 800 },
+      hover: { palette: "inherit", default: 300, inverted: 900 },
+      decoration: {
+        idle: { palette: "inherit", default: 450, inverted: 550 },
+        hover: { palette: "inherit", default: 400, inverted: 650 },
+      }
     },
     control: {
       default: { palette: "inherit", default: 800, inverted: 800 },
       hover: { palette: "inherit", default: 800, inverted: 800 },
-      placeholder: { palette: "inherit", default: 500, inverted: 400 },
+      placeholder: { palette: "inherit", default: 500, inverted: 450 },
       active: { palette: "inherit", default: 900, inverted: 900 },
       selected: { palette: "inherit", default: 400, inverted: 600 },
-      selection: { palette: "periwinkle", default: 150, inverted: 150 },
+      selection: { palette: "periwinkle", default: 150, inverted: 600 },
       error: { palette: "coral", default: 150, inverted: 650 },
     },
   },
