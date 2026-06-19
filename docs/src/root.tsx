@@ -6,7 +6,7 @@ const rootApp = new Hono();
 rootApp.use(
   jsxRenderer(
     ({ children }) => (
-      <html lang="en" class="fg-default bg-surface-default">
+      <html lang="en" class="fg-default bg-surface-base">
         <head>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -63,7 +63,7 @@ rootApp.get("/", (c) =>
         </p>
         <pre
           class="fs-s"
-          style="background: var(--surface-raised); padding: var(--space-m); border-radius: 4px; overflow-x: auto;"
+          style="background: var(--surface-dyed); padding: var(--space-m); border-radius: 4px; overflow-x: auto;"
         >
           <code>{`<link rel="stylesheet" href="https://varde.variant.dev/v/latest/styles.css" />`}</code>
         </pre>

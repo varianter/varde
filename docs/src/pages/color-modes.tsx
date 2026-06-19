@@ -13,10 +13,10 @@ const modes = [
 ] as const;
 
 const lol = [
-  { surface: "raised", inverted: false },
-  { surface: "raised", inverted: true },
-  // { surface: "default", inverted: false },
-  // { surface: "default", inverted: true },
+  { surface: "dyed", inverted: false },
+  { surface: "dyed", inverted: false },
+  { surface: "dyed", inverted: true },
+  { surface: "base", inverted: true },
 ];
 
 function DemoCard({ surface, inverted }: (typeof lol)[number]) {
@@ -76,7 +76,7 @@ function ColorModeDemo({ mode }: { mode: string }) {
       </h3>
       <div>
         <div class="gap-m" style="display: grid; grid-auto-flow: column;">
-          <div class="gap-m" style="display: grid; grid-template-columns: 1fr 1fr;">
+          <div class="gap-m" style="display: grid; grid-template-columns: 1fr 1fr ;">
             {lol.map((item) => (
               <DemoCard {...item} />
             ))}

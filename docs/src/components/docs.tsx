@@ -45,13 +45,15 @@ export function Section({
 
 export function ExamplePanel({ children, resize = false }: { children: Child; resize?: boolean }) {
   return (
-    <div
+    <color-mode
+      palette="grey"
+
       data-component="ExamplePanel"
-      class="stack gap-s bg-surface-raised p-l br-m of-scroll"
+      class="stack gap-s bg-surface-tinted p-l br-m of-scroll"
       style={resize ? "resize: horizontal;" : undefined}
     >
       {children}
-    </div>
+    </color-mode>
   );
 }
 

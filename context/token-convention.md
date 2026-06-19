@@ -40,7 +40,7 @@ Consequences:
 - "Surface" = ambient ground; "background" = marked overlay. The word carries the layering rule.
 
 ```html
-<div class="surface-default">
+<div class="surface-base">
   <div class="bg-success-medium"><!-- overlay, sits ON the surface --></div>
 </div>
 ```
@@ -55,7 +55,7 @@ Step names aren't a house style. Each slot has a physical axis that picks the wo
 
 | Slot       | Axis            | Steps                                  |
 | ---------- | --------------- | -------------------------------------- |
-| surface    | depth           | `surface-{sunken / default / raised}`  |
+| surface    | depth           | `surface-{base / tinted / dyed}`       |
 | foreground | ink             | `fg-{muted / default / emphasis}`      |
 | border     | edge visibility | `border-{faint / default / prominent}` |
 
@@ -63,7 +63,7 @@ Step names aren't a house style. Each slot has a physical axis that picks the wo
 - Border's words are its own — not `subtle/strong` (that's Intent) and not `muted/emphasis` (that's text). Alt for `prominent`: `defined`.
 - Don't invent vivid border words just for symmetry. A slot is allowed to be plain.
 - Border _width_ (`hairline / default / heavy`) is a separate token family — don't let it bleed into color.
-- Depth words name depth, not lightness, so they survive the dark-mode flip.
+- Depth words name depth, not lightness, so they survive the dark-mode flip. `base` is the main canvas, `tinted` adds subtle distinction, `dyed` floats above.
 
 **Intent — one scale across all three slots:**
 
@@ -150,7 +150,7 @@ control-{slot}-{state}  →  {family(state)}-{named step}
 
 ```
 NEUTRAL (ambient · hierarchy · metaphor per slot)
-  surface-{sunken | default | raised}
+  surface-{base | tinted | dyed}
   fg-{muted | default | emphasis}
   border-{faint | default | prominent}
 

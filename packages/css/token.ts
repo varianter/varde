@@ -33,13 +33,13 @@ function buttonStepValues(palette: Palette) {
 
 const light = {
   surface: {
-    raised: { palette: "inherit", default: 100, inverted: 600 },
-    default: { palette: "inherit", default: 0, inverted: 750 },
-    sunken: { palette: "inherit", default: 100, inverted: 900 },
+    base: { palette: "inherit", default: 0, inverted: 750 },
+    tinted: { palette: "inherit", default: 50, inverted: 500 },
+    dyed: { palette: "inherit", default: 100, inverted: 600 },
   },
   foreground: {
-    default: { palette: "inherit", default: 650, inverted: 100 },
-    emphasis: { palette: "inherit", default: 750, inverted: 50 },
+    default: { palette: "inherit", default: 650, inverted: 50 },
+    emphasis: { palette: "inherit", default: 750, inverted: 0 },
     muted: { palette: "inherit", default: 550, inverted: 150 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
@@ -62,8 +62,8 @@ const light = {
   },
   background: {
     control: {
-      default: { palette: "inherit", default: 50, inverted: 750 },
-      hover: { palette: "inherit", default: 50, inverted: 700 },
+      default: { palette: "inherit", default: 100, inverted: 750 },
+      hover: { palette: "inherit", default: 100, inverted: 700 },
       active: { palette: "periwinkle", default: 100, inverted: 700 },
       selection: { palette: "periwinkle", default: 250, inverted: 250 },
       error: { palette: "coral", default: 100, inverted: 100 },
@@ -74,9 +74,9 @@ const light = {
     faint: { palette: "inherit", default: 150, inverted: 750 },
     prominent: { palette: "inherit", default: 350, inverted: 550 },
     control: {
-      default: { palette: "inherit", default: 300, inverted: 500 },
+      default: { palette: "inherit", default: 300, inverted: 400 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
-      hover: { palette: "inherit", default: 400, inverted: 500 },
+      hover: { palette: "inherit", default: 400, inverted: 300 },
       active: { palette: "periwinkle", default: 700, inverted: 600 },
       selected: { palette: "periwinkle", default: 600, inverted: 600 },
       error: { palette: "coral", default: 400, inverted: 450 },
@@ -96,9 +96,9 @@ const light = {
 
 const dark = {
   surface: {
-    raised: { palette: "inherit", default: 800, inverted: 450 },
-    default: { palette: "inherit", default: 850, inverted: 600 },
-    sunken: { palette: "inherit", default: 900, inverted: 150 },
+    base: { palette: "inherit", default: 850, inverted: 600 },
+    tinted: { palette: "inherit", default: 800, inverted: 500 },
+    dyed: { palette: "inherit", default: 750, inverted: 600 },
   },
   foreground: {
     default: { palette: "inherit", default: 150, inverted: 850 },

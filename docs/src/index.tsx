@@ -23,7 +23,7 @@ app.use(
   jsxRenderer(
     ({ children }) => {
       return (
-        <html lang="en" class="fg-default bg-surface-default">
+        <html lang="en" class="fg-default bg-surface-base">
           <head>
             <Style>
               {css`
@@ -43,8 +43,8 @@ app.use(
                   );
                   border: 1px solid var(--border-faint);
                   text-shadow:
-                    0px 0px 3px var(--surface-default),
-                    0px 0px 6px var(--surface-default);
+                    0px 0px 3px var(--surface-base),
+                    0px 0px 6px var(--surface-base);
                 }
 
                 body {
@@ -79,7 +79,7 @@ app.use(
                   border: none;
                   max-height: calc(100dvh - 4rem);
                   overflow-y: auto;
-                  background: var(--surface-raised);
+                  background: var(--surface-dyed);
                 }
 
                 @media (min-width: 768px) {
@@ -112,7 +112,7 @@ app.use(
                 /* ── Shiki css-variables theme (unused with github-dark, kept for future) ── */
                 :root {
                   --shiki-color-text: var(--fg-default);
-                  --shiki-color-background: var(--surface-raised);
+                  --shiki-color-background: var(--surface-dyed);
                   --shiki-token-constant: var(--fg-emphasis);
                   --shiki-token-string: var(--fg-success-strong);
                   --shiki-token-comment: var(--fg-muted);

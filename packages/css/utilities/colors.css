@@ -1,14 +1,14 @@
 @layer colors.background {
-  .bg-surface-default {
-    background-color: var(--surface-default);
+  .bg-surface-base {
+    background-color: var(--surface-base);
   }
 
-  .bg-surface-raised {
-    background-color: var(--surface-raised);
+  .bg-surface-tinted {
+    background-color: var(--surface-tinted);
   }
 
-  .bg-surface-sunken {
-    background-color: var(--surface-sunken);
+  .bg-surface-dyed {
+    background-color: var(--surface-dyed);
   }
 
   /* This is an escape hatch. Please use sparingly. */

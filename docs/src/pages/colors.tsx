@@ -24,14 +24,14 @@ export default function ColorsPage() {
       {/* ── Surfaces ── */}
       <Section
         title="Surfaces"
-        description="Three elevation levels for layering content. Sunken sits behind, default is the main canvas, and raised floats above."
+        description="Surface tokens for layering content. Base is the main canvas, tinted adds subtle distinction, dyed floats above."
       >
         <ExamplePanel>
           <div class="stack-horizontal gap-m">
             {[
-              { cls: "bg-surface-sunken", label: "bg-surface-sunken" },
-              { cls: "bg-surface-default", label: "bg-surface-default" },
-              { cls: "bg-surface-raised", label: "bg-surface-raised" },
+              { cls: "bg-surface-base", label: "bg-surface-base" },
+              { cls: "bg-surface-tinted", label: "bg-surface-tinted" },
+              { cls: "bg-surface-dyed", label: "bg-surface-dyed" },
             ].map(({ cls, label }) => (
               <div class="stack gap-2xs grow" style="min-width: 100px;">
                 <div

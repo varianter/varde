@@ -203,7 +203,7 @@
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
     :where(.select)::picker(select) {
       appearance: base-select;
-      background: var(--surface-raised, var(--input-background));
+      background: var(--surface-dyed, var(--input-background));
       color: var(--_input-foreground);
       border: 1px solid var(--_input-border);
       border-radius: var(--input-border-radius);

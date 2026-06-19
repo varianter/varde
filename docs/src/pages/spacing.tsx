@@ -170,7 +170,7 @@ export function SpacingPage() {
       >
         <ExampleGroup>
           <Example label=".mx--m" description="break out of parent's horizontal padding">
-            <div class="b-all b-default br-m px-m py-l bg-surface-raised">
+            <div class="b-all b-default br-m px-m py-l bg-surface-dyed">
               <div class="mb-s">
                 <DemoBox label="Normal content" />
               </div>

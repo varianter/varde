@@ -15,19 +15,19 @@
 
 @prefer dark{
   [data-mode][data-inverted]){
-    --surface-default: var(--color-50);
+    --surface-base: var(--color-50);
   }
   [data-mode]:not([data-inverted]){
-    --surface-default: var(--color-750);
+    --surface-base: var(--color-750);
   }
 }
 
 @prefer light{
   [data-mode][data-inverted]){
-    --surface-default: var(--color-750);
+    --surface-base: var(--color-750);
   }
   [data-mode]:not([data-inverted]){
-    --surface-default: var(--color-50);
+    --surface-base: var(--color-50);
   }
 }
 

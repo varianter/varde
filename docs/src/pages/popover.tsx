@@ -18,7 +18,7 @@ export function PopoverPage() {
             Open popover
           </button>
           <div id="demo-default" class="popover p-m" popover="auto">
-            <div class="p-l stack gap-m bg-surface-raised br-m shadow-medium">
+            <div class="p-l stack gap-m bg-surface-dyed br-m shadow-medium">
               <p>I'm a plain popover — centered, fade + slide-down, no backdrop.</p>
             </div>
           </div>
@@ -42,7 +42,7 @@ export function PopoverPage() {
             data-backdrop
             style="max-width: 360px;"
           >
-            <div class="p-l stack gap-m bg-surface-raised br-m shadow-high">
+            <div class="p-l stack gap-m bg-surface-dyed br-m shadow-high">
               <h2 class="fs-l t-bold">Dialog title</h2>
               <p>
                 A centered dialog with a backdrop overlay. Click outside or press Escape to dismiss.
@@ -135,7 +135,7 @@ export function PopoverPage() {
           </div>
 
           <div id="demo-tooltip-top" class="popover px-s py-2xs" popover="auto" data-type="tooltip">
-            <div class="p-s stack bg-surface-raised br-m shadow-medium">
+            <div class="p-s stack bg-surface-dyed br-m shadow-medium">
               <h5>Tooltip!</h5>
               <p>Tooltip above the trigger</p>
             </div>
@@ -148,7 +148,7 @@ export function PopoverPage() {
             data-type="tooltip"
             data-position="right"
           >
-            <div class="p-s stack bg-surface-raised br-m shadow-medium">
+            <div class="p-s stack bg-surface-dyed br-m shadow-medium">
               <h5>Tooltip!</h5>
               <p>Tooltip above the trigger</p>
             </div>
@@ -161,7 +161,7 @@ export function PopoverPage() {
             data-type="tooltip"
             data-position="bottom"
           >
-            <div class="p-s stack bg-surface-raised br-m shadow-medium">
+            <div class="p-s stack bg-surface-dyed br-m shadow-medium">
               <h5>Tooltip!</h5>
               <p>Tooltip above the trigger</p>
             </div>

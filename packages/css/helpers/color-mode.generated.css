@@ -3,9 +3,9 @@
 /* ── Light, default ──────────────────────────────── */
 :root,
 color-mode {
-  --surface-raised: var(--palette-inherit-100);
-  --surface-default: var(--palette-inherit-0);
-  --surface-sunken: var(--palette-inherit-100);
+  --surface-base: var(--palette-inherit-0);
+  --surface-tinted: var(--palette-inherit-50);
+  --surface-dyed: var(--palette-inherit-100);
   --foreground-default: var(--palette-inherit-650);
   --foreground-emphasis: var(--palette-inherit-750);
   --foreground-muted: var(--palette-inherit-550);
@@ -21,8 +21,8 @@ color-mode {
   --foreground-control-selected: var(--palette-inherit-600);
   --foreground-control-selection: var(--palette-periwinkle-700);
   --foreground-control-error: var(--palette-coral-650);
-  --background-control-default: var(--palette-inherit-50);
-  --background-control-hover: var(--palette-inherit-50);
+  --background-control-default: var(--palette-inherit-100);
+  --background-control-hover: var(--palette-inherit-100);
   --background-control-active: var(--palette-periwinkle-100);
   --background-control-selection: var(--palette-periwinkle-250);
   --background-control-error: var(--palette-coral-100);
@@ -61,11 +61,11 @@ color-mode {
 
 /* ── Light, inverted ─────────────────────────────── */
 color-mode[inverted] {
-  --surface-raised: var(--palette-inherit-600);
-  --surface-default: var(--palette-inherit-750);
-  --surface-sunken: var(--palette-inherit-900);
-  --foreground-default: var(--palette-inherit-100);
-  --foreground-emphasis: var(--palette-inherit-50);
+  --surface-base: var(--palette-inherit-750);
+  --surface-tinted: var(--palette-inherit-500);
+  --surface-dyed: var(--palette-inherit-600);
+  --foreground-default: var(--palette-inherit-50);
+  --foreground-emphasis: var(--palette-inherit-0);
   --foreground-muted: var(--palette-inherit-150);
   --foreground-marker: var(--palette-inherit-200);
   --foreground-link-default: var(--palette-inherit-100);
@@ -87,9 +87,9 @@ color-mode[inverted] {
   --border-default: var(--palette-inherit-700);
   --border-faint: var(--palette-inherit-750);
   --border-prominent: var(--palette-inherit-550);
-  --border-control-default: var(--palette-inherit-500);
+  --border-control-default: var(--palette-inherit-400);
   --border-control-focused: var(--palette-periwinkle-400);
-  --border-control-hover: var(--palette-inherit-500);
+  --border-control-hover: var(--palette-inherit-300);
   --border-control-active: var(--palette-periwinkle-600);
   --border-control-selected: var(--palette-periwinkle-600);
   --border-control-error: var(--palette-coral-450);
@@ -121,9 +121,9 @@ color-mode[inverted] {
 @media (prefers-color-scheme: dark) {
   :root,
   color-mode:not([inverted]) {
-    --surface-raised: var(--palette-inherit-800);
-    --surface-default: var(--palette-inherit-850);
-    --surface-sunken: var(--palette-inherit-900);
+    --surface-base: var(--palette-inherit-850);
+    --surface-tinted: var(--palette-inherit-800);
+    --surface-dyed: var(--palette-inherit-750);
     --foreground-default: var(--palette-inherit-150);
     --foreground-emphasis: var(--palette-inherit-100);
     --foreground-muted: var(--palette-inherit-250);
@@ -179,9 +179,9 @@ color-mode[inverted] {
 
   /* ── Dark, inverted ──────────────────────────── */
   color-mode[inverted] {
-    --surface-raised: var(--palette-inherit-450);
-    --surface-default: var(--palette-inherit-600);
-    --surface-sunken: var(--palette-inherit-150);
+    --surface-base: var(--palette-inherit-600);
+    --surface-tinted: var(--palette-inherit-500);
+    --surface-dyed: var(--palette-inherit-600);
     --foreground-default: var(--palette-inherit-850);
     --foreground-emphasis: var(--palette-inherit-900);
     --foreground-muted: var(--palette-inherit-750);

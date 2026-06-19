@@ -4,18 +4,18 @@
   /* Density axis */
 
   :where(.table:not([data-density]), .table[data-density='default'], .typeset table) {
-    --_table-padding-block: var(--spacing-s);
-    --_table-padding-inline: var(--spacing-m);
-  }
-
-  :where(.table[data-density='compact']) {
-    --_table-padding-block: var(--spacing-2xs);
+    --_table-padding-block: var(--spacing-xs);
     --_table-padding-inline: var(--spacing-s);
   }
 
+  :where(.table[data-density='compact']) {
+    --_table-padding-block: var(--spacing-3xs);
+    --_table-padding-inline: var(--spacing-xs);
+  }
+
   :where(.table[data-density='relaxed']) {
-    --_table-padding-block: var(--spacing-m);
-    --_table-padding-inline: var(--spacing-l);
+    --_table-padding-block: var(--spacing-s);
+    --_table-padding-inline: var(--spacing-m);
   }
 }
 
