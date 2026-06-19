@@ -17,11 +17,11 @@ Each part has its own three words, low to high:
 
 | Part                   | Names                             |
 | ---------------------- | --------------------------------- |
-| `surface` (background) | `sunken` · `default` · `raised`   |
+| `surface` (background) | `base` · `tinted` · `dyed`        |
 | `foreground`           | `muted` · `default` · `emphasis`  |
 | `border`               | `faint` · `default` · `prominent` |
 
-`default` is the everyday one. Examples: `surface-default`, `foreground-muted`, `border-prominent`.
+`default` is the everyday one. Examples: `surface-base`, `foreground-muted`, `border-prominent`.
 
 ## Intent names
 
