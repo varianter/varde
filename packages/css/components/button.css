@@ -97,7 +97,7 @@
 
     background: var(--_button-background);
     color: var(--_button-foreground);
-    border: 2px solid var(--_button-border);
+    border: 1px solid var(--_button-border);
     border-radius: var(--_button-border-radius);
     min-height: var(--_button-height);
 

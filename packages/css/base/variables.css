@@ -137,7 +137,7 @@
 :root {
   /* Button */
   --button-border-radius: var(--interaction-radius);
-  --button-font-weight: var(--font-weight-bold);
+  --button-font-weight: var(--font-weight-medium);
   --button-focus-ring-color: var(--border-control-focused);
 
   /* Form controls */

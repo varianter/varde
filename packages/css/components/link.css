@@ -1,14 +1,16 @@
-:where(.link),
-:where(.typeset :any-link) {
-  color: var(--foreground-link-default);
-  font-weight: var(--font-weight-regular);
-  text-decoration-skip-ink: auto;
-  cursor: pointer;
-  text-underline-offset: 2px;
-  text-decoration-color: currentColor;
-  text-decoration-thickness: 1px;
-  &:hover {
-    color: var(--foreground-link-hover);
-    text-decoration-color: var(--foreground-link-hover);
+@layer link {
+  :where(.link),
+  :where(.typeset :any-link) {
+    color: var(--foreground-link-default);
+    font-weight: var(--font-weight-regular);
+    text-decoration-skip-ink: auto;
+    cursor: pointer;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--foreground-link-decoration-idle, currentColor);
+    text-decoration-thickness: 2px;
+    &:hover {
+      color: var(--foreground-link-hover);
+      text-decoration-color: var(--foreground-link-decoration-hover);
+    }
   }
 }

@@ -43,6 +43,28 @@
     margin-block: 0;
   }
 
+  .m-4xs {
+    margin: var(--spacing-4xs);
+  }
+  .ml-4xs {
+    margin-inline-start: var(--spacing-4xs);
+  }
+  .mr-4xs {
+    margin-inline-end: var(--spacing-4xs);
+  }
+  .mt-4xs {
+    margin-block-start: var(--spacing-4xs);
+  }
+  .mb-4xs {
+    margin-block-end: var(--spacing-4xs);
+  }
+  .mx-4xs {
+    margin-inline: var(--spacing-4xs);
+  }
+  .my-4xs {
+    margin-block: var(--spacing-4xs);
+  }
+
   .m-3xs {
     margin: var(--spacing-3xs);
   }
@@ -441,6 +463,28 @@
   }
 
   /* Negative margin utilities */
+  .m--4xs {
+    margin: calc(var(--spacing-4xs) * -1);
+  }
+  .ml--4xs {
+    margin-inline-start: calc(var(--spacing-4xs) * -1);
+  }
+  .mr--4xs {
+    margin-inline-end: calc(var(--spacing-4xs) * -1);
+  }
+  .mt--4xs {
+    margin-block-start: calc(var(--spacing-4xs) * -1);
+  }
+  .mb--4xs {
+    margin-block-end: calc(var(--spacing-4xs) * -1);
+  }
+  .mx--4xs {
+    margin-inline: calc(var(--spacing-4xs) * -1);
+  }
+  .my--4xs {
+    margin-block: calc(var(--spacing-4xs) * -1);
+  }
+
   .m--3xs {
     margin: calc(var(--spacing-3xs) * -1);
   }
@@ -860,6 +904,28 @@
   }
   .py-0 {
     padding-block: 0;
+  }
+
+  .p-4xs {
+    padding: var(--spacing-4xs);
+  }
+  .pl-4xs {
+    padding-inline-start: var(--spacing-4xs);
+  }
+  .pr-4xs {
+    padding-inline-end: var(--spacing-4xs);
+  }
+  .pt-4xs {
+    padding-block-start: var(--spacing-4xs);
+  }
+  .pb-4xs {
+    padding-block-end: var(--spacing-4xs);
+  }
+  .px-4xs {
+    padding-inline: var(--spacing-4xs);
+  }
+  .py-4xs {
+    padding-block: var(--spacing-4xs);
   }
 
   .p-3xs {
@@ -1297,6 +1363,10 @@
     gap: var(--spacing-3xs);
   }
 
+  .gap-4xs {
+    gap: var(--spacing-4xs);
+  }
+
   .gap-none {
     gap: 0;
   }
@@ -1337,6 +1407,10 @@
     row-gap: var(--spacing-3xs);
   }
 
+  .gap-row-4xs {
+    row-gap: var(--spacing-4xs);
+  }
+
   .gap-row-none {
     row-gap: 0;
   }
@@ -1375,6 +1449,10 @@
 
   .gap-column-3xs {
     column-gap: var(--spacing-3xs);
+  }
+
+  .gap-column-4xs {
+    column-gap: var(--spacing-4xs);
   }
 
   .gap-column-0 {
