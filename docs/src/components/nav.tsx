@@ -8,6 +8,7 @@ import { path as spacingPath } from "../pages/spacing";
 import { path as tablesPath } from "../pages/tables";
 import { path as typesetPath } from "../pages/typeset";
 import { path as typographyPath } from "../pages/typography";
+import { knowledgeFileNames } from "../knowledge";
 
 const base = "/docs";
 
@@ -15,6 +16,17 @@ type NavSection = {
   label: string;
   items: { label: string; path: string }[];
 };
+
+function slugToLabel(slug: string): string {
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+const knowledgeItems = knowledgeFileNames
+  .map((name) => {
+    const slug = name.replace(/\.md$/, "");
+    return { label: slugToLabel(slug), path: `/reference/${slug}` };
+  })
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 const sections: NavSection[] = [
   {
@@ -39,6 +51,10 @@ const sections: NavSection[] = [
   {
     label: "Tokens",
     items: [{ label: "Color Modes", path: colorModesPath }],
+  },
+  {
+    label: "Reference",
+    items: knowledgeItems,
   },
 ];
 

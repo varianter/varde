@@ -5,6 +5,9 @@ import { Hono } from "hono";
 import { css, Style } from "hono/css";
 import type { FC } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
+import { DocsPage } from "./components/docs";
+import { Markdown, processMarkdown } from "./components/markdown";
+import { knowledgeDir, knowledgeFileNames } from "./knowledge";
 import { NavLinks } from "./components/nav";
 import { staticApp } from "./static";
 
@@ -46,7 +49,7 @@ app.use(
 
                 body {
                   display: grid;
-                  min-height: 100vh;
+                  min-height: 100svh;
                   grid-template-columns: 1fr max-content;
                   grid-auto-rows: max-content;
                   grid-template-areas: "header nav" "main main";
@@ -104,6 +107,21 @@ app.use(
                   #nav-popover {
                     display: contents;
                   }
+                }
+
+                /* ── Shiki css-variables theme (unused with github-dark, kept for future) ── */
+                :root {
+                  --shiki-color-text: var(--fg-default);
+                  --shiki-color-background: var(--surface-raised);
+                  --shiki-token-constant: var(--fg-emphasis);
+                  --shiki-token-string: var(--fg-success-strong);
+                  --shiki-token-comment: var(--fg-muted);
+                  --shiki-token-keyword: var(--fg-brand-strong);
+                  --shiki-token-parameter: var(--fg-default);
+                  --shiki-token-function: var(--fg-emphasis);
+                  --shiki-token-string-expression: var(--fg-success-strong);
+                  --shiki-token-punctuation: var(--fg-muted);
+                  --shiki-token-link: var(--fg-brand-strong);
                 }
               `}
             </Style>
@@ -179,6 +197,36 @@ app.use(
     { docType: true },
   ),
 );
+
+// Auto-register pages from packages/knowledge/src/*.md
+
+const pages = await Promise.all(
+  knowledgeFileNames.map(async (fileName) => {
+    const slug = fileName.replace(/\.md$/, "");
+    const raw: string = (
+      await import(`${knowledgeDir}/${fileName}`, { with: { type: "text" } })
+    ).default;
+
+    // Extract first heading as the page title, strip it from body
+    const headingMatch = raw.match(/^#{1,2}\s+(.+)$/m);
+    const title = headingMatch?.[1] ?? slug.replace(/-/g, " ");
+    const body = raw.replace(/^#{1,2}\s+.+(\n|$)/, "");
+
+    const content = await processMarkdown(body);
+
+    return { slug, title, content };
+  }),
+);
+
+for (const { slug, title, content } of pages) {
+  app.get(`/reference/${slug}`, (c) => {
+    return c.render(
+      <DocsPage title={title} description="">
+        <Markdown html={content} />
+      </DocsPage>,
+    );
+  });
+}
 
 // Glob-import all page files under pages/
 const glob = new Bun.Glob("pages/**/*.tsx");
