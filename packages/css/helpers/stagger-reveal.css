@@ -1,3 +1,5 @@
+@layer stagger-reveal.public, stagger-reveal.base;
+
 @keyframes stagger-reveal-enter {
   0% {
     transform: translateY(2px);
@@ -10,66 +12,51 @@
   }
 }
 
-:where([stagger-reveal]) {
-  --_max-stagger-items: 10;
-  --_reveal-max-delay: var(--reveal-max-delay, 0.25s);
-  --_reveal-initial-delay: var(--reveal-initial-delay, 0.085s);
-  --_reveal-duration: var(--reveal-duration, 0.2s);
-  --_reveal-timing-function: ease-out;
-  --_reveal-animation: var(--reveal-animation, stagger-reveal-enter);
+@layer stagger-reveal.public {
+  /*
+   * Shared defaults across all speeds. Speed presets below override only the
+   * values that actually change, not the ones that stay constant.
+   */
+  :where([stagger-reveal], [stagger-reveal='default']) {
+    --_max-stagger-items: 10;
+    --_reveal-max-delay: var(--reveal-max-delay, 0.25s);
+    --_reveal-initial-delay: var(--reveal-initial-delay, 0.085s);
+    --_reveal-duration: var(--reveal-duration, 0.2s);
+    --_reveal-timing-function: ease-out;
+    --_reveal-animation: var(--reveal-animation, stagger-reveal-enter);
+  }
 
-  > :where(*) {
+  /* Speed axis */
+
+  :where([stagger-reveal='slow']) {
+    --_reveal-max-delay: var(--reveal-max-delay, 0.4s);
+    --_reveal-initial-delay: var(--reveal-initial-delay, 0.1s);
+    --_reveal-duration: var(--reveal-duration, 0.3s);
+  }
+
+  :where([stagger-reveal='fast']) {
+    --_reveal-initial-delay: var(--reveal-initial-delay, 0.05s);
+    --_reveal-max-delay: var(--reveal-max-delay, 0.15s);
+    --_reveal-duration: var(--reveal-duration, 0.15s);
+  }
+}
+
+@layer stagger-reveal.base {
+  :where([stagger-reveal]) > :where(*) {
     animation: var(--_reveal-animation, stagger-reveal-enter) var(--_reveal-duration)
       var(--_reveal-timing-function) both;
+    /* Uniform delay — also the fallback when sibling-index() is unsupported. */
     animation-delay: var(--_reveal-max-delay);
   }
 
-  > :nth-child(-n + 10) {
-    animation-delay: calc(
-      var(--_reveal-initial-delay) +
-      (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
-      var(--_child-index) /
-      (var(--_max-stagger-items) * var(--_max-stagger-items) / var(--_max-stagger-items))
-    );
-  }
-
-  > :nth-child(1) {
-    --_child-index: 1;
-  }
-
-  > :nth-child(2) {
-    --_child-index: 2;
-  }
-
-  > :nth-child(3) {
-    --_child-index: 3;
-  }
-
-  > :nth-child(4) {
-    --_child-index: 4;
-  }
-
-  > :nth-child(5) {
-    --_child-index: 5;
-  }
-
-  > :nth-child(6) {
-    --_child-index: 6;
-  }
-
-  > :nth-child(7) {
-    --_child-index: 7;
-  }
-
-  > :nth-child(8) {
-    --_child-index: 8;
-  }
-
-  > :nth-child(9) {
-    --_child-index: 9;
-  }
-
-  > :nth-child(10) {
-    --_child-index: 10;
+  @supports (animation-delay: calc(sibling-index() * 1s)) {
+    :where([stagger-reveal]) > :where(*) {
+      animation-delay: calc(
+        var(--_reveal-initial-delay) +
+        (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
+        min(sibling-index(), var(--_max-stagger-items)) /
+        var(--_max-stagger-items)
+      );
+    }
   }
 }

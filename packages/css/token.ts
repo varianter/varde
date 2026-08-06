@@ -48,7 +48,7 @@ const light = {
       decoration: {
         idle: { palette: "inherit", default: 450, inverted: 400 },
         hover: { palette: "inherit", default: 400, inverted: 250 },
-      }
+      },
     },
     control: {
       default: { palette: "inherit", default: 800, inverted: 800 },
@@ -62,8 +62,8 @@ const light = {
   },
   background: {
     control: {
-      default: { palette: "inherit", default: 100, inverted: 750 },
-      hover: { palette: "inherit", default: 100, inverted: 700 },
+      default: { palette: "inherit", default: 50, inverted: 750 },
+      hover: { palette: "inherit", default: 50, inverted: 700 },
       active: { palette: "periwinkle", default: 100, inverted: 700 },
       selection: { palette: "periwinkle", default: 250, inverted: 250 },
       error: { palette: "coral", default: 100, inverted: 100 },
@@ -74,9 +74,9 @@ const light = {
     faint: { palette: "inherit", default: 150, inverted: 750 },
     prominent: { palette: "inherit", default: 350, inverted: 550 },
     control: {
-      default: { palette: "inherit", default: 300, inverted: 400 },
+      default: { palette: "inherit", default: 250, inverted: 400 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
-      hover: { palette: "inherit", default: 400, inverted: 300 },
+      hover: { palette: "inherit", default: 250, inverted: 300 },
       active: { palette: "periwinkle", default: 700, inverted: 600 },
       selected: { palette: "periwinkle", default: 600, inverted: 600 },
       error: { palette: "coral", default: 400, inverted: 450 },
@@ -111,7 +111,7 @@ const dark = {
       decoration: {
         idle: { palette: "inherit", default: 450, inverted: 550 },
         hover: { palette: "inherit", default: 400, inverted: 650 },
-      }
+      },
     },
     control: {
       default: { palette: "inherit", default: 800, inverted: 800 },
