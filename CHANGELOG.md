@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.4.0](https://github.com/varianter/varde/compare/varde-v0.3.1...varde-v0.4.0) (2026-08-06)
+
+
+### Features
+
+* Lighten control colors and refactor stagger-reveal ([f4d6a18](https://github.com/varianter/varde/commit/f4d6a183964f07063a192320cdb283246f49f57e))
+* Reworking surfaces and color modes. ([8285004](https://github.com/varianter/varde/commit/8285004a84c1be4ea42d4eba333759389ff4cb64))
+
+
+### Bug Fixes
+
+* Add 4xs spacing utilities and update button/link ([22848b3](https://github.com/varianter/varde/commit/22848b3b9876aef0a52449c6b2c1ef9058e645b6))
+
 ## [0.3.1](https://github.com/varianter/varde/compare/varde-v0.3.0...varde-v0.3.1) (2026-06-18)
 
 
