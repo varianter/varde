@@ -13,7 +13,10 @@
   },
   "linter": {
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "a11y": {
+        "useButtonType": "off"
+      }
     }
   },
   "javascript": {

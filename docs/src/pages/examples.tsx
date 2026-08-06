@@ -101,6 +101,7 @@ function SmileyBox() {
               height="78"
               viewBox="0 0 78 78"
               fill="none"
+              role="presentation"
             >
               <path
                 d="M21.4556 41.5719V41.5719C28.3432 57.388 50.7755 57.388 57.6632 41.5719V41.5719"
