@@ -7,8 +7,8 @@ import type { FC } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { DocsPage } from "./components/docs";
 import { Markdown, processMarkdown } from "./components/markdown";
-import { knowledgeDir, knowledgeFileNames } from "./knowledge";
 import { NavLinks } from "./components/nav";
+import { knowledgeDir, knowledgeFileNames } from "./knowledge";
 import { staticApp } from "./static";
 
 const app = new Hono({ strict: false }).basePath("/docs");
@@ -203,9 +203,8 @@ app.use(
 const pages = await Promise.all(
   knowledgeFileNames.map(async (fileName) => {
     const slug = fileName.replace(/\.md$/, "");
-    const raw: string = (
-      await import(`${knowledgeDir}/${fileName}`, { with: { type: "text" } })
-    ).default;
+    const raw: string = (await import(`${knowledgeDir}/${fileName}`, { with: { type: "text" } }))
+      .default;
 
     // Extract first heading as the page title, strip it from body
     const headingMatch = raw.match(/^#{1,2}\s+(.+)$/m);
