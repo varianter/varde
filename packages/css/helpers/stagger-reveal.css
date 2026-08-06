@@ -1,61 +1,74 @@
 @layer stagger-reveal.public, stagger-reveal.base;
 
-@keyframes stagger-reveal-enter {
-  0% {
-    transform: translateY(2px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @layer stagger-reveal.public {
   /*
    * Shared defaults across all speeds. Speed presets below override only the
    * values that actually change, not the ones that stay constant.
+   *
+   * The stagger is defined by the per-child step, not by a window divided over
+   * a child count: a step below ~30ms reads as everything-at-once. --reveal-max-delay
+   * caps the total, so the first handful of children stagger visibly and the
+   * tail lands together.
    */
   :where([stagger-reveal], [stagger-reveal='default']) {
-    --_max-stagger-items: 10;
+    --_reveal-initial-delay: var(--reveal-initial-delay, 0s);
+    --_reveal-step: var(--reveal-step, 0.04s);
     --_reveal-max-delay: var(--reveal-max-delay, 0.25s);
-    --_reveal-initial-delay: var(--reveal-initial-delay, 0.085s);
     --_reveal-duration: var(--reveal-duration, 0.2s);
-    --_reveal-timing-function: ease-out;
-    --_reveal-animation: var(--reveal-animation, stagger-reveal-enter);
+    --_reveal-distance: var(--reveal-distance, 0.375rem);
+    --_reveal-timing-function: var(
+      --reveal-timing-function,
+      var(--interaction-transition-easing-entrance)
+    );
   }
 
   /* Speed axis */
 
   :where([stagger-reveal='slow']) {
+    --_reveal-step: var(--reveal-step, 0.065s);
     --_reveal-max-delay: var(--reveal-max-delay, 0.4s);
-    --_reveal-initial-delay: var(--reveal-initial-delay, 0.1s);
     --_reveal-duration: var(--reveal-duration, 0.3s);
   }
 
   :where([stagger-reveal='fast']) {
-    --_reveal-initial-delay: var(--reveal-initial-delay, 0.05s);
-    --_reveal-max-delay: var(--reveal-max-delay, 0.15s);
+    --_reveal-step: var(--reveal-step, 0.03s);
+    --_reveal-max-delay: var(--reveal-max-delay, 0.18s);
     --_reveal-duration: var(--reveal-duration, 0.15s);
   }
 }
 
 @layer stagger-reveal.base {
   :where([stagger-reveal]) > :where(*) {
-    animation: var(--_reveal-animation, stagger-reveal-enter) var(--_reveal-duration)
-      var(--_reveal-timing-function) both;
-    /* Uniform delay — also the fallback when sibling-index() is unsupported. */
-    animation-delay: var(--_reveal-max-delay);
+    /*
+     * The resting state is the visible one, so a child is never stranded
+     * invisible when the transition doesn't run — no @starting-style support,
+     * reduced motion, or a child that was already on screen.
+     *
+     * `transform: none` rather than translateY(0) so a revealed child doesn't
+     * keep a stacking context and containing block around for good.
+     */
+    opacity: 1;
+    transform: none;
+    transition-property: opacity, transform;
+    transition-duration: var(--_reveal-duration);
+    transition-timing-function: var(--_reveal-timing-function);
+    transition-delay: var(--_reveal-delay, 0s);
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(var(--_reveal-distance));
+    }
   }
 
-  @supports (animation-delay: calc(sibling-index() * 1s)) {
+  /*
+   * Per-child delay. Where sibling-index() is unsupported every child keeps the
+   * 0s default and reveals together: no stagger, but no waiting either.
+   */
+  @supports (transition-delay: calc(sibling-index() * 1s)) {
     :where([stagger-reveal]) > :where(*) {
-      animation-delay: calc(
-        var(--_reveal-initial-delay) +
-        (var(--_reveal-max-delay) - var(--_reveal-initial-delay)) *
-        min(sibling-index(), var(--_max-stagger-items)) /
-        var(--_max-stagger-items)
+      --_reveal-delay: min(
+        var(--_reveal-initial-delay) + var(--_reveal-step) * (sibling-index() - 1),
+        var(--_reveal-max-delay)
       );
     }
   }

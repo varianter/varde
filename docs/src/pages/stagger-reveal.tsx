@@ -18,15 +18,15 @@ export function StaggerRevealPage() {
   return (
     <DocsPage
       title="Stagger Reveal"
-      description="Add stagger-reveal to any container and its direct children fade and lift into place one after another. Falls back to a single uniform fade-in where sibling-index() isn't supported."
+      description="Add stagger-reveal to any container and its direct children fade and lift into place one after another. Where sibling-index() isn't supported they all reveal together, with no delay."
     >
       <Section
         title="How it works"
-        description="The helper reads each child's sibling-index() to compute a per-child animation-delay. Browsers without sibling-index() support skip the stagger and get a plain fade-in."
+        description="Each child transitions from an @starting-style, with a transition-delay of --reveal-step per sibling-index(), capped at --reveal-max-delay so long lists don't trail on forever. Children reveal the first time they render, so a child added later reveals on arrival and children already on screen stay put when the list reorders."
       >
         <Example
           label="<div stagger-reveal>"
-          description="default speed — 0.2s duration, max 0.25s delay"
+          description="default speed — 0.2s duration, 40ms per child, capped at 0.25s"
         >
           <StaggerDemo />
         </Example>
@@ -37,11 +37,17 @@ export function StaggerRevealPage() {
         description="Use stagger-reveal='slow' for gentle entrances, stagger-reveal='fast' for quick ones. Both still defer to the public --reveal-* custom properties if set."
       >
         <ExampleGroup>
-          <Example label='stagger-reveal="slow"' description="0.3s duration, max 0.4s delay">
+          <Example
+            label='stagger-reveal="slow"'
+            description="0.3s duration, 65ms per child, capped at 0.4s"
+          >
             <StaggerDemo speed="slow" />
           </Example>
 
-          <Example label='stagger-reveal="fast"' description="0.15s duration, max 0.15s delay">
+          <Example
+            label='stagger-reveal="fast"'
+            description="0.15s duration, 30ms per child, capped at 0.18s"
+          >
             <StaggerDemo speed="fast" />
           </Example>
         </ExampleGroup>
@@ -49,18 +55,38 @@ export function StaggerRevealPage() {
 
       <Section
         title="Custom timing"
-        description="Override any preset by setting one of the --reveal-* custom properties on the container. Here the same slow preset gets a longer max-delay."
+        description="Override any preset by setting the --reveal-* custom properties on the container: --reveal-step (spacing between children), --reveal-max-delay (the cap), --reveal-duration, --reveal-distance, --reveal-initial-delay and --reveal-timing-function."
       >
-        <Example
-          label="--reveal-max-delay: 0.6s"
-          description="overrides the slow preset's max delay"
-        >
-          <div class="stack gap-xs" stagger-reveal="slow" style="--reveal-max-delay: 0.6s;">
-            {items.map((n) => (
-              <DemoBox key={n} label={`Item ${n}`} />
-            ))}
-          </div>
-        </Example>
+        <ExampleGroup>
+          <Example label="--reveal-step: 0.12s" description="wider spacing between children">
+            <div
+              class="stack gap-xs"
+              data-stagger-demo
+              stagger-reveal
+              style="--reveal-step: 0.12s;"
+            >
+              {items.map((n) => (
+                <DemoBox key={n} label={`Item ${n}`} />
+              ))}
+            </div>
+          </Example>
+
+          <Example
+            label="--reveal-max-delay: 0.15s"
+            description="slow preset, capped early — the first children stagger, the tail lands together"
+          >
+            <div
+              class="stack gap-xs"
+              data-stagger-demo
+              stagger-reveal="slow"
+              style="--reveal-max-delay: 0.15s;"
+            >
+              {items.map((n) => (
+                <DemoBox key={n} label={`Item ${n}`} />
+              ))}
+            </div>
+          </Example>
+        </ExampleGroup>
       </Section>
 
       {/* Replay button so the demos above can be re-watched without refreshing. */}
