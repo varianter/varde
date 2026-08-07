@@ -14,7 +14,7 @@ const modes = [
 
 const lol = [
   { surface: "dyed", inverted: false },
-  { surface: "dyed", inverted: false },
+  { surface: "base", inverted: false },
   { surface: "dyed", inverted: true },
   { surface: "base", inverted: true },
 ];
@@ -22,12 +22,22 @@ const lol = [
 function DemoCard({ surface, inverted }: (typeof lol)[number]) {
   const inner = (
     <div class={`bg-surface-${surface} br-m  p-l stack justify-end typset`}>
-      {surface} - inverted: {inverted.toString()}
+      <div class="stack-horizontal b-all b-default gap-2xs">
+        <p class="b-r b-default px-2xs">
+          <span class="fg-muted">suface:</span> {surface}
+        </p>
+        inverted: {inverted.toString()}
+      </div>
       <h2 class="mt-3xl">Lønnskalkulator</h2>
       <p class="fs-m fg-muted">
-        Vi mener lønn bør være enkelt, åpent og forutsigbart. Derfor designet vi en transparent
-        lønnsmodell som likestiller alle ansatte.
+        Vi mener lønn bør være enkelt, åpent og forutsigbart. <strong>Derfor</strong> designet vi en
+        transparent lønnsmodell som likestiller alle ansatte.
       </p>
+      <div class="stack-horizontal gap-xs mt-s">
+        <p class="fg-emphasis">fg-emphasis</p>
+        <p class="fg-default">fg-default</p>
+        <p class="fg-muted">fg-muted</p>
+      </div>
       <div className="stack-horizontal gap-s mt-xl">
         <input type="text" class="input flex-1" />
         <button type="button" data-color="inherit" class="button" style="width: max-content;">
@@ -54,9 +64,9 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
           Plain
         </button>
         <div class="stack-horizontal gap-s">
-          <input type="checkbox" class="checkbox" />
-          <input type="radio" name="radio" value="one" class="radio" checked />
-          <input type="radio" name="radio" value="two" class="radio" />
+          <input type="checkbox" class="checkbox" name="checkbox-demo" checked />
+          <input type="radio" value="one" class="radio" checked />
+          <input type="radio" value="two" class="radio" />
         </div>
       </div>
     </div>

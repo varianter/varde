@@ -8,9 +8,13 @@
     text-underline-offset: 3px;
     text-decoration-color: var(--foreground-link-decoration-idle, currentColor);
     text-decoration-thickness: 2px;
-    &:hover {
-      color: var(--foreground-link-hover);
-      text-decoration-color: var(--foreground-link-decoration-hover);
+    /* Gated: on touch, :hover latches after a tap and the link stays in its
+       hover colour long after the finger has left. */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--foreground-link-hover);
+        text-decoration-color: var(--foreground-link-decoration-hover);
+      }
     }
   }
 }

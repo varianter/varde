@@ -57,10 +57,14 @@
 }
 
 @layer forms.state {
-  :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
-    border-color: var(--border-control-hover);
-    outline-color: var(--border-control-hover);
-    background-color: var(--background-control-hover);
+  /* Gated: on touch, :hover latches after a tap and the control stays
+     highlighted until something else is tapped. */
+  @media (hover: hover) and (pointer: fine) {
+    :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
+      border-color: var(--border-control-hover);
+      outline-color: var(--border-control-hover);
+      background-color: var(--background-control-hover);
+    }
   }
 
   :where(.input, .select, .textarea, .checkbox, .radio):focus-visible {

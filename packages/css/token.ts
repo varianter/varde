@@ -14,17 +14,17 @@ function buttonStepValues(palette: Palette) {
   return {
     light: {
       base: { palette: palette, default: 650, inverted: 100 },
-      "on-base": { palette: palette, default: 50, inverted: 950 },
+      "on-base": { palette: palette, default: 50, inverted: 750 },
       subtle: { palette: palette, default: 100, inverted: 600 },
       "on-subtle": { palette: palette, default: 800, inverted: 100 },
-      "on-surface": { palette: palette, default: 600, inverted: 200 },
+      "on-surface": { palette: palette, default: 600, inverted: 150 },
     },
     dark: {
-      base: { palette: palette, default: 250, inverted: 600 },
+      base: { palette: palette, default: 250, inverted: 700 },
       "on-base": { palette: palette, default: 850, inverted: 50 },
       subtle: { palette: palette, default: 700, inverted: 350 },
       "on-subtle": { palette: palette, default: 50, inverted: 750 },
-      "on-surface": { palette: palette, default: 200, inverted: 600 },
+      "on-surface": { palette: palette, default: 200, inverted: 750 },
     },
   };
 }
@@ -35,12 +35,12 @@ const light = {
   surface: {
     base: { palette: "inherit", default: 0, inverted: 750 },
     tinted: { palette: "inherit", default: 50, inverted: 500 },
-    dyed: { palette: "inherit", default: 100, inverted: 600 },
+    dyed: { palette: "inherit", default: 100, inverted: 650 },
   },
   foreground: {
-    default: { palette: "inherit", default: 650, inverted: 50 },
-    emphasis: { palette: "inherit", default: 750, inverted: 0 },
-    muted: { palette: "inherit", default: 550, inverted: 150 },
+    default: { palette: "inherit", default: 650, inverted: 100 },
+    emphasis: { palette: "inherit", default: 750, inverted: 50 },
+    muted: { palette: "inherit", default: 550, inverted: 200 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
       default: { palette: "inherit", default: 600, inverted: 100 },
@@ -96,12 +96,12 @@ const light = {
 
 const dark = {
   surface: {
-    base: { palette: "inherit", default: 850, inverted: 600 },
+    base: { palette: "inherit", default: 850, inverted: 200 },
     tinted: { palette: "inherit", default: 800, inverted: 500 },
-    dyed: { palette: "inherit", default: 750, inverted: 600 },
+    dyed: { palette: "inherit", default: 750, inverted: 300 },
   },
   foreground: {
-    default: { palette: "inherit", default: 150, inverted: 850 },
+    default: { palette: "inherit", default: 150, inverted: 750 },
     emphasis: { palette: "inherit", default: 100, inverted: 900 },
     muted: { palette: "inherit", default: 250, inverted: 750 },
     marker: { palette: "inherit", default: 200, inverted: 600 },
@@ -133,8 +133,8 @@ const dark = {
     },
   },
   border: {
-    default: { palette: "inherit", default: 700, inverted: 250 },
-    faint: { palette: "inherit", default: 750, inverted: 200 },
+    default: { palette: "inherit", default: 600, inverted: 450 },
+    faint: { palette: "inherit", default: 750, inverted: 350 },
     prominent: { palette: "inherit", default: 550, inverted: 400 },
     control: {
       default: { palette: "inherit", default: 550, inverted: 400 },

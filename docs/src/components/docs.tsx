@@ -48,7 +48,7 @@ export function ExamplePanel({ children, resize = false }: { children: Child; re
     <color-mode
       palette="grey"
       data-component="ExamplePanel"
-      class="stack gap-s bg-surface-tinted p-l br-m of-scroll"
+      class="stack gap-s bg-surface-dyed p-l br-m of-scroll"
       style={resize ? "resize: horizontal;" : undefined}
     >
       {children}

@@ -115,30 +115,46 @@
 
     cursor: pointer;
 
-    transition:
-      outline 0.1s ease-out,
-      filter 0.1s ease-out,
-      transform 0.1s ease-out,
-      background-color 0.2s ease-out,
-      border 0.2s ease-out;
+    /*
+     * Colours named exactly: the `outline` and `border` shorthands drag their
+     * width along, which is a layout property.
+     *
+     * One duration and one curve across every property so the variants read as
+     * one component — filled changing at 0.1s while outlined changed at 0.2s
+     * made the same interaction feel like two different buttons.
+     */
+    transition-property: outline-color, border-color, background-color, color, filter, transform;
+    transition-duration: var(--interaction-transition-duration-quick);
+    transition-timing-function: var(--interaction-transition-easing-default);
   }
 }
 
 @layer buttons.state {
-  :where(.button):hover {
-    filter: brightness(1.05);
+  /*
+   * Gated: a touch tap fires :hover and leaves it latched until the next tap
+   * somewhere else, so the button stays lit long after the finger is gone.
+   */
+  @media (hover: hover) and (pointer: fine) {
+    :where(.button):hover {
+      filter: brightness(1.05);
+    }
+
+    :where(.button[data-variant='outlined']):hover,
+    :where(.button[data-variant='plain']):hover {
+      --_button-background: var(--_button-subtle);
+      filter: none;
+      --_button-foreground: var(--_button-on-subtle);
+      --_button-border: var(--_button-subtle);
+    }
   }
 
-  :where(.button[data-variant='outlined']):hover,
-  :where(.button[data-variant='plain']):hover {
-    --_button-background: var(--_button-subtle);
-    filter: none;
-    --_button-foreground: var(--_button-on-subtle);
-    --_button-border: var(--_button-subtle);
-  }
-
+  /*
+   * Press feedback is felt, not seen. A 1px nudge is below the perceptual
+   * floor on a 40px control and doesn't grow with data-size; a 3% scale reads
+   * at every size, and scaling takes the label and icons with it.
+   */
   :where(.button):active {
-    transform: translateY(1px);
+    transform: scale(0.97);
     filter: brightness(0.9);
   }
 
