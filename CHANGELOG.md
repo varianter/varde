@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://github.com/varianter/varde/compare/varde-v0.4.0...varde-v0.5.0) (2026-08-07)
+
+
+### Features
+
+* tweaked color-mode tokens ([6516e30](https://github.com/varianter/varde/commit/6516e308a5600e08af745597c05787f3465f3960))
+
+
+### Bug Fixes
+
+* upgraded animations for stagger and popover ([18dc294](https://github.com/varianter/varde/commit/18dc2948d5d9dc25fb5b716eb1174427836fa4ca))
+
 ## [0.4.0](https://github.com/varianter/varde/compare/varde-v0.3.1...varde-v0.4.0) (2026-08-06)
 
 
