@@ -53,42 +53,6 @@ export function StaggerRevealPage() {
         </ExampleGroup>
       </Section>
 
-      <Section
-        title="Custom timing"
-        description="Override any preset by setting the --reveal-* custom properties on the container: --reveal-step (spacing between children), --reveal-max-delay (the cap), --reveal-duration, --reveal-distance, --reveal-initial-delay and --reveal-timing-function."
-      >
-        <ExampleGroup>
-          <Example label="--reveal-step: 0.12s" description="wider spacing between children">
-            <div
-              class="stack gap-xs"
-              data-stagger-demo
-              stagger-reveal
-              style="--reveal-step: 0.12s;"
-            >
-              {items.map((n) => (
-                <DemoBox key={n} label={`Item ${n}`} />
-              ))}
-            </div>
-          </Example>
-
-          <Example
-            label="--reveal-max-delay: 0.15s"
-            description="slow preset, capped early — the first children stagger, the tail lands together"
-          >
-            <div
-              class="stack gap-xs"
-              data-stagger-demo
-              stagger-reveal="slow"
-              style="--reveal-max-delay: 0.15s;"
-            >
-              {items.map((n) => (
-                <DemoBox key={n} label={`Item ${n}`} />
-              ))}
-            </div>
-          </Example>
-        </ExampleGroup>
-      </Section>
-
       {/* Replay button so the demos above can be re-watched without refreshing. */}
       <script
         dangerouslySetInnerHTML={{
@@ -104,7 +68,7 @@ export function StaggerRevealPage() {
       `,
         }}
       ></script>
-      <div class="stack-horizontal gap-xs justify-center pt-l">
+      <div class="stack-horizontal gap-xs justify-center pt-l" style={{ position: "fixed" }}>
         <button type="button" data-replay class="button" data-variant="outlined" data-size="small">
           Replay
         </button>
