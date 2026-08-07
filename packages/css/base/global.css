@@ -31,26 +31,32 @@
 
   /* TODO: Perhaps move this to it's own helper instead. */
   @supports selector(::details-content) {
+    /*
+     * Size and fade both sit on ::details-content so the disclosure reads as
+     * one entity. They used to be split — the fade lived on `summary ~ *`,
+     * which put a `transition` shorthand on arbitrary children and would have
+     * clobbered the transitions of any component placed inside a <details>.
+     *
+     * Timed by the state being entered, so opening is unhurried and closing
+     * gets out of the way.
+     */
     details::details-content {
       block-size: 0;
-      transition:
-        block-size 250ms,
-        content-visibility 250ms allow-discrete;
-      transition-timing-function: ease-out;
+      opacity: 0.5;
       overflow: clip;
+      transition:
+        block-size var(--interaction-transition-duration-exit)
+        var(--interaction-transition-easing-entrance),
+        opacity var(--interaction-transition-duration-exit)
+        var(--interaction-transition-easing-entrance),
+        content-visibility var(--interaction-transition-duration-exit)
+        var(--interaction-transition-easing-entrance) allow-discrete;
     }
 
     details[open]::details-content {
       block-size: auto;
-    }
-
-    details summary ~ * {
-      opacity: 0.5;
-      transition: opacity 250ms;
-      transition-timing-function: ease-out;
-    }
-    details[open] summary ~ * {
       opacity: 1;
+      transition-duration: var(--interaction-transition-duration-enter);
     }
   }
 
@@ -88,14 +94,47 @@
 
   /* biome-ignore-start lint/complexity/noImportantStyles: We really want these to take precedence */
   @media (prefers-reduced-motion: reduce) {
+    /*
+     * Reduced motion means gentler, not zero. Fades and colour changes stay —
+     * they explain what just happened without provoking vestibular symptoms.
+     * What goes is travel, size interpolation, and anything that loops.
+     *
+     * Zeroing every duration outright was the previous approach. It also froze
+     * the spinner, leaving no loading indicator at all, and flattened
+     * comprehension-carrying cross-fades along with the movement.
+     *
+     * These overrides sit here rather than beside each component because
+     * `!important` inverts layer order — the *earlier* layer wins — so a
+     * component layer could never override the blanket rule below.
+     */
     :is(*, ::before, ::after) {
+      /* Blocks 0 → auto size interpolation everywhere, including
+         ::details-content, so boxes snap open instead of growing. */
       interpolate-size: unset !important;
       animation-delay: 0ms !important;
-      animation-duration: 0s !important;
       animation-iteration-count: 1 !important;
       transition-delay: 0s !important;
-      transition-duration: 0s !important;
       scroll-behavior: auto !important;
+    }
+
+    /* Children still fade in; they just no longer travel to get there. */
+    [stagger-reveal] {
+      --_reveal-distance: 0 !important;
+    }
+
+    /* Popovers, dialogs and drawers cross-fade in place. Drawers opt out of
+       fading by default, so they need opacity handed back to them. */
+    :where(.popover) {
+      --_popover-enter-transform: none !important;
+      --_popover-exit-transform: none !important;
+      --_popover-enter-opacity: 0 !important;
+      --_popover-exit-opacity: 0 !important;
+    }
+
+    /* A frozen spinner communicates nothing, and status feedback is essential
+       rather than decorative. It keeps turning. */
+    .spinner {
+      animation-iteration-count: infinite !important;
     }
   }
   /* biome-ignore-end lint/complexity/noImportantStyles: We really want these to take precedence */

@@ -38,36 +38,48 @@
 }
 
 @layer stagger-reveal.base {
-  :where([stagger-reveal]) > :where(*) {
-    /*
-     * The resting state is the visible one, so a child is never stranded
-     * invisible when the transition doesn't run — no @starting-style support,
-     * reduced motion, or a child that was already on screen.
-     *
-     * `transform: none` rather than translateY(0) so a revealed child doesn't
-     * keep a stacking context and containing block around for good.
-     */
-    opacity: 1;
-    transform: none;
-    transition-property: opacity, transform;
-    transition-duration: var(--_reveal-duration);
-    transition-timing-function: var(--_reveal-timing-function);
-    transition-delay: var(--_reveal-delay, 0s);
-
-    @starting-style {
+  /*
+   * No `to` block: the implicit end state is the child's own computed style,
+   * so the resting state stays the visible one and a child is never stranded
+   * invisible if the animation never runs. Once it finishes, no transform is
+   * left behind to keep a stacking context and containing block alive.
+   */
+  @keyframes stagger-reveal {
+    from {
       opacity: 0;
       transform: translateY(var(--_reveal-distance));
     }
+  }
+
+  :where([stagger-reveal]) > :where(*) {
+    /*
+     * A one-shot animation, not transition + @starting-style.
+     *
+     * A transition has to declare transition-property/-duration/-delay on
+     * every child, and those longhands outrank the `transition` shorthand of
+     * any component that lands here as a direct child — this layer is declared
+     * after the component layers, so it wins. A .button child would lose its
+     * hover and press transitions and inherit the reveal's delay on every
+     * transform it ever runs. An animation touches nothing but itself.
+     *
+     * Interruptibility is not a concern: this only ever plays once, on mount.
+     *
+     * `backwards` holds the from-state through the delay.
+     */
+    animation: stagger-reveal var(--_reveal-duration) var(--_reveal-timing-function)
+      var(--_reveal-delay, 0s) backwards;
   }
 
   /*
    * Per-child delay. Where sibling-index() is unsupported every child keeps the
    * 0s default and reveals together: no stagger, but no waiting either.
    */
-  @supports (transition-delay: calc(sibling-index() * 1s)) {
+  @supports (animation-delay: calc(sibling-index() * 1s)) {
     :where([stagger-reveal]) > :where(*) {
       --_reveal-delay: min(
-        var(--_reveal-initial-delay) + var(--_reveal-step) * (sibling-index() - 1),
+        var(--_reveal-initial-delay) +
+        var(--_reveal-step) *
+        (sibling-index() - 1),
         var(--_reveal-max-delay)
       );
     }

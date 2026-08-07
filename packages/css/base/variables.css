@@ -116,8 +116,24 @@
 
   /* Interaction */
   --interaction-radius: 0.65rem;
-  --interaction-transition-duration-quick: 150ms;
+
+  /* Duration is inseparable from travel distance: a tooltip moving 4px and a
+     drawer crossing the viewport cannot share one number, or the drawer whips.
+     Exits are shorter than their entrance — the user has already decided. */
+  --interaction-transition-duration-quick: 150ms; /* hover, colour, press */
+  --interaction-transition-duration-enter: 200ms; /* popovers, dialogs */
+  --interaction-transition-duration-exit: 150ms;
+  --interaction-transition-duration-enter-large: 400ms; /* drawers, full-viewport travel */
+  --interaction-transition-duration-exit-large: 300ms;
+
+  /* Identical to the built-in `ease`. Right for colour and hover, where the
+     change is small and nothing travels — don't reach for it for movement. */
   --interaction-transition-easing-default: cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Strong ease-out for elements entering the screen. Built-in `ease-out` is
+     too weak to read as deliberate. */
+  --interaction-transition-easing-entrance: cubic-bezier(0.19, 1, 0.22, 1);
+  /* Very steep start, long settle. Carries long travel without feeling flung. */
+  --interaction-transition-easing-large: cubic-bezier(0.32, 0.72, 0, 1);
 
   --scroll-padding-top: var(--size-control-height-medium);
 }

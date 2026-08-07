@@ -78,13 +78,29 @@
 @layer popover.state {
   /* Shared transition mechanics */
   :where(.popover) {
-    transition:
-      opacity 0.2s ease-out,
-      transform 0.2s ease-out,
-      overlay 0.2s ease-out allow-discrete,
-      display 0.2s ease-out allow-discrete;
+    --_popover-duration-enter: var(
+      --popover-duration-enter,
+      var(--interaction-transition-duration-enter)
+    );
+    --_popover-duration-exit: var(
+      --popover-duration-exit,
+      var(--interaction-transition-duration-exit)
+    );
+    --_popover-easing: var(--popover-easing, var(--interaction-transition-easing-entrance));
 
-    /* Exit transition */
+    /*
+     * A transition is timed by the state it is moving *into*, so the base rule
+     * owns the exit and :popover-open owns the entrance. That is what makes
+     * the exit shorter than the entrance without a second transition block.
+     */
+    transition:
+      opacity var(--_popover-duration-exit) var(--_popover-easing),
+      transform var(--_popover-duration-exit) var(--_popover-easing),
+      overlay var(--_popover-duration-exit) var(--_popover-easing) allow-discrete,
+      display var(--_popover-duration-exit) var(--_popover-easing) allow-discrete;
+
+    /* Exit transition. Undefined transform means a pure fade — exits stay
+       simpler than entrances. */
     opacity: var(--_popover-exit-opacity, 0);
     transform: var(--_popover-exit-transform, none);
   }
@@ -93,6 +109,8 @@
     /* Resting transition */
     opacity: 1;
     transform: none;
+    transition-duration: var(--_popover-duration-enter);
+
     @starting-style {
       /* Enter transition */
       opacity: var(--_popover-enter-opacity, 0);
@@ -100,59 +118,107 @@
     }
   }
 
+  /* Centred, so they scale from their own centre like a modal. Nothing starts
+     from scale(0) — a near-full start reads as "it was always almost there". */
   :where(.popover:not([data-type])) {
-    --_popover-enter-transform: translateY(-0.5rem);
-    --_popover-exit-transform: translateY(0rem);
+    --_popover-enter-transform: translateY(-0.5rem) scale(0.97);
   }
 
   :where(.popover[data-type='dialog']) {
-    --_popover-enter-transform: translateY(-1rem);
-    --_popover-exit-transform: translateY(0rem);
+    --_popover-enter-transform: translateY(-1rem) scale(0.97);
+  }
+
+  /* --- Tooltip --- */
+  /*
+   * A tooltip is anchored to its trigger, so it scales from the edge that
+   * touches the trigger and travels toward it: it reads as coming out of the
+   * trigger rather than arriving from nowhere. Small element, short travel,
+   * so it takes the quick duration.
+   */
+  :where(.popover[data-type='tooltip']) {
+    --_popover-duration-enter: var(
+      --popover-duration-enter,
+      var(--interaction-transition-duration-quick)
+    );
+  }
+
+  :where(.popover[data-type='tooltip']:not([data-position])),
+  :where(.popover[data-type='tooltip'][data-position='top']) {
+    --_popover-enter-transform: translateY(-0.25rem) scale(0.94);
+    transform-origin: bottom center;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='bottom']) {
+    --_popover-enter-transform: translateY(0.25rem) scale(0.94);
+    transform-origin: top center;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='left']) {
+    --_popover-enter-transform: translateX(-0.25rem) scale(0.94);
+    transform-origin: right center;
+  }
+
+  :where(.popover[data-type='tooltip'][data-position='right']) {
+    --_popover-enter-transform: translateX(0.25rem) scale(0.94);
+    transform-origin: left center;
+  }
+
+  /* --- Drawer --- */
+  /*
+   * Travels the full width or height of the viewport, so it needs both a
+   * longer duration and a steeper curve — at the tooltip's 150ms this reads
+   * as a whip. It slides rather than fading, and it leaves the way it came.
+   */
+  :where(.popover[data-type='drawer']) {
+    --_popover-duration-enter: var(
+      --popover-duration-enter,
+      var(--interaction-transition-duration-enter-large)
+    );
+    --_popover-duration-exit: var(
+      --popover-duration-exit,
+      var(--interaction-transition-duration-exit-large)
+    );
+    --_popover-easing: var(--popover-easing, var(--interaction-transition-easing-large));
+    --_popover-enter-opacity: 1;
+    --_popover-exit-opacity: 1;
   }
 
   :where(.popover[data-type='drawer']:not([data-position])),
   :where(.popover[data-type='drawer'][data-position='right']) {
     --_popover-enter-transform: translateX(100%);
     --_popover-exit-transform: translateX(100%);
-    --_popover-enter-opacity: 1;
-    --_popover-exit-opacity: 1;
   }
 
   /* Drawer: left */
   :where(.popover[data-type='drawer'][data-position='left']) {
     --_popover-enter-transform: translateX(-100%);
     --_popover-exit-transform: translateX(-100%);
-    --_popover-enter-opacity: 1;
-    --_popover-exit-opacity: 1;
   }
 
   /* Drawer: top */
   :where(.popover[data-type='drawer'][data-position='top']) {
     --_popover-enter-transform: translateY(-100%);
     --_popover-exit-transform: translateY(-100%);
-    --_popover-enter-opacity: 1;
-    --_popover-exit-opacity: 1;
   }
 
   /* Drawer: bottom */
   :where(.popover[data-type='drawer'][data-position='bottom']) {
     --_popover-enter-transform: translateY(100%);
     --_popover-exit-transform: translateY(100%);
-    --_popover-enter-opacity: 1;
-    --_popover-exit-opacity: 1;
   }
 
-  /* Backdrop fade */
+  /* Backdrop fade. Shares the popover's timing so the two read as one entity. */
   :where(.popover[data-backdrop])::backdrop {
     transition:
-      opacity 0.2s ease-out,
-      overlay 0.2s ease-out allow-discrete,
-      display 0.2s ease-out allow-discrete;
+      opacity var(--_popover-duration-exit) var(--_popover-easing),
+      overlay var(--_popover-duration-exit) var(--_popover-easing) allow-discrete,
+      display var(--_popover-duration-exit) var(--_popover-easing) allow-discrete;
     opacity: 0;
   }
 
   :where(.popover[data-backdrop]):popover-open::backdrop {
     opacity: 1;
+    transition-duration: var(--_popover-duration-enter);
 
     @starting-style {
       opacity: 0;
