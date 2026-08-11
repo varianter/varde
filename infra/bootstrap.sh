@@ -51,12 +51,14 @@ az role assignment create \
   --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP}" \
   --output none 2>/dev/null || echo "    (role already assigned)"
 
-# Front Door cache purge requires write access on the shared CDN profile.
+# Front Door cache purge (az afd endpoint purge) requires
+# Microsoft.Cdn/profiles/afdEndpoints/purge/action on the shared CDN profile.
+# Contributor on shared-rg is the simplest built-in role that includes this.
 # The shared Front Door lives in shared-rg, managed by shared-infrastructure.
-echo "==> Assigning 'CDN Endpoint Contributor' on 'shared-rg'..."
+echo "==> Assigning 'Contributor' on 'shared-rg'..."
 az role assignment create \
   --assignee "$APP_ID" \
-  --role "CDN Endpoint Contributor" \
+  --role "Contributor" \
   --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/shared-rg" \
   --output none 2>/dev/null || echo "    (role already assigned)"
 
