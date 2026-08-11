@@ -9,17 +9,10 @@
     "preview": "bun run build && bunx http-server dist -p 1337 --open /docs/"
   },
   "dependencies": {
-    "@shikijs/rehype": "^4.2.0",
     "@varde/css": "workspace:*",
-    "hast-util-from-html": "^2.0.3",
     "hono": "^4.12.4",
-    "rehype-stringify": "^10.0.1",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "shiki": "^4.2.0",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^5.1.0"
+    "satteri": "^0.9.5",
+    "shiki": "^4.2.0"
   },
   "devDependencies": {
     "@types/bun": "latest"
