@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/varianter/varde/compare/varde-v0.6.0...varde-v0.6.1) (2026-08-11)
+
+
+### Bug Fixes
+
+* Add cache-control and CDN purge to docs deployment ([161a390](https://github.com/varianter/varde/commit/161a390fb0d32edfccde2bc15eecc1b61d4ad8f7))
+
 ## [0.6.0](https://github.com/varianter/varde/compare/varde-v0.5.0...varde-v0.6.0) (2026-08-11)
 
 
