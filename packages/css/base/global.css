@@ -8,6 +8,7 @@
 
   :where(html) {
     color: var(--foreground-default);
+    background-color: var(--surface-base);
 
     scrollbar-color: var(--foreground-muted) transparent; /* @TODO: proper variable */
     scrollbar-width: thin;
@@ -15,6 +16,8 @@
     scroll-padding-top: var(--scroll-padding-top);
 
     interpolate-size: allow-keywords;
+
+    font-weight: var(--font-weight-default);
   }
 
   :where(:focus-visible) {

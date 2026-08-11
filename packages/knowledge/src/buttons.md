@@ -1,24 +1,6 @@
-# WIP: Button
+# Button
 
-Add `.button` to a `<button>` or `<a>` element. Configure appearance with `data-color`, `data-variant`, and `data-size` — all optional, all have sensible defaults.
-
-## Colors
-
-`data-color` sets the palette. Defaults to `"primary"`.
-
-```html
-<button class="button">Primary</button>
-<button class="button" data-color="secondary">Secondary</button>
-<button class="button" data-color="danger">Danger</button>
-<button class="button" data-color="inherit">Inherit</button>
-```
-
-| Value         | Use for                                 |
-| ------------- | --------------------------------------- |
-| `"primary"`   | Main actions (default)                  |
-| `"secondary"` | Supporting actions                      |
-| `"danger"`    | Destructive actions                     |
-| `"inherit"`   | Pull palette from parent `<color-mode>` |
+Add `.button` to a `<button>` or `<a>` element. Configure appearance with `data-variant` and `data-size` — both optional, both have sensible defaults. Color comes from the enclosing `<color-mode palette="...">`; unwrapped buttons use the default grey palette.
 
 ## Variants
 
@@ -27,21 +9,15 @@ Add `.button` to a `<button>` or `<a>` element. Configure appearance with `data-
 | Value        | Look                           |
 | ------------ | ------------------------------ |
 | `"filled"`   | Solid background (default)     |
+| `"tinted"`   | Subtle tinted background       |
 | `"outlined"` | Transparent bg, colored border |
 | `"plain"`    | Transparent bg, no border      |
 
 ```html
 <button class="button">Filled</button>
+<button class="button" data-variant="tinted">Tinted</button>
 <button class="button" data-variant="outlined">Outlined</button>
 <button class="button" data-variant="plain">Plain</button>
-```
-
-Any color works with any variant:
-
-```html
-<button class="button" data-color="danger" data-variant="outlined">
-  Delete
-</button>
 ```
 
 ## Sizes
@@ -52,6 +28,71 @@ Any color works with any variant:
 <button class="button" data-size="small">Small</button>
 <button class="button">Medium</button>
 <button class="button" data-size="large">Large</button>
+```
+
+## Colors
+
+Color comes from the nearest `<color-mode palette="...">` ancestor. Unwrapped buttons fall back to the default grey palette. Combine any palette with any variant:
+
+```html
+<!-- Default (grey) -->
+<div class="stack gap-xs">
+  <div class="stack-horizontal gap-xs">
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </div>
+
+  <color-mode class="stack-horizontal gap-xs" palette="periwinkle">
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode class="stack-horizontal gap-xs" palette="coral">
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+</div>
+```
+
+And here's the same, but on `<color-mode inverted />`:
+
+```html
+<div class="stack">
+  <color-mode inverted class="bg-surface-dyed stack-horizontal gap-xs p-xs">
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode
+    inverted
+    class="bg-surface-dyed stack-horizontal gap-xs p-xs"
+    palette="periwinkle"
+  >
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode
+    inverted
+    class="bg-surface-dyed stack-horizontal gap-xs p-xs"
+    palette="coral"
+  >
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+</div>
 ```
 
 ## With icons
@@ -90,10 +131,10 @@ There is no `:disabled` style by design — use a spinner to show an action is i
 
 Button styles use low-specificity selectors — you can layer utility classes on top without fighting the cascade.
 
-For a circular icon-only button, add `.br-circle`:
+For a circular icon-only button, you'd compose as such: `button br-circle p-0 aspect-ratio-1-1`:
 
 ```html
-<button class="button br-circle" aria-label="Add">
+<button class="button br-circle p-0 aspect-ratio-1-1" aria-label="Add">
   <span class="icon" data-icon="plus" />
 </button>
 ```
@@ -106,50 +147,15 @@ For a pill shape, use `.br-pill`:
 
 ## Emphasizing a button
 
-Combine utilities to give one button more weight. Here the primary gets extra horizontal padding while the secondary stays compact:
+Combine utilities to give one button more weight:
 
 ```html
-<div class="stack-horizontal gap-m">
-  <button class="button px-l">Save changes</button>
-  <button class="button" data-color="secondary" data-variant="plain">
-    Cancel
-  </button>
+<div class="stack-horizontal gap-xs">
+  <color-mode palette="periwinkle">
+    <button class="button px-l">Save changes</button>
+  </color-mode>
+  <button class="button" data-variant="plain">Cancel</button>
 </div>
-```
-
-## Composing with `color-mode`
-
-`data-color="inherit"` pulls its palette from the nearest parent `<color-mode>`. This lets sections use different color palettes without defining new button tokens.
-
-Each example below sits on `var(--surface-base)` to show the palette in context:
-
-```html
-<color-mode palette="coral">
-  <div class="p-m" style="background: var(--surface-base)">
-    <button class="button" data-color="inherit">Coral</button>
-    <button class="button" data-color="inherit" data-variant="outlined">
-      Coral
-    </button>
-  </div>
-</color-mode>
-
-<color-mode palette="green">
-  <div class="p-m" style="background: var(--surface-base)">
-    <button class="button" data-color="inherit">Green</button>
-    <button class="button" data-color="inherit" data-variant="outlined">
-      Green
-    </button>
-  </div>
-</color-mode>
-
-<color-mode palette="blue">
-  <div class="p-m" style="background: var(--surface-base)">
-    <button class="button" data-color="inherit">Blue</button>
-    <button class="button" data-color="inherit" data-variant="outlined">
-      Blue
-    </button>
-  </div>
-</color-mode>
 ```
 
 ## As links

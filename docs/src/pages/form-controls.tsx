@@ -145,19 +145,19 @@ export function FormControlsPage() {
               <div class="stack-horizontal gap-s">
                 <input class="input grow" type="text" data-size="small" placeholder="Small" />
                 <button type="button" class="button" data-size="small">
-                  Small button
+                  Matching button
                 </button>
               </div>
               <div class="stack-horizontal gap-s">
-                <input class="input grow" type="text" data-size="medium" placeholder="medium" />
+                <input class="input grow" type="text" data-size="medium" placeholder="Medium" />
                 <button type="button" class="button" data-size="medium">
-                  medium button
+                  Matching button
                 </button>
               </div>
               <div class="stack-horizontal gap-s">
                 <input class="input grow" type="text" data-size="large" placeholder="large" />
                 <button type="button" class="button" data-size="large">
-                  large button
+                  Matching button
                 </button>
               </div>
             </div>

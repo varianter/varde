@@ -1,41 +1,99 @@
+/*
+ * Color contract: TWO generic tokens (palette-inherit via color-mode).
+ *
+ *   --button-base     the identity color (palette-inherit, e.g. step 650)
+ *   --button-on-base  text/icon on top of it — the one thing CSS
+ *                     can't derive yet (contrast-color() isn't shipped
+ *                     broadly), so it stays an input.
+ *
+ * Plus ONE shared token per mode:
+ *
+ *   --button-on-tint-ink  readable text color for tinted surfaces in
+ *                         this mode. Also palette-inherit, so all four
+ *                         mode coordinates come for free.
+ *
+ * The button's color comes from the enclosing <color-mode palette="...">
+ * element, which remaps palette-inherit to the chosen hue. No per-color
+ * tokens, no data-color attribute.
+ *
+ * Everything else is derived. Crucially, derivations never encode polarity:
+ * states mix toward tokens that already flip with the mode (`on-base`,
+ * `on-tint-ink`, `tint-blend`), so all four mode blocks — including
+ * inverted, where base and surface share the same lightness and contrast by
+ * chroma alone — get correct state directions with zero mode logic here.
+ */
+
+/*
+ * Typed so relative-color chains resolve predictably and state changes
+ * interpolate as colors rather than swapping discretely.
+ * (@property ignores layers, hence top-level.)
+ */
+@property --_button-background {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_button-foreground {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_button-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
 @layer buttons.base, buttons.public, buttons.state;
 
 @layer buttons.public {
-  /* Color axis */
+  /* Color: just picks up the button tokens, which inherit palette from color-mode. */
 
-  :where(.button:not([data-color]), .button[data-color='primary']) {
-    --_button-base: var(--button-primary-base);
-    --_button-on-base: var(--button-primary-on-base);
-    --_button-subtle: var(--button-primary-subtle);
-    --_button-on-subtle: var(--button-primary-on-subtle);
-    --_button-on-surface: var(--button-primary-on-surface);
+  :where(.button) {
+    --_button-base: var(--button-base);
+    --_button-on-base: var(--button-on-base);
   }
 
-  :where(.button[data-color='secondary']) {
-    --_button-base: var(--button-secondary-base);
-    --_button-on-base: var(--button-secondary-on-base);
-    --_button-subtle: var(--button-secondary-subtle);
-    --_button-on-subtle: var(--button-secondary-on-subtle);
-    --_button-on-surface: var(--button-secondary-on-surface);
+  /*
+   * Derivations. Three tiers in this file: inputs (above), derivations
+   * (here), slots (--_button-background/foreground/border, below).
+   */
+  :where(.button) {
+    /*
+     * Filled states: mix toward on-base — the "state layer" move. In light
+     * mode on-base is light, so hover lifts; in dark mode it's dark, so
+     * hover dips. Direction comes from the tokens, not from math.
+     */
+    --_button-base-hover: color-mix(in oklch, var(--_button-on-base) 8%, var(--_button-base));
+    --_button-base-active: color-mix(in oklch, var(--_button-on-base) 14%, var(--_button-base));
+
+    /*
+     * Tints: mix toward the surface, which also flips per mode. The palette
+     * holds identical L per step across hues, so these land with the same
+     * perceived strength on every color.
+     */
+    --_button-tint: color-mix(in oklch, var(--_button-base) 12%, var(--button-tint-blend));
+    --_button-tint-hover: color-mix(in oklch, var(--_button-base) 20%, var(--button-tint-blend));
+    --_button-tint-active: color-mix(in oklch, var(--_button-base) 26%, var(--button-tint-blend));
+
+    /*
+     * Text on a tint: pull base toward the mode's ink. One ratio controls
+     * both how colored and how light the result is — if it reads too soft
+     * against the old hand-picked values, lower base's share.
+     */
+    --_button-on-tint: color-mix(in oklch, var(--_button-base) 40%, var(--button-on-tint-ink));
+
+    /*
+     * Base must already contrast the surface (or filled wouldn't work), so
+     * it doubles as text on the surface. Matches what the generated tokens
+     * were converging on anyway.
+     */
+    --_button-on-surface: var(--_button-base);
   }
 
-  :where(.button[data-color='danger']) {
-    --_button-base: var(--button-danger-base);
-    --_button-on-base: var(--button-danger-on-base);
-    --_button-subtle: var(--button-danger-subtle);
-    --_button-on-subtle: var(--button-danger-on-subtle);
-    --_button-on-surface: var(--button-danger-on-surface);
-  }
-
-  :where(.button[data-color='inherit']) {
-    --_button-base: var(--button-inherit-base);
-    --_button-on-base: var(--button-inherit-on-base);
-    --_button-subtle: var(--button-inherit-subtle);
-    --_button-on-subtle: var(--button-inherit-on-subtle);
-    --_button-on-surface: var(--button-inherit-on-surface);
-  }
-
-  /* Variant axis */
+  /* Variant axis: decides where the channels land, never what they are. */
 
   :where(.button:not([data-variant]), .button[data-variant='filled']) {
     --_button-background: var(--_button-base);
@@ -43,10 +101,17 @@
     --_button-border: var(--_button-base);
   }
 
+  /* Between filled and plain: carries the tint at rest, no border chrome. */
+  :where(.button[data-variant='tinted']) {
+    --_button-background: var(--_button-tint);
+    --_button-foreground: var(--_button-on-tint);
+    --_button-border: transparent;
+  }
+
   :where(.button[data-variant='outlined']) {
     --_button-background: transparent;
     --_button-foreground: var(--_button-on-surface);
-    --_button-border: var(--_button-base);
+    --_button-border: oklch(from var(--_button-base) l c h / 0.25);
   }
 
   :where(.button[data-variant='plain']) {
@@ -122,8 +187,11 @@
      * One duration and one curve across every property so the variants read as
      * one component — filled changing at 0.1s while outlined changed at 0.2s
      * made the same interaction feel like two different buttons.
+     *
+     * No `filter`: it brightened the label along with the background and
+     * applied unevenly across hues. States are real colors now.
      */
-    transition-property: outline-color, border-color, background-color, color, filter, transform;
+    transition-property: outline-color, border-color, background-color, color, transform;
     transition-duration: var(--interaction-transition-duration-quick);
     transition-timing-function: var(--interaction-transition-easing-default);
   }
@@ -135,16 +203,25 @@
    * somewhere else, so the button stays lit long after the finger is gone.
    */
   @media (hover: hover) and (pointer: fine) {
-    :where(.button):hover {
-      filter: brightness(1.05);
+    /* Only the surfaces move; the label no longer shifts with them. */
+    :where(.button:not([data-variant]), .button[data-variant='filled']):hover {
+      --_button-background: var(--_button-base-hover);
+      --_button-border: var(--_button-base-hover);
     }
 
+    /* Tinted already sits at 12%; hover steps the mix up. */
+    :where(.button[data-variant='tinted']):hover {
+      --_button-background: var(--_button-tint-hover);
+    }
+
+    /*
+     * Outlined and plain gain the tint. Border is deliberately untouched on
+     * outlined — it keeps holding base, so the outline identity survives hover.
+     */
     :where(.button[data-variant='outlined']):hover,
     :where(.button[data-variant='plain']):hover {
-      --_button-background: var(--_button-subtle);
-      filter: none;
-      --_button-foreground: var(--_button-on-subtle);
-      --_button-border: var(--_button-subtle);
+      --_button-background: var(--_button-tint);
+      --_button-foreground: var(--_button-on-tint);
     }
   }
 
@@ -152,10 +229,34 @@
    * Press feedback is felt, not seen. A 1px nudge is below the perceptual
    * floor on a 40px control and doesn't grow with data-size; a 3% scale reads
    * at every size, and scaling takes the label and icons with it.
+   *
+   * Active is one step past hover on the axis each variant already moves on,
+   * so press reads as "more of the same" rather than a new state.
+   * Not hover-gated: touch users get press feedback too.
    */
   :where(.button):active {
     transform: scale(0.97);
-    filter: brightness(0.9);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.button):active {
+      transform: none;
+    }
+  }
+
+  :where(.button:not([data-variant]), .button[data-variant='filled']):active {
+    --_button-background: var(--_button-base-active);
+    --_button-border: var(--_button-base-active);
+  }
+
+  :where(.button[data-variant='tinted']):active {
+    --_button-background: var(--_button-tint-active);
+  }
+
+  :where(.button[data-variant='outlined']):active,
+  :where(.button[data-variant='plain']):active {
+    --_button-background: var(--_button-tint-active);
+    --_button-foreground: var(--_button-on-tint);
   }
 
   :where(.button):focus-visible {

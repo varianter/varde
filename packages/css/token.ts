@@ -10,32 +10,13 @@ interface StepValue {
 
 type TokenNode = StepValue | { [key: string]: TokenNode };
 
-function buttonStepValues(palette: Palette) {
-  return {
-    light: {
-      base: { palette: palette, default: 650, inverted: 100 },
-      "on-base": { palette: palette, default: 50, inverted: 750 },
-      subtle: { palette: palette, default: 100, inverted: 600 },
-      "on-subtle": { palette: palette, default: 800, inverted: 100 },
-      "on-surface": { palette: palette, default: 600, inverted: 150 },
-    },
-    dark: {
-      base: { palette: palette, default: 250, inverted: 700 },
-      "on-base": { palette: palette, default: 850, inverted: 50 },
-      subtle: { palette: palette, default: 700, inverted: 350 },
-      "on-subtle": { palette: palette, default: 50, inverted: 750 },
-      "on-surface": { palette: palette, default: 200, inverted: 750 },
-    },
-  };
-}
-
 // ── Light mode tokens ─────────────────────────────────
 
 const light = {
   surface: {
-    base: { palette: "inherit", default: 0, inverted: 750 },
-    tinted: { palette: "inherit", default: 50, inverted: 500 },
-    dyed: { palette: "inherit", default: 100, inverted: 650 },
+    base: { palette: "inherit", default: 50, inverted: 750 },
+    tinted: { palette: "inherit", default: 100, inverted: 500 },
+    dyed: { palette: "inherit", default: 200, inverted: 600 },
   },
   foreground: {
     default: { palette: "inherit", default: 650, inverted: 100 },
@@ -85,10 +66,10 @@ const light = {
   shadow: { palette: "inherit", default: 400, inverted: 400 },
   backdrop: { palette: "inherit", default: 300, inverted: 300 },
   button: {
-    primary: buttonStepValues("periwinkle").light,
-    secondary: buttonStepValues("grey").light,
-    danger: buttonStepValues("coral").light,
-    inherit: buttonStepValues("inherit").light,
+    "on-tint-ink": { palette: "inherit", default: 800, inverted: 100 },
+    "tint-blend": { palette: "inherit", default: 150, inverted: 750 },
+    base: { palette: "inherit", default: 600, inverted: 100 },
+    "on-base": { palette: "inherit", default: 50, inverted: 750 },
   },
 } as const satisfies { [key: string]: TokenNode };
 
@@ -101,9 +82,9 @@ const dark = {
     dyed: { palette: "inherit", default: 750, inverted: 300 },
   },
   foreground: {
-    default: { palette: "inherit", default: 150, inverted: 750 },
+    default: { palette: "inherit", default: 250, inverted: 750 },
     emphasis: { palette: "inherit", default: 100, inverted: 900 },
-    muted: { palette: "inherit", default: 250, inverted: 750 },
+    muted: { palette: "inherit", default: 350, inverted: 750 },
     marker: { palette: "inherit", default: 200, inverted: 600 },
     link: {
       default: { palette: "inherit", default: 350, inverted: 800 },
@@ -137,9 +118,9 @@ const dark = {
     faint: { palette: "inherit", default: 750, inverted: 350 },
     prominent: { palette: "inherit", default: 550, inverted: 400 },
     control: {
-      default: { palette: "inherit", default: 550, inverted: 400 },
+      default: { palette: "inherit", default: 650, inverted: 400 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
-      hover: { palette: "inherit", default: 550, inverted: 450 },
+      hover: { palette: "inherit", default: 600, inverted: 450 },
       active: { palette: "periwinkle", default: 600, inverted: 700 },
       selected: { palette: "periwinkle", default: 600, inverted: 600 },
       error: { palette: "coral", default: 450, inverted: 400 },
@@ -150,10 +131,10 @@ const dark = {
   shadow: { palette: "inherit", default: 300, inverted: 300 },
   backdrop: { palette: "inherit", default: 900, inverted: 900 },
   button: {
-    primary: buttonStepValues("periwinkle").dark,
-    secondary: buttonStepValues("grey").dark,
-    danger: buttonStepValues("coral").dark,
-    inherit: buttonStepValues("inherit").dark,
+    "on-tint-ink": { palette: "inherit", default: 50, inverted: 750 },
+    "tint-blend": { palette: "inherit", default: 850, inverted: 300 },
+    base: { palette: "inherit", default: 350, inverted: 700 },
+    "on-base": { palette: "inherit", default: 850, inverted: 50 },
   },
 } as const satisfies { [key: string]: TokenNode };
 

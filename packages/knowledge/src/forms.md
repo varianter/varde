@@ -7,8 +7,10 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 `.input` on text-like `<input>` elements.
 
 ```html
-<label class="form-label" for="name">Full name</label>
-<input class="input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
+<div class="stack gap-2xs">
+  <label class="form-label" for="name">Full name</label>
+  <input class="input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
+</div>
 ```
 
 ## Textarea
@@ -16,13 +18,15 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 `.textarea` on `<textarea>`.
 
 ```html
-<label class="form-label" for="message">Message</label>
-<textarea
-  class="textarea"
-  id="message"
-  rows="3"
-  placeholder="Write something…"
-></textarea>
+<div class="stack gap-2xs">
+  <label class="form-label" for="message">Message</label>
+  <textarea
+    class="textarea"
+    id="message"
+    rows="3"
+    placeholder="Write something…"
+  ></textarea>
+</div>
 ```
 
 ## Select
@@ -30,13 +34,15 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 `.select` on `<select>`. A custom chevron is rendered via `background-image` — no wrapper element or icon needed. Supports `<optgroup>` labels, `<hr>` separators, and disabled `<option>` elements.
 
 ```html
-<label class="form-label" for="country">Country</label>
-<select class="select" id="country">
-  <option value="">Choose…</option>
-  <option value="no">Norway</option>
-  <option value="se">Sweden</option>
-  <option value="dk" disabled>Denmark</option>
-</select>
+<div class="stack gap-2xs">
+  <label class="form-label" for="country">Country</label>
+  <select class="select" id="country">
+    <option value="">Choose…</option>
+    <option value="no">Norway</option>
+    <option value="se">Sweden</option>
+    <option value="dk" disabled>Denmark</option>
+  </select>
+</div>
 ```
 
 With optgroups and separators:
@@ -88,8 +94,10 @@ Always pair checkbox and radio inputs with `<label>` elements — the label text
 `.form-label` provides consistent label styling: muted color, small size, medium weight.
 
 ```html
-<label class="form-label" for="email">Email</label>
-<input class="input" type="email" id="email" />
+<div class="stack gap-2xs">
+  <label class="form-label" for="email">Email</label>
+  <input class="input" type="email" id="email" />
+</div>
 ```
 
 ## Sizes
@@ -97,9 +105,11 @@ Always pair checkbox and radio inputs with `<label>` elements — the label text
 All controls accept `data-size="small"` and `data-size="large"`. Medium is the default.
 
 ```html
-<input class="input" type="text" data-size="small" placeholder="Small" />
-<input class="input" type="text" placeholder="Medium" />
-<input class="input" type="text" data-size="large" placeholder="Large" />
+<div class="stack-horizontal gap-s">
+  <input class="input" type="text" data-size="small" placeholder="Small" />
+  <input class="input" type="text" placeholder="Medium" />
+  <input class="input" type="text" data-size="large" placeholder="Large" />
+</div>
 ```
 
 Inputs and buttons at matching sizes align naturally in a row:
@@ -121,17 +131,19 @@ Inputs and buttons at matching sizes align naturally in a row:
 Set `aria-invalid="true"` on the control. The border and text turn red automatically — no custom error classes needed. Wrap the error message in `<color-mode palette="coral">` to match the color:
 
 ```html
-<label class="form-label" for="email">Email</label>
-<input
-  class="input"
-  type="email"
-  id="email"
-  value="not-an-email"
-  aria-invalid="true"
-/>
-<color-mode palette="coral">
-  <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
-</color-mode>
+<div class="stack">
+  <label class="form-label" for="email">Email</label>
+  <input
+    class="input"
+    type="email"
+    id="email"
+    value="not-an-email"
+    aria-invalid="true"
+  />
+  <color-mode palette="coral">
+    <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
+  </color-mode>
+</div>
 ```
 
 ## Disabled state

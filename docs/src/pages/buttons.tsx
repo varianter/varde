@@ -6,17 +6,34 @@ export function ButtonsPage() {
   return (
     <DocsPage
       title="Buttons"
-      description="Use .button on <button> or <a> elements. Configure color with data-color, variant with data-variant, and size with data-size."
+      description='Use .button on <button> or <a> elements. Wrap in <color-mode palette="..."> to set the color, configure variant with data-variant, and size with data-size.'
     >
       {/* Colors & Variants */}
       <Section
         title="Colors & Variants"
-        description='Combine data-color ("primary", "secondary", "danger", "inherit") with data-variant ("filled", "outlined", "plain"). Primary filled is the default.'
+        description='Wrap buttons in <color-mode palette="..."> to control the color. Combine with data-variant ("filled", "outlined", "tinted", "plain"). Unwrapped buttons get the default grey palette.'
       >
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Primary</span>
+              <span class="fs-xs fg-muted t-medium">Default (primary / grey)</span>
+              <div class="stack-horizontal gap-m">
+                <button type="button" class="button">
+                  Filled
+                </button>
+                <button type="button" class="button" data-variant="outlined">
+                  Outlined
+                </button>
+                <button type="button" class="button" data-variant="tinted">
+                  Tinted
+                </button>
+                <button type="button" class="button" data-variant="plain">
+                  Plain
+                </button>
+              </div>
+            </div>
+            <color-mode palette="coral" class="stack gap-2xs">
+              <span class="fs-xs fg-muted t-medium">Danger (coral)</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Filled
@@ -28,50 +45,43 @@ export function ButtonsPage() {
                   Plain
                 </button>
               </div>
-            </div>
-            <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Secondary</span>
-              <div class="stack-horizontal gap-m">
-                <button type="button" class="button" data-color="secondary">
-                  Filled
-                </button>
-                <button type="button" class="button" data-color="secondary" data-variant="outlined">
-                  Outlined
-                </button>
-                <button type="button" class="button" data-color="secondary" data-variant="plain">
-                  Plain
-                </button>
-              </div>
-            </div>
-            <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Danger</span>
-              <div class="stack-horizontal gap-m">
-                <button type="button" class="button" data-color="danger">
-                  Filled
-                </button>
-                <button type="button" class="button" data-color="danger" data-variant="outlined">
-                  Outlined
-                </button>
-                <button type="button" class="button" data-color="danger" data-variant="plain">
-                  Plain
-                </button>
-              </div>
-            </div>
+            </color-mode>
 
-            <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Inherit</span>
+            <color-mode palette="blue" class="stack gap-2xs">
+              <span class="fs-xs fg-muted t-medium">Blue</span>
               <div class="stack-horizontal gap-m">
-                <button type="button" class="button" data-color="inherit">
+                <button type="button" class="button">
                   Filled
                 </button>
-                <button type="button" class="button" data-color="inherit" data-variant="outlined">
+                <button type="button" class="button" data-variant="outlined">
                   Outlined
                 </button>
-                <button type="button" class="button" data-color="inherit" data-variant="plain">
+                <button type="button" class="button" data-variant="tinted">
+                  Tinted
+                </button>
+                <button type="button" class="button" data-variant="plain">
                   Plain
                 </button>
               </div>
-            </div>
+            </color-mode>
+
+            <color-mode palette="periwinkle" class="stack gap-2xs">
+              <span class="fs-xs fg-muted t-medium">Periwinkle</span>
+              <div class="stack-horizontal gap-m">
+                <button type="button" class="button">
+                  Filled
+                </button>
+                <button type="button" class="button" data-variant="outlined">
+                  Outlined
+                </button>
+                <button type="button" class="button" data-variant="tinted">
+                  Tinted
+                </button>
+                <button type="button" class="button" data-variant="plain">
+                  Plain
+                </button>
+              </div>
+            </color-mode>
           </div>
         </ExamplePanel>
       </Section>
@@ -123,7 +133,7 @@ export function ButtonsPage() {
                 <button type="button" class="button">
                   Continue <span class="icon" data-icon="plus" />
                 </button>
-                <button type="button" class="button" data-color="secondary">
+                <button type="button" class="button">
                   Settings <span class="icon" data-icon="pencil" />
                 </button>
               </div>
@@ -137,13 +147,7 @@ export function ButtonsPage() {
                 <button type="button" class="button" data-variant="outlined" aria-label="Edit">
                   <span class="icon" data-icon="pencil" />
                 </button>
-                <button
-                  type="button"
-                  class="button"
-                  data-color="danger"
-                  data-variant="plain"
-                  aria-label="Pencil"
-                >
+                <button type="button" class="button" data-variant="plain" aria-label="Pencil">
                   <span class="icon" data-icon="plus" />
                 </button>
               </div>
