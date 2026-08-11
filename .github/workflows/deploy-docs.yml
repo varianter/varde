@@ -67,6 +67,25 @@ jobs:
             --auth-mode login \
             --only-show-errors
 
+      # az storage blob sync doesn't support setting cache-control directly,
+      # so we apply it in a follow-up pass. 300 seconds = 5 minutes.
+      - name: Set cache-control on docs pages
+        run: |
+          az storage blob list \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --prefix docs/ \
+            --auth-mode login \
+            --query "[].name" \
+            --output tsv | \
+          xargs -I{} az storage blob update \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --name "{}" \
+            --content-cache-control "public, max-age=300" \
+            --auth-mode login \
+            --only-show-errors
+
       # Uploads the root index page separately so it can't accidentally delete
       # other root-level blobs (/v/, /static/).
       - name: Upload root index page
@@ -81,6 +100,17 @@ jobs:
             --overwrite true \
             --auth-mode login \
             --only-show-errors
+
+      # Purge the Front Door CDN cache so edge nodes pick up the new content
+      # immediately instead of serving stale cached copies.
+      - name: Purge Front Door cache
+        run: |
+          az afd endpoint purge \
+            --resource-group shared-rg \
+            --profile-name fd-shared-cdn \
+            --endpoint-name shared-endpoint \
+            --domains varde.variant.dev \
+            --content-paths '/*'
 
       - name: Summary
         run: |

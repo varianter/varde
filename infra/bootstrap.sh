@@ -42,13 +42,22 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-# Role assignment — idempotent, Azure ignores duplicate assignments
+# Role assignments — idempotent, Azure ignores duplicate assignments
 # ---------------------------------------------------------------------------
 echo "==> Assigning 'Storage Blob Data Contributor' on '$RESOURCE_GROUP'..."
 az role assignment create \
   --assignee "$APP_ID" \
   --role "Storage Blob Data Contributor" \
   --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP}" \
+  --output none 2>/dev/null || echo "    (role already assigned)"
+
+# Front Door cache purge requires write access on the shared CDN profile.
+# The shared Front Door lives in shared-rg, managed by shared-infrastructure.
+echo "==> Assigning 'CDN Endpoint Contributor' on 'shared-rg'..."
+az role assignment create \
+  --assignee "$APP_ID" \
+  --role "CDN Endpoint Contributor" \
+  --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/shared-rg" \
   --output none 2>/dev/null || echo "    (role already assigned)"
 
 echo ""
