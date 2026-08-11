@@ -32,7 +32,7 @@
 
   :where(.input, .select, .textarea):where([data-size='small']) {
     --_input-height: var(--size-control-height-small);
-    --_input-font-size: var(--font-size-s);
+    --_input-font-size: var(--font-size-m);
     --_input-padding-inline: var(--spacing-xs);
     --_input-padding-block: var(--spacing-3xs);
     --_input-border-radius: var(--border-radius-m);
