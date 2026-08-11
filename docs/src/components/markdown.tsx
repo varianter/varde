@@ -42,8 +42,8 @@ function getTextContent(node: Element): string {
 /** Build the HTML string for a code-example wrapper (preview + details toggle). */
 function wrapCodeExample(rawHtml: string, highlightedPre: string): string {
   return [
-    `<div class="b-all b-faint br-m mt-m mb-xl">`,
-    `<div class="code-example__preview p-s bg-surface-tinted">${rawHtml}</div>`,
+    `<div class="b-all b-faint br-m mt-m mb-xl untypeset">`,
+    `<div class="code-example__preview  p-s bg-surface-tinted">${rawHtml}</div>`,
     `<details class="b-t b-faint">`,
     `<summary class="px-s py-2xs my-xs mx-xs button" data-size='small' data-variant='outlined'><div class="">Show code</div></summary>`,
     `<div class="px-s">`,

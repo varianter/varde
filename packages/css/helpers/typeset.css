@@ -1,107 +1,110 @@
 @layer typeset {
-  :where(.typeset) {
-    --flow-space: 0.75em;
-    max-width: 58ch;
-    line-height: 1.4;
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-m);
-  }
+  @scope (.typeset) to (.untypeset) {
+    :scope {
+      --flow-space: 0.75em;
+      max-width: 58ch;
+      line-height: 1.4;
+      font-weight: var(--font-weight-regular);
+      font-size: var(--font-size-m);
+    }
 
-  /* Vertical rhythm — auto-space all block siblings */
-  :where(.typeset) > * + * {
-    margin-block-start: var(--flow-space);
-  }
+    /* Vertical rhythm — auto-space all block siblings */
+    :scope > * + * {
+      margin-block-start: var(--flow-space);
+    }
 
-  :where(.typeset) :where(h1, h2) {
-    line-height: 1.2;
-  }
-  :where(.typeset) :where(h3, h4) {
-    line-height: 1.33;
-  }
+    :is(h1, h2) {
+      line-height: 1.2;
+    }
+    :is(h3, h4) {
+      line-height: 1.33;
+    }
 
-  :where(.typeset) h1 {
-    font-size: var(--font-size-3xl);
-  }
-  :where(.typeset) h2 {
-    font-size: var(--font-size-2xl);
-  }
-  :where(.typeset) h3 {
-    font-size: var(--font-size-xl);
-  }
-  :where(.typeset) h4 {
-    font-size: var(--font-size-m);
-  }
+    h1 {
+      font-size: var(--font-size-3xl);
+    }
+    h2 {
+      font-size: var(--font-size-2xl);
+    }
+    h3 {
+      font-size: var(--font-size-xl);
+    }
+    h4 {
+      font-size: var(--font-size-m);
+    }
 
-  /* :where(.typeset) :any-link {
-    text-decoration-thickness: 0.5px;
-    text-underline-offset: 2px;
-    color: var(--foreground-link-default);
-    font-weight: var(--font-weight-medium);
-  } */
+    /* :any-link {
+      text-decoration-thickness: 0.5px;
+      text-underline-offset: 2px;
+      color: var(--foreground-link-default);
+      font-weight: var(--font-weight-medium);
+    } */
 
-  /* Spacious gap before headings preceded by body content */
-  :where(.typeset) > :is(p, ul, ol, blockquote, table) + :is(h2, h3, h4, h5, h6) {
-    --flow-space: 2em;
-  }
+    /* Spacious gap before headings preceded by body content */
+    :scope > :is(p, ul, ol, blockquote, table) + :is(h2, h3, h4, h5, h6) {
+      --flow-space: 2em;
+    }
 
-  /* Tighter after h1 — close coupling with the page title */
-  :where(.typeset) > h1 + :is(h2, h3, h4) {
-    --flow-space: 1rem;
-  }
+    /* Tighter after h1 — close coupling with the page title */
+    :scope > h1 + :is(h2, h3, h4) {
+      --flow-space: 1rem;
+    }
 
-  /* Close gap after headings into body */
-  :where(.typeset) > :is(h2, h3, h4, h5, h6) + :is(p, ul, ol, blockquote, table) {
-    --flow-space: 0.5rem;
-  }
+    /* Close gap after headings into body */
+    :scope > :is(h2, h3, h4, h5, h6) + :is(p, ul, ol, blockquote, table) {
+      --flow-space: 0.5rem;
+    }
 
-  :where(.typeset) dl {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: var(--spacing-s) var(--spacing-m);
-    align-items: baseline;
-  }
+    dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: var(--spacing-s) var(--spacing-m);
+      align-items: baseline;
+    }
 
-  :where(.typeset) dt {
-    grid-column: 1;
-    white-space: nowrap;
-    color: var(--foreground-marker);
-  }
+    dt {
+      grid-column: 1;
+      white-space: nowrap;
+      color: var(--foreground-marker);
+    }
 
-  :where(.typeset) dd {
-    grid-column: 2;
-    margin: 0;
-  }
+    dd {
+      grid-column: 2;
+      margin: 0;
+    }
 
-  /* Lists */
-  :where(.typeset) :where(ul, ol) {
-    padding-inline-start: 1.5em;
-  }
+    /* Lists */
+    :where(ul, ol) {
+      padding-inline-start: 1.5em;
+    }
 
-  :where(.typeset) :where(li) + :where(li) {
-    margin-block-start: 0.3em;
-  }
+    li + li {
+      margin-block-start: 0.3em;
+    }
 
-  :where(.typeset) ul {
-    list-style-type: square;
-  }
-  :where(.typeset) ol {
-    list-style-type: decimal;
-  }
+    ul {
+      list-style-type: square;
+    }
+    ol {
+      list-style-type: decimal;
+    }
 
-  :where(.typeset) li::marker {
-    color: var(--foreground-marker);
-  }
+    li::marker {
+      color: var(--foreground-marker);
+    }
 
-  :where(.typeset) :where(li, blockquote) {
-    text-wrap: pretty;
-  }
+    :is(li, blockquote) {
+      text-wrap: pretty;
+    }
 
-  /* Inline code, but not code blocks, which is often wrapped in a pre */
-  :where(.typeset) :where(code:not(pre code)) {
-    /* TODO: needs proper variables */
-    font-family: monospace;
-    font-size: 0.75em;
-    padding: 0.25em 0.35em;
-    background-color: var(--background-control-default);
+    /* Inline code, but not code blocks, which is often wrapped in a pre */
+    code:not(pre code) {
+      /* TODO: needs proper variables */
+      font-family: monospace;
+      font-size: 0.75em;
+      padding: 0.25em 0.35em;
+      border-radius: 2px;
+      background-color: var(--background-control-default);
+    }
   }
 }
