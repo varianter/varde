@@ -41,7 +41,7 @@ app.use(
                     var(--border-faint) 0 1px,
                     transparent 0px 7px
                   );
-                  border: 1px solid var(--border-faint);
+                  border: 1px solid var(--border-default);
                   text-shadow:
                     0px 0px 3px var(--surface-base),
                     0px 0px 6px var(--surface-base);
@@ -155,7 +155,6 @@ app.use(
                 <button
                   type="button"
                   data-size="small"
-                  data-color="inherit"
                   popovertarget="nav-popover"
                   class="button menu-toggle mx-xl my-xs"
                   aria-label="Toggle navigation menu"

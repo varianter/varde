@@ -34,28 +34,41 @@ export function PopoverPage() {
           <button type="button" class="button" popovertarget="demo-dialog">
             Open dialog
           </button>
-          <div
-            id="demo-dialog"
-            class="popover"
-            popover="auto"
-            data-type="dialog"
-            data-backdrop
-            style="max-width: 360px;"
-          >
-            <div class="p-l stack gap-m bg-surface-dyed br-m shadow-high">
-              <h2 class="fs-l t-bold">Dialog title</h2>
-              <p>
-                A centered dialog with a backdrop overlay. Click outside or press Escape to dismiss.
-              </p>
-              <button
-                type="button"
-                class="button"
-                data-size="small"
-                popovertarget="demo-dialog"
-                popovertargetaction="hide"
+          <div id="demo-dialog" class="popover" popover="auto" data-type="dialog" data-backdrop>
+            <div class="stack-horizontal  bg-surface-dyed br-m of-clip shadow-high">
+              <color-mode
+                palette="periwinkle"
+                inverted
+                class="self-stretch p-l bg-surface-dyed stack mw-4"
               >
-                Close
-              </button>
+                <h1>:D</h1>
+              </color-mode>
+              <div class="p-l stack gap-m " style="max-width: 360px;">
+                <h2 class="fs-l t-bold">Dialog title</h2>
+                <p>
+                  A centered dialog with a backdrop overlay. Click outside or press Escape to
+                  dismiss.
+                </p>
+                <div class="stack gap-2xs">
+                  <button
+                    type="button"
+                    class="button"
+                    popovertarget="demo-dialog"
+                    popovertargetaction="hide"
+                  >
+                    Kom igang
+                  </button>
+                  <button
+                    type="button"
+                    class="button"
+                    data-variant="tinted"
+                    popovertarget="demo-dialog"
+                    popovertargetaction="hide"
+                  >
+                    Jeg er allrede en Variant
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </ExamplePanel>
@@ -82,37 +95,43 @@ export function PopoverPage() {
 
           <div
             id="demo-drawer-right"
-            class="popover p-l stack gap-m"
+            class="popover"
             popover="auto"
             data-type="drawer"
             style="width: 320px;"
           >
-            <h2 class="fs-l t-bold">Right drawer</h2>
-            <p>Slides in from the right edge. Width is up to you.</p>
+            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+              <h2 class="fs-l t-bold">Right drawer</h2>
+              <p>Slides in from the right edge. Width is up to you.</p>
+            </div>
           </div>
 
           <div
             id="demo-drawer-left"
-            class="popover p-l stack gap-m"
+            class="popover"
             popover="auto"
             data-type="drawer"
             data-position="left"
             style="width: 320px;"
           >
-            <h2 class="fs-l t-bold">Left drawer</h2>
-            <p>Slides in from the left edge.</p>
+            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+              <h2 class="fs-l t-bold">Left drawer</h2>
+              <p>Slides in from the left edge.</p>
+            </div>
           </div>
 
           <div
             id="demo-drawer-bottom"
-            class="popover p-l stack gap-m"
+            class="popover"
             popover="auto"
             data-type="drawer"
             data-position="bottom"
             style="max-height: 40vh;"
           >
-            <h2 class="fs-l t-bold">Bottom drawer</h2>
-            <p>Slides up from the bottom edge.</p>
+            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+              <h2 class="fs-l t-bold">Bottom drawer</h2>
+              <p>Slides up from the bottom edge.</p>
+            </div>
           </div>
         </ExamplePanel>
       </Section>

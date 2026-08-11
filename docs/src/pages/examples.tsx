@@ -12,34 +12,17 @@ function Events({ color = "grey" }) {
           </p>
           <div class="stack-horizontal gap-xs py-2xs">
             <p>Lokasjon</p>
-            <button
-              class="button br-pill"
-              data-variant="outlined"
-              data-color="inherit"
-              data-size="small"
-            >
+            <button class="button br-pill" data-variant="outlined" data-size="small">
               Alle (3)
             </button>
-            <button
-              class="button br-pill"
-              data-variant="outlined"
-              data-color="inherit"
-              data-size="small"
-            >
+            <button class="button br-pill" data-variant="outlined" data-size="small">
               Trondheim (2)
             </button>
-            <button
-              class="button br-pill"
-              data-variant="outlined"
-              data-color="inherit"
-              data-size="small"
-            >
+            <button class="button br-pill" data-variant="outlined" data-size="small">
               Oslo (1)
             </button>
           </div>
-          <button class="button mt-l" data-color="inherit">
-            Se alle arrangementer
-          </button>
+          <button class="button mt-l">Se alle arrangementer</button>
         </div>
         <div class="stack gap-2xs flex-1">
           <color-mode palette="inherit">
@@ -152,42 +135,43 @@ function HandbookBox({ color = "green" }) {
         </p>
 
         <div class="stack-horizontal gap-m gap-row-3xs fs-2xl">
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Verdier
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Familieliv
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Likestilling
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Helse
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Samfunn
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Open Source
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Lønn
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Bonus
           </a>
-          <a href="/" class="link t-regular">
+          <a href="/" class="link">
             Pensjon og forsikring
           </a>
         </div>
 
-        <button class="button mt-l-xl ml-auto" data-variant="outlined" data-color="inherit">
+        <button class="button mt-l-xl ml-auto" data-variant="outlined">
           Kikk i håndboka
         </button>
       </div>
     </color-mode>
   );
 }
+
 export default function Examples() {
   return (
     <div class="p-xl">
@@ -202,7 +186,7 @@ export default function Examples() {
         ))}
       </div>
       <div style="max-width: 1200px" class=" my-3xl stack gap-m">
-        {["periwinkle", "purple", "grey"].map((color) => (
+        {["green", "grey", "purple"].map((color) => (
           <Events color={color} />
         ))}
       </div>

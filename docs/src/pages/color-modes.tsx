@@ -22,7 +22,7 @@ const lol = [
 function DemoCard({ surface, inverted }: (typeof lol)[number]) {
   const inner = (
     <div class={`bg-surface-${surface} br-m  p-l stack justify-end typset`}>
-      <div class="stack-horizontal b-all b-default gap-2xs">
+      <div class="stack-horizontal b-all b-default br-s gap-2xs">
         <p class="b-r b-default px-2xs">
           <span class="fg-muted">suface:</span> {surface}
         </p>
@@ -40,27 +40,15 @@ function DemoCard({ surface, inverted }: (typeof lol)[number]) {
       </div>
       <div className="stack-horizontal gap-s mt-xl">
         <input type="text" class="input flex-1" />
-        <button type="button" data-color="inherit" class="button" style="width: max-content;">
+        <button type="button" class="button" style="width: max-content;">
           Knapp
         </button>
       </div>
       <div class="stack-horizontal gap-s mt-s">
-        <button
-          type="button"
-          data-color="inherit"
-          data-variant="outlined"
-          class="button"
-          style="width: 20ch;"
-        >
+        <button type="button" data-variant="outlined" class="button" style="width: 20ch;">
           Outlined
         </button>
-        <button
-          type="button"
-          data-color="inherit"
-          data-variant="plain"
-          class="button"
-          style="width: max-content;"
-        >
+        <button type="button" data-variant="plain" class="button" style="width: max-content;">
           Plain
         </button>
         <div class="stack-horizontal gap-s">
