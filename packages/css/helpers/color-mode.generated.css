@@ -38,8 +38,8 @@ color-mode {
   --shadow: var(--palette-inherit-400);
   --backdrop: var(--palette-inherit-300);
   --button-on-tint-ink: var(--palette-inherit-800);
-  --button-tint-blend: var(--palette-inherit-150);
-  --button-base: var(--palette-inherit-600);
+  --button-tint-blend: var(--palette-inherit-0);
+  --button-base: var(--palette-inherit-650);
   --button-on-base: var(--palette-inherit-50);
 }
 
@@ -125,7 +125,7 @@ color-mode[inverted] {
     --backdrop: var(--palette-inherit-900);
     --button-on-tint-ink: var(--palette-inherit-50);
     --button-tint-blend: var(--palette-inherit-850);
-    --button-base: var(--palette-inherit-350);
+    --button-base: var(--palette-inherit-250);
     --button-on-base: var(--palette-inherit-850);
   }
 
@@ -166,7 +166,7 @@ color-mode[inverted] {
     --shadow: var(--palette-inherit-300);
     --backdrop: var(--palette-inherit-900);
     --button-on-tint-ink: var(--palette-inherit-750);
-    --button-tint-blend: var(--palette-inherit-300);
+    --button-tint-blend: var(--palette-inherit-200);
     --button-base: var(--palette-inherit-700);
     --button-on-base: var(--palette-inherit-50);
   }
