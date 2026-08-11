@@ -10,6 +10,8 @@
     color: var(--foreground-default);
     background-color: var(--surface-base);
 
+    color-scheme: light dark;
+
     scrollbar-color: var(--foreground-muted) transparent; /* @TODO: proper variable */
     scrollbar-width: thin;
     scrollbar-gutter: stable;
@@ -18,6 +20,20 @@
     interpolate-size: allow-keywords;
 
     font-weight: var(--font-weight-default);
+  }
+
+  /*
+   * Manual color-scheme override.
+   * Absence of the attribute means "respect the system" (color-scheme: light dark above).
+   * Setting data-color-scheme on :root forces that scheme everywhere — color-mode
+   * elements inside inherit it and cannot opt out.
+   */
+  :root[data-color-scheme='dark'] {
+    color-scheme: dark;
+  }
+
+  :root[data-color-scheme='light'] {
+    color-scheme: light;
   }
 
   :where(:focus-visible) {

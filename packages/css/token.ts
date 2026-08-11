@@ -159,7 +159,7 @@ function cssValue(sv: StepValue, mode: "default" | "inverted"): string {
   return `var(--palette-${sv.palette}-${step})`;
 }
 
-// ── CSS generator ──────────────────────────────────────
+// ── CSS generators ────────────────────────────────────
 
 /**
  * Walks the token tree and returns CSS custom property declarations.
@@ -184,6 +184,36 @@ export function generateBlock(
   }
 
   walk(tokens, []);
+  return lines.join("\n");
+}
+
+/**
+ * Walks light and dark token trees in parallel and returns
+ * `light-dark()` declarations that pick based on the element's
+ * computed `color-scheme` — respecting the system by default
+ * and responding to `data-color-scheme` overrides on `:root`.
+ */
+export function generateLightDarkBlock(
+  lightTokens: { [key: string]: TokenNode },
+  darkTokens: { [key: string]: TokenNode },
+  mode: "default" | "inverted",
+): string {
+  const lines: string[] = [];
+
+  function walk(lightNode: TokenNode, darkNode: TokenNode, path: string[]) {
+    if (isStepValue(lightNode) && isStepValue(darkNode)) {
+      const name = cssVarName(path);
+      const lightValue = cssValue(lightNode, mode);
+      const darkValue = cssValue(darkNode, mode);
+      lines.push(`${name}: light-dark(${lightValue}, ${darkValue});`);
+    } else if (!isStepValue(lightNode) && !isStepValue(darkNode)) {
+      for (const key of Object.keys(lightNode)) {
+        walk(lightNode[key] as TokenNode, darkNode[key] as TokenNode, [...path, key]);
+      }
+    }
+  }
+
+  walk(lightTokens, darkTokens, []);
   return lines.join("\n");
 }
 

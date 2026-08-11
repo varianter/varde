@@ -3,6 +3,7 @@
 import stylesCSS from "@varde/css" with { type: "text" };
 import { Hono } from "hono";
 import { css, Style } from "hono/css";
+import { html } from "hono/html";
 import type { FC } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { DocsPage } from "./components/docs";
@@ -25,6 +26,9 @@ app.use(
       return (
         <html lang="en" class="fg-default bg-surface-base">
           <head>
+            {html`<script>
+              (function(){var m=document.cookie.match(/(?:^|;\\s*)theme=([^;]+)/);if(m)document.documentElement.setAttribute("data-color-scheme",m[1])})();
+            </script>`}
             <Style>
               {css`
                 @view-transition {
@@ -149,6 +153,15 @@ app.use(
                 />{" "}
                 <span class="fg-default lh-tight">Varde</span>
               </a>
+              <button
+                id="theme-toggle"
+                type="button"
+                class="button"
+                data-size="small"
+                aria-label="Toggle color scheme"
+              >
+                Theme
+              </button>
             </header>
             <nav class="site-nav">
               <div class="stack justify-center">
@@ -189,6 +202,9 @@ app.use(
               </div>
             </nav>
             <main class="site-main">{children}</main>
+            {html`<script>
+              (function(){function e(){var t=document.documentElement.getAttribute("data-color-scheme");if(t==="dark"||t==="light")return t;return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function n(t){document.documentElement.setAttribute("data-color-scheme",t);document.cookie="theme="+t+";max-age=31536000;path=/;SameSite=Lax"}document.getElementById("theme-toggle").addEventListener("click",function(){var t=e();n(t==="dark"?"light":"dark")})})();
+            </script>`}
           </body>
         </html>
       );
