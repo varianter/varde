@@ -2,7 +2,7 @@
   :where(.link),
   :where(.typeset :any-link) {
     color: var(--foreground-link-default);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-medium);
     text-decoration-skip-ink: auto;
     cursor: pointer;
     text-underline-offset: 3px;
