@@ -103,14 +103,19 @@ jobs:
 
       # Purge the Front Door CDN cache so edge nodes pick up the new content
       # immediately instead of serving stale cached copies.
+      # Non-fatal: if the service principal lacks permissions or the extension
+      # isn't available, the deploy still succeeds (cache-control is the real fix).
       - name: Purge Front Door cache
         run: |
+          az config set extension.dynamic_install_allow_preview=true
+          az extension add --name cdn --allow-preview true --only-show-errors 2>/dev/null || true
           az afd endpoint purge \
             --resource-group shared-rg \
             --profile-name fd-shared-cdn \
             --endpoint-name shared-endpoint \
             --domains varde.variant.dev \
-            --content-paths '/*'
+            --content-paths '/*' \
+            || echo "::warning::Front Door cache purge skipped (may need to re-run infra/bootstrap.sh)"
 
       - name: Summary
         run: |
