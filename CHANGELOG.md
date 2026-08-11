@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.6.0](https://github.com/varianter/varde/compare/varde-v0.5.0...varde-v0.6.0) (2026-08-11)
+
+
+### Features
+
+* .typeset can now be scoped to .untypeset ([95d5308](https://github.com/varianter/varde/commit/95d5308448f852ec51e8a01ae0c74bf14c098982))
+* added some .grid-* utilities ([75c4824](https://github.com/varianter/varde/commit/75c4824941d148ef0f6585eab8594ad0f40578ba))
+* opt-in theme switching powered by light-dark() ([7c15b27](https://github.com/varianter/varde/commit/7c15b27efbceb0eb10cd97dea716c6c17b052993))
+* removed data-color from buttons, now inherits from color-mode. ([ed3039e](https://github.com/varianter/varde/commit/ed3039e287073c1d529c74fc845d64077b57cb7d))
+* reworked color palettes ([fbd58be](https://github.com/varianter/varde/commit/fbd58be85032aae5bbef5870c9e0798fd40d0c5c))
+
+
+### Bug Fixes
+
+* avoid zooming on ios when focusing small inputs ([175dc90](https://github.com/varianter/varde/commit/175dc9088701e90aad86eef5bed94cea886412d6))
+* links are now medium font weight ([a617633](https://github.com/varianter/varde/commit/a6176337610ade143977734a62fa432de4d3b34f))
+
 ## [0.5.0](https://github.com/varianter/varde/compare/varde-v0.4.0...varde-v0.5.0) (2026-08-07)
 
 
