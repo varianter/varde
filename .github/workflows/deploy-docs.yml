@@ -101,27 +101,30 @@ jobs:
             --auth-mode login \
             --only-show-errors
 
-      # Purge the Front Door CDN cache so edge nodes pick up the new content
-      # immediately instead of serving stale cached copies.
-      # Non-fatal: if the service principal lacks permissions or the extension
-      # isn't available, the deploy still succeeds (cache-control is the real fix).
-      - name: Purge Front Door cache
-        env:
-          SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        run: |
-          az config set extension.dynamic_install_allow_preview=true
-          az extension add --name cdn --allow-preview true --only-show-errors 2>/dev/null || true
-          if az afd endpoint purge \
-            --subscription "$SUBSCRIPTION_ID" \
-            --resource-group shared-rg \
-            --profile-name fd-shared-cdn \
-            --endpoint-name shared-endpoint \
-            --domains varde.variant.dev \
-            --content-paths '/*'; then
-            echo "::notice::Front Door cache purged"
-          else
-            echo "::warning::Front Door cache purge failed — verify role assignment in shared-rg"
-          fi
+      # --- Purge Front Door cache (disabled until service principal has the right permissions) ---
+      # Purges the Front Door CDN cache so edge nodes pick up new content immediately.
+      # Requires CDN Profile Contributor on shared-rg for the varde-cdn-deploy service principal.
+      # To enable:
+      #   1. Have the shared-infrastructure owner grant the role:
+      #        APP_ID=$(az ad app list --display-name "varde-cdn-deploy" --query "[0].appId" -o tsv)
+      #        az role assignment create --assignee "$APP_ID" --role "CDN Profile Contributor" \
+      #          --scope "/subscriptions/<shared-subscription-id>/resourceGroups/shared-rg"
+      #   2. Uncomment the step below.
+      # - name: Purge Front Door cache
+      #   env:
+      #     SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      #   run: |
+      #     az config set extension.dynamic_install_allow_preview=true
+      #     az extension add --name cdn --allow-preview true --only-show-errors 2>/dev/null || true
+      #     az afd endpoint purge \
+      #       --subscription "$SUBSCRIPTION_ID" \
+      #       --resource-group shared-rg \
+      #       --profile-name fd-shared-cdn \
+      #       --endpoint-name shared-endpoint \
+      #       --domains varde.variant.dev \
+      #       --content-paths '/*' \
+      #       && echo "::notice::Front Door cache purged" \
+      #       || echo "::warning::Front Door cache purge failed"
 
       - name: Summary
         run: |

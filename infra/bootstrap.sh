@@ -41,9 +41,6 @@ else
     --output none
 fi
 
-# ---------------------------------------------------------------------------
-# Role assignments — idempotent, Azure ignores duplicate assignments
-# ---------------------------------------------------------------------------
 echo "==> Assigning 'Storage Blob Data Contributor' on '$RESOURCE_GROUP'..."
 az role assignment create \
   --assignee "$APP_ID" \
@@ -51,16 +48,17 @@ az role assignment create \
   --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP}" \
   --output none 2>/dev/null || echo "    (role already assigned)"
 
-# Front Door cache purge (az afd endpoint purge) requires
-# Microsoft.Cdn/profiles/afdEndpoints/purge/action on the shared CDN profile.
-# Contributor on shared-rg is the simplest built-in role that includes this.
-# The shared Front Door lives in shared-rg, managed by shared-infrastructure.
-echo "==> Assigning 'Contributor' on 'shared-rg'..."
-az role assignment create \
-  --assignee "$APP_ID" \
-  --role "Contributor" \
-  --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/shared-rg" \
-  --output none 2>/dev/null || echo "    (role already assigned)"
+# ---------------------------------------------------------------------------
+# Uncomment below to enable Front Door cache purging after docs deploys.
+# Requires the varde-cdn-deploy service principal to have CDN Profile Contributor
+# on the shared-rg resource group (in the shared-infrastructure subscription).
+# ---------------------------------------------------------------------------
+# echo "==> Assigning 'CDN Profile Contributor' on 'shared-rg'..."
+# az role assignment create \
+#   --assignee "$APP_ID" \
+#   --role "CDN Profile Contributor" \
+#   --scope "/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/shared-rg" \
+#   --output none 2>/dev/null || echo "    (role already assigned)"
 
 echo ""
 echo "==== GitHub Actions secrets ===="

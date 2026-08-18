@@ -32,6 +32,10 @@
 }
 
 @layer colors.border {
+  :where(.b-t, .b-r, .b-b, .b-l, .b-all) {
+    border-color: var(--border-default);
+  }
+
   .b-default {
     border-color: var(--border-default);
   }
