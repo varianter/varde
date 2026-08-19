@@ -1,6 +1,8 @@
-/* color-mode {
-  display: contents;
-} */
+@layer color-mode-element {
+  :where(color-mode) {
+    display: contents;
+  }
+}
 
 color-mode,
 color-mode[inverted] {
