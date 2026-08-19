@@ -52,55 +52,60 @@ app.use(
                 }
 
                 body {
+                  --header-height: 4rem;
                   display: grid;
                   min-height: 100svh;
-                  grid-template-columns: 1fr max-content;
-                  grid-auto-rows: max-content;
-                  grid-template-areas: "header nav" "main main";
+                  grid-template-rows: var(--header-height) 1fr;
+                  grid-template-areas:
+                    "header"
+                    "main";
+                  @media (min-width: 768px) {
+                    grid-template-rows: var(--header-height) max-content;
+                    grid-template-columns: 240px 1fr;
+                    grid-template-areas:
+                      "header header"
+                      "nav    main";
+                  }
                 }
 
                 .site-header {
                   grid-area: header;
-                  grid-template-columns: subgrid;
                   display: grid;
+                  align-items: center;
+                  grid-template-columns: auto 1fr;
+                  @media (min-width: 768px) {
+                    grid-template-columns: subgrid;
+                    grid-template-rows: subgrid;
+                  }
                 }
 
                 .site-nav {
-                  grid-area: nav;
-                  border-bottom: 1px solid var(--border-faint);
+                  @media (min-width: 768px) {
+                    border-right: 1px solid var(--border-faint);
+                    display: grid;
+                    grid-template-rows: subgrid;
+                    grid-area: nav;
+                  }
                 }
 
                 .site-main {
                   grid-area: main;
                 }
 
-                #nav-popover{
-                  inset: auto;
-                  top: anchor(bottom);
-                  left: 0;
-                  margin: var(--spacing-l);
-                  width: calc(100% - (var(--spacing-l) * 2));
-                  border: none;
-                  max-height: calc(100dvh - 4rem);
-                  overflow-y: auto;
-                  background: var(--surface-dyed);
+
+                @media (max-width: 767px) {
+                  .site-nav-list {
+                    max-height: 100svh;
+                    overflow-y: scroll;
+                  }
                 }
 
                 @media (min-width: 768px) {
-                  body {
-                    grid-template-columns: 240px 1fr;
-                    grid-template-rows: max-content auto;
-                    grid-template-areas:
-                      "header header"
-                      "nav main";
+                  .site-nav-list {
+                    grid-row: nav;
                   }
 
-                  .site-nav {
-                    border-bottom: none;
-                    border-right: 1px solid var(--border-faint);
-                  }
-
-                  .site-link {
+                  .site-logo {
                     border-right: 1px solid var(--border-faint);
                   }
 
@@ -143,7 +148,7 @@ app.use(
             <header class="site-header stack b-b b-faint px-s-m ">
               <a
                 href="/docs"
-                class="site-link py-xs t-bold gap-xs stack-horizontal inline-flex self-stretch"
+                class="site-logo py-xs t-bold gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
                   src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"
@@ -153,30 +158,39 @@ app.use(
                 />{" "}
                 <span class="fg-default lh-tight">Varde</span>
               </a>
-              <button
-                id="theme-toggle"
-                type="button"
-                class="button"
-                data-size="small"
-                aria-label="Toggle color scheme"
-              >
-                Theme
-              </button>
+              <div class="w-full stack-horizontal gap-xs">
+                <div class="ml-auto gap-2xs stack-horizontal">
+                  <button
+                    id="theme-toggle"
+                    type="button"
+                    class="button"
+                    data-variant="tinted"
+                    data-size="small"
+                    aria-label="Toggle color scheme"
+                  >
+                    Theme
+                  </button>
+                  <button
+                    type="button"
+                    data-size="small"
+                    popovertarget="nav-popover"
+                    class="button menu-toggle"
+                    aria-label="Toggle navigation menu"
+                  >
+                    <span aria-hidden="true">☰</span> Menu
+                  </button>
+                </div>
+              </div>
             </header>
             <nav class="site-nav">
-              <div class="stack justify-center">
-                <button
-                  type="button"
-                  data-size="small"
-                  popovertarget="nav-popover"
-                  class="button menu-toggle mx-xl my-xs"
-                  aria-label="Toggle navigation menu"
-                >
-                  <span aria-hidden="true">☰</span> Menu
-                </button>
-              </div>
-              <div id="nav-popover" popover="auto" class="popover">
-                <div class="px-s-m">
+              <div
+                id="nav-popover"
+                data-type="drawer"
+                data-position="left"
+                popover="auto"
+                class="popover"
+              >
+                <div class="px-s-m bg-surface-base site-nav-list">
                   <NavLinks />
 
                   <div class="site-external-links py-s">
@@ -201,7 +215,7 @@ app.use(
                 </div>
               </div>
             </nav>
-            <main class="site-main">{children}</main>
+            <main class="site-main block">{children}</main>
             {html`<script>
               (function(){function e(){var t=document.documentElement.getAttribute("data-color-scheme");if(t==="dark"||t==="light")return t;return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function n(t){document.documentElement.setAttribute("data-color-scheme",t);document.cookie="theme="+t+";max-age=31536000;path=/;SameSite=Lax"}document.getElementById("theme-toggle").addEventListener("click",function(){var t=e();n(t==="dark"?"light":"dark")})})();
             </script>`}

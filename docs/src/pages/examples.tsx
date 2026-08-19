@@ -172,21 +172,47 @@ function HandbookBox({ color = "green" }) {
   );
 }
 
+function Doodad({ color = "green" }) {
+  return (
+    <color-mode palette={color} inverted class="stack">
+      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s brbl-none brbl-none mb--3xs">
+        <h3 class="lh-tight fs-s">Nøkkelfund</h3>
+      </div>
+      <div class="p-3xs bg-surface-dyed br-m brtl-none brtl-none">
+        <color-mode palette="inherit" class="d-block bg-surface-base br-s p-xs px-s pt-s">
+          <p class="fs-xl t-medium lh-tight fg-emphasis">
+            Mange passasjerer har et informasjonsbehov som ikke dekkes. Dette forer til kødannelse i
+            kritiske deler av flyplassen.
+          </p>
+          <p class="fg-muted fs-s mt-2xs">Fra innsiktsarbeid på Tromsø flyplass</p>
+        </color-mode>
+      </div>
+    </color-mode>
+  );
+}
+
+const palettes = ["grey", "periwinkle", "purple", "blue", "green", "teal", "coral"];
 export default function Examples() {
   return (
     <div class="p-xl">
+      <div class=" m-xl mx-xl stack-horizontal gap-m ">
+        {palettes.map((color) => (
+          <Doodad color={color} />
+        ))}
+      </div>
+
       <div class=" w-full m-xl stack-horizontal gap-m ">
-        {["periwinkle", "purple", "grey"].map((color) => (
+        {palettes.map((color) => (
           <HandbookBox color={color} />
         ))}
       </div>
       <div class=" w-full m-xl stack-horizontal gap-m ">
-        {["periwinkle", "purple", "grey"].map((color) => (
+        {palettes.map((color) => (
           <SmileyBox color={color} />
         ))}
       </div>
       <div style="max-width: 1200px" class=" my-3xl stack gap-m">
-        {["green", "grey", "purple"].map((color) => (
+        {palettes.map((color) => (
           <Events color={color} />
         ))}
       </div>

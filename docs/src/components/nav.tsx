@@ -45,8 +45,6 @@ const sections: NavSection[] = [
   {
     label: "Components",
     items: [
-      { label: "Buttons", path: buttonsPath },
-      { label: "Form Controls", path: formControlsPath },
       { label: "Popover", path: popoverPath },
       { label: "Tables", path: tablesPath },
     ],
@@ -72,7 +70,11 @@ export function NavLinks() {
           <h5 class="fs-xs fg-muted t-bold mb-2xs">{section.label}</h5>
           <ul class="stack gap-3xs">
             {section.items.map((item) => (
-              <a class="fg-default" href={`${base}${item.path}`} key={item.label}>
+              <a
+                class="fg-default fg:hover pl-xs ml--xs br-m bg-wash:hover "
+                href={`${base}${item.path}`}
+                key={item.label}
+              >
                 {item.label}
               </a>
             ))}

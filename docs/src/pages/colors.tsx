@@ -2,6 +2,30 @@ import { DocsPage, ExamplePanel, Section } from "../components/docs";
 
 export const path = "/utilities/colors";
 
+const PALETTES = [
+  "grey",
+  "coral",
+  "blue",
+  "yellow",
+  "green",
+  "orange",
+  "purple",
+  "teal",
+  "periwinkle",
+] as const;
+
+const SURFACES = [
+  { cls: "bg-surface-base", label: "base" },
+  { cls: "bg-surface-tinted", label: "tinted" },
+  { cls: "bg-surface-dyed", label: "dyed" },
+] as const;
+
+const BORDERS = [
+  { cls: "b-faint", label: "faint" },
+  { cls: "b-default", label: "default" },
+  { cls: "b-prominent", label: "prominent" },
+] as const;
+
 function BorderSwatch({ cls, label }: { cls: string; label: string }) {
   return (
     <div class="stack gap-2xs grow" style="min-width: 100px;">
@@ -83,12 +107,57 @@ export default function ColorsPage() {
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack-horizontal gap-m">
-              <BorderSwatch cls="b-faint" label="b-faint" />
-              <BorderSwatch cls="b-default" label="b-default" />
-              <BorderSwatch cls="b-prominent" label="b-prominent" />
+              <BorderSwatch cls="b-faint b:hover" label="b-faint" />
+              <BorderSwatch cls="b-default b:hover" label="b-default" />
+              <BorderSwatch cls="b-prominent b:hover" label="b-prominent" />
             </div>
           </div>
         </ExamplePanel>
+      </Section>
+
+      {/* ════════════════════════════════════════════
+          PALETTE OVERVIEW
+          ════════════════════════════════════════════ */}
+
+      <Section
+        title="Palette overview"
+        description="Border alpha derives from a single --border-base token — the same ratio works across every palette, surface, and mode. Surface lift derives from the per-mode --surface-tint-blend token. Hover any box to see both augmentations."
+      >
+        <div class="stack gap-l">
+          {PALETTES.map((palette) => (
+            <color-mode palette={palette}>
+              <div class="stack gap-2xs">
+                {/* <h4 class="fs-m t-bold fg-emphasis" style="text-transform: capitalize;">
+                  {palette}
+                </h4> */}
+                <div class="stack-horizontal gap-2xs" style="overflow-x: auto;">
+                  {SURFACES.map((surface) => (
+                    <div
+                      class={`${surface.cls}  p-xs br-m stack gap-3xs b-all b-faint b:hover flex-1`}
+                      style="min-width: 160px;"
+                    >
+                      <span class="fs-xs fg-muted">surface: {surface.label}</span>
+                      <div class="stack-horizontal gap-3xs">
+                        {BORDERS.map((border) => (
+                          <div
+                            class={`b-all ${border.cls} b:hover br-s p-3xs`}
+                            style="width: 5rem; height: max-content; "
+                          >
+                            <div class="fs-xs">{border.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div class="bg-wash:hover fg-muted py-3xs px-2xs br-m lh-tight">
+                        bg-wash:hover
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </color-mode>
+          ))}
+        </div>
       </Section>
     </DocsPage>
   );

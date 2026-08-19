@@ -12,125 +12,88 @@ const modes = [
   "periwinkle",
 ] as const;
 
-const lol = [
-  { surface: "dyed", inverted: false },
-  { surface: "base", inverted: false },
-  { surface: "dyed", inverted: true },
-  { surface: "base", inverted: true },
-];
+const navItems = [
+  { label: "Members", meta: "12", icon: "plus" },
+  { label: "Billing", meta: "Invoices", icon: "plus" },
+  { label: "Integrations", meta: "3 active", icon: "plus" },
+] as const;
 
-function DemoCard({ surface, inverted }: (typeof lol)[number]) {
-  const inner = (
-    <div class={`bg-surface-${surface} br-m  p-l stack justify-end typset`}>
-      <div class="stack-horizontal b-all b-default br-s gap-2xs">
-        <p class="b-r b-default px-2xs">
-          <span class="fg-muted">suface:</span> {surface}
-        </p>
-        inverted: {inverted.toString()}
-      </div>
-      <h2 class="mt-3xl">Lønnskalkulator</h2>
-      <p class="fs-m fg-muted">
-        Vi mener lønn bør være enkelt, åpent og forutsigbart. <strong>Derfor</strong> designet vi en
-        transparent lønnsmodell som likestiller alle ansatte.
-      </p>
-      <div class="stack-horizontal gap-xs mt-s">
-        <p class="fg-emphasis">fg-emphasis</p>
-        <p class="fg-default">fg-default</p>
-        <p class="fg-muted">fg-muted</p>
-      </div>
-      <div className="stack-horizontal gap-s mt-xl">
-        <input type="text" class="input flex-1" />
-        <button type="button" class="button" style="width: max-content;">
-          Knapp
-        </button>
-      </div>
-      <div class="stack-horizontal gap-s mt-s">
-        <button type="button" data-variant="outlined" class="button" style="width: 20ch;">
-          Outlined
-        </button>
-        <button type="button" data-variant="plain" class="button" style="width: max-content;">
-          Plain
-        </button>
-        <div class="stack-horizontal gap-s">
-          <input type="checkbox" class="checkbox" name="checkbox-demo" checked />
-          <input type="radio" value="one" class="radio" checked />
-          <input type="radio" value="two" class="radio" />
-        </div>
-      </div>
-    </div>
-  );
-
-  if (inverted) {
-    return <color-mode inverted>{inner}</color-mode>;
-  }
-  return inner;
-}
-
-function ColorModeDemo({ mode }: { mode: string }) {
+/*
+ * One realistic panel, reused for every palette. The enclosing <color-mode
+ * palette="..."> remaps --palette-inherit-* so every token below resolves
+ * against that hue — surfaces, text tiers, borders, control states, and the
+ * button tint/outline all shift together.
+ */
+function WorkspacePanel({ mode }: { mode: string }) {
   return (
-    <color-mode palette={mode} class="stack gap-m p-m br-m  b-default">
-      <h3 class="fs-l t-bold fg-emphasis" style="text-transform: capitalize;">
-        {mode}
-      </h3>
-      <div>
-        <div class="gap-m" style="display: grid; grid-auto-flow: column;">
-          <div class="gap-m" style="display: grid; grid-template-columns: 1fr 1fr ;">
-            {lol.map((item) => (
-              <DemoCard {...item} />
-            ))}
+    <section class="bg-surface-base b-all b-faint br-l stack">
+      <header class="stack px-xs pt-xs pb-xs pt-m">
+        <div class="stack gap-xs">
+          <h3 class="fs-xl t-bold lh-tight" style="text-transform: capitalize;">
+            {mode}
+          </h3>
+        </div>
+        <p class="fs-s fg-muted">Workspace settings — every token below inherits this palette.</p>
+      </header>
+
+      <div class="d-grid gap-2xs">
+        <nav class="b-all b-faint b-r br-m m-2xs of-clip stack">
+          {navItems.map((item, i) => {
+            const selected = i === 0;
+            return (
+              <a
+                href={`#${mode}-${item.label}`}
+                class={
+                  "stack-horizontal items-center gap-s pl-s pr-xs py-xs b-b b-faint b-last-none bg-wash:hover fg-muted" +
+                  (selected ? "" : "")
+                }
+              >
+                <span class="icon fs-xs " data-icon={item.icon} />
+                <span class={"flex-1 fs-s " + (selected ? "t-medium" : "")}>{item.label}</span>
+                <span class="fs-s t-tabular">{item.meta}</span>
+              </a>
+            );
+          })}
+        </nav>
+
+        <form class="stack gap-m px-xs pb-s pt-m bg-surface-tinted br-l">
+          <div class="stack gap-4xs">
+            <label class="fs-s fg-muted" for={`name-${mode}`}>
+              Workspace name
+            </label>
+            <input class="input" type="text" id={`name-${mode}`} value="Variant" />
           </div>
 
-          <div class="p-m stack" style=" width: 40ch;" hidden>
-            <form class="stack gap-m">
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-email">
-                  Email
-                </label>
-                <input
-                  class="input"
-                  type="email"
-                  id="demo-email"
-                  value="not-an-email"
-                  aria-invalid="true"
-                />
-                <p class="fs-s fg-danger-medium">Please enter a valid email address</p>
-              </div>
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-country">
-                  Country
-                </label>
-                <select class="select" id="demo-country">
-                  <option value="">Choose…</option>
-                  <option value="no">Norway</option>
-                  <option value="se">Sweden</option>
-                  <option value="dk">Denmark</option>
-                </select>
-              </div>
-              <div class="stack gap-xs">
-                <label class="fs-s fg-muted" for="demo-message">
-                  Message
-                </label>
-                <textarea
-                  class="textarea"
-                  id="demo-message"
-                  rows={3}
-                  placeholder="Write something…"
-                ></textarea>
-              </div>
-              <div class="stack-horizontal gap-s">
-                <input class="checkbox" type="checkbox" id="demo-terms" />
-                <label class="fs-s" for="demo-terms">
-                  I accept the terms and conditions
-                </label>
-              </div>
-              <button class="button ml-auto px-xl" type="submit">
-                Submit
-              </button>
-            </form>
+          <div class="stack gap-4xs">
+            <label class="fs-s fg-muted" for={`access-${mode}`}>
+              Default access
+            </label>
+            <select class="select" id={`access-${mode}`}>
+              <option value="members">Members only</option>
+              <option value="org">Whole organization</option>
+              <option value="public">Public</option>
+            </select>
           </div>
-        </div>
+
+          <label class="stack-horizontal items-center gap-2xs fs-s bg-surface-dyed p-3xs b-all b-faint br-m">
+            <input class="checkbox" type="checkbox" checked />
+            Allow guests to join
+          </label>
+
+          <div class="stack-horizontal gap-2xs justify-end  mx--xs mb--s p-2xs b-t b-faint">
+            <button type="button" class="button" data-variant="plain">
+              Cancel
+            </button>
+            <button type="button" class="button" data-variant="tinted">
+              Preview
+            </button>
+            <button type="submit" class="button px-l flex-1">
+              Save
+            </button>
+          </div>
+        </form>
       </div>
-    </color-mode>
+    </section>
   );
 }
 
@@ -140,15 +103,25 @@ export default function ColorModesPage() {
       <header class="pt-2xl pb-xl">
         <h2 class="fs-3xl t-bold">Color Modes</h2>
         <p class="fs-l fg-muted mw-7">
-          Every palette shown simultaneously. Each block is scoped with{" "}
-          <code>&lt;color-mode&gt;</code> so semantic tokens resolve against that mode's{" "}
-          <code>--color-N</code> variables.
+          Every palette shown simultaneously. Each panel is scoped with{" "}
+          <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, foregrounds, borders, and
+          control states — resolve against that mode's <code>--color-N</code> variables.
         </p>
       </header>
 
-      <div class="stack gap-l">
+      <div
+        class="gap-l d-grid"
+        style="grid-template-columns: repeat(auto-fill, minmax(660px, 1fr)); grid-auto-rows: max-content;"
+      >
         {modes.map((mode) => (
-          <ColorModeDemo mode={mode} />
+          <div class="stack-horizontal gap-m">
+            <color-mode class="block" palette={mode}>
+              <WorkspacePanel mode={mode} />
+            </color-mode>
+            <color-mode inverted class="block" palette={mode}>
+              <WorkspacePanel mode={mode} />
+            </color-mode>
+          </div>
         ))}
       </div>
     </article>

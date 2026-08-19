@@ -2,9 +2,15 @@
 
 Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respective native HTML elements. Pair with `.form-label` for labels. Size with `data-size` and mark errors with `aria-invalid`.
 
-## Text input
+## .input / .textarea / .select
 
-`.input` on text-like `<input>` elements.
+`data-size` scales height, padding, font size, and border radius proportionally. Medium is the default — omit the attribute for the standard size.
+
+| Attribute   | Values                           |
+| ----------- | -------------------------------- |
+| `data-size` | `"small"`, `"medium"`, `"large"` |
+
+Text-like inputs on `<input>` elements:
 
 ```html
 <div class="stack gap-2xs">
@@ -13,9 +19,7 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 </div>
 ```
 
-## Textarea
-
-`.textarea` on `<textarea>`.
+Textareas on `<textarea>`:
 
 ```html
 <div class="stack gap-2xs">
@@ -29,9 +33,7 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 </div>
 ```
 
-## Select
-
-`.select` on `<select>`. A custom chevron is rendered via `background-image` — no wrapper element or icon needed. Supports `<optgroup>` labels, `<hr>` separators, and disabled `<option>` elements.
+Selects on `<select>`. A custom chevron is rendered via `background-image` — no wrapper element or icon needed. Supports `<optgroup>` labels, `<hr>` separators, and disabled `<option>` elements.
 
 ```html
 <div class="stack gap-2xs">
@@ -45,29 +47,119 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 </div>
 ```
 
-With optgroups and separators:
+### Sizes
+
+All three control types share the same sizing scale:
+
+```html
+<div class="stack-horizontal gap-m">
+  <div class="stack gap-s w-full flex-1">
+    <input class="input" type="text" data-size="small" placeholder="Small" />
+    <input class="input" type="text" placeholder="Medium" />
+    <input class="input" type="text" data-size="large" placeholder="Large" />
+  </div>
+
+  <div class="stack gap-s w-full flex-1">
+    <select class="select" data-size="small">
+      <option>Small</option>
+      <option>Small</option>
+      <option>Small</option>
+    </select>
+    <select class="select">
+      <option>Medium</option>
+      <option>Medium</option>
+      <option>Medium</option>
+    </select>
+    <select class="select" data-size="large">
+      <option>Large</option>
+      <option>Large</option>
+      <option>Large</option>
+    </select>
+  </div>
+
+  <div class="stack gap-s w-full flex-1">
+    <textarea
+      class="textarea"
+      data-size="small"
+      rows="1"
+      placeholder="Small"
+    ></textarea>
+    <textarea class="textarea" rows="1" placeholder="Medium"></textarea>
+    <textarea
+      class="textarea"
+      data-size="large"
+      rows="1"
+      placeholder="Large"
+    ></textarea>
+  </div>
+</div>
+```
+
+Inputs and buttons at matching sizes align naturally in a row:
+
+```html
+<div class="stack gap-xs">
+  <div class="stack-horizontal gap-s">
+    <input
+      class="input grow"
+      type="text"
+      data-size="small"
+      placeholder="Search…"
+    />
+    <button class="button px-l" data-size="small">Go</button>
+  </div>
+
+  <div class="stack-horizontal gap-s">
+    <input
+      class="input grow"
+      type="text"
+      data-size="medium"
+      placeholder="Search…"
+    />
+    <button class="button px-l" data-size="medium">Go</button>
+  </div>
+
+  <div class="stack-horizontal gap-s">
+    <input
+      class="input grow"
+      type="text"
+      data-size="large"
+      placeholder="Search…"
+    />
+    <button class="button px-l" data-size="large">Go</button>
+  </div>
+</div>
+```
+
+### Advanced select
+
+With optgroups and separators. In Chromium-based browsers, the dropdown is fully styled (optgroup labels, checkmarks, hover states). Other browsers get a custom chevron with a native dropdown.
 
 ```html
 <select class="select">
   <option value="">Choose a food</option>
   <hr />
   <optgroup label="Fruit">
+    <legend>Fruit</legend>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
   </optgroup>
   <hr />
   <optgroup label="Vegetables">
+    <legend>Vegetables</legend>
     <option value="artichoke">Artichoke</option>
     <option value="broccoli">Broccoli</option>
   </optgroup>
 </select>
 ```
 
-In Chromium-based browsers, the dropdown itself is fully styled (optgroup labels, checkmarks, hover states). Other browsers get a custom chevron with a native dropdown.
+## .radio / .checkbox
 
-## Checkbox & Radio
+`.checkbox` and `.radio` replace the native appearance with a styled check or dot mark. Checked state fills the mark automatically — no extra classes needed. Always pair with a `<label>`.
 
-`.checkbox` and `.radio` on `<input type="checkbox">` and `<input type="radio">`. The native appearance is replaced with a styled check or dot mark. Checked state fills the mark automatically — no extra classes needed.
+| Attribute   | Values                           |
+| ----------- | -------------------------------- |
+| `data-size` | `"small"`, `"medium"`, `"large"` |
 
 ```html
 <div class="stack-horizontal gap-s">
@@ -87,7 +179,42 @@ In Chromium-based browsers, the dropdown itself is fully styled (optgroup labels
 </div>
 ```
 
-Always pair checkbox and radio inputs with `<label>` elements — the label text is not built into the control.
+### Sizes
+
+Both controls share the same sizing scale:
+
+```html
+<div class="stack gap-xs">
+  <div class="stack-horizontal items-center gap-m">
+    <div class="stack-horizontal gap-2xs">
+      <input class="checkbox" type="checkbox" data-size="small" checked />
+      <label>Small</label>
+    </div>
+    <div class="stack-horizontal gap-2xs">
+      <input class="checkbox" type="checkbox" checked />
+      <label>Medium</label>
+    </div>
+    <div class="stack-horizontal gap-2xs">
+      <input class="checkbox" type="checkbox" data-size="large" checked />
+      <label>Large</label>
+    </div>
+  </div>
+  <div class="stack-horizontal items-center gap-m">
+    <div class="stack-horizontal gap-2xs">
+      <input class="radio" type="radio" name="size" data-size="small" checked />
+      <label>Small</label>
+    </div>
+    <div class="stack-horizontal gap-2xs">
+      <input class="radio" type="radio" name="size" />
+      <label>Medium</label>
+    </div>
+    <div class="stack-horizontal gap-2xs">
+      <input class="radio" type="radio" name="size" data-size="large" />
+      <label>Large</label>
+    </div>
+  </div>
+</div>
+```
 
 ## Labels
 
@@ -97,32 +224,6 @@ Always pair checkbox and radio inputs with `<label>` elements — the label text
 <div class="stack gap-2xs">
   <label class="form-label" for="email">Email</label>
   <input class="input" type="email" id="email" />
-</div>
-```
-
-## Sizes
-
-All controls accept `data-size="small"` and `data-size="large"`. Medium is the default.
-
-```html
-<div class="stack-horizontal gap-s">
-  <input class="input" type="text" data-size="small" placeholder="Small" />
-  <input class="input" type="text" placeholder="Medium" />
-  <input class="input" type="text" data-size="large" placeholder="Large" />
-</div>
-```
-
-Inputs and buttons at matching sizes align naturally in a row:
-
-```html
-<div class="stack-horizontal gap-s">
-  <input
-    class="input grow"
-    type="text"
-    data-size="large"
-    placeholder="Search…"
-  />
-  <button class="button" data-size="large">Go</button>
 </div>
 ```
 

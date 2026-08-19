@@ -5,15 +5,18 @@
 ```html
 <color-mode
   palette="periwinkle"
-  class="block bg-surface-tinted p-xl m--s br-inherit of-clip"
+  class="d-block bg-surface-tinted p-xl m--s br-inherit of-clip"
 >
-  <div class="mb-xl mt-2xl">
-    <p>Velkommen til</p>
+  <color-mode
+    inverted
+    class="bg-surface-dyed d-block br-l mb-xl mt-2xl pb-2xs pt-xs px-s"
+  >
+    <p class="lh-tight">Velkommen til</p>
     <h1 class="fs-4xl t-bold">Variantdag</h1>
-  </div>
+  </color-mode>
 
   <div
-    class="grid gap-column-xl gap-row-m"
+    class="d-grid gap-column-xl gap-row-m"
     style="grid-template-columns: max-content 1fr;"
     stagger-reveal
   >
@@ -101,10 +104,10 @@
 ## KPI
 
 ```html
-<div class="bg-surface-base br-m p-m">
-  <div class="stack-horizontal items-start mb-m ">
+<div class="bg-surface-base br-m py-m px-xl">
+  <div class="stack-horizontal items-start mb-l ">
     <div class="mr-auto">
-      <h3 class="fs-2xl mb-2xs">Finansiell status</h3>
+      <h3 class="fs-2xl">Finansiell status</h3>
       <p class="fs-s fg-muted">Variants KPIs denne vs forrige måned.</p>
     </div>
 
@@ -152,9 +155,13 @@
     </div>
   </div>
 
-  <div class="grid gap-s" style="grid-template-columns: repeat(3, 1fr)">
+  <div
+    class="d-grid gap-s"
+    stagger-reveal
+    style="grid-template-columns: repeat(3, 1fr)"
+  >
     <!-- MRR -->
-    <div>
+    <color-mode palette="green" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">MRR</span>
         <color-mode palette="green">
@@ -180,11 +187,11 @@
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs">350K</div>
-    </div>
+      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">350K</div>
+    </color-mode>
 
     <!-- OpEx -->
-    <div>
+    <color-mode palette="coral" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">OpEx</span>
         <color-mode palette="coral">
@@ -210,11 +217,11 @@
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs">211K</div>
-    </div>
+      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">211K</div>
+    </color-mode>
 
     <!-- CapEx -->
-    <div>
+    <color-mode palette="green" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">CapEx</span>
         <color-mode palette="green">
@@ -240,11 +247,11 @@
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs">94K</div>
-    </div>
+      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">94K</div>
+    </color-mode>
 
     <!-- GPM -->
-    <div>
+    <color-mode palette="coral" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">GPM</span>
         <color-mode palette="coral">
@@ -270,11 +277,11 @@
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs">44.6%</div>
-    </div>
+      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">44.6%</div>
+    </color-mode>
 
     <!-- NPM -->
-    <div>
+    <color-mode palette="green" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">NPM</span>
         <span
@@ -282,11 +289,11 @@
           >0.0%</span
         >
       </div>
-      <div class="fs-3xl t-bold mb-2xs">9.1%</div>
-    </div>
+      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">9.1%</div>
+    </color-mode>
 
     <!-- EBITDA -->
-    <div>
+    <color-mode palette="green" class="d-block">
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">EBITDA</span>
         <color-mode palette="green">
@@ -311,9 +318,9 @@
             4.1%
           </span>
         </color-mode>
+        <div class="fs-3xl t-bold mb-2xs fg-default">443K</div>
       </div>
-      <div class="fs-3xl t-bold mb-2xs">443K</div>
-    </div>
+    </color-mode>
   </div>
 </div>
 ```
@@ -344,7 +351,10 @@
   </div>
 
   <div class="stack gap-xs mb-s">
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-s fg-muted">Order no.</span>
       <span class="fs-s fg-muted">Payment</span>
       <span class="fs-s fg-muted">Fulfillment</span>
@@ -353,7 +363,10 @@
 
     <hr />
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1005</a></span>
       <div>
         <color-mode palette="green">
@@ -374,7 +387,10 @@
       <span class="fs-s t-right">154.60</span>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1004</a></span>
       <div>
         <color-mode palette="green">
@@ -395,7 +411,10 @@
       <span class="fs-s t-right">93.49</span>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1003</a></span>
       <div>
         <color-mode palette="grey">
@@ -416,7 +435,10 @@
       <span class="fs-s t-right">39.00</span>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1002</a></span>
       <div>
         <color-mode palette="orange">
@@ -437,7 +459,10 @@
       <span class="fs-s t-right">438.90</span>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1001</a></span>
       <div>
         <color-mode palette="green">
@@ -458,7 +483,10 @@
       <span class="fs-s t-right">532.64</span>
     </div>
 
-    <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+    <div
+      class="d-grid bg-wash:hover items-center"
+      style="grid-template-columns: repeat(4, 1fr)"
+    >
       <span class="fs-m"><a href="#" class="link fs-s">#1000</a></span>
       <div>
         <color-mode palette="green">
@@ -480,8 +508,8 @@
     </div>
   </div>
 
-  <div class="stack-horizontal justify-end">
-    <button class="button" data-variant="tinted" data-size="small">
+  <div class="stack justify-end mt-l">
+    <button class="button mx-s px-xl" data-variant="tinted" data-size="small">
       Show more
     </button>
   </div>

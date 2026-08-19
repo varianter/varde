@@ -35,40 +35,37 @@ export function PopoverPage() {
             Open dialog
           </button>
           <div id="demo-dialog" class="popover" popover="auto" data-type="dialog" data-backdrop>
-            <div class="stack-horizontal  bg-surface-dyed br-m of-clip shadow-high">
-              <color-mode
-                palette="periwinkle"
-                inverted
-                class="self-stretch p-l bg-surface-dyed stack mw-4"
-              >
-                <h1>:D</h1>
-              </color-mode>
-              <div class="p-l stack gap-m " style="max-width: 360px;">
-                <h2 class="fs-l t-bold">Dialog title</h2>
-                <p>
-                  A centered dialog with a backdrop overlay. Click outside or press Escape to
-                  dismiss.
-                </p>
-                <div class="stack gap-2xs">
-                  <button
-                    type="button"
-                    class="button"
-                    popovertarget="demo-dialog"
-                    popovertargetaction="hide"
-                  >
-                    Kom igang
-                  </button>
-                  <button
-                    type="button"
-                    class="button"
-                    data-variant="tinted"
-                    popovertarget="demo-dialog"
-                    popovertargetaction="hide"
-                  >
-                    Jeg er allrede en Variant
-                  </button>
+            <div class="stack of-clip br-m shadow-high">
+              <color-mode palette="grey" class="bg-surface-tinted ">
+                <div class="px-l-xl pt-l-xl pb-s stack" style="max-width: 560px;">
+                  <h2 class="fs-xl t-bold">Er du en Variant?</h2>
+                  <p class="mt-s">
+                    A centered dialog with a backdrop overlay. Click outside or press Escape to
+                    dismiss.
+                  </p>
+                  <div class="stack gap-2xs mt-xl">
+                    <color-mode class="contents" palette="blue">
+                      <button
+                        type="button"
+                        class="button"
+                        popovertarget="demo-dialog"
+                        popovertargetaction="hide"
+                      >
+                        Kom igang
+                      </button>
+                    </color-mode>
+                    <button
+                      type="button"
+                      class="button"
+                      data-variant="tinted"
+                      popovertarget="demo-dialog"
+                      popovertargetaction="hide"
+                    >
+                      Jeg er allrede en Variant
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </color-mode>
             </div>
           </div>
         </ExamplePanel>

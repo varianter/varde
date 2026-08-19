@@ -10,7 +10,7 @@ export function DocsPage({
   children: Child;
 }) {
   return (
-    <article class="stack gap-2xl mx-auto py-xl px-xl" style="max-width: 1200px;">
+    <article class="stack gap-2xl mx-auto py-xl px-m-l" style="max-width: 1200px;">
       <header class="pt-2xl pb-2xl">
         <div class="stack gap-xs">
           <h2 class="fs-3xl t-bold">{title}</h2>
@@ -46,7 +46,7 @@ export function Section({
 export function ExamplePanel({ children, resize = false }: { children: Child; resize?: boolean }) {
   return (
     <color-mode
-      palette="grey"
+      palette="inherit"
       data-component="ExamplePanel"
       class="stack gap-s bg-surface-tinted p-l br-m of-scroll"
       style={resize ? "resize: horizontal;" : undefined}
