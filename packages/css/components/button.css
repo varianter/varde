@@ -74,7 +74,7 @@
      * holds identical L per step across hues, so these land with the same
      * perceived strength on every color.
      */
-    --_button-tint: color-mix(in oklch, var(--_button-base) 12%, var(--button-tint-blend));
+    --_button-tint: color-mix(in oklch, var(--_button-base) 10%, var(--button-tint-blend));
     --_button-tint-hover: color-mix(in oklch, var(--_button-base) 20%, var(--button-tint-blend));
     --_button-tint-active: color-mix(in oklch, var(--_button-base) 26%, var(--button-tint-blend));
 
@@ -226,12 +226,6 @@
   }
 
   /*
-   * Press feedback is felt, not seen. A 1px nudge is below the perceptual
-   * floor on a 40px control and doesn't grow with data-size; a 3% scale reads
-   * at every size, and scaling takes the label and icons with it.
-   *
-   * Active is one step past hover on the axis each variant already moves on,
-   * so press reads as "more of the same" rather than a new state.
    * Not hover-gated: touch users get press feedback too.
    */
   :where(.button):active {

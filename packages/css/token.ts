@@ -15,12 +15,16 @@ type TokenNode = StepValue | { [key: string]: TokenNode };
 const light = {
   surface: {
     base: { palette: "inherit", default: 50, inverted: 750 },
-    tinted: { palette: "inherit", default: 100, inverted: 500 },
-    dyed: { palette: "inherit", default: 200, inverted: 600 },
+    tinted: { palette: "inherit", default: 100, inverted: 700 },
+    dyed: { palette: "inherit", default: 150, inverted: 600 },
+    // Hover mix target for .bg-surface:hover on surface utilities (see colors.css).
+    // Sits just past dyed on the ramp so a small mix reads as "one step
+    // more dyed"; blends with color-scheme, so no polarity math in the utility.
+    "tint-blend": { palette: "inherit", default: 300, inverted: 600 },
   },
   foreground: {
     default: { palette: "inherit", default: 650, inverted: 100 },
-    emphasis: { palette: "inherit", default: 750, inverted: 50 },
+    emphasis: { palette: "inherit", default: 700, inverted: 50 },
     muted: { palette: "inherit", default: 550, inverted: 200 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
@@ -51,13 +55,11 @@ const light = {
     },
   },
   border: {
-    default: { palette: "inherit", default: 250, inverted: 700 },
-    faint: { palette: "inherit", default: 150, inverted: 750 },
-    prominent: { palette: "inherit", default: 350, inverted: 550 },
+    base: { palette: "inherit", default: 550, inverted: 300 },
     control: {
-      default: { palette: "inherit", default: 250, inverted: 400 },
+      default: { palette: "inherit", default: 250, inverted: 500 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
-      hover: { palette: "inherit", default: 250, inverted: 300 },
+      hover: { palette: "inherit", default: 300, inverted: 400 },
       active: { palette: "periwinkle", default: 700, inverted: 600 },
       selected: { palette: "periwinkle", default: 600, inverted: 600 },
       error: { palette: "coral", default: 400, inverted: 450 },
@@ -67,7 +69,7 @@ const light = {
   backdrop: { palette: "inherit", default: 300, inverted: 300 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 800, inverted: 100 },
-    "tint-blend": { palette: "inherit", default: 150, inverted: 750 },
+    "tint-blend": { palette: "inherit", default: 150, inverted: 700 },
     base: { palette: "inherit", default: 600, inverted: 100 },
     "on-base": { palette: "inherit", default: 50, inverted: 750 },
   },
@@ -78,8 +80,9 @@ const light = {
 const dark = {
   surface: {
     base: { palette: "inherit", default: 850, inverted: 200 },
-    tinted: { palette: "inherit", default: 800, inverted: 500 },
-    dyed: { palette: "inherit", default: 750, inverted: 300 },
+    tinted: { palette: "inherit", default: 800, inverted: 250 },
+    dyed: { palette: "inherit", default: 700, inverted: 300 },
+    "tint-blend": { palette: "inherit", default: 600, inverted: 300 },
   },
   foreground: {
     default: { palette: "inherit", default: 250, inverted: 750 },
@@ -114,9 +117,7 @@ const dark = {
     },
   },
   border: {
-    default: { palette: "inherit", default: 600, inverted: 450 },
-    faint: { palette: "inherit", default: 750, inverted: 350 },
-    prominent: { palette: "inherit", default: 550, inverted: 400 },
+    base: { palette: "inherit", default: 400, inverted: 750 },
     control: {
       default: { palette: "inherit", default: 650, inverted: 400 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
