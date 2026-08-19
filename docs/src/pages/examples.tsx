@@ -71,7 +71,7 @@ function Events({ color = "grey" }) {
 
 function SmileyBox({ color = "green" }) {
   return (
-    <color-mode class="block mw-6" palette={color}>
+    <color-mode class="d-block mw-6" palette={color}>
       <div
         class="p-l bg-surface-dyed stack gap-xl aspect-ratio-1-1"
         style="border-radius: 6rem 6rem .375rem .375rem;"
@@ -195,13 +195,13 @@ const palettes = ["grey", "periwinkle", "purple", "blue", "green", "teal", "cora
 export default function Examples() {
   return (
     <div class="p-xl">
-      <div class=" m-xl mx-xl stack-horizontal gap-m ">
+      <div class=" m-xl mx-xl stack-horizontal gap-m mw-7">
         {palettes.map((color) => (
           <Doodad color={color} />
         ))}
       </div>
 
-      <div class=" w-full m-xl stack-horizontal gap-m ">
+      <div class=" w-full m-xl stack-horizontal gap-m mw-7">
         {palettes.map((color) => (
           <HandbookBox color={color} />
         ))}
