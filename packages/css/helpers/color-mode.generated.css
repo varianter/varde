@@ -5,9 +5,10 @@
 color-mode {
   --surface-base: light-dark(var(--palette-inherit-50), var(--palette-inherit-850));
   --surface-tinted: light-dark(var(--palette-inherit-100), var(--palette-inherit-800));
-  --surface-dyed: light-dark(var(--palette-inherit-200), var(--palette-inherit-750));
+  --surface-dyed: light-dark(var(--palette-inherit-150), var(--palette-inherit-700));
+  --surface-tint-blend: light-dark(var(--palette-inherit-300), var(--palette-inherit-600));
   --foreground-default: light-dark(var(--palette-inherit-650), var(--palette-inherit-250));
-  --foreground-emphasis: light-dark(var(--palette-inherit-750), var(--palette-inherit-100));
+  --foreground-emphasis: light-dark(var(--palette-inherit-700), var(--palette-inherit-100));
   --foreground-muted: light-dark(var(--palette-inherit-550), var(--palette-inherit-350));
   --foreground-marker: light-dark(var(--palette-inherit-600), var(--palette-inherit-200));
   --foreground-link-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
@@ -44,15 +45,13 @@ color-mode {
     var(--palette-periwinkle-500)
   );
   --background-control-error: light-dark(var(--palette-coral-100), var(--palette-coral-100));
-  --border-default: light-dark(var(--palette-inherit-250), var(--palette-inherit-600));
-  --border-faint: light-dark(var(--palette-inherit-150), var(--palette-inherit-750));
-  --border-prominent: light-dark(var(--palette-inherit-350), var(--palette-inherit-550));
+  --border-base: light-dark(var(--palette-inherit-550), var(--palette-inherit-400));
   --border-control-default: light-dark(var(--palette-inherit-250), var(--palette-inherit-650));
   --border-control-focused: light-dark(
     var(--palette-periwinkle-400),
     var(--palette-periwinkle-400)
   );
-  --border-control-hover: light-dark(var(--palette-inherit-250), var(--palette-inherit-600));
+  --border-control-hover: light-dark(var(--palette-inherit-300), var(--palette-inherit-600));
   --border-control-active: light-dark(var(--palette-periwinkle-700), var(--palette-periwinkle-600));
   --border-control-selected: light-dark(
     var(--palette-periwinkle-600),
@@ -70,8 +69,9 @@ color-mode {
 /* ── Inverted ────────────────────────────────────── */
 color-mode[inverted] {
   --surface-base: light-dark(var(--palette-inherit-750), var(--palette-inherit-200));
-  --surface-tinted: light-dark(var(--palette-inherit-500), var(--palette-inherit-500));
+  --surface-tinted: light-dark(var(--palette-inherit-700), var(--palette-inherit-250));
   --surface-dyed: light-dark(var(--palette-inherit-600), var(--palette-inherit-300));
+  --surface-tint-blend: light-dark(var(--palette-inherit-600), var(--palette-inherit-300));
   --foreground-default: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
   --foreground-emphasis: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
   --foreground-muted: light-dark(var(--palette-inherit-200), var(--palette-inherit-750));
@@ -110,15 +110,13 @@ color-mode[inverted] {
     var(--palette-periwinkle-500)
   );
   --background-control-error: light-dark(var(--palette-coral-100), var(--palette-coral-100));
-  --border-default: light-dark(var(--palette-inherit-700), var(--palette-inherit-450));
-  --border-faint: light-dark(var(--palette-inherit-750), var(--palette-inherit-350));
-  --border-prominent: light-dark(var(--palette-inherit-550), var(--palette-inherit-400));
-  --border-control-default: light-dark(var(--palette-inherit-400), var(--palette-inherit-400));
+  --border-base: light-dark(var(--palette-inherit-300), var(--palette-inherit-750));
+  --border-control-default: light-dark(var(--palette-inherit-500), var(--palette-inherit-400));
   --border-control-focused: light-dark(
     var(--palette-periwinkle-400),
     var(--palette-periwinkle-400)
   );
-  --border-control-hover: light-dark(var(--palette-inherit-300), var(--palette-inherit-450));
+  --border-control-hover: light-dark(var(--palette-inherit-400), var(--palette-inherit-450));
   --border-control-active: light-dark(var(--palette-periwinkle-600), var(--palette-periwinkle-700));
   --border-control-selected: light-dark(
     var(--palette-periwinkle-600),
@@ -128,7 +126,7 @@ color-mode[inverted] {
   --shadow: light-dark(var(--palette-inherit-400), var(--palette-inherit-300));
   --backdrop: light-dark(var(--palette-inherit-300), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
-  --button-tint-blend: light-dark(var(--palette-inherit-750), var(--palette-inherit-300));
+  --button-tint-blend: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
   --button-base: light-dark(var(--palette-inherit-100), var(--palette-inherit-700));
   --button-on-base: light-dark(var(--palette-inherit-750), var(--palette-inherit-50));
 }
