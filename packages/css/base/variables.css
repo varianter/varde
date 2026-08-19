@@ -42,15 +42,6 @@
 
   --base-root: 1rem;
 
-  /* Tight, fine-grained control */
-  /* --spacing-3xs: calc(0.125 * var(--base-root));
-  --spacing-2xs: calc(0.25 * var(--base-root));
-  --spacing-xs: calc(0.5 * var(--base-root));
-  --spacing-s: calc(0.75 * var(--base-root));
-  --spacing-m: calc(1 * var(--base-root));
-  --spacing-l: calc(1.5 * var(--base-root));
-  --spacing-xl: calc(2 * var(--base-root)); */
-
   /* Accelerating jumps */
   /* --spacing-2xl: calc(3 * var(--base-root));
   --spacing-3xl: calc(4 * var(--base-root)); */
@@ -114,6 +105,25 @@
   --border-radius-xl: 16px;
   --border-radius-2xl: 24px;
 
+  /* Border alpha — derive border colors from the base token so they
+     blend into their background instead of sitting on top of it. */
+  --border-alpha-faint: 0.15;
+  --border-alpha-default: 0.35;
+  --border-alpha-prominent: 0.52;
+  --border-hover: 0;
+  --border-hover-augment: 0.3;
+
+  /* Surface blend — the mix percentage `.bg-surface:hover` steps toward
+     the per-mode blend token (see colors.css / button.css). Single
+     magnitude; polarity comes from --button-tint-blend, not from the sign
+     here. */
+  --surface-blend: 0%;
+  --surface-blend-augment: 20%;
+
+  --border-faint: oklch(from var(--border-base) l c h / var(--border-alpha-faint));
+  --border-default: oklch(from var(--border-base) l c h / var(--border-alpha-default));
+  --border-prominent: oklch(from var(--border-base) l c h / var(--border-alpha-prominent));
+
   /* Interaction */
   --interaction-radius: 0.65rem;
 
@@ -142,9 +152,13 @@
    SHARED SIZING (Inputs & Buttons)
    ============================================ */
 :root {
-  --size-control-height-small: calc(2.25 * var(--font-size-s)); /* ~32px */
-  --size-control-height-medium: calc(2.5 * var(--font-size-m)); /* 40px */
-  --size-control-height-large: calc(2.5 * var(--font-size-l)); /* ~45px */
+  --size-control-height-small: calc(2 * var(--font-size-m)); /* 32 */
+  --size-control-height-medium: calc(2.5 * var(--font-size-m)); /* 40 */
+  --size-control-height-large: calc(3 * var(--font-size-m)); /* 48 */
+
+  --size-selection-control-small: 1.25em; /* ~20px at base */
+  --size-selection-control-medium: 1.5em; /* ~24px at base */
+  --size-selection-control-large: 1.75em; /* ~28px at base */
 }
 
 /* ============================================

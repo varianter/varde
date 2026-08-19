@@ -26,7 +26,7 @@
     --_input-height: var(--size-control-height-medium);
     --_input-font-size: var(--font-size-m);
     --_input-padding-inline: var(--spacing-xs);
-    --_input-padding-block: var(--spacing-3xs);
+    --_input-padding-block: var(--spacing-4xs);
     --_input-border-radius: var(--border-radius-l);
   }
 
@@ -34,7 +34,7 @@
     --_input-height: var(--size-control-height-small);
     --_input-font-size: var(--font-size-m);
     --_input-padding-inline: var(--spacing-xs);
-    --_input-padding-block: var(--spacing-3xs);
+    --_input-padding-block: var(--spacing-4xs);
     --_input-border-radius: var(--border-radius-m);
   }
 
@@ -42,14 +42,23 @@
     --_input-height: var(--size-control-height-large);
     --_input-font-size: var(--font-size-l);
     --_input-padding-inline: var(--spacing-xs);
-    --_input-padding-block: var(--spacing-3xs);
+    --_input-padding-block: var(--spacing-4xs);
     --_input-border-radius: var(--border-radius-xl);
   }
 
   /* Checkbox & radio sizing */
 
-  :where(.radio, .checkbox) {
-    --_input-height: 1.5em;
+  :where(.radio, .checkbox):not([data-size]),
+  :where(.radio, .checkbox):where([data-size='medium']) {
+    --_input-height: var(--size-selection-control-medium);
+  }
+
+  :where(.radio, .checkbox):where([data-size='small']) {
+    --_input-height: var(--size-selection-control-small);
+  }
+
+  :where(.radio, .checkbox):where([data-size='large']) {
+    --_input-height: var(--size-selection-control-large);
   }
   :where(.textarea) {
     --_input-padding-block: var(--spacing-xs);
@@ -173,6 +182,8 @@
     background-position: calc(100% - var(--_input-padding-inline, 1em));
     background-size: 1.5em;
     background-repeat: no-repeat;
+    position: relative;
+    display: block;
   }
 }
 
@@ -186,7 +197,7 @@
   @supports (appearance: base-select) {
     :where(.select) {
       appearance: base-select;
-      align-items: center;
+      align-content: center;
       min-width: 10rem; /* base-select does not consider the width of it's <options> */
       /* base-select provides its own arrow, remove the manual one */
       background-image: none;
@@ -197,6 +208,10 @@
     :where(.select)::picker-icon {
       color: var(--_input-foreground);
       opacity: 0.6;
+      position: absolute;
+      right: var(--_input-padding-inline);
+      inset-block-start: 50%;
+      translate: 0 -50%;
     }
 
     /*:where(.select) selectedcontent {
@@ -207,7 +222,8 @@
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
     :where(.select)::picker(select) {
       appearance: base-select;
-      background: var(--surface-dyed, var(--input-background));
+      font-size: var(--_input-font-size);
+      background: var(--input-background);
       color: var(--_input-foreground);
       border: 1px solid var(--_input-border);
       border-radius: var(--input-border-radius);
@@ -246,7 +262,7 @@
       padding-block: var(--spacing-4xs);
       padding-inline: var(--spacing-3xs) var(--spacing-xs);
       border-radius: calc(var(--input-border-radius) - 2px);
-      color: var(--foreground-default);
+      color: var(--_input-foreground);
       outline-offset: 0;
     }
 
@@ -272,9 +288,14 @@
     /* Optgroup labels */
     :where(.select) optgroup {
       font-weight: var(--font-weight-medium);
-      font-size: var(--font-size-xs);
       color: var(--foreground-muted, var(--input-placeholder));
       padding-block: var(--spacing-3xs);
+      padding-inline: var(--spacing-3xs) var(--spacing-xs);
+    }
+
+    :where(.select) optgroup legend {
+      font-weight: var(--font-weight-medium);
+      font-size: 0.75em;
     }
 
     /* hr as separator inside the select */
