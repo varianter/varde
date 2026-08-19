@@ -1,7 +1,6 @@
 import { watch } from "node:fs";
 import { exists, mkdir } from "node:fs/promises";
 import { bundleAsync } from "lightningcss";
-import { dark, generateLightDarkBlock, light, validatePaletteConsistency } from "./token";
 
 const ENTRY = `${import.meta.dir}/styles.css`;
 const OUT = "./dist/styles.css";
@@ -14,7 +13,12 @@ async function ensureDir(path: string) {
   }
 }
 
-function generateTokens(): string {
+async function generateTokens(): Promise<string> {
+  // Dynamic import with cache bust to pick up token.ts changes in watch mode
+  const { dark, generateLightDarkBlock, light, validatePaletteConsistency } = await import(
+    `./token.ts?t=${Date.now()}`
+  );
+
   const errors = validatePaletteConsistency();
   if (errors.length > 0) {
     console.error("Token validation errors:");
@@ -54,7 +58,7 @@ async function build() {
   const start = performance.now();
 
   // Step 1: Generate color-mode token CSS
-  const generated = generateTokens();
+  const generated = await generateTokens();
   await Bun.write(GENERATED, generated);
   // Format the generated file so it passes biome
   await Bun.spawn(["bunx", "biome", "format", "--write", GENERATED]);
