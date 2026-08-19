@@ -25,7 +25,7 @@
   }
 
   :where(.fs-xl) {
-    line-height: var(--leading-short);
+    line-height: var(--leading-slim);
   }
   :where(.fs-2xl) {
     line-height: var(--leading-slim);
