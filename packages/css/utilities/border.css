@@ -25,13 +25,16 @@
   .b-first-none:first-child {
     border: 0;
   }
+  .b-hairline {
+    border-width: 0.5px;
+  }
+
+  .b-thick {
+    border-width: 2px;
+  }
 }
 
 @layer border-radius {
-  .br-none {
-    border-radius: 0;
-  }
-
   .br-inherit {
     border-radius: inherit;
   }
@@ -66,5 +69,21 @@
 
   .br-circle {
     border-radius: 50%;
+  }
+
+  .br-none {
+    border-radius: 0;
+  }
+  .brtl-none {
+    border-top-left-radius: 0;
+  }
+  .brtr-none {
+    border-top-right-radius: 0;
+  }
+  .brbl-none {
+    border-bottom-left-radius: 0;
+  }
+  .brbr-none {
+    border-bottom-right-radius: 0;
   }
 }
