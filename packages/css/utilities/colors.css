@@ -1,4 +1,37 @@
+/*
+ * Surface hover mirrors the border trick in colors.border below:
+ * a registered numeric (`--surface-blend`) is folded into the color
+ * expression, and a single `.bg-surface:hover` opt-in flips it on hover.
+ *
+ * The colon is the cue: `bg-surface-*` are value classes (what color),
+ * `bg-surface:hover` is the behavior modifier that steps toward the
+ * blend token (a class named to read as a state, because it is one).
+ *
+ * Polarity is *not* encoded as `l +/-` here — that would push mode logic
+ * into the utility (see button.css: "derivations never encode polarity").
+ * Instead the mix target is the existing per-mode blend token, which
+ * already flips with color-scheme, so hover darkens in light and lightens
+ * in dark with zero mode logic in this file.
+ */
+@property --surface-blend {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
 @layer colors.background {
+  /*
+   * --surface-tint-blend is generated from token.ts (alongside
+   * --surface-base/tinted/dyed) and lives in color-mode.generated.css.
+   * Hover steps --surface-blend toward it; polarity comes from the token,
+   * not from the calc.
+   */
+
+  /*
+   * At rest --surface-blend is 0%, so the mix collapses to the surface token
+   * itself. Hover steps it toward --surface-tint-blend, making the surface
+   * read as one step more dyed.
+   */
   .bg-surface-base {
     background-color: var(--surface-base);
   }
@@ -17,6 +50,26 @@
   }
 }
 
+@layer colors.wash {
+  /* Overlay: place on a child of the surface. Transparent at rest, tints on hover. */
+  .bg-wash\:hover {
+    transition: background-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+
+    /* Gated: on touch, :hover latches after a tap and the wash would stay
+       on long after the finger has left. */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          transparent calc(100% - var(--surface-blend-augment)),
+          var(--surface-tint-blend)
+        );
+      }
+    }
+  }
+}
+
 @layer colors.foreground {
   .fg-default {
     color: var(--foreground-default);
@@ -29,22 +82,57 @@
   .fg-emphasis {
     color: var(--foreground-emphasis);
   }
+
+  /* Adding this as a WIP, if we ever need it
+  .fg\:hover {
+    &:hover {
+      ??
+    }
+  }
+  */
 }
 
 @layer colors.border {
+  @property --border-hover {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
   :where(.b-t, .b-r, .b-b, .b-l, .b-all) {
-    border-color: var(--border-default);
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-default) + var(--border-hover))
+    );
   }
 
   .b-default {
-    border-color: var(--border-default);
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-default) + var(--border-hover))
+    );
   }
 
   .b-faint {
-    border-color: var(--border-faint);
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-faint) + var(--border-hover))
+    );
   }
 
   .b-prominent {
-    border-color: var(--border-prominent);
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-prominent) + var(--border-hover))
+    );
+  }
+
+  .b\:hover {
+    transition: border-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+
+    &:hover {
+      --border-hover: var(--border-hover-augment);
+    }
   }
 }
