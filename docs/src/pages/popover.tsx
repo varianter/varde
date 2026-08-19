@@ -36,7 +36,7 @@ export function PopoverPage() {
           </button>
           <div id="demo-dialog" class="popover" popover="auto" data-type="dialog" data-backdrop>
             <div class="stack of-clip br-m shadow-high">
-              <color-mode palette="grey" class="bg-surface-tinted ">
+              <color-mode palette="grey" class="d-block bg-surface-tinted ">
                 <div class="px-l-xl pt-l-xl pb-s stack" style="max-width: 560px;">
                   <h2 class="fs-xl t-bold">Er du en Variant?</h2>
                   <p class="mt-s">
@@ -95,9 +95,10 @@ export function PopoverPage() {
             class="popover"
             popover="auto"
             data-type="drawer"
+            data-backdrop="true"
             style="width: 320px;"
           >
-            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+            <div class="p-l stack gap-m bg-surface-base shadow-high" style="height: 100%;">
               <h2 class="fs-l t-bold">Right drawer</h2>
               <p>Slides in from the right edge. Width is up to you.</p>
             </div>
@@ -109,9 +110,10 @@ export function PopoverPage() {
             popover="auto"
             data-type="drawer"
             data-position="left"
+            data-backdrop="true"
             style="width: 320px;"
           >
-            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+            <div class="p-l stack gap-m bg-surface-base shadow-high" style="height: 100%;">
               <h2 class="fs-l t-bold">Left drawer</h2>
               <p>Slides in from the left edge.</p>
             </div>
@@ -123,9 +125,10 @@ export function PopoverPage() {
             popover="auto"
             data-type="drawer"
             data-position="bottom"
+            data-backdrop="true"
             style="max-height: 40vh;"
           >
-            <div class="p-l stack gap-m bg-surface-base" style="height: 100%;">
+            <div class="p-l stack gap-m bg-surface-base shadow-high" style="height: 100%;">
               <h2 class="fs-l t-bold">Bottom drawer</h2>
               <p>Slides up from the bottom edge.</p>
             </div>
