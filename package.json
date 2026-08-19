@@ -6,7 +6,7 @@
   "scripts": {
     "build": "bun --filter '*' build",
     "build:docs": "bun --filter '@varde/*' build",
-    "dev": "bun --filter '*' dev",
+    "dev": "bun --filter '@varde/css' dev & bun --filter '@varde/docs' dev & wait",
     "format": "bunx --bun @biomejs/biome format --write",
     "check": "bunx --bun @biomejs/biome check && tsc --noEmit"
   },
