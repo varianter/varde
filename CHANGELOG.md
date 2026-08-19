@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.7.0](https://github.com/varianter/varde/compare/varde-v0.6.1...varde-v0.7.0) (2026-08-19)
+
+
+### Features
+
+* Added .bg-wash:hover ([b81e502](https://github.com/varianter/varde/commit/b81e502c3bcc8a7c6378dc32e3a3e246adaa26a4))
+* added border-radius to remove set 0 on specific ([5816502](https://github.com/varianter/varde/commit/5816502b562b59921ab6f2cf99eee42e3bdcecb4))
+* introducing `.b:hover`. ([a179f50](https://github.com/varianter/varde/commit/a179f505a907e1d7e7fd359062788713bf2de743))
+* Update palette. Tweaked form control size. Added sizes for ([dd4b8ad](https://github.com/varianter/varde/commit/dd4b8ad22d1898ae202a97c60ab4bcf97d8013e4))
+
+
+### Bug Fixes
+
+* `color-mode` is now `display: contents` as a default to avoid it ([74b5fab](https://github.com/varianter/varde/commit/74b5fab38d20b9d4b0268c5d39df027352be023a))
+* Reworked shadows ([77767ab](https://github.com/varianter/varde/commit/77767abd2d3d04ddf19cc3bb74aaffc8c482ba1f))
+* Tweaked line-height for .fs-xl ([23bd196](https://github.com/varianter/varde/commit/23bd196c91af27bf9d3b758ca527903dfbdd3531))
+* Tweaked tokens for buttons ([db925a5](https://github.com/varianter/varde/commit/db925a5775b938e6f86b3808f6cd49b44bb9a407))
+
 ## [0.6.1](https://github.com/varianter/varde/compare/varde-v0.6.0...varde-v0.6.1) (2026-08-11)
 
 
