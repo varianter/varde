@@ -49,7 +49,7 @@ function WorkspacePanel({ mode }: { mode: string }) {
                 }
               >
                 <span class="icon fs-xs " data-icon={item.icon} />
-                <span class={"flex-1 fs-s " + (selected ? "t-medium" : "")}>{item.label}</span>
+                <span class="flex-1 fs-s t-medium">{item.label}</span>
                 <span class="fs-s t-tabular">{item.meta}</span>
               </a>
             );

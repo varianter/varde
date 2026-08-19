@@ -1,9 +1,7 @@
 import { knowledgeFileNames } from "../knowledge";
-import { path as buttonsPath } from "../pages/buttons";
 import { path as colorModesPath } from "../pages/color-modes";
 import { path as colorsPath } from "../pages/colors";
 import { path as colorModesExamplesPath } from "../pages/examples";
-import { path as formControlsPath } from "../pages/form-controls";
 import { path as layoutPath } from "../pages/layout";
 import { path as popoverPath } from "../pages/popover";
 import { path as spacingPath } from "../pages/spacing";

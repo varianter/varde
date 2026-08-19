@@ -8,7 +8,8 @@
     "build:docs": "bun --filter '@varde/*' build",
     "dev": "bun --filter '@varde/css' dev & bun --filter '@varde/docs' dev & wait",
     "format": "bunx --bun @biomejs/biome format --write",
-    "check": "bunx --bun @biomejs/biome check && tsc --noEmit"
+    "check": "bunx --bun @biomejs/biome check && tsc --noEmit",
+    "fix": "bunx --bun @biomejs/biome check --write"
   },
   "workspaces": [
     "packages/*",
