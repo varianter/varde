@@ -68,6 +68,7 @@
 
   :where(.popover[data-backdrop])::backdrop {
     background: oklch(from var(--backdrop) l c h / 0.2);
+    filter: blur(15px);
   }
 }
 
@@ -138,29 +139,29 @@
   :where(.popover[data-type='tooltip']) {
     --_popover-duration-enter: var(
       --popover-duration-enter,
-      var(--interaction-transition-duration-quick)
+      var(--interaction-transition-duration-enter)
     );
   }
 
   :where(.popover[data-type='tooltip']:not([data-position])),
   :where(.popover[data-type='tooltip'][data-position='top']) {
-    --_popover-enter-transform: translateY(-0.25rem) scale(0.94);
-    transform-origin: bottom center;
+    --_popover-enter-transform: translateY(2.25rem) scale(0.95);
+    /* transform-origin: bottom center; */
   }
 
   :where(.popover[data-type='tooltip'][data-position='bottom']) {
-    --_popover-enter-transform: translateY(0.25rem) scale(0.94);
-    transform-origin: top center;
+    --_popover-enter-transform: translateY(-2.25rem) scale(0.95);
+    /* transform-origin: top center; */
   }
 
   :where(.popover[data-type='tooltip'][data-position='left']) {
-    --_popover-enter-transform: translateX(-0.25rem) scale(0.94);
-    transform-origin: right center;
+    --_popover-enter-transform: translateX(2.25rem) scale(0.95);
+    /* transform-origin: right center; */
   }
 
   :where(.popover[data-type='tooltip'][data-position='right']) {
-    --_popover-enter-transform: translateX(0.25rem) scale(0.94);
-    transform-origin: left center;
+    --_popover-enter-transform: translateX(-2.25rem) scale(0.95);
+    /* transform-origin: left center; */
   }
 
   /* --- Drawer --- */

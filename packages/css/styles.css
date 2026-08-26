@@ -10,6 +10,7 @@
 /* Components */
 @import './components/button.css';
 @import './components/form-controls.css';
+@import './components/range.css';
 @import './components/table.css';
 @import './components/spinner.css';
 @import './components/icons.css';
@@ -17,7 +18,7 @@
 
 /* Helpers */
 @import './helpers/typeset.css';
-@import './helpers/stagger-reveal.css';
+@import './helpers/stagger-items.css';
 @import './helpers/color-mode.css';
 @import './helpers/color-mode.generated.css';
 @import './helpers/popover.css';
@@ -34,3 +35,4 @@
 @import './utilities/pile.css';
 @import './utilities/shadow.css';
 @import './utilities/stack.css';
+@import './utilities/align.css';

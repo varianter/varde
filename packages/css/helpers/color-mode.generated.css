@@ -35,7 +35,7 @@ color-mode {
   );
   --foreground-control-error: light-dark(var(--palette-coral-650), var(--palette-coral-150));
   --background-control-default: light-dark(var(--palette-inherit-50), var(--palette-inherit-750));
-  --background-control-hover: light-dark(var(--palette-inherit-50), var(--palette-inherit-700));
+  --background-control-hover: light-dark(var(--palette-inherit-100), var(--palette-inherit-700));
   --background-control-active: light-dark(
     var(--palette-periwinkle-100),
     var(--palette-periwinkle-700)
@@ -58,8 +58,8 @@ color-mode {
     var(--palette-periwinkle-600)
   );
   --border-control-error: light-dark(var(--palette-coral-400), var(--palette-coral-450));
-  --shadow: light-dark(var(--palette-inherit-400), var(--palette-inherit-300));
-  --backdrop: light-dark(var(--palette-inherit-300), var(--palette-inherit-900));
+  --shadow: light-dark(var(--palette-inherit-700), var(--palette-inherit-950));
+  --backdrop: light-dark(var(--palette-inherit-500), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-800), var(--palette-inherit-50));
   --button-tint-blend: light-dark(var(--palette-inherit-150), var(--palette-inherit-850));
   --button-base: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
@@ -123,8 +123,8 @@ color-mode[inverted] {
     var(--palette-periwinkle-600)
   );
   --border-control-error: light-dark(var(--palette-coral-450), var(--palette-coral-400));
-  --shadow: light-dark(var(--palette-inherit-400), var(--palette-inherit-300));
-  --backdrop: light-dark(var(--palette-inherit-300), var(--palette-inherit-900));
+  --shadow: light-dark(var(--palette-inherit-700), var(--palette-inherit-950));
+  --backdrop: light-dark(var(--palette-inherit-500), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
   --button-tint-blend: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
   --button-base: light-dark(var(--palette-inherit-100), var(--palette-inherit-700));

@@ -143,6 +143,10 @@ app.use(
             />
             <title>Varde – Variant design system documentation</title>
             <link rel="stylesheet" href="/docs/styles.css" />
+            {html`<script type="module">
+              import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
+            </script>`}
+            <script type="module"></script>
           </head>
           <body class="fs-m">
             <header class="site-header stack b-b b-faint px-s-m ">

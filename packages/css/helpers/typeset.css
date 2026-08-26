@@ -103,7 +103,7 @@
       font-family: monospace;
       font-size: 0.75em;
       padding: 0.25em 0.35em;
-      border-radius: 2px;
+      border-radius: var(--border-radius-s);
       background-color: var(--background-control-default);
     }
   }

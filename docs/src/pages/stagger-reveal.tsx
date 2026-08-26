@@ -2,14 +2,32 @@ import { DemoBox, DocsPage, Example, ExampleGroup, Section } from "../components
 
 export const path = "/utilities/stagger-reveal";
 
-const items = Array.from({ length: 6 }, (_, i) => i + 1);
+const items = Array.from({ length: 9 }, (_, i) => i + 1);
 
-function StaggerDemo({ speed = "default" }: { speed?: "default" | "slow" | "fast" }) {
+function StaggerDemo({
+  origin = "default",
+}: {
+  origin?: "default" | "outside-in" | "reverse" | "inside-out";
+}) {
   return (
-    <div class="stack gap-xs" data-stagger-demo stagger-reveal={speed}>
-      {items.map((n) => (
-        <DemoBox key={n} label={`Item ${n}`} />
-      ))}
+    <div
+      class="d-grid gap-xs"
+      style="
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;"
+    >
+      <div class="stack gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
+        <div>Soft</div>
+        {items.map((n) => (
+          <DemoBox key={n} label={`Item ${n}`} />
+        ))}
+      </div>
+      <div class="stack gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
+        <div>Hard</div>
+        {items.map((n) => (
+          <DemoBox key={n} label={`Item ${n}`} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -20,37 +38,25 @@ export function StaggerRevealPage() {
       title="Stagger Reveal"
       description="Add stagger-reveal to any container and its direct children fade and lift into place one after another. Where sibling-index() isn't supported they all reveal together, with no delay."
     >
-      <Section
-        title="How it works"
-        description="Each child transitions from an @starting-style, with a transition-delay of --reveal-step per sibling-index(), capped at --reveal-max-delay so long lists don't trail on forever. Children reveal the first time they render, so a child added later reveals on arrival and children already on screen stay put when the list reorders."
-      >
-        <Example
-          label="<div stagger-reveal>"
-          description="default speed — 0.2s duration, 40ms per child, capped at 0.25s"
-        >
+      <Section title="How it works" description="">
+        <Example label="<div stagger-reveal>" description="">
+          {/* <css-var-bind variable="--scale" unit="px" target=":root" strategy="global">
+            <input class="range" type="range" min="0" max="100" value="50" />
+            <input type="number" min="0" max="100" value="50" />
+          </css-var-bind> */}
           <StaggerDemo />
         </Example>
-      </Section>
 
-      <Section
-        title="Speed presets"
-        description="Use stagger-reveal='slow' for gentle entrances, stagger-reveal='fast' for quick ones. Both still defer to the public --reveal-* custom properties if set."
-      >
-        <ExampleGroup>
-          <Example
-            label='stagger-reveal="slow"'
-            description="0.3s duration, 65ms per child, capped at 0.4s"
-          >
-            <StaggerDemo speed="slow" />
-          </Example>
+        <Example label="<div stagger-reveal>" description="">
+          <StaggerDemo origin="outside-in" />
+        </Example>
+        <Example label="<div stagger-reveal>" description="">
+          <StaggerDemo origin="reverse" />
+        </Example>
 
-          <Example
-            label='stagger-reveal="fast"'
-            description="0.15s duration, 30ms per child, capped at 0.18s"
-          >
-            <StaggerDemo speed="fast" />
-          </Example>
-        </ExampleGroup>
+        <Example label="<div stagger-reveal>" description="">
+          <StaggerDemo origin="inside-out" />
+        </Example>
       </Section>
 
       {/* Replay button so the demos above can be re-watched without refreshing. */}

@@ -48,7 +48,7 @@ const light = {
   background: {
     control: {
       default: { palette: "inherit", default: 50, inverted: 750 },
-      hover: { palette: "inherit", default: 50, inverted: 700 },
+      hover: { palette: "inherit", default: 100, inverted: 700 },
       active: { palette: "periwinkle", default: 100, inverted: 700 },
       selection: { palette: "periwinkle", default: 250, inverted: 250 },
       error: { palette: "coral", default: 100, inverted: 100 },
@@ -65,8 +65,8 @@ const light = {
       error: { palette: "coral", default: 400, inverted: 450 },
     },
   },
-  shadow: { palette: "inherit", default: 400, inverted: 400 },
-  backdrop: { palette: "inherit", default: 300, inverted: 300 },
+  shadow: { palette: "inherit", default: 700, inverted: 700 },
+  backdrop: { palette: "inherit", default: 500, inverted: 500 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 800, inverted: 100 },
     "tint-blend": { palette: "inherit", default: 150, inverted: 700 },
@@ -129,7 +129,7 @@ const dark = {
   },
   // Note: Shadows are not used in dark mode, this is only to please the system.
   // See shadow.css
-  shadow: { palette: "inherit", default: 300, inverted: 300 },
+  shadow: { palette: "inherit", default: 950, inverted: 950 },
   backdrop: { palette: "inherit", default: 900, inverted: 900 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 50, inverted: 750 },
