@@ -1,0 +1,63 @@
+/*
+ * Box alignment utilities.
+ * items-* and justify-* set alignment on a container, self-* and justify-self-*
+ * on a single child. justify-self is ignored in flex layouts — main-axis space
+ * there is distributed by justify-content, flex-grow, and auto margins.
+ */
+
+/* Must come after the stack layer so these utilities override stack defaults. */
+@layer stack, align;
+
+@layer align {
+  .items-start {
+    align-items: start;
+  }
+  .items-end {
+    align-items: end;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-stretch {
+    align-items: stretch;
+  }
+
+  .self-start {
+    align-self: start;
+  }
+  .self-end {
+    align-self: end;
+  }
+  .self-center {
+    align-self: center;
+  }
+  .self-stretch {
+    align-self: stretch;
+  }
+
+  .justify-start {
+    justify-content: start;
+  }
+  .justify-end {
+    justify-content: end;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-self-start {
+    justify-self: start;
+  }
+  .justify-self-end {
+    justify-self: end;
+  }
+  .justify-self-center {
+    justify-self: center;
+  }
+  .justify-self-stretch {
+    justify-self: stretch;
+  }
+}

@@ -11,45 +11,6 @@
     flex-direction: row;
   }
 
-  .items-start {
-    align-items: start;
-  }
-  .items-end {
-    align-items: end;
-  }
-  .items-center {
-    align-items: center;
-  }
-  .items-stretch {
-    align-items: stretch;
-  }
-
-  .self-start {
-    align-self: start;
-  }
-  .self-end {
-    align-self: end;
-  }
-  .self-center {
-    align-self: center;
-  }
-  .self-stretch {
-    align-self: stretch;
-  }
-
-  .justify-start {
-    justify-content: start;
-  }
-  .justify-end {
-    justify-content: end;
-  }
-  .justify-center {
-    justify-content: center;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
-
   .grow {
     flex-grow: 1;
   }
