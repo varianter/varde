@@ -39,3 +39,26 @@
 .grid-all-columns {
   grid-column: 1 / -1;
 }
+
+.position-sticky {
+  position: sticky;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  position: fixed;
+}
+
+.top-0 {
+  top: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.left-0 {
+  left: 0;
+}
+.right-0 {
+  right: 0;
+}
