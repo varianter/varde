@@ -1,0 +1,207 @@
+/* ============================================================
+   stagger-list
+
+   Staggered entrance animation for any list-like container.
+   One attribute, space-separated tokens:
+
+     <ul stagger-items>                            default: top to bottom
+     <ul stagger-items="above hard">               falls in, exaggerated
+     <ul stagger-items="start outside-in split">   edges first, fanning out
+
+   Token vocabulary (four independent dimensions, mix freely):
+
+     origin     reverse | inside-out | outside-in       where the wave starts
+     enters from  below | above | start | end | corner  which way items travel
+     intensity  soft | hard                             distance + blur scale
+     polarity   split | converge                        per-item direction flip
+
+   Overriding: the whole library lives in layers, so any unlayered
+   rule of yours wins without a specificity fight.
+
+     .hero-list { --stagger-distance: 40px; --stagger-duration: 600ms; }
+   ============================================================ */
+
+@layer stagger.config, stagger.engine, stagger.variants;
+
+/* ------------------------------------------------------------
+   config — every knob meant to be tuned from the outside.
+   If it isn't here, it's an implementation detail.
+   ------------------------------------------------------------ */
+@layer stagger.config {
+  [stagger-items] {
+    /* timing */
+    --stagger-duration: 460ms;
+    --stagger-time-scale: 1; /* global multiplier: 0.5 = twice as fast */
+    --stagger-lead-in: 20ms; /* dead air before the first item moves */
+    --stagger-budget: 560ms; /* target: last item should start around here */
+    --stagger-step-min: 14ms; /* floor and ceiling for the gap between items */
+    --stagger-step-max: 46ms;
+
+    /* motion */
+    --stagger-angle: 90deg; /* direction items enter FROM (90deg = below) */
+    --stagger-distance: 20px; /* how far the first item travels */
+    --stagger-blur: 3px;
+    --stagger-strength: 1; /* scales distance and blur together */
+
+    --stagger-ease-move: cubic-bezier(0.16, 0.84, 0.24, 1);
+    --stagger-ease-fade: cubic-bezier(0.2, 1.6, 0.35, 1);
+  }
+}
+
+/* ------------------------------------------------------------
+   engine — the per-item math. Nothing here is meant to be
+   overridden directly; variants below work by redefining a
+   handful of named inputs.
+   ------------------------------------------------------------ */
+@layer stagger.engine {
+  /* Registered so sibling-index() arithmetic stays typed as integers. */
+  @property --_index {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 1;
+  }
+  @property --_count {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @keyframes stagger-move {
+    from {
+      translate: calc(var(--_travel) * var(--_axis-x)) calc(var(--_travel) * var(--_axis-y));
+    }
+  }
+
+  @keyframes stagger-fade {
+    from {
+      opacity: 0;
+      filter: blur(calc(var(--stagger-blur) * var(--stagger-strength)));
+    }
+  }
+
+  [stagger-items] > * {
+    /* --- position in the list ------------------------------- */
+    --_index: sibling-index();
+    --_count: sibling-count();
+    --_center: round(nearest, var(--_count) / 2, 1);
+
+    /* --- position relative to the wave's origin --------------
+       --_offset  signed: which side of the origin, and how far
+       --_rank    unsigned: places from the origin; drives delay
+       Origin variants override exactly these two. Nothing else. */
+    --_offset: calc(var(--_index) - 1);
+    --_rank: abs(var(--_offset));
+
+    /* --- when it starts --------------------------------------
+       Normally rank x step. But past --_shoulder items the
+       increment collapses to --_tail-step, so a 40-item list
+       doesn't take four seconds to finish arriving. */
+    --_shoulder: 7;
+    --_tail-step: 6ms;
+    --_step: clamp(
+      var(--stagger-step-min),
+      var(--stagger-budget) /
+      var(--_count),
+      var(--stagger-step-max)
+    );
+    --_delay: calc(
+      var(--stagger-lead-in) +
+      min(
+        var(--_rank) *
+        var(--_step),
+        var(--_shoulder) *
+        var(--_step) +
+        var(--_rank) *
+        var(--_tail-step)
+      )
+    );
+
+    /* --- how far it travels ----------------------------------
+       The wave loses energy: later items move less, never below
+       --_travel-min. Horizontal motion reads as smaller than
+       vertical at the same pixel count, so --_axis-boost widens
+       it (1x straight up/down, 1.6x fully sideways). */
+    --_travel-min: 7px;
+    --_travel-decay: 0.6px;
+    --_axis-boost: calc(1 + abs(cos(var(--stagger-angle))) * 0.6);
+    --_travel: calc(
+      max(var(--_travel-min), var(--stagger-distance) - var(--_rank) * var(--_travel-decay)) *
+      var(--stagger-strength) *
+      var(--_axis-boost)
+    );
+
+    /* --- which way it travels --------------------------------
+       Polarity is per-item, flipped by split / converge. */
+    --_polarity: 1;
+    --_axis-x: calc(cos(var(--stagger-angle)) * var(--_polarity));
+    --_axis-y: calc(sin(var(--stagger-angle)) * var(--_polarity));
+
+    /* --- bind ------------------------------------------------ */
+    --_duration: calc(var(--stagger-duration) * var(--stagger-time-scale));
+    --_start: calc(var(--_delay) * var(--stagger-time-scale));
+
+    animation:
+      stagger-move var(--_duration) var(--stagger-ease-move) var(--_start) backwards,
+      stagger-fade var(--_duration) var(--stagger-ease-fade) var(--_start) backwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [stagger-items] > * {
+      animation: none;
+    }
+  }
+}
+
+/* ------------------------------------------------------------
+   variants — token modifiers. Each one changes as few named
+   inputs as possible; none of them touch the animation itself.
+   ------------------------------------------------------------ */
+@layer stagger.variants {
+  /* origin: which item the wave starts from */
+  [stagger-items~='reverse'] > * {
+    --_offset: calc(var(--_index) - var(--_count));
+  }
+  [stagger-items~='inside-out'] > * {
+    --_offset: calc(var(--_index) - var(--_center));
+  }
+  [stagger-items~='outside-in'] > * {
+    --_offset: calc(var(--_index) - var(--_center));
+    --_rank: calc(var(--_center) - abs(var(--_offset)));
+  }
+
+  /* enters from: the edge items travel in from */
+  [stagger-items~='from-below'] {
+    --stagger-angle: 90deg;
+  }
+  [stagger-items~='from-above'] {
+    --stagger-angle: 270deg;
+  }
+  [stagger-items~='from-left'] {
+    --stagger-angle: 180deg;
+  }
+  [stagger-items~='from-right'] {
+    --stagger-angle: 0deg;
+  }
+  [stagger-items~='corner'] {
+    --stagger-angle: 135deg;
+  }
+
+  /* intensity */
+  [stagger-items~='soft'] {
+    --stagger-strength: 0.6;
+  }
+  [stagger-items~='hard'] {
+    --stagger-strength: 1.5;
+  }
+
+  /* polarity: items on opposite sides of the origin move opposite ways.
+     Note the item sitting exactly on the origin gets sign(0) = 0 and
+     only fades — intentional as a pivot, surprising otherwise. Pair
+     these with inside-out or outside-in. */
+  [stagger-items~='split'] > * {
+    --_polarity: sign(var(--_offset));
+  }
+  [stagger-items~='converge'] > * {
+    --_polarity: calc(sign(var(--_offset)) * -1);
+  }
+}
