@@ -1,5 +1,624 @@
 # Real World Example — Filter Sidebar
 
+Inspiration:
+https://vercel.com/geist/choicebox
+
+This is where JS would come in hand to switch between `palette="blue|grey"` when the radio is selected.
+
+```html
+<div class="stack-horizontal gap-s">
+  <color-mode palette="blue" class="d-block flex-1  br-m  bg-surface-dyed">
+    <label
+      class="stack-horizontal gap-m p-xs bg-wash:hover b-prominent b-all   br-inherit"
+    >
+      <div class="mr-auto">
+        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <p class="fg-muted">Free for two weeks</p>
+      </div>
+      <input type="radio" class="radio" name="trial" checked />
+    </label>
+  </color-mode>
+
+  <color-mode
+    palette="grey"
+    class="d-block flex-1 b-all b-prominent br-m  bg-surface-dyed "
+  >
+    <label class="stack-horizontal gap-m p-xs bg-wash:hover">
+      <div class="mr-auto">
+        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <p class="fg-muted">Free for two weeks</p>
+      </div>
+      <input type="radio" class="radio" name="trial" />
+    </label>
+  </color-mode>
+</div>
+```
+
+## Split buttons
+
+Not sure if it is possible, but here we go!
+https://vercel.com/geist/split-button
+
+Edit: turns out it's somewhat possible. We're using two buttons in a `stack-horizontal nowrap`, when using a
+
+```html
+<div class="stack-horizontal nowrap">
+  <button class="button brtr-none brbr-none px-l">Save</button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<div class="stack-horizontal nowrap">
+  <button data-variant="tinted" class="button brtr-none brbr-none px-l">
+    Save
+  </button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    data-variant="tinted"
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<div class="stack-horizontal nowrap">
+  <button data-variant="outlined" class="button brtr-none brbr-none px-l">
+    Save
+  </button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    data-variant="outlined"
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+<div
+  id="split-button-popover"
+  class="popover"
+  popover="auto"
+  data-type="tooltip"
+  data-position="bottom"
+>
+  <div
+    class="p-3xs b-all bg-surface-base stack br-l mw-4 fs-s m-2xs"
+    stagger-items="from-above"
+  >
+    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+      <h4>Save</h4>
+      <p class="fg-muted">Save charges</p>
+    </div>
+    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+      <h4>Save + Redeploy</h4>
+      <p class="fg-muted">
+        Save changes and create a new production deployment
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+## Nice popovers
+
+This one leverages a popover, a details list, and a form
+
+```html
+<button type="button" class="button" popovertarget="demo-default">
+  Open popover
+</button>
+
+<button class="button" popovertarget="demo-drawer">Open sidebar</button>
+
+<div
+  id="demo-drawer"
+  class="popover"
+  popover="auto"
+  data-type="drawer"
+  data-position="left"
+  style="width: 420px;"
+>
+  <div
+    class="stack nowrap gap-s p-m bg-surface-tinted  of-scroll shadow-high m-s"
+    style="
+      min-height: 100svh;
+      max-height: 100svh;
+  "
+  >
+    <!-- Header -->
+    <div
+      class="position-sticky top-0 shadow-medium  br-m bg-surface-dyed justify-between mx--xs p-2xs px-xs stack-horizontal"
+    >
+      <h1 class="fs-l t-bold fg-emphasis">Filter</h1>
+      <button
+        class="button"
+        data-variant="plain"
+        data-size="small"
+        aria-label="Lukk"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Søk -->
+    <div class="stack gap-2xs my-l">
+      <label class="form-label" for="consultantSearch">Søk etter navn</label>
+      <input
+        class="input"
+        type="text"
+        id="consultantSearch"
+        data-size="large"
+      />
+    </div>
+
+    <!-- Status -->
+    <div class="b-all b-faint bg-surface-base br-l gap-2xs px-xs py-2xs stack">
+      <div class="stack gap-2xs">
+        <div class="stack-horizontal gap-2xs">
+          <label for="Ledig-tid" class="fs-s t-medium flex-1">Ledig tid</label>
+          <input
+            class="checkbox fs-s "
+            data-size="large"
+            type="checkbox"
+            id="Ledig-tid"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Avdeling -->
+    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+      <p class="form-label">Avdeling</p>
+      <div class="stack gap-2xs">
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Bergen" />
+          <label for="Bergen" class="fs-s stack-horizontal flex-1 ">
+            <span class="mr-auto">Bergen</span>
+            <span class="fg-muted">30</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Oslo" />
+          <label for="Oslo" class="fs-s stack-horizontal flex-1 ">
+            <span class="mr-auto">Oslo</span>
+            <span class="fg-muted">30</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Trondheim" />
+          <label for="Trondheim" class="fs-s stack-horizontal flex-1 ">
+            <span class="mr-auto">Trondheim</span>
+            <span class="fg-muted">30</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Stavanger" />
+          <label for="Stavanger" class="fs-s stack-horizontal flex-1 ">
+            <span class="mr-auto">Stavanger</span>
+            <span class="fg-muted">30</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Norge" />
+          <label for="Norge" class="fs-s stack-horizontal flex-1 ">
+            <span class="mr-auto">Norge</span>
+            <span class="fg-muted">30</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rå-år -->
+    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+      <p class="form-label">Rå-år / Antall år erfaring</p>
+      <div class="stack gap-2xs">
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+        >
+          <input class="checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
+          <label
+            for="0-2-Kilimanjaro"
+            class="fs-s stack-horizontal gap-xs flex-1"
+          >
+            <span class="mr-auto">Kilimanjaro</span>
+            <span class="fg-muted">0-2</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+        >
+          <input class="checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
+          <label
+            for="3-4-Mont-Blanc"
+            class="fs-s stack-horizontal gap-xs flex-1"
+          >
+            <span class="mr-auto">Mont Blanc</span>
+            <span class="fg-muted">3-4 </span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+        >
+          <input class="checkbox fs-s" type="checkbox" id="5-7-Denali" />
+          <label for="5-7-Denali" class="fs-s stack-horizontal gap-xs flex-1">
+            <span class="mr-auto">Denali</span>
+            <span class="fg-muted">5-7 </span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+        >
+          <input class="checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
+          <label
+            for="8-11-Cerro-Torre"
+            class="fs-s stack-horizontal gap-xs flex-1"
+          >
+            <span class="mr-auto"> Cerro Torre</span>
+            <span class="fg-muted">8-11</span>
+          </label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+        >
+          <input class="checkbox fs-s" type="checkbox" id="12+-K2" />
+          <label for="12+-K2" class="fs-s stack-horizontal gap-xs flex-1">
+            <span class="mr-auto">K2</span>
+            <span class="fg-muted">12+ </span>
+          </label>
+        </div>
+      </div>
+      <div class="stack gap-3xs mt-s">
+        <div
+          class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
+        >
+          <label class="fs-xs t-medium p-3xs" for="yearsExperienceFrom"
+            >Fra</label
+          >
+          <input
+            class="input mw-2 ml-auto t-right"
+            type="number"
+            data-size="small"
+            id="yearsExperienceFrom"
+          />
+        </div>
+        <div
+          class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
+        >
+          <label class="fs-xs t-medium p-3xs" for="yearsExperienceTo"
+            >Til</label
+          >
+          <input
+            class="input mw-2 ml-auto t-right"
+            type="number"
+            data-size="small"
+            id="yearsExperienceTo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Antall år erfaring -->
+    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+      <p class="form-label">Antall år erfaring</p>
+    </div>
+
+    <!-- Kompetanse -->
+    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+      <p class="form-label">Kompetanse</p>
+      <div class="stack gap-2xs">
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Ledelse" />
+          <label for="Ledelse" class="fs-s">Ledelse</label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Design" />
+          <label for="Design" class="fs-s">Design</label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Utvikling" />
+          <label for="Utvikling" class="fs-s">Utvikling</label>
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input
+            class="checkbox fs-s"
+            type="checkbox"
+            id="Prosjekt--og-produktledelse"
+          />
+          <label for="Prosjekt--og-produktledelse" class="fs-s"
+            >Prosjekt- og produktledelse</label
+          >
+        </div>
+        <div
+          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+        >
+          <input class="checkbox fs-s" type="checkbox" id="Strategi" />
+          <label for="Strategi" class="fs-s">Strategi</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faggruppe -->
+    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+      <details>
+        <summary class="stack-horizontal gap-xs">
+          <h3 class="form-label">Faggruppe</h3>
+          <div class="button ml-auto" data-variant="tinted" data-size="small">
+            Vis
+          </div>
+        </summary>
+
+        <div class="stack gap-2xs py-s">
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id=".NET" />
+            <label for=".NET" class="fs-s">.NET</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="Frontend" />
+            <label for="Frontend" class="fs-s">Frontend</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="JVM" />
+            <label for="JVM" class="fs-s">JVM</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="Plattform" />
+            <label for="Plattform" class="fs-s">Plattform</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="PPP-ledelse" />
+            <label for="PPP-ledelse" class="fs-s">PPP-ledelse</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="Salg" />
+            <label for="Salg" class="fs-s">Salg</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="Tjenestedesign" />
+            <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input
+              class="checkbox fs-s"
+              type="checkbox"
+              id="Strategisk-design"
+            />
+            <label for="Strategisk-design" class="fs-s"
+              >Strategisk design</label
+            >
+          </div>
+          <div
+            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          >
+            <input class="checkbox fs-s" type="checkbox" id="UX-design" />
+            <label for="UX-design" class="fs-s">UX-design</label>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+
+<div
+  id="demo-default"
+  class="popover w-full"
+  data-backdrop
+  popover="auto"
+  style="max-width: 68rem;"
+>
+  <div
+    class="d-block p-l stack bg-surface-tinted br-xl shadow-high"
+    stagger-items="soft"
+  >
+    <div class="stack-horizontal gap-m items-start">
+      <div class="mw-4">
+        <h1 class="lh-tight">Get started with Varde</h1>
+        <p class="fg-muted mt-xs">It's really simple – anyone could do it!</p>
+      </div>
+
+      <div class="shadow-medium flex-1 bg-surface-base br-l of-clip">
+        <div class="px-l-xl py-m b-b b-faint stack">
+          <label class="t-medium mb-3xs">Where is your endpoint?</label>
+          <input
+            value="https://varde.variant.dev/api"
+            type="text"
+            class="input"
+          />
+        </div>
+
+        <div class="px-l-xl py-m b-b b-faint stack">
+          <label class="t-medium mb-3xs">Your repo</label>
+          <input
+            value="https://varde.variant.dev/api"
+            type="text"
+            class="input"
+          />
+        </div>
+
+        <color-mode
+          palette="periwinkle"
+          class="d-block px-l-xl py-m bg-surface-dyed"
+        >
+          <details>
+            <summary class="t-medium stack-horizontal">
+              <p class="mr-auto">Not yet ready to implement?</p>
+              <div
+                type="button"
+                data-variant="tinted"
+                data-size="small"
+                class="button"
+              >
+                Tell me more
+              </div>
+            </summary>
+            <div class="typeset py-s">
+              <p class="t-medium">
+                Get started and try Varde by following these steps
+              </p>
+              <ol>
+                <li>Link to</li>
+                <li>Run prompt <code>???</code></li>
+                <li>Profit</li>
+              </ol>
+              <p>
+                For more details see
+                <a href="https://varde.variant.dev/docs">Varde docs</a>
+              </p>
+            </div>
+          </details>
+        </color-mode>
+      </div>
+    </div>
+    <div class="stack-horizontal mt-l">
+      <button
+        type="button"
+        class="button mr-auto"
+        data-variant="tinted"
+        popovertargetaction="hide"
+        popovertarget="demo-default"
+      >
+        Cancel
+      </button>
+      <button type="button" class="button">Go, go, go!</button>
+    </div>
+  </div>
+</div>
+```
+
+## Chips
+
+This one utilizes an escape hatch
+
+```html
+<div class="stack-horizontal gap-xs">
+  <button
+    type="button"
+    class="button br-pill"
+    data-size="small"
+    data-variant="outlined"
+  >
+    Trondheim
+  </button>
+  <button
+    type="button"
+    class="button br-pill"
+    data-size="small"
+    data-variant="outlined"
+  >
+    Oslo
+  </button>
+  <color-mode inverted>
+    <button
+      type="button"
+      class="button br-pill"
+      data-size="small"
+      data-variant="tinted"
+    >
+      Bergen
+    </button>
+  </color-mode>
+  <button
+    type="button"
+    class="button br-pill"
+    data-size="small"
+    data-variant="outlined"
+  >
+    Stavanger
+  </button>
+</div>
+```
+
 ## Time slots
 
 ```html
@@ -514,228 +1133,4 @@
     </button>
   </div>
 </div>
-```
-
-## A sidebar
-
-```html
-<button class="button" popovertarget="demo-drawer">Open sidebar</button>
-  <div
-    id="demo-drawer"
-    class="popover"
-    popover="auto"
-    data-type="drawer"
-    data-position="left"
-    style="width: 420px;"
-  >
-    <div class="stack gap-l p-m bg-surface-base br-m of-scroll shadow-high">
-      <!-- Header -->
-      <div class="stack-horizontal justify-between">
-        <h1 class="fs-l t-bold fg-emphasis">Filter</h1>
-        <button
-          class="button"
-          data-variant="plain"
-          data-size="small"
-          aria-label="Lukk"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Søk -->
-      <div class="stack gap-2xs">
-        <label class="form-label" for="consultantSearch">Søk</label>
-        <input
-          class="input"
-          type="text"
-          id="consultantSearch"
-          placeholder="Søk etter konsulent"
-        />
-      </div>
-
-      <!-- Status -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Status</p>
-        <div class="stack gap-2xs">
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Ledig-tid" />
-            <label for="Ledig-tid" class="fs-s">Ledig tid</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Avdeling -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Avdeling</p>
-        <div class="stack gap-2xs">
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Bergen" />
-            <label for="Bergen" class="fs-s">Bergen</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Oslo" />
-            <label for="Oslo" class="fs-s">Oslo</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Trondheim" />
-            <label for="Trondheim" class="fs-s">Trondheim</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Stavanger" />
-            <label for="Stavanger" class="fs-s">Stavanger</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Norge" />
-            <label for="Norge" class="fs-s">Norge</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Rå-år -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Rå-år</p>
-        <div class="stack gap-2xs">
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
-            <label for="0-2-Kilimanjaro" class="fs-s">0-2 Kilimanjaro</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
-            <label for="3-4-Mont-Blanc" class="fs-s">3-4 Mont Blanc</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="5-7-Denali" />
-            <label for="5-7-Denali" class="fs-s">5-7 Denali</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
-            <label for="8-11-Cerro-Torre" class="fs-s">8-11 Cerro Torre</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="12+-K2" />
-            <label for="12+-K2" class="fs-s">12+ K2</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Antall år erfaring -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Antall år erfaring</p>
-        <div class="stack-horizontal gap-s">
-          <div class="stack gap-2xs flex-1">
-            <label class="form-label" for="yearsExperienceFrom">Fra</label>
-            <input
-
-              class="input w-full"
-              type="number"
-              data-size="small"
-              id="yearsExperienceFrom"
-            />
-          </div>
-          <div class="stack gap-2xs flex-1">
-            <label class="form-label" for="yearsExperienceTo">Til</label>
-            <input
-
-              class="input w-full"
-              type="number"
-              data-size="small"
-              id="yearsExperienceTo"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Kompetanse -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Kompetanse</p>
-        <div class="stack gap-2xs">
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Ledelse" />
-            <label for="Ledelse" class="fs-s">Ledelse</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Design" />
-            <label for="Design" class="fs-s">Design</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Utvikling" />
-            <label for="Utvikling" class="fs-s">Utvikling</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input
-              class="checkbox fs-s"
-              type="checkbox"
-              id="Prosjekt--og-produktledelse"
-            />
-            <label for="Prosjekt--og-produktledelse" class="fs-s"
-              >Prosjekt- og produktledelse</label
-            >
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Strategi" />
-            <label for="Strategi" class="fs-s">Strategi</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Faggruppe -->
-      <div class="stack gap-2xs">
-        <p class="form-label">Faggruppe</p>
-        <div class="stack gap-2xs">
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id=".NET" />
-            <label for=".NET" class="fs-s">.NET</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Frontend" />
-            <label for="Frontend" class="fs-s">Frontend</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="JVM" />
-            <label for="JVM" class="fs-s">JVM</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Plattform" />
-            <label for="Plattform" class="fs-s">Plattform</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="PPP-ledelse" />
-            <label for="PPP-ledelse" class="fs-s">PPP-ledelse</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Salg" />
-            <label for="Salg" class="fs-s">Salg</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Tjenestedesign" />
-            <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="Strategisk-design" />
-            <label for="Strategisk-design" class="fs-s"
-              >Strategisk design</label
-            >
-          </div>
-          <div class="stack-horizontal gap-2xs">
-            <input class="checkbox fs-s" type="checkbox" id="UX-design" />
-            <label for="UX-design" class="fs-s">UX-design</label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</button>
 ```

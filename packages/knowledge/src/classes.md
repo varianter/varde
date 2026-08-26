@@ -13,24 +13,24 @@ From smallest to largest. `m` equals `1rem`.
 
 ```html
 <!-- column, top-aligned -->
-<div class="stack gap-m" />
+<div class="stack gap-m"></div>
 
 <!-- row, vertically centered -->
-<div class="stack-horizontal gap-s" />
+<div class="stack-horizontal gap-s"></div>
 
 <!-- row, aligned to top -->
-<div class="stack-horizontal items-start gap-s" />
+<div class="stack-horizontal items-start gap-s"></div>
 
 <!-- row, aligned to bottom -->
-<div class="stack-horizontal items-end gap-s" />
+<div class="stack-horizontal items-end gap-s"></div>
 
 <!-- row, children stretch full height -->
-<div class="stack-horizontal items-stretch" />
+<div class="stack-horizontal items-stretch"></div>
 ```
 
-Flex modifiers: `.grow` `.shrink` `.flex-1` `.justify-between` `.justify-start` `.justify-end` `.justify-center` `.nowrap` `.inline-flex`
+Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.inline-flex`
 
-Child modifier: `.self-stretch` (makes a single child stretch to fill the cross axis)
+Alignment: `.items-start|end|center|stretch` and `.justify-start|end|center|between` on the container; `.self-start|end|center|stretch` on a single child. `.justify-self-start|end|center|stretch` positions one child on the main axis in grid layouts (no effect in flex).
 
 ---
 
@@ -50,6 +50,8 @@ Child modifier: `.self-stretch` (makes a single child stretch to fill the cross 
 
 Negative margins: `mt--s` `ml--m` etc.
 
+When they overlap, the more specific utility always wins, regardless of class order: single side (`pt-`) beats axis (`px-`), which beats all sides (`p-`).
+
 **Gap** — for flex/grid containers:
 
 ```html
@@ -63,34 +65,36 @@ Negative margins: `mt--s` `ml--m` etc.
 ## Typography
 
 ```html
-<span class="fs-xs" />
-<span class="fs-s" />
+<div class="stack gap-xs">
+  <span class="fs-xs">fs-xs</span>
+  <span class="fs-s">fs-s</span>
 
-<!-- this is default and is set at html element. -->
-<span class="fs-m" />
-<span class="fs-l" />
-<span class="fs-xl" />
-<span class="fs-2xl" />
-<span class="fs-3xl" />
-<span class="fs-4xl" />
+  <!-- this is default and is set at html element. -->
+  <span class="fs-m">fs-m</span>
+  <span class="fs-l">fs-l</span>
+  <span class="fs-xl">fs-xl</span>
+  <span class="fs-2xl">fs-2xl</span>
+  <span class="fs-3xl">fs-3xl</span>
+  <span class="fs-4xl">fs-4xl</span>
 
-<!-- font-weight: 400 -->
-<span class="t-regular" />
+  <!-- font-weight: 400 -->
+  <span class="t-regular">t-regular</span>
 
-<!-- font-weight: 500 -->
-<span class="t-medium" />
+  <!-- font-weight: 500 -->
+  <span class="t-medium">t-medium</span>
 
-<!-- font-weight: 600 -->
-<span class="t-bold" />
+  <!-- font-weight: 600 -->
+  <span class="t-bold">t-bold</span>
 
-<span class="t-left" />
-<span class="t-center" />
-<span class="t-right" />
-<span class="t-uppercase" />
+  <span class="t-left">t-left</span>
+  <span class="t-center">t-center</span>
+  <span class="t-right">t-right</span>
+  <span class="t-uppercase">t-uppercase</span>
 
-<span class="lh-tight" />
-<span class="lh-normal" />
-<span class="lh-relaxed" />
+  <span class="lh-tight">lh-tight</span>
+  <span class="lh-normal">lh-normal</span>
+  <span class="lh-relaxed">lh-relaxed</span>
+</div>
 ```
 
 ---
@@ -106,14 +110,9 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 
 ```html
 <!-- Surfaces -->
-<div class="bg-surface-base" />
-<div class="bg-surface-tinted" />
-<div class="bg-surface-dyed" />
-
-<!-- Intent backgrounds -->
-<div class="bg-danger-subtle" />
-<div class="bg-success-medium" />
-<div class="bg-brand-strong" />
+<div class="bg-surface-base"></div>
+<div class="bg-surface-tinted"></div>
+<div class="bg-surface-dyed"></div>
 ```
 
 **Text (foreground):**

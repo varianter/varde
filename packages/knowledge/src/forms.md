@@ -106,7 +106,7 @@ Inputs and buttons at matching sizes align naturally in a row:
       data-size="small"
       placeholder="Search…"
     />
-    <button class="button px-l" data-size="small">Go</button>
+    <button class="button " data-size="small">Go</button>
   </div>
 
   <div class="stack-horizontal gap-s">
@@ -116,7 +116,7 @@ Inputs and buttons at matching sizes align naturally in a row:
       data-size="medium"
       placeholder="Search…"
     />
-    <button class="button px-l" data-size="medium">Go</button>
+    <button class="button " data-size="medium">Go</button>
   </div>
 
   <div class="stack-horizontal gap-s">
@@ -126,7 +126,7 @@ Inputs and buttons at matching sizes align naturally in a row:
       data-size="large"
       placeholder="Search…"
     />
-    <button class="button px-l" data-size="large">Go</button>
+    <button class="button " data-size="large">Go</button>
   </div>
 </div>
 ```
