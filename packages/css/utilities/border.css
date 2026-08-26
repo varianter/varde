@@ -19,6 +19,20 @@
     border-style: solid;
     border-width: 1px;
   }
+
+  .b-t-none{
+    border-right: 0;
+  }
+  .b-r-none{
+    border-right: 0;
+  }
+  .b-l-none{
+    border-left: 0;
+  }
+  .b-b-none{
+    border-right: 0;
+  }
+
   .b-last-none:last-child {
     border: 0;
   }
