@@ -17,9 +17,9 @@ async function getHighlighter(): Promise<Highlighter> {
 function wrapCodeExample(rawHtml: string, highlightedPre: string): string {
   return [
     `<div class="b-all b-faint br-m mt-m mb-xl of-clip">`,
-    `<color-mode palette="inherit" class="d-block code-example__preview p-s bg-surface-tinted untypeset">${rawHtml}</color-mode>`,
-    `<details class="b-t b-faint">`,
-    `<summary class="px-s py-2xs my-xs mx-xs button" data-size='small' data-variant='outlined'><div class="">Show code</div></summary>`,
+    `<color-mode palette="inherit" class="d-block code-example__preview p-s bg-surface-base untypeset">${rawHtml}</color-mode>`,
+    `<details class="b-t b-faint bg-surface-tinted">`,
+    `<summary class="px-s py-2xs my-xs mx-xs  button" data-size='small' data-variant='outlined'><div class="">Show code</div></summary>`,
     `<div class="px-s">`,
     highlightedPre,
     `</div>`,
