@@ -1,4 +1,4 @@
-import { DemoBox, DocsPage, Example, ExampleGroup, Section } from "../components/docs";
+import { DemoBox, DocsPage, Example, Section } from "../components/docs";
 
 export const path = "/utilities/stagger-reveal";
 
