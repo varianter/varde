@@ -12,11 +12,11 @@
 @layer variables.font-sizes {
   :root {
     /* ---- Tuning knobs ---- */
-    --vw-min: 320;      /* px, unitless */
-    --vw-max: 1240;     /* px, unitless */
+    --vw-min: 320; /* px, unitless */
+    --vw-max: 1240; /* px, unitless */
 
-    --base-min: 1;      /* rem at --vw-min */
-    --base-max: 1.35;   /* rem at --vw-max */
+    --base-min: 1; /* rem at --vw-min */
+    --base-max: 1.35; /* rem at --vw-max */
 
     --ratio-min: 1.2; /* scale ratio at small screens */
     --ratio-max: 1.25; /* scale ratio at large screens */
@@ -36,9 +36,15 @@
     --_xs-slope: calc((var(--_xs-max) - var(--_xs-min)) / var(--vw-range));
     --_xs-intercept: calc(var(--_xs-min) - var(--_xs-slope) * var(--_vw-min-rem));
     --font-size-xs-clamp: clamp(
-      var(--_xs-min) * 1rem,
-      var(--_xs-intercept) * 1rem + var(--_xs-slope) * 100 * 1vw,
-      var(--_xs-max) * 1rem
+      var(--_xs-min) *
+      1rem,
+      var(--_xs-intercept) *
+      1rem +
+      var(--_xs-slope) *
+      100 *
+      1vw,
+      var(--_xs-max) *
+      1rem
     );
     --font-size-xs: round(down, var(--font-size-xs-clamp), 1px);
 
@@ -48,9 +54,15 @@
     --_s-slope: calc((var(--_s-max) - var(--_s-min)) / var(--vw-range));
     --_s-intercept: calc(var(--_s-min) - var(--_s-slope) * var(--_vw-min-rem));
     --font-size-s-clamp: clamp(
-      var(--_s-min) * 1rem,
-      var(--_s-intercept) * 1rem + var(--_s-slope) * 100 * 1vw,
-      var(--_s-max) * 1rem
+      var(--_s-min) *
+      1rem,
+      var(--_s-intercept) *
+      1rem +
+      var(--_s-slope) *
+      100 *
+      1vw,
+      var(--_s-max) *
+      1rem
     );
     --font-size-s: round(down, var(--font-size-s-clamp), 1px);
 
@@ -60,9 +72,15 @@
     --_base-slope: calc((var(--_base-max) - var(--_base-min)) / var(--vw-range));
     --_base-intercept: calc(var(--_base-min) - var(--_base-slope) * var(--_vw-min-rem));
     --font-size-m-clamp: clamp(
-      var(--_base-min) * 1rem,
-      var(--_base-intercept) * 1rem + var(--_base-slope) * 100 * 1vw,
-      var(--_base-max) * 1rem
+      var(--_base-min) *
+      1rem,
+      var(--_base-intercept) *
+      1rem +
+      var(--_base-slope) *
+      100 *
+      1vw,
+      var(--_base-max) *
+      1rem
     );
     --font-size-m: round(down, var(--font-size-m-clamp), 1px);
     --font-size-base: var(--font-size-m);
@@ -73,9 +91,15 @@
     --_l-slope: calc((var(--_l-max) - var(--_l-min)) / var(--vw-range));
     --_l-intercept: calc(var(--_l-min) - var(--_l-slope) * var(--_vw-min-rem));
     --font-size-l-clamp: clamp(
-      var(--_l-min) * 1rem,
-      var(--_l-intercept) * 1rem + var(--_l-slope) * 100 * 1vw,
-      var(--_l-max) * 1rem
+      var(--_l-min) *
+      1rem,
+      var(--_l-intercept) *
+      1rem +
+      var(--_l-slope) *
+      100 *
+      1vw,
+      var(--_l-max) *
+      1rem
     );
     --font-size-l: round(down, var(--font-size-l-clamp), 1px);
 
@@ -85,9 +109,15 @@
     --_xl-slope: calc((var(--_xl-max) - var(--_xl-min)) / var(--vw-range));
     --_xl-intercept: calc(var(--_xl-min) - var(--_xl-slope) * var(--_vw-min-rem));
     --font-size-xl-clamp: clamp(
-      var(--_xl-min) * 1rem,
-      var(--_xl-intercept) * 1rem + var(--_xl-slope) * 100 * 1vw,
-      var(--_xl-max) * 1rem
+      var(--_xl-min) *
+      1rem,
+      var(--_xl-intercept) *
+      1rem +
+      var(--_xl-slope) *
+      100 *
+      1vw,
+      var(--_xl-max) *
+      1rem
     );
     --font-size-xl: round(down, var(--font-size-xl-clamp), 1px);
 
@@ -97,9 +127,15 @@
     --_2xl-slope: calc((var(--_2xl-max) - var(--_2xl-min)) / var(--vw-range));
     --_2xl-intercept: calc(var(--_2xl-min) - var(--_2xl-slope) * var(--_vw-min-rem));
     --font-size-2xl-clamp: clamp(
-      var(--_2xl-min) * 1rem,
-      var(--_2xl-intercept) * 1rem + var(--_2xl-slope) * 100 * 1vw,
-      var(--_2xl-max) * 1rem
+      var(--_2xl-min) *
+      1rem,
+      var(--_2xl-intercept) *
+      1rem +
+      var(--_2xl-slope) *
+      100 *
+      1vw,
+      var(--_2xl-max) *
+      1rem
     );
     --font-size-2xl: round(down, var(--font-size-2xl-clamp), 1px);
 
@@ -109,9 +145,15 @@
     --_3xl-slope: calc((var(--_3xl-max) - var(--_3xl-min)) / var(--vw-range));
     --_3xl-intercept: calc(var(--_3xl-min) - var(--_3xl-slope) * var(--_vw-min-rem));
     --font-size-3xl-clamp: clamp(
-      var(--_3xl-min) * 1rem,
-      var(--_3xl-intercept) * 1rem + var(--_3xl-slope) * 100 * 1vw,
-      var(--_3xl-max) * 1rem
+      var(--_3xl-min) *
+      1rem,
+      var(--_3xl-intercept) *
+      1rem +
+      var(--_3xl-slope) *
+      100 *
+      1vw,
+      var(--_3xl-max) *
+      1rem
     );
     --font-size-3xl: round(down, var(--font-size-3xl-clamp), 1px);
 
@@ -121,9 +163,15 @@
     --_4xl-slope: calc((var(--_4xl-max) - var(--_4xl-min)) / var(--vw-range));
     --_4xl-intercept: calc(var(--_4xl-min) - var(--_4xl-slope) * var(--_vw-min-rem));
     --font-size-4xl-clamp: clamp(
-      var(--_4xl-min) * 1rem,
-      var(--_4xl-intercept) * 1rem + var(--_4xl-slope) * 100 * 1vw,
-      var(--_4xl-max) * 1rem
+      var(--_4xl-min) *
+      1rem,
+      var(--_4xl-intercept) *
+      1rem +
+      var(--_4xl-slope) *
+      100 *
+      1vw,
+      var(--_4xl-max) *
+      1rem
     );
     --font-size-4xl: round(down, var(--font-size-4xl-clamp), 1px);
   }
