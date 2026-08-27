@@ -16,7 +16,7 @@
       "recommended": true,
       "a11y": {
         "useButtonType": "off",
-        "useValidAnchor": "warn"
+        "useValidAnchor": "off"
       }
     }
   },
