@@ -1,5 +1,455 @@
 # Real World Example — Filter Sidebar
 
+# Pretty fjes
+
+```html
+<style>
+  @property --pf-gaze-x {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+  @property --pf-gaze-y {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+  }
+
+  @keyframes pf-gaze {
+    0%,
+    7% {
+      --pf-gaze-x: 0;
+      --pf-gaze-y: 0;
+    }
+    15%,
+    29% {
+      --pf-gaze-x: -1;
+      --pf-gaze-y: -0.2;
+    }
+    37%,
+    49% {
+      --pf-gaze-x: 0.9;
+      --pf-gaze-y: -0.6;
+    }
+    57%,
+    68% {
+      --pf-gaze-x: 0.6;
+      --pf-gaze-y: 0.9;
+    }
+    77%,
+    87% {
+      --pf-gaze-x: -0.5;
+      --pf-gaze-y: 0.45;
+    }
+    95%,
+    100% {
+      --pf-gaze-x: 0;
+      --pf-gaze-y: 0;
+    }
+  }
+
+  @keyframes pf-eyes-open {
+    0%,
+    92.5% {
+      opacity: 1;
+    }
+    93%,
+    96% {
+      opacity: 0;
+    }
+    96.5% {
+      opacity: 1;
+    }
+  }
+  @keyframes pf-eyes-shut {
+    0%,
+    92.5% {
+      opacity: 0;
+    }
+    93%,
+    96% {
+      opacity: 1;
+    }
+    96.5% {
+      opacity: 0;
+    }
+  }
+
+  @scope (.pf-face) {
+    :scope {
+      animation: pf-gaze 12s cubic-bezier(0.25, 1, 0.4, 1) infinite;
+    }
+
+    .pf-turn,
+    .pf-layer {
+      transform-box: view-box;
+    }
+
+    .pf-turn {
+      transform-origin: 39px 39px;
+      transform: rotate(calc(var(--pf-gaze-x) * 2.5deg))
+        scaleX(calc(1 - max(var(--pf-gaze-x), var(--pf-gaze-x) * -1) * 0.045));
+    }
+
+    .pf-layer {
+      transform: translate(
+        calc(var(--pf-gaze-x) * var(--pf-depth) * 1px),
+        calc(var(--pf-gaze-y) * var(--pf-depth) * 0.6px)
+      );
+    }
+
+    .pf-back {
+      --pf-depth: 1;
+    }
+    .pf-mid {
+      --pf-depth: 2.6;
+    }
+    .pf-front {
+      --pf-depth: 4.2;
+    }
+
+    .pf-eyes-open {
+      animation: pf-eyes-open 3.7s steps(1, end) infinite;
+    }
+    .pf-eyes-shut {
+      animation: pf-eyes-shut 3.7s steps(1, end) infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :scope,
+      .pf-eyes-open,
+      .pf-eyes-shut {
+        animation: none;
+      }
+    }
+  }
+</style>
+<svg
+  class="pf-face"
+  xmlns="http://www.w3.org/2000/svg"
+  width="78"
+  height="78"
+  viewBox="0 0 78 78"
+  fill="none"
+>
+  <g class="pf-turn">
+    <g class="pf-layer pf-back">
+      <path
+        d="M21.4556 41.5719V41.5719C28.3432 57.388 50.7755 57.388 57.6632 41.5719V41.5719"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <g class="pf-layer pf-mid pf-eyes-open">
+      <path
+        d="M48.1181 29.0024V33.1553"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+      />
+      <path
+        d="M29.6606 29.0024V33.1553"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+      />
+    </g>
+    <g class="pf-layer pf-mid pf-eyes-shut" opacity="0">
+      <path
+        d="M46.05 31.0788H50.19"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+      />
+      <path
+        d="M27.59 31.0788H31.73"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+      />
+    </g>
+    <g class="pf-layer pf-front">
+      <path
+        d="M38.8887 29.0024V37.3081H42.3119"
+        stroke="currentColor"
+        stroke-width="4.02307"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+  </g>
+</svg>
+```
+
+# Badges
+
+```html
+<div class="stack-horizontal gap-xs bg-surface-base p-m">
+  <color-mode
+    palette="blue"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Blue
+  </color-mode>
+  <color-mode
+    inverted
+    palette="blue"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Inverted Blue
+  </color-mode>
+
+  <color-mode
+    palette="blue"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Blue
+  </color-mode>
+  <color-mode
+    inverted
+    palette="blue"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Inverted Blue
+  </color-mode>
+</div>
+```
+
+# Bemanning
+
+```html
+<div class="stack-horizontal gap-m mb-l">
+  <div class=" mr-auto">
+    <button class="button" data-size="small" data-variant="outlined">
+      Filter
+    </button>
+  </div>
+
+  <div class="ml-auto stack-horizontal gap-3xs">
+    <select data-size="small" class="select mr-s">
+      <option>4 uker</option>
+      <option>12 uker</option>
+      <option>26 uker</option>
+    </select>
+    <button class="button" data-size="small" data-variant="outlined">
+      Nåværende uke
+    </button>
+    <button
+      class="button aspect-ratio-1-1 p-0"
+      data-size="small"
+      data-variant="outlined"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+    <button
+      class="button aspect-ratio-1-1 p-0"
+      data-size="small"
+      data-variant="outlined"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </button>
+  </div>
+</div>
+<div
+  class="d-grid bg-surface-base gap-3xs"
+  style="grid-template-columns: 250px repeat(4, 1fr);"
+>
+  <div class="row grid-subgrid grid-all-columns pb-s" style="">
+    <div class="head-column stack-horizontal gap-2xs ">
+      Konsulenter
+      <color-mode
+        palette="orange"
+        class="d-iblock px-2xs bg-surface-dyed br-pill fs-xs"
+        >96</color-mode
+      >
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+        grid-auto-flow: column;
+        grid-column: 2 / -1;
+    "
+    >
+      <div class="column t-right px-3xs fs-xs stack">
+        <div class="t-medium">■ uke 35</div>
+        <div class="fg-muted">24.08 - 28.08</div>
+      </div>
+      <div class="column t-right px-3xs fs-xs stack">
+        <div class="t-medium">uke 35</div>
+        <div class="fg-muted">24.08 - 28.08</div>
+      </div>
+      <div class="column t-right px-3xs fs-xs stack">
+        <div class="t-medium">uke 35</div>
+        <div class="fg-muted">24.08 - 28.08</div>
+      </div>
+      <div class="column t-right px-3xs fs-xs stack">
+        <div class="t-medium">uke 35</div>
+        <div class="fg-muted">24.08 - 28.08</div>
+      </div>
+    </div>
+  </div>
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-horizontal gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="bg-surface-dyed aspect-ratio-1-1 br-s mw-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s t-medium">Jacob Berglund</p>
+        <p class="fs-xs fg-muted">12 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <color-mode
+          palette="blue"
+          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+        >
+          <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+          <div class="lh-tight">7.5</div>
+        </color-mode>
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+      </div>
+      <color-mode
+        palette="yellow"
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="stack-horizontal justify-end gap-3xs">
+          <color-mode
+            palette="purple"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          >
+            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="lh-tight fg-muted">7.5</div>
+          </color-mode>
+          <color-mode
+            palette="yellow"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          >
+            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="lh-tight fg-muted">7.5</div>
+          </color-mode>
+        </div>
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+      </color-mode>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-horizontal gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="bg-surface-dyed aspect-ratio-1-1 br-s mw-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s t-medium">Jacob Berglund</p>
+        <p class="fs-xs fg-muted">12 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <color-mode
+          palette="blue"
+          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+        >
+          <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+          <div class="lh-tight">7.5</div>
+        </color-mode>
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+      </div>
+      <color-mode
+        palette="yellow"
+        class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
+      >
+        <div class="stack-horizontal justify-end gap-3xs">
+          <color-mode
+            palette="purple"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          >
+            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="lh-tight fg-muted">7.5</div>
+          </color-mode>
+          <color-mode
+            palette="yellow"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          >
+            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="lh-tight fg-muted">7.5</div>
+          </color-mode>
+        </div>
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+      </color-mode>
+    </div>
+  </div>
+</div>
+```
+
+# Choicebox
+
 Inspiration:
 https://vercel.com/geist/choicebox
 
