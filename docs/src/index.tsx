@@ -9,7 +9,7 @@ import { jsxRenderer } from "hono/jsx-renderer";
 import { DocsPage } from "./components/docs";
 import { Markdown, processMarkdown } from "./components/markdown";
 import { NavLinks } from "./components/nav";
-import { knowledgeDir, knowledgeFileNames } from "./knowledge";
+import { knowledgeDocs } from "./knowledge";
 import { staticApp } from "./static";
 
 const app = new Hono({ strict: false }).basePath("/docs");
@@ -118,19 +118,22 @@ app.use(
                   }
                 }
 
-                /* ── Shiki css-variables theme (unused with github-dark, kept for future) ── */
+                /* ── Shiki syntax theme — colors resolved from design tokens ── */
                 :root {
-                  --shiki-color-text: var(--fg-default);
-                  --shiki-color-background: var(--surface-dyed);
-                  --shiki-token-constant: var(--fg-emphasis);
-                  --shiki-token-string: var(--fg-success-strong);
-                  --shiki-token-comment: var(--fg-muted);
-                  --shiki-token-keyword: var(--fg-brand-strong);
-                  --shiki-token-parameter: var(--fg-default);
-                  --shiki-token-function: var(--fg-emphasis);
-                  --shiki-token-string-expression: var(--fg-success-strong);
-                  --shiki-token-punctuation: var(--fg-muted);
-                  --shiki-token-link: var(--fg-brand-strong);
+                  --shiki-foreground: var(--foreground-default);
+                  --shiki-background: var(--surface-dyed);
+                  --shiki-token-comment: var(--foreground-muted);
+                  --shiki-token-punctuation: var(--foreground-muted);
+                  --shiki-token-keyword: light-dark(var(--palette-purple-650), var(--palette-purple-300));
+                  --shiki-token-string: light-dark(var(--palette-green-650), var(--palette-green-350));
+                  --shiki-token-string-expression: light-dark(var(--palette-teal-650), var(--palette-teal-350));
+                  --shiki-token-constant: light-dark(var(--palette-orange-650), var(--palette-orange-350));
+                  --shiki-token-function: light-dark(var(--palette-blue-650), var(--palette-blue-300));
+                  --shiki-token-parameter: light-dark(var(--palette-coral-600), var(--palette-coral-300));
+                  --shiki-token-link: light-dark(var(--palette-periwinkle-650), var(--palette-periwinkle-300));
+                  --shiki-token-inserted: light-dark(var(--palette-green-650), var(--palette-green-350));
+                  --shiki-token-deleted: light-dark(var(--palette-coral-650), var(--palette-coral-350));
+                  --shiki-token-changed: light-dark(var(--palette-yellow-650), var(--palette-yellow-350));
                 }
               `}
             </Style>
@@ -234,26 +237,16 @@ app.use(
 // Auto-register pages from packages/knowledge/src/*.md
 
 const pages = await Promise.all(
-  knowledgeFileNames.map(async (fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
-    const raw: string = (await import(`${knowledgeDir}/${fileName}`, { with: { type: "text" } }))
-      .default;
-
-    // Extract first heading as the page title, strip it from body
-    const headingMatch = raw.match(/^#{1,2}\s+(.+)$/m);
-    const title = headingMatch?.[1] ?? slug.replace(/-/g, " ");
-    const body = raw.replace(/^#{1,2}\s+.+(\n|$)/, "");
-
-    const content = await processMarkdown(body);
-
-    return { slug, title, content };
+  knowledgeDocs.map(async (doc) => {
+    const content = await processMarkdown(doc.content);
+    return { ...doc, content };
   }),
 );
 
-for (const { slug, title, content } of pages) {
+for (const { slug, title, description, content } of pages) {
   app.get(`/reference/${slug}`, (c) => {
     return c.render(
-      <DocsPage title={title} description="">
+      <DocsPage title={title} description={description}>
         <Markdown html={content} />
       </DocsPage>,
     );
