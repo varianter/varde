@@ -154,6 +154,10 @@
   /* Form controls */
   --input-border-radius: var(--interaction-radius);
   --input-focus-ring-color: var(--border-control-focused);
+
+  /* Link */
+  --link-text-underline-offset: 3px;
+  --link-text-decoration-thickness: 2px;
 }
 
 :root {

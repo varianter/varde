@@ -1,13 +1,13 @@
 @layer link {
-  :where(.link),
-  :where(.typeset :any-link) {
+  /* Mirror: .typeset :any-link in helpers/typeset.css */
+  :where(.link) {
     color: var(--foreground-link-default);
     font-weight: var(--font-weight-medium);
     text-decoration-skip-ink: auto;
     cursor: pointer;
-    text-underline-offset: 3px;
+    text-underline-offset: var(--link-text-underline-offset);
     text-decoration-color: var(--foreground-link-decoration-idle, currentColor);
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: var(--link-text-decoration-thickness);
     /* Gated: on touch, :hover latches after a tap and the link stays in its
        hover colour long after the finger has left. */
     @media (hover: hover) and (pointer: fine) {

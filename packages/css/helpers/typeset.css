@@ -33,12 +33,24 @@
       font-size: var(--font-size-m);
     }
 
-    /* :any-link {
-      text-decoration-thickness: 0.5px;
-      text-underline-offset: 2px;
+    /* Mirror: .link in components/link.css */
+    :any-link {
       color: var(--foreground-link-default);
       font-weight: var(--font-weight-medium);
-    } */
+      text-decoration-skip-ink: auto;
+      cursor: pointer;
+      text-underline-offset: var(--link-text-underline-offset);
+      text-decoration-color: var(--foreground-link-decoration-idle, currentColor);
+      text-decoration-thickness: var(--link-text-decoration-thickness);
+      /* Gated: on touch, :hover latches after a tap and the link stays in its
+         hover colour long after the finger has left. */
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: var(--foreground-link-hover);
+          text-decoration-color: var(--foreground-link-decoration-hover);
+        }
+      }
+    }
 
     /* Spacious gap before headings preceded by body content */
     :scope > :is(p, ul, ol, blockquote, table) + :is(h2, h3, h4, h5, h6) {
