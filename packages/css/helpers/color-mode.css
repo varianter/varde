@@ -10,7 +10,6 @@ color-mode[inverted] {
 }
 
 color-mode[palette='grey'],
-color-mode:not([palette]):not([inverted]),
 :root {
   --palette-inherit-0: var(--palette-grey-0);
   --palette-inherit-50: var(--palette-grey-50);
