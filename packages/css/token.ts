@@ -20,10 +20,10 @@ const light = {
     // Hover mix target for .bg-surface:hover on surface utilities (see colors.css).
     // Sits just past dyed on the ramp so a small mix reads as "one step
     // more dyed"; blends with color-scheme, so no polarity math in the utility.
-    "tint-blend": { palette: "inherit", default: 300, inverted: 600 },
+    "tint-blend": { palette: "inherit", default: 300, inverted: 450 },
   },
   foreground: {
-    default: { palette: "inherit", default: 650, inverted: 100 },
+    default: { palette: "inherit", default: 600, inverted: 100 },
     emphasis: { palette: "inherit", default: 700, inverted: 50 },
     muted: { palette: "inherit", default: 550, inverted: 200 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
@@ -55,7 +55,7 @@ const light = {
     },
   },
   border: {
-    base: { palette: "inherit", default: 550, inverted: 300 },
+    base: { palette: "inherit", default: 550, inverted: 400 },
     control: {
       default: { palette: "inherit", default: 250, inverted: 500 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },
@@ -82,7 +82,7 @@ const dark = {
     base: { palette: "inherit", default: 850, inverted: 200 },
     tinted: { palette: "inherit", default: 800, inverted: 250 },
     dyed: { palette: "inherit", default: 700, inverted: 300 },
-    "tint-blend": { palette: "inherit", default: 600, inverted: 300 },
+    "tint-blend": { palette: "inherit", default: 600, inverted: 400 },
   },
   foreground: {
     default: { palette: "inherit", default: 250, inverted: 750 },
@@ -117,7 +117,7 @@ const dark = {
     },
   },
   border: {
-    base: { palette: "inherit", default: 400, inverted: 750 },
+    base: { palette: "inherit", default: 400, inverted: 650 },
     control: {
       default: { palette: "inherit", default: 650, inverted: 400 },
       focused: { palette: "periwinkle", default: 400, inverted: 400 },

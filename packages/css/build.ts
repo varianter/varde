@@ -38,9 +38,10 @@ ${indent(defaultBlock, 2)}
 }
 
 /* ── Inverted ────────────────────────────────────── */
-color-mode[inverted] {
+color-mode[inverted]:not([inverted="false" i]) {
 ${indent(invertedBlock, 2)}
 }
+
 `;
 
   return css;
