@@ -1,0 +1,233 @@
+/*
+ * Same color contract as the button: two identity tokens plus one rail token
+ * per mode.
+ *
+ *   --range-base         the identity color, used for the filled rail
+ *   --range-on-base      the knob face
+ *   --range-rail-blend   the unfilled rail, blended into the mode
+ *
+ * The rail is thin and the knob sits on top of it, larger than the rail.
+ * WebKit has no progress pseudo-element, so the fill is a gradient on the
+ * track stopped at --range-progress. Keep that token in sync with the value.
+ */
+
+@property --_range-fill {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_range-rail {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_range-knob-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_range-ring {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --_range-knob-scale {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+@layer range.base, range.public, range.state;
+
+@layer range.public {
+  :where(.range) {
+    --range-base: var(--button-base);
+    --range-on-base: var(--button-on-base);
+    --range-rail-blend: var(--surface-tint-blend);
+    --range-focus-ring-color: var(--input-focus-ring-color);
+
+    --range-track-height: 2px;
+    --range-progress: 0%;
+
+    --_range-base: var(--range-base);
+    --_range-on-base: var(--range-on-base);
+  }
+
+  :where(.range) {
+    /* Progress is the identity color pushed darker in light and lighter in dark. */
+    --_range-fill: color-mix(in oklch, var(--_range-base) 75%, var(--foreground-emphasis) 25%);
+
+    --_range-fill-hover: color-mix(in oklch, var(--_range-on-base) 8%, var(--_range-fill));
+    --_range-fill-active: color-mix(in oklch, var(--_range-on-base) 14%, var(--_range-fill));
+
+    --_range-rail-rest: color-mix(in oklch, var(--_range-base) 30%, var(--range-rail-blend));
+    --_range-rail-hover: color-mix(in oklch, var(--_range-base) 40%, var(--range-rail-blend));
+
+    --_range-fill-disabled: color-mix(in oklch, var(--_range-fill) 45%, var(--_range-rail-rest));
+
+    --_range-knob-ring: oklch(from var(--_range-base) l c h / var(--border-alpha-default));
+    --_range-knob-ring-faint: oklch(from var(--_range-base) l c h / var(--border-alpha-faint));
+
+    --_range-ring-rest: transparent;
+    --_range-ring-hover: oklch(from var(--_range-base) l c h / 0.18);
+    --_range-ring-focus: var(--range-focus-ring-color);
+
+    --_range-rail: var(--_range-rail-rest);
+    --_range-knob: var(--_range-on-base);
+    --_range-knob-border: var(--_range-knob-ring);
+    --_range-ring: var(--_range-ring-rest);
+    --_range-knob-scale: 1;
+
+    --_range-track-radius: calc(var(--range-track-height) / 2);
+    --_range-ring-size: calc(var(--range-thumb-size) * 0.2);
+    --_range-track-offset: calc((var(--range-thumb-size) - var(--range-track-height)) / 2);
+    --_range-thumb-offset: calc((var(--range-track-height) - var(--range-thumb-size)) / 2);
+  }
+
+  :where(.range:not([data-size]), .range[data-size='medium']) {
+    --range-thumb-size: 16px;
+  }
+
+  :where(.range[data-size='small']) {
+    --range-thumb-size: 14px;
+  }
+
+  :where(.range[data-size='large']) {
+    --range-thumb-size: 20px;
+  }
+}
+
+@layer range.base {
+  :where(.range) {
+    appearance: none;
+    font: inherit;
+
+    block-size: var(--range-thumb-size);
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+
+    outline: none;
+    cursor: pointer;
+
+    transition-property:
+      --_range-fill, --_range-rail, --_range-knob-border, --_range-ring, --_range-knob-scale;
+    transition-duration: var(--interaction-transition-duration-quick);
+    transition-timing-function: var(--interaction-transition-easing-default);
+  }
+
+  :where(.range)::-webkit-slider-runnable-track {
+    block-size: var(--range-track-height);
+    margin-top: var(--_range-track-offset);
+    border-radius: var(--_range-track-radius);
+    background: linear-gradient(
+      to right,
+      var(--_range-fill) 0,
+      var(--_range-fill) var(--range-progress),
+      var(--_range-rail) var(--range-progress),
+      var(--_range-rail) 100%
+    );
+  }
+
+  :where(.range):dir(rtl)::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to left,
+      var(--_range-fill) 0,
+      var(--_range-fill) var(--range-progress),
+      var(--_range-rail) var(--range-progress),
+      var(--_range-rail) 100%
+    );
+  }
+
+  :where(.range)::-webkit-slider-thumb {
+    appearance: none;
+    box-sizing: border-box;
+    block-size: var(--range-thumb-size);
+    inline-size: var(--range-thumb-size);
+    margin-top: var(--_range-thumb-offset);
+    border-radius: 50%;
+    background: var(--_range-knob);
+    border: 1px solid var(--_range-knob-border);
+    transform: scale(var(--_range-knob-scale));
+    box-shadow:
+      0 1px 2px oklch(from var(--shadow) l c h / 0.18),
+      0 0 0 var(--_range-ring-size) var(--_range-ring);
+  }
+
+  :where(.range)::-moz-range-track {
+    block-size: var(--range-track-height);
+    border-radius: var(--_range-track-radius);
+    background: linear-gradient(
+      to right,
+      var(--_range-fill) 0,
+      var(--_range-fill) var(--range-progress),
+      var(--_range-rail) var(--range-progress),
+      var(--_range-rail) 100%
+    );
+  }
+
+  :where(.range):dir(rtl)::-moz-range-track {
+    background: linear-gradient(
+      to left,
+      var(--_range-fill) 0,
+      var(--_range-fill) var(--range-progress),
+      var(--_range-rail) var(--range-progress),
+      var(--_range-rail) 100%
+    );
+  }
+
+  :where(.range)::-moz-range-thumb {
+    box-sizing: border-box;
+    block-size: var(--range-thumb-size);
+    inline-size: var(--range-thumb-size);
+    border-radius: 50%;
+    background: var(--_range-knob);
+    border: 1px solid var(--_range-knob-border);
+    transform: scale(var(--_range-knob-scale));
+    box-shadow:
+      0 1px 2px oklch(from var(--shadow) l c h / 0.18),
+      0 0 0 var(--_range-ring-size) var(--_range-ring);
+  }
+}
+
+@layer range.state {
+  @media (hover: hover) and (pointer: fine) {
+    :where(.range):hover:not(:disabled) {
+      --_range-fill: var(--_range-fill-hover);
+      --_range-rail: var(--_range-rail-hover);
+      --_range-ring: var(--_range-ring-hover);
+      --_range-knob-scale: 1.1;
+    }
+  }
+
+  :where(.range):focus-visible:not(:disabled) {
+    --_range-ring: var(--_range-ring-focus);
+    --_range-knob-scale: 1.1;
+  }
+
+  :where(.range):active:not(:disabled) {
+    --_range-fill: var(--_range-fill-active);
+    --_range-rail: var(--_range-rail-hover);
+    --_range-knob-scale: 0.95;
+  }
+
+  :where(.range):disabled {
+    --_range-fill: var(--_range-fill-disabled);
+    --_range-knob-border: var(--_range-knob-ring-faint);
+    --_range-ring: transparent;
+    --_range-knob-scale: 1;
+
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.range)::-webkit-slider-thumb,
+    :where(.range)::-moz-range-thumb {
+      transform: none;
+    }
+  }
+}
