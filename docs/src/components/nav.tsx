@@ -1,4 +1,4 @@
-import { knowledgeFileNames } from "../knowledge";
+import { knowledgeDocs } from "../knowledge";
 import { path as colorModesPath } from "../pages/color-modes";
 import { path as colorsPath } from "../pages/colors";
 import { path as colorModesExamplesPath } from "../pages/examples";
@@ -17,16 +17,10 @@ type NavSection = {
   items: { label: string; path: string }[];
 };
 
-function slugToLabel(slug: string): string {
-  return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
-const knowledgeItems = knowledgeFileNames
-  .map((name) => {
-    const slug = name.replace(/\.md$/, "");
-    return { label: slugToLabel(slug), path: `/reference/${slug}` };
-  })
-  .sort((a, b) => a.label.localeCompare(b.label));
+const knowledgeItems = knowledgeDocs.map((doc) => ({
+  label: doc.title,
+  path: `/reference/${doc.slug}`,
+}));
 
 const sections: NavSection[] = [
   {

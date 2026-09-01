@@ -1,16 +1,16 @@
 import { defineMdastPlugin, markdownToHtml } from "satteri";
-import { createHighlighter, type Highlighter } from "shiki";
+import { createCssVariablesTheme, createHighlighter, type Highlighter } from "shiki";
 
-let highlighter: Highlighter | null = null;
+const vardeTheme = createCssVariablesTheme({ name: "varde" });
 
-async function getHighlighter(): Promise<Highlighter> {
-  if (!highlighter) {
-    highlighter = await createHighlighter({
-      themes: ["github-dark"],
-      langs: ["html", "css", "bash", "js", "ts", "tsx", "json", "text", "shell"],
-    });
-  }
-  return highlighter;
+let highlighterPromise: Promise<Highlighter> | null = null;
+
+function getHighlighter(): Promise<Highlighter> {
+  highlighterPromise ??= createHighlighter({
+    themes: [vardeTheme],
+    langs: ["html", "css", "bash", "js", "ts", "tsx", "json", "text", "shell"],
+  });
+  return highlighterPromise;
 }
 
 /** Build the HTML string for a code-example wrapper (preview + details toggle). */
@@ -35,9 +35,9 @@ function highlightCodePlugin(hl: Highlighter) {
       const lang = node.lang || "text";
       const text = node.value;
 
-      const highlighted = await hl.codeToHtml(text, {
+      const highlighted = hl.codeToHtml(text, {
         lang,
-        theme: "github-dark",
+        theme: vardeTheme,
       });
 
       if (lang === "html" && text.trim().length > 0) {
@@ -54,7 +54,7 @@ export async function processMarkdown(content: string): Promise<string> {
   const hl = await getHighlighter();
 
   const result = await markdownToHtml(content, {
-    features: { gfm: true },
+    features: { gfm: true, frontmatter: true },
     mdastPlugins: [highlightCodePlugin(hl)],
   });
 
