@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.8.0](https://github.com/varianter/varde/compare/varde-v0.7.0...varde-v0.8.0) (2026-09-01)
+
+
+### Features
+
+* moved the alignment utilities to `align.css`. Added ([64fc99e](https://github.com/varianter/varde/commit/64fc99e866714936e04c9285cde1c32956fbedf7))
+* reworked spacing. `pt-*` wins over `px-*` which wins overs `p-*`. ([682bb20](https://github.com/varianter/varde/commit/682bb208eae00618700c040d9aa4a4b437e6b202))
+* stagger-items has been improved. A lot tighter with more knobs to ([b69ca78](https://github.com/varianter/varde/commit/b69ca781239f17780ade50061763dc3f96b0ca47))
+
+
+### Bug Fixes
+
+* .lh-* classes should now properly override defaults in .fs-* ([05aefec](https://github.com/varianter/varde/commit/05aefec1b19527575ded7ff07be2b6443d817e2f))
+* Added animations to checkbox/radio. Selects height should be better ([9edc387](https://github.com/varianter/varde/commit/9edc387cf58ba7437bc06a26c047730419c61d3c))
+* added override for borders. Looks like this: `b-*-none` ([018f4cb](https://github.com/varianter/varde/commit/018f4cba037ae0284a516d134974cb76b6b6f353))
+* added position-* classes and top/left/right/bottom-0. ([18b05e4](https://github.com/varianter/varde/commit/18b05e4caa6d362905c5be5a8298013172085d21))
+* Exclude inverted=false from inverted styles. Tweaked tokens. ([59e503a](https://github.com/varianter/varde/commit/59e503a1f2fa5d43385295b492414a7df1255662))
+* reworked shadows some more. Shadows looks nicer, and are now ([a65f7a9](https://github.com/varianter/varde/commit/a65f7a906754d76b6aba26ea362d9d28e21260dc))
+
 ## [0.7.0](https://github.com/varianter/varde/compare/varde-v0.6.1...varde-v0.7.0) (2026-08-19)
 
 
