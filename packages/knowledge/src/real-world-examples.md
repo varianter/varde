@@ -1,186 +1,264 @@
-# Real World Example — Filter Sidebar
+---
+title: Real world examples
+description: Realistic compositions built with Varde utilities and components.
+---
 
-# Pretty fjes
+## Cards
 
 ```html
-<style>
-  @property --pf-gaze-x {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
-  }
-  @property --pf-gaze-y {
-    syntax: "<number>";
-    inherits: true;
-    initial-value: 0;
-  }
+<color-mode> </color-mode>
+```
 
-  @keyframes pf-gaze {
-    0%,
-    7% {
-      --pf-gaze-x: 0;
-      --pf-gaze-y: 0;
-    }
-    15%,
-    29% {
-      --pf-gaze-x: -1;
-      --pf-gaze-y: -0.2;
-    }
-    37%,
-    49% {
-      --pf-gaze-x: 0.9;
-      --pf-gaze-y: -0.6;
-    }
-    57%,
-    68% {
-      --pf-gaze-x: 0.6;
-      --pf-gaze-y: 0.9;
-    }
-    77%,
-    87% {
-      --pf-gaze-x: -0.5;
-      --pf-gaze-y: 0.45;
-    }
-    95%,
-    100% {
-      --pf-gaze-x: 0;
-      --pf-gaze-y: 0;
-    }
-  }
+# Modal
 
-  @keyframes pf-eyes-open {
-    0%,
-    92.5% {
-      opacity: 1;
-    }
-    93%,
-    96% {
-      opacity: 0;
-    }
-    96.5% {
-      opacity: 1;
-    }
-  }
-  @keyframes pf-eyes-shut {
-    0%,
-    92.5% {
-      opacity: 0;
-    }
-    93%,
-    96% {
-      opacity: 1;
-    }
-    96.5% {
-      opacity: 0;
-    }
-  }
-
-  @scope (.pf-face) {
-    :scope {
-      animation: pf-gaze 12s cubic-bezier(0.25, 1, 0.4, 1) infinite;
-    }
-
-    .pf-turn,
-    .pf-layer {
-      transform-box: view-box;
-    }
-
-    .pf-turn {
-      transform-origin: 39px 39px;
-      transform: rotate(calc(var(--pf-gaze-x) * 2.5deg))
-        scaleX(calc(1 - max(var(--pf-gaze-x), var(--pf-gaze-x) * -1) * 0.045));
-    }
-
-    .pf-layer {
-      transform: translate(
-        calc(var(--pf-gaze-x) * var(--pf-depth) * 1px),
-        calc(var(--pf-gaze-y) * var(--pf-depth) * 0.6px)
-      );
-    }
-
-    .pf-back {
-      --pf-depth: 1;
-    }
-    .pf-mid {
-      --pf-depth: 2.6;
-    }
-    .pf-front {
-      --pf-depth: 4.2;
-    }
-
-    .pf-eyes-open {
-      animation: pf-eyes-open 3.7s steps(1, end) infinite;
-    }
-    .pf-eyes-shut {
-      animation: pf-eyes-shut 3.7s steps(1, end) infinite;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      :scope,
-      .pf-eyes-open,
-      .pf-eyes-shut {
-        animation: none;
-      }
-    }
-  }
-</style>
-<svg
-  class="pf-face"
-  xmlns="http://www.w3.org/2000/svg"
-  width="78"
-  height="78"
-  viewBox="0 0 78 78"
-  fill="none"
+```html
+<div
+  class="bg-surface-base mw-7 b-all b-fait br-xl shadow-medium p-s stack gap-s of-clip"
 >
-  <g class="pf-turn">
-    <g class="pf-layer pf-back">
-      <path
-        d="M21.4556 41.5719V41.5719C28.3432 57.388 50.7755 57.388 57.6632 41.5719V41.5719"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </g>
-    <g class="pf-layer pf-mid pf-eyes-open">
-      <path
-        d="M48.1181 29.0024V33.1553"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-      />
-      <path
-        d="M29.6606 29.0024V33.1553"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-      />
-    </g>
-    <g class="pf-layer pf-mid pf-eyes-shut" opacity="0">
-      <path
-        d="M46.05 31.0788H50.19"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-      />
-      <path
-        d="M27.59 31.0788H31.73"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-      />
-    </g>
-    <g class="pf-layer pf-front">
-      <path
-        d="M38.8887 29.0024V37.3081H42.3119"
-        stroke="currentColor"
-        stroke-width="4.02307"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </g>
-  </g>
-</svg>
+  <div class="typeset">
+    <h4 class="t-medium fs-xs">Create token</h4>
+    <p>
+      Enter a unique name for your token to differentiate it from other tokens
+      and then select the scope.
+    </p>
+    <p>Some content contained within the modal.</p>
+  </div>
+  <div
+    class="mx--s mb--s px-s py-2xs b-t b-faint bg-surface-tinted stack-horizontal"
+  >
+    <button class="button mr-auto" data-variant="outlined" data-size="small">
+      Cancel
+    </button>
+    <button class="button px-l" data-variant="filled" data-size="small">
+      Submit
+    </button>
+  </div>
+</div>
+```
+
+# Popover #2
+
+```html
+
+<div class="bg-surface-base mw-4 b-all b-fait br-xl shadow-medium p-3xs stack" >
+  <div class="" stagger-items>
+    <input type="text" class="input w-full" placeholder="Søk blant kontrakter">
+  </div>
+  <div class="of-scroll px-2xs mt-4xs " style="max-height: 200px">
+  <ul class="py-xs " stagger-items >
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+    <li class="">
+      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+        <span class="icon fs-xs" data-icon="plus"></span>
+        <span>
+        Item 1
+        </span>
+      </a>
+    </li>
+  <ul>
+  </div>
+</div>
+```
+
+# Banner
+
+```html
+<div class="stack gap-s mw-7">
+  <color-mode palette="green">
+    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+      <div class="stack-horizontal gap-xs justify-center">
+        <p class="fg-muted fs-s">
+          This project was rolled back by
+          <a class="link" href="#">@jberglund</a>
+        </p>
+        <button class="button" data-variant="plain" data-size="small">
+          Undo rollback
+        </button>
+      </div>
+    </div>
+  </color-mode>
+
+  <color-mode palette="yellow">
+    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+      <div class="stack-horizontal gap-xs justify-center">
+        <p class="fg-muted fs-s">
+          This project was rolled back by
+          <a class="link" href="#">@jberglund</a>
+        </p>
+        <button class="button" data-variant="plain" data-size="small">
+          Undo rollback
+        </button>
+      </div>
+    </div>
+  </color-mode>
+
+  <color-mode palette="coral">
+    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+      <div class="stack-horizontal gap-xs justify-center">
+        <p class="fg-muted fs-s">
+          This project was rolled back by
+          <a class="link" href="#">@jberglund</a>
+        </p>
+        <button class="button" data-variant="plain" data-size="small">
+          Undo rollback
+        </button>
+      </div>
+    </div>
+  </color-mode>
+
+  <color-mode palette="blue">
+    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+      <div class="stack-horizontal gap-xs justify-center">
+        <p class="fg-muted fs-s">
+          This project was rolled back by
+          <a class="link" href="#">@jberglund</a>
+        </p>
+        <button class="button" data-variant="plain" data-size="small">
+          Undo rollback
+        </button>
+      </div>
+    </div>
+  </color-mode>
+</div>
+```
+
+## Tabs
+
+Using several `.button`, you can use different variants to toggle which one looks active. This would require JS, because you'd need to toggle from `data-variant="outlined` to `data-variant="filled`
+
+```html
+<button
+  role="tab"
+  class="button br-pill"
+  data-size="small"
+  data-variant="outlined"
+>
+  Not active
+</button>
+<button
+  role="tab"
+  class="button br-pill"
+  data-size="small"
+  data-variant="outlined"
+>
+  Not active
+</button>
+<button
+  role="tab"
+  aria-selected="true"
+  class="button br-pill"
+  data-size="small"
+  data-variant="filled"
+>
+  Active
+</button>
+```
+
+Or, we might do `<color-mode>` to inverted and the button from `data-variant="plain` to `data-variant="tinted`:
+
+```html
+<div class="stack-horizontal of-clip br-pill b-all" style="width: max-content;">
+  <color-mode class="">
+    <div class="button br-none" data-size="small" data-variant="plain">
+      Not selected
+    </div>
+  </color-mode>
+  <color-mode inverted>
+    <div class="button  br-none" data-size="small" data-variant="tinted">
+      Selected
+    </div>
+  </color-mode>
+  <color-mode class="">
+    <div class="button  br-none" data-size="small" data-variant="plain">
+      Not selected
+    </div>
+  </color-mode>
+</div>
+```
+
+Without buttons, only `color-mode`:
+
+```html
+<color-mode
+  class="stack-horizontal br-pill of-clip b-all  mt-xl"
+  style="width: max-content;"
+>
+  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+      >Not selected</a
+    >
+  </color-mode>
+  <color-mode inverted class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s">
+      Selected</a
+    >
+  </color-mode>
+  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+      >Not selected</a
+    >
+  </color-mode>
+  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+      >Not selected</a
+    >
+  </color-mode>
+</color-mode>
 ```
 
 # Badges
@@ -202,17 +280,45 @@
   </color-mode>
 
   <color-mode
-    palette="blue"
+    palette="yellow"
     class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
   >
-    Blue
+    yellow
   </color-mode>
   <color-mode
     inverted
-    palette="blue"
+    palette="yellow"
     class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
   >
-    Inverted Blue
+    Inverted yellow
+  </color-mode>
+
+  <color-mode
+    palette="coral"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    coral
+  </color-mode>
+  <color-mode
+    inverted
+    palette="coral"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Inverted coral
+  </color-mode>
+
+  <color-mode
+    palette="green"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    green
+  </color-mode>
+  <color-mode
+    inverted
+    palette="green"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+  >
+    Inverted green
   </color-mode>
 </div>
 ```
@@ -222,7 +328,12 @@
 ```html
 <div class="stack-horizontal gap-m mb-l">
   <div class=" mr-auto">
-    <button class="button" data-size="small" data-variant="outlined">
+    <button
+      class="button"
+      data-size="small"
+      data-variant="outlined"
+      popovertarget="filter-drawer"
+    >
       Filter
     </button>
   </div>
@@ -357,7 +468,7 @@
         <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
       </div>
       <color-mode
-        palette="yellow"
+        palette="coral"
         class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
       >
         <div class="stack-horizontal justify-end gap-3xs">
@@ -376,7 +487,7 @@
             <div class="lh-tight fg-muted">7.5</div>
           </color-mode>
         </div>
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">15.0</div>
       </color-mode>
     </div>
   </div>
@@ -446,167 +557,9 @@
     </div>
   </div>
 </div>
-```
-
-# Choicebox
-
-Inspiration:
-https://vercel.com/geist/choicebox
-
-This is where JS would come in hand to switch between `palette="blue|grey"` when the radio is selected.
-
-```html
-<div class="stack-horizontal gap-s">
-  <color-mode palette="blue" class="d-block flex-1  br-m  bg-surface-dyed">
-    <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover b-prominent b-all   br-inherit"
-    >
-      <div class="mr-auto">
-        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
-        <p class="fg-muted">Free for two weeks</p>
-      </div>
-      <input type="radio" class="radio" name="trial" checked />
-    </label>
-  </color-mode>
-
-  <color-mode
-    palette="grey"
-    class="d-block flex-1 b-all b-prominent br-m  bg-surface-dyed "
-  >
-    <label class="stack-horizontal gap-m p-xs bg-wash:hover">
-      <div class="mr-auto">
-        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
-        <p class="fg-muted">Free for two weeks</p>
-      </div>
-      <input type="radio" class="radio" name="trial" />
-    </label>
-  </color-mode>
-</div>
-```
-
-## Split buttons
-
-Not sure if it is possible, but here we go!
-https://vercel.com/geist/split-button
-
-Edit: turns out it's somewhat possible. We're using two buttons in a `stack-horizontal nowrap`, when using a
-
-```html
-<div class="stack-horizontal nowrap">
-  <button class="button brtr-none brbr-none px-l">Save</button>
-  <div class="bg-currentcolor self-stretch"></div>
-  <button
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
-    popovertarget="split-button-popover"
-  >
-    <svg
-      viewBox="0 0 16 16"
-      height="16"
-      width="16"
-      data-slot="geist-icon"
-      style="color: currentcolor;"
-    >
-      <path
-        fill="currentColor"
-        fill-rule="evenodd"
-        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
-        clip-rule="evenodd"
-      ></path>
-    </svg>
-  </button>
-</div>
-
-<div class="stack-horizontal nowrap">
-  <button data-variant="tinted" class="button brtr-none brbr-none px-l">
-    Save
-  </button>
-  <div class="bg-currentcolor self-stretch"></div>
-  <button
-    data-variant="tinted"
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
-    popovertarget="split-button-popover"
-  >
-    <svg
-      viewBox="0 0 16 16"
-      height="16"
-      width="16"
-      data-slot="geist-icon"
-      style="color: currentcolor;"
-    >
-      <path
-        fill="currentColor"
-        fill-rule="evenodd"
-        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
-        clip-rule="evenodd"
-      ></path>
-    </svg>
-  </button>
-</div>
-
-<div class="stack-horizontal nowrap">
-  <button data-variant="outlined" class="button brtr-none brbr-none px-l">
-    Save
-  </button>
-  <div class="bg-currentcolor self-stretch"></div>
-  <button
-    data-variant="outlined"
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
-    popovertarget="split-button-popover"
-  >
-    <svg
-      viewBox="0 0 16 16"
-      height="16"
-      width="16"
-      data-slot="geist-icon"
-      style="color: currentcolor;"
-    >
-      <path
-        fill="currentColor"
-        fill-rule="evenodd"
-        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
-        clip-rule="evenodd"
-      ></path>
-    </svg>
-  </button>
-</div>
-<div
-  id="split-button-popover"
-  class="popover"
-  popover="auto"
-  data-type="tooltip"
-  data-position="bottom"
->
-  <div
-    class="p-3xs b-all bg-surface-base stack br-l mw-4 fs-s m-2xs"
-    stagger-items="from-above"
-  >
-    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
-      <h4>Save</h4>
-      <p class="fg-muted">Save charges</p>
-    </div>
-    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
-      <h4>Save + Redeploy</h4>
-      <p class="fg-muted">
-        Save changes and create a new production deployment
-      </p>
-    </div>
-  </div>
-</div>
-```
-
-## Nice popovers
-
-This one leverages a popover, a details list, and a form
-
-```html
-<button type="button" class="button" popovertarget="demo-default">
-  Open popover
-</button>
-
-<button class="button" popovertarget="demo-drawer">Open sidebar</button>
 
 <div
-  id="demo-drawer"
+  id="filter-drawer"
   class="popover"
   popover="auto"
   data-type="drawer"
@@ -939,6 +892,162 @@ This one leverages a popover, a details list, and a form
     </div>
   </div>
 </div>
+```
+
+# Choicebox
+
+Inspiration:
+https://vercel.com/geist/choicebox
+
+This is where JS would come in hand to switch between `palette="blue|grey"` when the radio is selected.
+
+```html
+<div class="stack-horizontal gap-s">
+  <color-mode palette="blue" class="d-block flex-1  br-m  bg-surface-dyed">
+    <label
+      class="stack-horizontal gap-m p-xs bg-wash:hover b-prominent b-all   br-inherit"
+    >
+      <div class="mr-auto">
+        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <p class="fg-muted">Free for two weeks</p>
+      </div>
+      <input type="radio" class="radio" name="trial" checked />
+    </label>
+  </color-mode>
+
+  <color-mode
+    palette="grey"
+    class="d-block flex-1 b-all b-prominent br-m  bg-surface-dyed "
+  >
+    <label class="stack-horizontal gap-m p-xs bg-wash:hover">
+      <div class="mr-auto">
+        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <p class="fg-muted">Free for two weeks</p>
+      </div>
+      <input type="radio" class="radio" name="trial" />
+    </label>
+  </color-mode>
+</div>
+```
+
+## Split buttons
+
+Not sure if it is possible, but here we go!
+https://vercel.com/geist/split-button
+
+Edit: turns out it's somewhat possible. We're using two buttons in a `stack-horizontal nowrap`, when using a
+
+```html
+<div class="stack-horizontal nowrap">
+  <button class="button brtr-none brbr-none px-l">Save</button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<div class="stack-horizontal nowrap">
+  <button data-variant="tinted" class="button brtr-none brbr-none px-l">
+    Save
+  </button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    data-variant="tinted"
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<div class="stack-horizontal nowrap">
+  <button data-variant="outlined" class="button brtr-none brbr-none px-l">
+    Save
+  </button>
+  <div class="bg-currentcolor self-stretch"></div>
+  <button
+    data-variant="outlined"
+    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    popovertarget="split-button-popover"
+  >
+    <svg
+      viewBox="0 0 16 16"
+      height="16"
+      width="16"
+      data-slot="geist-icon"
+      style="color: currentcolor;"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="m14.06 5.5-.53.53-4.82 4.82a1 1 0 0 1-1.42 0L2.47 6.03l-.53-.53L3 4.44l.53.53L8 9.44l4.47-4.47.53-.53z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+<div
+  id="split-button-popover"
+  class="popover"
+  popover="auto"
+  data-type="tooltip"
+  data-position="bottom"
+>
+  <div
+    class="p-3xs b-all bg-surface-base stack br-l mw-4 fs-s m-2xs"
+    stagger-items="from-above"
+  >
+    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+      <h4>Save</h4>
+      <p class="fg-muted">Save charges</p>
+    </div>
+    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+      <h4>Save + Redeploy</h4>
+      <p class="fg-muted">
+        Save changes and create a new production deployment
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+## Nice popovers
+
+This one leverages a popover, a details list, and a form
+
+```html
+<button type="button" class="button" popovertarget="demo-default">
+  Open popover
+</button>
 
 <div
   id="demo-default"

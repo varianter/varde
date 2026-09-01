@@ -1,4 +1,7 @@
-# Varde CSS — Classes Reference
+---
+title: Classes
+description: Reference for Varde's utility and component classes.
+---
 
 ## Spacing scale
 
@@ -118,34 +121,34 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 **Text (foreground):**
 
 ```html
-<p class="fg-default" />
+<p class="fg-default"></p>
 <!-- body text -->
-<p class="fg-muted" />
+<p class="fg-muted"></p>
 <!-- secondary/helper text -->
-<p class="fg-emphasis" />
+<p class="fg-emphasis"></p>
 <!-- headings, labels -->
-<p class="fg-inverted" />
+<p class="fg-inverted"></p>
 <!-- text on dark backgrounds -->
 
 <!-- Intent text -->
-<p class="fg-danger-strong" />
-<p class="fg-success-medium" />
+<p class="fg-danger-strong"></p>
+<p class="fg-success-medium"></p>
 ```
 
 **Border color:**
 
 ```html
 <!-- everyday borders -->
-<div class="b-default" />
+<div class="b-default"></div>
 
 <!-- quieter lines: often for niceness rather than structural integrity -->
-<div class="b-muted" />
+<div class="b-muted"></div>
 
 <!-- prominent structural lines: rarely used -->
-<div class="b-emphasis" />
+<div class="b-emphasis"></div>
 
 <!-- Intent borders — only when border communicates status -->
-<div class="b-danger-strong" />
+<div class="b-danger-strong"></div>
 ```
 
 ---
@@ -155,60 +158,60 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 **Border sides:**
 
 ```html
-<div class="b-all" />
+<div class="b-all"></div>
 <!-- all sides, 1px solid -->
-<div class="b-t" />
+<div class="b-t"></div>
 <!-- top only -->
-<div class="b-r" />
+<div class="b-r"></div>
 <!-- right only -->
-<div class="b-b" />
+<div class="b-b"></div>
 <!-- bottom only -->
-<div class="b-l" />
+<div class="b-l"></div>
 <!-- left only -->
-<div class="b-last-none" />
+<div class="b-last-none"></div>
 <!-- removes border from :last-child -->
-<div class="b-first-none" />
+<div class="b-first-none"></div>
 <!-- removes border from :first-child -->
 ```
 
 Always pair a border side class with a border color class:
 
 ```html
-<li class="b-b b-default" />
+<li class="b-b b-default"></li>
 ```
 
 **Border radius:**
 
 ```html
 <!-- removes border-radius -->
-<div class="br-none" />
+<div class="br-none"></div>
 
 <!-- inherits border-radius from parent, useful for when clipping occurs -->
-<div class="br-inherit" />
+<div class="br-inherit"></div>
 
 <!-- 2px -->
-<div class="br-xs" />
+<div class="br-xs"></div>
 
 <!-- 4px -->
-<div class="br-s" />
+<div class="br-s"></div>
 
 <!-- 8px -->
-<div class="br-m" />
+<div class="br-m"></div>
 
 <!-- 12px -->
-<div class="br-l" />
+<div class="br-l"></div>
 
 <!-- 16px -->
-<div class="br-xl" />
+<div class="br-xl"></div>
 
 <!-- 24px -->
-<div class="br-2xl" />
+<div class="br-2xl"></div>
 
 <!-- 9999px -->
-<div class="br-pill" />
+<div class="br-pill"></div>
 
 <!-- 50% -->
-<div class="br-circle" />
+<div class="br-circle"></div>
 ```
 
 ---
@@ -267,11 +270,11 @@ Invalid state (don't add custom error classes — use the attribute):
 ### Table
 
 ```html
-<table class="table" />
+<table class="table"></table>
 
 <!-- or if you need more or less spacing in the table -->
-<table class="table" data-density="compact" />
-<table class="table" data-density="relaxed" />
+<table class="table" data-density="compact"></table>
+<table class="table" data-density="relaxed"></table>
 ```
 
 ### Spinner
@@ -302,14 +305,14 @@ Icons inherit color from their parent. For custom icons, set `--icon-src` to an 
 
 ```html
 <!-- overflow: hidden -->
-<div class="of-hidden" />
+<div class="of-hidden"></div>
 
 <!-- overflow: clip -->
-<div class="of-clip" />
+<div class="of-clip"></div>
 
 <!-- overflow: scroll -->
-<div class="of-scroll" />
+<div class="of-scroll"></div>
 
 <!-- aspect-ratio: 1 / 1 -->
-<div class="aspect-ratio-1-1" />
+<div class="aspect-ratio-1-1"></div>
 ```

@@ -1,4 +1,7 @@
-# Button
+---
+title: Buttons
+description: Turn a button or link into a styled button with variants and sizes.
+---
 
 Add `.button` to a `<button>` or `<a>` element to turn it into a styled button. You can change its look with two optional settings:
 

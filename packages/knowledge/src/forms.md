@@ -1,4 +1,7 @@
-# Form controls
+---
+title: Form controls
+description: Inputs, selects, textareas, checkboxes, radios, and labels.
+---
 
 Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respective native HTML elements. Pair with `.form-label` for labels. Size with `data-size` and mark errors with `aria-invalid`.
 
@@ -151,6 +154,12 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
     <option value="broccoli">Broccoli</option>
   </optgroup>
 </select>
+```
+
+## range input
+
+```html
+<input class="range" type="range" min="0" max="100" step="5" />
 ```
 
 ## .radio / .checkbox

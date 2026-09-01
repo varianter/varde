@@ -1,4 +1,7 @@
-# Shadow
+---
+title: Shadow
+description: The three elevation utilities.
+---
 
 Three elevations: `.shadow-low`, `.shadow-medium`, `.shadow-high`. Each is a multi-layer `box-shadow` with alpha falloff per layer, color inherited from the `--shadow` custom property (falls back to `--palette-grey-800`).
 

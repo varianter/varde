@@ -1,3 +1,8 @@
+---
+title: How to use space
+description: When to stack and when to reach for margin or padding.
+---
+
 ## When to stack and when to use margin/padding.
 
 We generally want less spacing when things are getting nested. As an example, a label and an input usually gets a spacing between eachother of about `3xs`. Groups of inputs are then usually `s` or `m`.

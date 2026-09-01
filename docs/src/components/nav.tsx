@@ -26,12 +26,12 @@ const sections: NavSection[] = [
   {
     label: "Utilities",
     items: [
-      { label: "Spacing", path: spacingPath },
-      { label: "Stagger Reveal", path: staggerRevealPath },
       { label: "Colors", path: colorsPath },
       { label: "Layout", path: layoutPath },
+      { label: "Spacing", path: spacingPath },
       { label: "Typography", path: typographyPath },
       { label: "Typeset", path: typesetPath },
+      { label: "Stagger items", path: staggerRevealPath },
     ],
   },
   {
@@ -60,10 +60,10 @@ export function NavLinks() {
       {sections.map((section) => (
         <div key={section.label}>
           <h5 class="fs-xs fg-muted t-bold mb-2xs">{section.label}</h5>
-          <ul class="stack gap-3xs">
+          <ul class="stack gap-4xs">
             {section.items.map((item) => (
               <a
-                class="fg-default fg:hover pl-xs ml--xs br-m bg-wash:hover "
+                class="fg-default fg:hover pl-xs ml--xs br-m bg-wash:hover lh-tight py-3xs"
                 href={`${base}${item.path}`}
                 key={item.label}
               >

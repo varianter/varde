@@ -4,9 +4,10 @@ This is a CSS framework some docs. It's mainly utilities with some opininated wa
 
 ## The imporant things.
 
-- `/packages/css/src` — this hold all the CSS.
-- `/docs` — generates the docs and test pages
-- `/package/knowledge` — markdown files with docs
+- `packages/css/src` — this hold all the CSS.
+- `docs` — generates the docs and test pages
+- `package/knowledge` — markdown files with docs
+-  The whole CSS framework is available if you do `cat packages/css/dist/styles.css`.
 
 We're using Bun, not npm/node/deno.
 
