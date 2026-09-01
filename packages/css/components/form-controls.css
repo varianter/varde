@@ -43,7 +43,7 @@
     --_input-font-size: var(--font-size-l);
     --_input-padding-inline: var(--spacing-xs);
     --_input-padding-block: var(--spacing-4xs);
-    --_input-border-radius: var(--border-radius-xl);
+    --_input-border-radius: var(--border-radius-l);
   }
 
   /* Checkbox & radio sizing */
@@ -72,18 +72,30 @@
     :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
       border-color: var(--border-control-hover);
       outline-color: var(--border-control-hover);
-      background-color: var(--background-control-hover);
+      /*background-color: var(--background-control-hover);*/
     }
   }
 
   :where(.input, .select, .textarea, .checkbox, .radio):focus-visible {
     border-color: var(--border-control-focused);
     outline-color: var(--input-focus-ring-color);
-    background-color: var(--background-control-hover);
+    /*background-color: var(--background-control-hover);*/
   }
 
   :where(.checkbox, .radio):checked::after {
     color: var(--input-checked-foreground);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.radio)::after,
+    :where(.radio):checked::after {
+      transform: none;
+    }
+
+    :where(.checkbox)::after,
+    :where(.checkbox):checked::after {
+      clip-path: none;
+    }
   }
 
   :where(.input, .textarea, .select):where([aria-invalid='true']):not(:focus-visible) {
@@ -96,7 +108,7 @@
   :where(.input, .select, .textarea, .checkbox, .radio) {
     appearance: none;
     font: inherit;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-regular);
 
     background: var(--_input-background);
     color: var(--_input-foreground);
@@ -105,8 +117,8 @@
     border-width: 1px;
     border-style: solid;
 
-    min-height: var(--_input-height);
-    font-size: var(--_input-font-size);
+    min-height: round(var(--_input-height), 1px);
+    font-size: max(16px, var(--_input-font-size));
 
     outline-width: 1px;
     outline-offset: 0px;
@@ -151,7 +163,7 @@
 
   :where(.radio, .checkbox)::after {
     content: '';
-    width: 90%;
+    width: 80%;
     aspect-ratio: 1;
     color: transparent;
     background-color: currentColor;
@@ -159,19 +171,42 @@
     mask-repeat: no-repeat;
     mask-position: center;
     pointer-events: none;
-    transition: color var(--interaction-transition-duration-quick)
-      var(--interaction-transition-easing-default);
-    @supports (width: round(90%, 2px)) {
-      width: round(90%, 2px);
+    @supports (width: round(80%, 2px)) {
+      width: round(80%, 2px);
     }
   }
 
   :where(.radio)::after {
     mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Ccircle cx="12" cy="12" r="8" /%3E%3C/svg%3E');
+    transform: scale(0);
+    transition:
+      transform var(--interaction-transition-duration-enter)
+      var(--interaction-transition-easing-entrance),
+      color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+  }
+
+  :where(.radio):checked::after {
+    transform: scale(1);
   }
 
   :where(.checkbox)::after {
-    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" /%3E%3C/svg%3E');
+    mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" %3E%3Cpath d="M20 6L9 17l-5-5"/%3E%3C/svg%3E');
+    clip-path: rect(0px 100% 100% 100%);
+    filter: blur(5px);
+    transition: all 150ms ease-out;
+    transform-origin: right center;
+  }
+
+  :where(.checkbox):checked::after {
+    transform: translateY(0);
+    clip-path: rect(0px 100% 100% 0);
+    filter: blur(0px);
+    /* transition:
+      clip-path var(--interaction-transition-duration-quick) ease-out,
+      blur var(--interaction-transition-duration-quick) ease-out,
+      color 300ms var(--interaction-transition-easing-default),
+      transform var(--interaction-transition-duration-quick) ease-out; */
   }
 
   /* Select */
@@ -232,6 +267,33 @@
         0 4px 16px rgb(0 0 0 / 0.12),
         0 1px 4px rgb(0 0 0 / 0.08);
       margin-block: var(--spacing-3xs);
+
+      /* Size to content, clamp to a usable range, and stay within the viewport. */
+      --viewport-margin: var(--spacing-s);
+      --picker-min-size: 12em;
+      --picker-max-size: 30em;
+
+      min-block-size: var(--picker-min-size);
+      max-block-size: min(100% - var(--viewport-margin), var(--picker-max-size));
+      position-try-fallbacks:
+        flip-block,
+        flip-inline,
+        flip-block flip-inline;
+
+      @supports (min-block-size: calc-size(fit-content, min(size, 1px))) {
+        min-block-size: calc-size(fit-content, min(size, var(--picker-min-size)));
+        max-block-size: calc-size(stretch, min(size, var(--picker-max-size)));
+        margin-block-end: var(--viewport-margin);
+      }
+
+      @supports not (min-block-size: calc-size(fit-content, min(size, 1px))) {
+        /* Without calc-size, approximate a short list by counting options. */
+        &:not(:has(:where(option:nth-of-type(4))), :has(:where(optgroup:nth-of-type(2)))) {
+          min-block-size: 0;
+          max-block-size: fit-content;
+        }
+      }
+
       /*
 
       transition:
@@ -260,7 +322,7 @@
     /* Options inside the dropdown */
     :where(.select) option {
       padding-block: var(--spacing-4xs);
-      padding-inline: var(--spacing-3xs) var(--spacing-xs);
+      padding-inline: var(--spacing-xs) var(--spacing-xs);
       border-radius: calc(var(--input-border-radius) - 2px);
       color: var(--_input-foreground);
       outline-offset: 0;
@@ -277,6 +339,8 @@
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
     :where(.select) option::checkmark {
       color: var(--input-checked-foreground);
+      order: 2;
+      margin-left: auto;
     }
 
     /* Disabled options */
@@ -296,6 +360,12 @@
     :where(.select) optgroup legend {
       font-weight: var(--font-weight-medium);
       font-size: 0.75em;
+      padding-inline: var(--spacing-3xs) var(--spacing-xs);
+      margin-bottom: var(--spacing-3xs);
+
+      position: sticky;
+      top: 0;
+      container-type: scroll-state;
     }
 
     /* hr as separator inside the select */
