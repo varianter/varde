@@ -25,8 +25,8 @@
 
 /* Utilities */
 @import './utilities/spacing.css';
-@import './utilities/text.css';
 @import './utilities/font-size.css';
+@import './utilities/text.css';
 @import './utilities/colors.css';
 @import './utilities/list.css';
 @import './utilities/border.css';
