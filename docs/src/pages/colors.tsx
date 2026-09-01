@@ -123,40 +123,48 @@ export default function ColorsPage() {
         title="Palette overview"
         description="Border alpha derives from a single --border-base token — the same ratio works across every palette, surface, and mode. Surface lift derives from the per-mode --surface-tint-blend token. Hover any box to see both augmentations."
       >
-        <div class="stack gap-l">
-          {PALETTES.map((palette) => (
-            <color-mode palette={palette}>
-              <div class="stack gap-2xs">
-                {/* <h4 class="fs-m t-bold fg-emphasis" style="text-transform: capitalize;">
+        <div class="stack">
+          {["false", "true"].map((mode) =>
+            PALETTES.map((palette) => (
+              <color-mode inverted={mode} palette={palette}>
+                <div class="stack ">
+                  {/* <h4 class="fs-m t-bold fg-emphasis" style="text-transform: capitalize;">
                   {palette}
                 </h4> */}
-                <div class="stack-horizontal gap-2xs" style="overflow-x: auto;">
-                  {SURFACES.map((surface) => (
-                    <div
-                      class={`${surface.cls}  p-xs br-m stack gap-3xs b-all b-faint b:hover flex-1`}
-                      style="min-width: 160px;"
-                    >
-                      <span class="fs-xs fg-muted">surface: {surface.label}</span>
-                      <div class="stack-horizontal gap-3xs">
-                        {BORDERS.map((border) => (
-                          <div
-                            class={`b-all ${border.cls} b:hover br-s p-3xs`}
-                            style="width: 5rem; height: max-content; "
-                          >
-                            <div class="fs-xs">{border.label}</div>
-                          </div>
-                        ))}
-                      </div>
+                  <div class="stack-horizontal " style="overflow-x: auto;">
+                    {SURFACES.map((surface) => (
+                      <div
+                        class={`${surface.cls}  p-xs  stack gap-3xs  flex-1`}
+                        style="min-width: 160px;"
+                      >
+                        <span class="fs-xs fg-muted">surface: {surface.label}</span>
+                        <div class="stack-horizontal gap-3xs fs-xs">
+                          <div class="fg-emphasis">fg-emphasis</div>
+                          <div class="fg-default">fg-default</div>
+                          <div class="fg-muted">fg-muted</div>
+                        </div>
+                        <div class="stack-horizontal gap-3xs">
+                          {BORDERS.map((border) => (
+                            <div
+                              class={`b-all ${border.cls} b:hover br-s p-3xs`}
+                              style="width: 5rem; height: max-content; "
+                            >
+                              <div class="fs-xs">{border.label}</div>
+                            </div>
+                          ))}
+                        </div>
 
-                      <div class="bg-wash:hover fg-muted py-3xs px-2xs br-m lh-tight">
-                        bg-wash:hover
+                        <div class="bg-wash:hover fg-muted fs-s py-3xs px-2xs br-m lh-tight">
+                          bg-wash:hover
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </color-mode>
-          ))}
+              </color-mode>
+            )),
+          )}
+          {}
         </div>
       </Section>
     </DocsPage>
