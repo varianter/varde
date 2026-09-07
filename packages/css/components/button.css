@@ -18,7 +18,7 @@
  *
  * Everything else is derived. Crucially, derivations never encode polarity:
  * states mix toward tokens that already flip with the mode (`on-base`,
- * `on-tint-ink`, `tint-blend`), so all four mode blocks — including
+ * `on-tint-ink`, `tint-target`), so all four mode blocks — including
  * inverted, where base and surface share the same lightness and contrast by
  * chroma alone — get correct state directions with zero mode logic here.
  */
@@ -34,7 +34,7 @@
   initial-value: transparent;
 }
 
-@property --_button-foreground {
+@property --_button-ink {
   syntax: '<color>';
   inherits: true;
   initial-value: transparent;
@@ -58,7 +58,7 @@
 
   /*
    * Derivations. Three tiers in this file: inputs (above), derivations
-   * (here), slots (--_button-background/foreground/border, below).
+   * (here), slots (--_button-background/ink/border, below).
    */
   :where(.button) {
     /*
@@ -74,9 +74,9 @@
      * holds identical L per step across hues, so these land with the same
      * perceived strength on every color.
      */
-    --_button-tint: color-mix(in oklch, var(--_button-base) 10%, var(--button-tint-blend));
-    --_button-tint-hover: color-mix(in oklch, var(--_button-base) 20%, var(--button-tint-blend));
-    --_button-tint-active: color-mix(in oklch, var(--_button-base) 26%, var(--button-tint-blend));
+    --_button-tint: color-mix(in oklch, var(--_button-base) 10%, var(--button-tint-target));
+    --_button-tint-hover: color-mix(in oklch, var(--_button-base) 20%, var(--button-tint-target));
+    --_button-tint-active: color-mix(in oklch, var(--_button-base) 26%, var(--button-tint-target));
 
     /*
      * Text on a tint: pull base toward the mode's ink. One ratio controls
@@ -97,26 +97,26 @@
 
   :where(.button:not([data-variant]), .button[data-variant='filled']) {
     --_button-background: var(--_button-base);
-    --_button-foreground: var(--_button-on-base);
+    --_button-ink: var(--_button-on-base);
     --_button-border: var(--_button-base);
   }
 
   /* Between filled and plain: carries the tint at rest, no border chrome. */
   :where(.button[data-variant='tinted']) {
     --_button-background: var(--_button-tint);
-    --_button-foreground: var(--_button-on-tint);
+    --_button-ink: var(--_button-on-tint);
     --_button-border: transparent;
   }
 
   :where(.button[data-variant='outlined']) {
     --_button-background: transparent;
-    --_button-foreground: var(--_button-on-surface);
+    --_button-ink: var(--_button-on-surface);
     --_button-border: oklch(from var(--_button-base) l c h / 0.25);
   }
 
   :where(.button[data-variant='plain']) {
     --_button-background: transparent;
-    --_button-foreground: var(--_button-on-surface);
+    --_button-ink: var(--_button-on-surface);
     --_button-border: transparent;
   }
 
@@ -161,7 +161,7 @@
     font-weight: var(--button-font-weight);
 
     background: var(--_button-background);
-    color: var(--_button-foreground);
+    color: var(--_button-ink);
     border: 1px solid var(--_button-border);
     border-radius: var(--_button-border-radius);
     min-height: var(--_button-height);
@@ -221,7 +221,7 @@
     :where(.button[data-variant='outlined']):hover,
     :where(.button[data-variant='plain']):hover {
       --_button-background: var(--_button-tint);
-      --_button-foreground: var(--_button-on-tint);
+      --_button-ink: var(--_button-on-tint);
     }
   }
 
@@ -250,7 +250,7 @@
   :where(.button[data-variant='outlined']):active,
   :where(.button[data-variant='plain']):active {
     --_button-background: var(--_button-tint-active);
-    --_button-foreground: var(--_button-on-tint);
+    --_button-ink: var(--_button-on-tint);
   }
 
   :where(.button):focus-visible {

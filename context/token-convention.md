@@ -19,7 +19,7 @@ They're named for charge, not color, because they're opposite ends of one axis.
 
 ## 2. The three slots
 
-Both natures use the same slots: **background, foreground, border**. Not every slot fills on every state (e.g. `placeholder` is foreground-only), but the set is shared.
+Both natures use the same slots: **background, ink, border**. Not every slot fills on every state (e.g. `placeholder` is ink-only), but the set is shared.
 
 ---
 
@@ -31,8 +31,8 @@ A neutral background is **ambient** (always present). An intent background is **
 | ------------------------ | ---------- | ------------------------------------------------- |
 | **Surface** (neutral bg) | Yes        | The ground is always there.                       |
 | **Intent bg**            | No         | Intent is opt-in. No "default amount of success." |
-| **Neutral fg**           | Yes        | Text always has a color.                          |
-| **Intent fg**            | Yes        | There's always a canonical intent text color.     |
+| **Neutral ink**          | Yes        | Text always has a color.                          |
+| **Intent ink**           | Yes        | There's always a canonical intent text color.     |
 
 Consequences:
 
@@ -49,46 +49,44 @@ Consequences:
 
 ## 4. Each slot speaks its own axis
 
-Step names aren't a house style. Each slot has a physical axis that picks the words — which is why the neutral slots deliberately don't rhyme.
+Step names aren't a house style. Each slot has a physical axis that picks the words.
 
-**Neutral — a different metaphor per slot:**
+**Neutral:**
 
-| Slot       | Axis            | Steps                                  |
-| ---------- | --------------- | -------------------------------------- |
-| surface    | depth           | `surface-{base / tinted / dyed}`       |
-| foreground | ink             | `fg-{muted / default / emphasis}`      |
-| border     | edge visibility | `border-{faint / default / prominent}` |
+| Slot    | Axis            | Steps                                   |
+| ------- | --------------- | --------------------------------------- |
+| surface | depth           | `surface-{base / tinted / dyed}`        |
+| ink     | prominence      | `ink-{subtle / default / prominent}`    |
+| border  | edge visibility | `border-{subtle / default / prominent}` |
 
-- `default` is the shared center.
-- Border's words are its own — not `subtle/strong` (that's Intent) and not `muted/emphasis` (that's text). Alt for `prominent`: `defined`.
-- Don't invent vivid border words just for symmetry. A slot is allowed to be plain.
+- `default` is the shared center for ink and border; `subtle` and `prominent` flank it.
+- Surface keeps its own depth words — `base / tinted / dyed` — because depth names depth, not lightness, so they survive the dark-mode flip. `base` is the main canvas, `tinted` adds subtle distinction, `dyed` floats above.
 - Border _width_ (`hairline / default / heavy`) is a separate token family — don't let it bleed into color.
-- Depth words name depth, not lightness, so they survive the dark-mode flip. `base` is the main canvas, `tinted` adds subtle distinction, `dyed` floats above.
 
 **Intent — one scale across all three slots:**
 
 ```
 bg-{intent}-{subtle / medium / strong}     ← no default
-fg-{intent}-{subtle / medium / strong}
+ink-{intent}-{subtle / medium / strong}
 border-{intent}-{subtle / medium / strong}
 ```
 
 Intents ramp on **salience** (how loud), and the block stays uniform — once inside an intent, don't reach for non-intent colors.
 
-**Why they don't rhyme:** metaphor-per-slot = you're in Neutral; one intensity scale = you're in an Intent. The vocabulary tells you which world you're in.
+**The tell:** neutral ink and border share `subtle / default / prominent`; surfaces use `base / tinted / dyed`; intents use `subtle / medium / strong`. The vocabulary tells you which world you're in.
 
 ---
 
 ## 5. Two litmus tests
 
-1. **`subtle/medium/strong` ⇒ Intent.** Neutrals never use that scale.
+1. **`medium/strong` ⇒ Intent.** Neutrals never use that scale — neutral ink and border top out at `prominent`, surfaces at `dyed`.
 2. **Contained region taking a charge ⇒ Intent. Single slot swapping hue by state ⇒ recolor** (§7).
 
 ---
 
 ## 6. Accent is a parameter, not a category
 
-A token is a **(slot, step)** pair, and the **palette is a swappable parameter** on it. Neutral is just that parameter's default value; Accent is the same skeleton with the palette swapped. So accent inherits Neutral's words (`border-accent` = faint/default/prominent) — you invent nothing for it.
+A token is a **(slot, step)** pair, and the **palette is a swappable parameter** on it. Neutral is just that parameter's default value; Accent is the same skeleton with the palette swapped. So accent inherits Neutral's words (`border-accent` = subtle/default/prominent) — you invent nothing for it.
 
 ---
 
@@ -133,7 +131,7 @@ control-{slot}-{state}  →  {family(state)}-{named step}
 | `error`                           | Danger — recolors all three slots at once |
 
 - `error` overrides everything because it recolors all three slots — using the red **palette** at the control's own steps, not the Intent block (§7).
-- `placeholder` is foreground-only; `selection` is a bg/fg pair (distinct from `selected`).
+- `placeholder` is ink-only; `selection` is a bg/ink pair (distinct from `selected`).
 
 **Open knob:** does a state only swap _family_ (one knob), or also move the _step_ (`selected` = accent **and** louder)? This is the layer where purity gives way to "what looks right" — treat it as per-control tuning, but keep outputs as `{family}-{named step}` so they stay theme-safe.
 
@@ -141,7 +139,7 @@ control-{slot}-{state}  →  {family(state)}-{named step}
 
 ## 10. Naming format
 
-- **The prefix carries the namespace** (`surface-`, `fg-`, `border-`) — the suffix never disambiguates. You'd never write `fg-sunken`.
+- **The prefix carries the namespace** (`surface-`, `ink-`, `border-`) — the suffix never disambiguates. You'd never write `ink-sunken`.
 - The family name sits in the middle: `border-subtle` (neutral) vs. `border-danger-subtle` (intent).
 
 ---
@@ -151,15 +149,15 @@ control-{slot}-{state}  →  {family(state)}-{named step}
 ```
 NEUTRAL (ambient · hierarchy · metaphor per slot)
   surface-{base | tinted | dyed}
-  fg-{muted | default | emphasis}
-  border-{faint | default | prominent}
+  ink-{subtle | default | prominent}
+  border-{subtle | default | prominent}
 
 ACCENT (neutral skeleton, palette swapped — same words)
-  fg-accent-…  border-accent-…  bg-accent-…
+  ink-accent-…  border-accent-…  bg-accent-…
 
 INTENT (marked · salience · one scale)
   bg-{intent}-{subtle | medium | strong}    ← no default
-  fg-{intent}-{subtle | medium | strong}
+  ink-{intent}-{subtle | medium | strong}
   border-{intent}-{subtle | medium | strong}
 
 CONTROL (shared · the tuning layer)

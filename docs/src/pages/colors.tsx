@@ -15,13 +15,13 @@ const PALETTES = [
 ] as const;
 
 const SURFACES = [
-  { cls: "bg-surface-base", label: "base" },
-  { cls: "bg-surface-tinted", label: "tinted" },
-  { cls: "bg-surface-dyed", label: "dyed" },
+  { cls: "surface-base", label: "base" },
+  { cls: "surface-tinted", label: "tinted" },
+  { cls: "surface-dyed", label: "dyed" },
 ] as const;
 
 const BORDERS = [
-  { cls: "bc-faint", label: "faint" },
+  { cls: "bc-subtle", label: "subtle" },
   { cls: "bc-default", label: "default" },
   { cls: "bc-prominent", label: "prominent" },
 ] as const;
@@ -30,7 +30,7 @@ function BorderSwatch({ cls, label }: { cls: string; label: string }) {
   return (
     <div class="stack gap-2xs grow" style="min-width: 100px;">
       <div class={`b-all ${cls} br-m`} style="height: 3rem; min-width: 100px;" />
-      <code class="fs-xs fg-muted">.{label}</code>
+      <code class="fs-xs ink-subtle">.{label}</code>
     </div>
   );
 }
@@ -53,16 +53,16 @@ export default function ColorsPage() {
         <ExamplePanel>
           <div class="stack-horizontal gap-m">
             {[
-              { cls: "bg-surface-base", label: "bg-surface-base" },
-              { cls: "bg-surface-tinted", label: "bg-surface-tinted" },
-              { cls: "bg-surface-dyed", label: "bg-surface-dyed" },
+              { cls: "surface-base", label: "surface-base" },
+              { cls: "surface-tinted", label: "surface-tinted" },
+              { cls: "surface-dyed", label: "surface-dyed" },
             ].map(({ cls, label }) => (
               <div class="stack gap-2xs grow" style="min-width: 100px;">
                 <div
                   class={`${cls} br-m b-all bc-default`}
                   style="height: 4rem; min-width: 140px;"
                 />
-                <code class="fs-xs fg-muted">.{label}</code>
+                <code class="fs-xs ink-subtle">.{label}</code>
               </div>
             ))}
           </div>
@@ -72,27 +72,27 @@ export default function ColorsPage() {
       {/* ── Structural Text ── */}
       <Section
         title="Text: Structural"
-        description="Most text doesn't communicate status — it just needs the right visual weight. .fg-default for body text, .fg-muted for secondary content, .fg-emphasis for headings and labels."
+        description="Most text doesn't communicate status — it just needs the right visual weight. .ink-default for body text, .ink-subtle for secondary content, .ink-prominent for headings and labels."
       >
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-xs">
               <div class="stack gap-2xs">
-                <span class="fg-emphasis fs-l fw-bold">.fg-emphasis — Page heading</span>
-                <code class="fs-xs fg-muted">.fg-emphasis</code>
+                <span class="ink-prominent fs-l fw-bold">.ink-prominent — Page heading</span>
+                <code class="fs-xs ink-subtle">.ink-prominent</code>
               </div>
               <div class="stack gap-2xs">
-                <span class="fg-default fs-m">
-                  .fg-default — Body text that makes up the bulk of your content. This is the color
+                <span class="ink-default fs-m">
+                  .ink-default — Body text that makes up the bulk of your content. This is the color
                   you use without thinking.
                 </span>
-                <code class="fs-xs fg-muted">.fg-default</code>
+                <code class="fs-xs ink-subtle">.ink-default</code>
               </div>
               <div class="stack gap-2xs">
-                <span class="fg-muted fs-s">
-                  .fg-muted — Secondary text, helper text, timestamps, captions
+                <span class="ink-subtle fs-s">
+                  .ink-subtle — Secondary text, helper text, timestamps, captions
                 </span>
-                <code class="fs-xs fg-muted">.fg-muted</code>
+                <code class="fs-xs ink-subtle">.ink-subtle</code>
               </div>
             </div>
           </div>
@@ -102,12 +102,12 @@ export default function ColorsPage() {
       {/* ── Structural Borders ── */}
       <Section
         title="Borders: Structural"
-        description="Most borders don't communicate meaning — they just separate or outline things. Reach for these first. .bc-default is the workhorse; .bc-faint for quieter lines, .bc-prominent when the line needs to be clearly visible."
+        description="Most borders don't communicate meaning — they just separate or outline things. Reach for these first. .bc-default is the workhorse; .bc-subtle for quieter lines, .bc-prominent when the line needs to be clearly visible."
       >
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack-horizontal gap-m">
-              <BorderSwatch cls="bc-faint b:hover" label="bc-faint" />
+              <BorderSwatch cls="bc-subtle b:hover" label="bc-subtle" />
               <BorderSwatch cls="bc-default b:hover" label="bc-default" />
               <BorderSwatch cls="bc-prominent b:hover" label="bc-prominent" />
             </div>
@@ -121,14 +121,14 @@ export default function ColorsPage() {
 
       <Section
         title="Palette overview"
-        description="Border alpha derives from a single --border-base token — the same ratio works across every palette, surface, and mode. Surface lift derives from the per-mode --surface-tint-blend token. Hover any box to see both augmentations."
+        description="Border alpha derives from a single --border-base token — the same ratio works across every palette, surface, and mode. Surface lift derives from the per-mode --surface-tint-target token. Hover any box to see both augmentations."
       >
         <div class="stack">
           {["false", "true"].map((mode) =>
             PALETTES.map((palette) => (
               <color-mode inverted={mode} palette={palette}>
                 <div class="stack ">
-                  {/* <h4 class="fs-m fw-bold fg-emphasis" style="text-transform: capitalize;">
+                  {/* <h4 class="fs-m fw-bold ink-prominent" style="text-transform: capitalize;">
                   {palette}
                 </h4> */}
                   <div class="stack-horizontal " style="overflow-x: auto;">
@@ -137,11 +137,11 @@ export default function ColorsPage() {
                         class={`${surface.cls}  p-xs  stack gap-3xs  flex-1`}
                         style="min-width: 160px;"
                       >
-                        <span class="fs-xs fg-muted">surface: {surface.label}</span>
+                        <span class="fs-xs ink-subtle">surface: {surface.label}</span>
                         <div class="stack-horizontal gap-3xs fs-xs">
-                          <div class="fg-emphasis">fg-emphasis</div>
-                          <div class="fg-default">fg-default</div>
-                          <div class="fg-muted">fg-muted</div>
+                          <div class="ink-prominent">ink-prominent</div>
+                          <div class="ink-default">ink-default</div>
+                          <div class="ink-subtle">ink-subtle</div>
                         </div>
                         <div class="stack-horizontal gap-3xs">
                           {BORDERS.map((border) => (
@@ -154,7 +154,7 @@ export default function ColorsPage() {
                           ))}
                         </div>
 
-                        <div class="bg-wash:hover fg-muted fs-s py-3xs px-2xs br-m lh-tight">
+                        <div class="bg-wash:hover ink-subtle fs-s py-3xs px-2xs br-m lh-tight">
                           bg-wash:hover
                         </div>
                       </div>

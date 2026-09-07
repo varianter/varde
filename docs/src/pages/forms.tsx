@@ -4,14 +4,14 @@ export default function FormPage() {
   return (
     <form method="post" class="stack gap-m mx-auto" style="max-width: 600px;">
       <div class="stack gap-xs">
-        <label class="fs-s fg-muted" for="Name">
+        <label class="fs-s ink-subtle" for="Name">
           Name
         </label>
         <input class="input" type="text" id="Name" name="Name" />
       </div>
       <div class="stack-horizontal items-start gap-m">
         <div class="stack gap-xs grow">
-          <label class="fs-s fg-muted" for="Nationality">
+          <label class="fs-s ink-subtle" for="Nationality">
             Nationality (ISO 3166-1 numeric)
           </label>
           <input
@@ -23,7 +23,7 @@ export default function FormPage() {
           />
         </div>
         <div class="stack grow">
-          <label class="fs-s fg-muted mb-xs" for="NationalOrgNumber">
+          <label class="fs-s ink-subtle mb-xs" for="NationalOrgNumber">
             National organization number
           </label>
           <input
@@ -34,9 +34,9 @@ export default function FormPage() {
             name="NationalOrgNumber"
             aria-invalid="true"
           />
-          <p class="fs-s fg-danger-medium mt-2xs">
+          <p class="fs-s ink-danger-medium mt-2xs">
             <span
-              class="fg-danger-strong bg-danger-medium"
+              class="ink-danger-strong bg-danger-medium"
               style="    display: inline-block;
                   width: 1rem;
                   height: 1rem;
@@ -54,7 +54,7 @@ export default function FormPage() {
         </div>
       </div>
       <div class="stack gap-xs">
-        <label class="fs-s fg-muted" for="Address">
+        <label class="fs-s ink-subtle" for="Address">
           Address
         </label>
         <textarea class="textarea" rows={3} id="Address" name="Address"></textarea>

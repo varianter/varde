@@ -20,15 +20,15 @@ const light = {
     base: { palette: "inherit", default: 50, inverted: 750 },
     tinted: { palette: "inherit", default: 100, inverted: 700 },
     dyed: { palette: "inherit", default: 150, inverted: 600 },
-    // Hover mix target for .bg-surface:hover on surface utilities (see colors.css).
+    // Hover mix target for the surface wash (see colors.css).
     // Sits just past dyed on the ramp so a small mix reads as "one step
-    // more dyed"; blends with color-scheme, so no polarity math in the utility.
-    "tint-blend": { palette: "inherit", default: 300, inverted: 450 },
+    // more dyed"; mixes with color-scheme, so no polarity math in the utility.
+    "tint-target": { palette: "inherit", default: 300, inverted: 450 },
   },
-  foreground: {
+  ink: {
     default: { palette: "inherit", default: 600, inverted: 100 },
-    emphasis: { palette: "inherit", default: 700, inverted: 50 },
-    muted: { palette: "inherit", default: 550, inverted: 200 },
+    prominent: { palette: "inherit", default: 700, inverted: 50 },
+    subtle: { palette: "inherit", default: 550, inverted: 200 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
     link: {
       default: { palette: "inherit", default: 600, inverted: 100 },
@@ -72,7 +72,7 @@ const light = {
   backdrop: { palette: "inherit", default: 500, inverted: 500 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 800, inverted: 100 },
-    "tint-blend": { palette: "inherit", default: 150, inverted: 700 },
+    "tint-target": { palette: "inherit", default: 150, inverted: 700 },
     base: { palette: "inherit", default: 600, inverted: 100 },
     "on-base": { palette: "inherit", default: 50, inverted: 750 },
   },
@@ -85,12 +85,12 @@ const dark = {
     base: { palette: "inherit", default: 850, inverted: 200 },
     tinted: { palette: "inherit", default: 800, inverted: 250 },
     dyed: { palette: "inherit", default: 700, inverted: 300 },
-    "tint-blend": { palette: "inherit", default: 600, inverted: 400 },
+    "tint-target": { palette: "inherit", default: 600, inverted: 400 },
   },
-  foreground: {
+  ink: {
     default: { palette: "inherit", default: 250, inverted: 750 },
-    emphasis: { palette: "inherit", default: 100, inverted: 900 },
-    muted: { palette: "inherit", default: 350, inverted: 750 },
+    prominent: { palette: "inherit", default: 100, inverted: 900 },
+    subtle: { palette: "inherit", default: 350, inverted: 750 },
     marker: { palette: "inherit", default: 400, inverted: 600 },
     link: {
       default: { palette: "inherit", default: 350, inverted: 800 },
@@ -135,7 +135,7 @@ const dark = {
   backdrop: { palette: "inherit", default: 900, inverted: 900 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 50, inverted: 750 },
-    "tint-blend": { palette: "inherit", default: 850, inverted: 300 },
+    "tint-target": { palette: "inherit", default: 850, inverted: 300 },
     base: { palette: "inherit", default: 350, inverted: 700 },
     "on-base": { palette: "inherit", default: 850, inverted: 50 },
   },

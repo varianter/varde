@@ -32,7 +32,7 @@
   :where(.table, .typeset table) :where(th) {
     font-weight: var(--font-weight-bold);
     text-align: inherit;
-    color: var(--foreground-emphasis);
+    color: var(--ink-prominent);
     padding-block: var(--_table-padding-block);
     padding-inline: var(--_table-padding-inline);
     border-block-end: 1px solid var(--border-default);
@@ -41,8 +41,8 @@
   :where(.table, .typeset table) :where(td) {
     padding-block: var(--_table-padding-block);
     padding-inline: var(--_table-padding-inline);
-    border-block-end: 1px solid var(--border-faint);
-    color: var(--foreground-default);
+    border-block-end: 1px solid var(--border-subtle);
+    color: var(--ink-default);
   }
 
   :where(.table, .typeset table) :where(thead th) {
@@ -57,12 +57,12 @@
     border-block-end: none;
     border-block-start: 1px solid var(--border-default);
     font-weight: var(--font-weight-medium);
-    color: var(--foreground-emphasis);
+    color: var(--ink-prominent);
   }
 
   :where(.table, .typeset table) :where(caption) {
     padding-block: var(--_table-padding-block);
-    color: var(--foreground-muted);
+    color: var(--ink-subtle);
     caption-side: bottom;
     text-align: start;
     font-size: var(--font-size-xs);

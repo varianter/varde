@@ -5,22 +5,22 @@ description: Typography-driven compositions — display type, hero sections, pul
 
 Editorial layouts live or die on type. The content is words, so the hierarchy has to do the heavy lifting: one very large statement, a few quieter supporting lines, and a lot of deliberate space in between.
 
-Varde's type scale is fluid — `fs-4xl` stays readable on a phone and still feels big on a wide monitor. Pair the large steps with `lh-normal` or `lh-relaxed` for air, `tt-uppercase` and `fg-muted` for kickers, and `t-tabular` where numbers need to line up. Colour comes from `<color-mode>`, not from the text.
+Varde's type scale is fluid — `fs-4xl` stays readable on a phone and still feels big on a wide monitor. Pair the large steps with `lh-normal` or `lh-relaxed` for air, `tt-uppercase` and `ink-subtle` for kickers, and `t-tabular` where numbers need to line up. Colour comes from `<color-mode>`, not from the text.
 
 ## Hero
 
 One statement, one supporting line, one byline. The whole block is lit by a `color-mode`, so the text and background stay in the same hue without a single colour class on the type.
 
 ```html
-<color-mode palette="periwinkle" class="d-block bg-surface-tinted br-l p-xl">
+<color-mode palette="periwinkle" class="d-block surface-tinted br-l p-xl">
   <div class="stack gap-s mw-7">
-    <p class="fs-xs tt-uppercase fg-muted">Issue 04 · Winter 2026</p>
+    <p class="fs-xs tt-uppercase ink-subtle">Issue 04 · Winter 2026</p>
     <h1 class="fs-4xl fw-bold">The quiet art of making space</h1>
-    <p class="fs-xl fg-muted lh-normal">
+    <p class="fs-xl ink-subtle lh-normal">
       Whitespace is not the absence of content. It is the shape content makes
       when it stops talking.
     </p>
-    <div class="stack-horizontal gap-xs fs-s fg-muted">
+    <div class="stack-horizontal gap-xs fs-s ink-subtle">
       <span>By Ada Lindberg</span>
       <span aria-hidden="true">·</span>
       <time datetime="PT12M">12 min read</time>
@@ -38,7 +38,7 @@ A quote earns its size. A thick left rule does the work of quotation marks; the 
   <blockquote class="fs-3xl fw-medium lh-normal b-l bw-thick bc-prominent pl-m">
     “Restraint reads as confidence only when it is deliberate.”
   </blockquote>
-  <figcaption class="fs-s fg-muted">
+  <figcaption class="fs-s ink-subtle">
     <span class="fw-bold">Ada Lindberg</span> — design editor
   </figcaption>
 </figure>
@@ -51,9 +51,9 @@ The reading experience. A narrow measure (`mw-6`), a standfirst that leads, body
 ```html
 <article class="stack gap-m mw-6">
   <header class="stack gap-2xs">
-    <p class="fs-xs tt-uppercase fg-muted">Essay</p>
+    <p class="fs-xs tt-uppercase ink-subtle">Essay</p>
     <h2 class="fs-2xl fw-bold">Less is a decision</h2>
-    <p class="fs-l fg-muted">
+    <p class="fs-l ink-subtle">
       The difference between empty and restrained is the number of choices
       someone made before you arrived.
     </p>
@@ -74,7 +74,7 @@ The reading experience. A narrow measure (`mw-6`), a standfirst that leads, body
     Decoration is easy to replace. Structure is not.
   </p>
   <hr />
-  <p class="fs-s fg-muted">
+  <p class="fs-s ink-subtle">
     Ada Lindberg is the design editor. This essay appears in issue 04.
   </p>
 </article>
@@ -87,11 +87,11 @@ A chapter break. The index numeral is large and tinted by its own `color-mode`; 
 ```html
 <div class="stack-horizontal items-end gap-m mw-8">
   <color-mode palette="purple" class="d-block">
-    <p class="fs-4xl fw-bold fg-muted">01</p>
+    <p class="fs-4xl fw-bold ink-subtle">01</p>
   </color-mode>
   <div class="stack gap-xs">
     <h2 class="fs-2xl fw-bold">The argument</h2>
-    <p class="fs-m fg-muted">
+    <p class="fs-m ink-subtle">
       Every page makes a case before the reader has read a single word — and the
       case is made by what is absent.
     </p>
@@ -105,33 +105,33 @@ A magazine index. Ruled rows, titles that lead, and page numbers set in `t-tabul
 
 ```html
 <nav class="stack mw-8">
-  <div class="stack-horizontal items-end gap-s b-b bc-faint pb-s">
-    <p class="fs-xs tt-uppercase fg-muted">Contents</p>
+  <div class="stack-horizontal items-end gap-s b-b bc-subtle pb-s">
+    <p class="fs-xs tt-uppercase ink-subtle">Contents</p>
     <p class="fs-3xl fw-bold ml-auto">04</p>
   </div>
 
-  <a class="stack-horizontal items-end gap-s b-b bc-faint py-s" href="#">
+  <a class="stack-horizontal items-end gap-s b-b bc-subtle py-s" href="#">
     <div class="stack gap-2xs">
       <h3 class="fs-xl fw-bold">The quiet art of making space</h3>
-      <p class="fs-s fg-muted">Ada Lindberg</p>
+      <p class="fs-s ink-subtle">Ada Lindberg</p>
     </div>
-    <p class="fs-m fg-muted ml-auto t-tabular">12</p>
+    <p class="fs-m ink-subtle ml-auto t-tabular">12</p>
   </a>
 
-  <a class="stack-horizontal items-end gap-s b-b bc-faint py-s" href="#">
+  <a class="stack-horizontal items-end gap-s b-b bc-subtle py-s" href="#">
     <div class="stack gap-2xs">
       <h3 class="fs-xl fw-bold">A field guide to negative space</h3>
-      <p class="fs-s fg-muted">Maren Solberg</p>
+      <p class="fs-s ink-subtle">Maren Solberg</p>
     </div>
-    <p class="fs-m fg-muted ml-auto t-tabular">24</p>
+    <p class="fs-m ink-subtle ml-auto t-tabular">24</p>
   </a>
 
   <a class="stack-horizontal items-end gap-s py-s" href="#">
     <div class="stack gap-2xs">
       <h3 class="fs-xl fw-bold">Type that keeps its mouth shut</h3>
-      <p class="fs-s fg-muted">Jens Krogstad</p>
+      <p class="fs-s ink-subtle">Jens Krogstad</p>
     </div>
-    <p class="fs-m fg-muted ml-auto t-tabular">38</p>
+    <p class="fs-m ink-subtle ml-auto t-tabular">38</p>
   </a>
 </nav>
 ```
@@ -144,15 +144,15 @@ Big figures with small, uppercase labels. The numbers carry the page; the labels
 <div class="stack-horizontal items-end gap-l mw-8">
   <div class="stack gap-2xs">
     <p class="fs-4xl fw-bold">48</p>
-    <p class="fs-s fg-muted tt-uppercase">Issues published</p>
+    <p class="fs-s ink-subtle tt-uppercase">Issues published</p>
   </div>
   <div class="stack gap-2xs">
     <p class="fs-4xl fw-bold">2 100</p>
-    <p class="fs-s fg-muted tt-uppercase">Pieces of type set</p>
+    <p class="fs-s ink-subtle tt-uppercase">Pieces of type set</p>
   </div>
   <div class="stack gap-2xs">
     <p class="fs-4xl fw-bold">19</p>
-    <p class="fs-s fg-muted tt-uppercase">Contributors</p>
+    <p class="fs-s ink-subtle tt-uppercase">Contributors</p>
   </div>
 </div>
 ```

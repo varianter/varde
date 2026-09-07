@@ -3,17 +3,17 @@ the neutral background is ambient and the intent background is marked, and "surf
 Neutrals are your load-bearing layer because they carry hierarchy — caption under body under heading, surface nested on surface. Hierarchy needs many rungs. Intents carry meaning, and meaning has no hierarchy: there's no "more success / less success," there's just success.
 
 Neutrals:
-surface — depth — sunken / default / raised
-fg — ink/voice — muted / default / emphasis
-border — visibility — faint / default / prominent
+surface — depth — base / tinted / dyed
+ink — prominence — subtle / default / prominent
+border — visibility — subtle / default / prominent
 
-surface-{sunken / default / raised}
-fg-{muted / default / emphasis}
-border-{subtle / default / strong}
+surface-{base / tinted / dyed}
+ink-{subtle / default / prominent}
+border-{subtle / default / prominent}
 
 Intents:
 bg-{subtle/medium/strong}
-fg-{subtle/medium/strong}
+ink-{subtle/medium/strong}
 border-{subtle/medium/strong}
 
 Forms/inputs/buttons get their own neutral equivalent mapping to danger, and does not rely on Intent colors values (e.g 300, 500 and so on).

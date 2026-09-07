@@ -85,20 +85,17 @@
 
   /* Border alpha — derive border colors from the base token so they
      blend into their background instead of sitting on top of it. */
-  --border-alpha-faint: 0.15;
+  --border-alpha-subtle: 0.15;
   --border-alpha-default: 0.35;
   --border-alpha-prominent: 0.52;
   --border-hover: 0;
   --border-hover-augment: 0.3;
 
-  /* Surface blend — the mix percentage `.bg-surface:hover` steps toward
-     the per-mode blend token (see colors.css / button.css). Single
-     magnitude; polarity comes from --button-tint-blend, not from the sign
-     here. */
-  --surface-blend: 0%;
-  --surface-blend-augment: 20%;
+  /* Wash strength — how much of the per-mode tint target the hover wash
+     mixes in (see colors.css). */
+  --wash-strength: 20%;
 
-  --border-faint: oklch(from var(--border-base) l c h / var(--border-alpha-faint));
+  --border-subtle: oklch(from var(--border-base) l c h / var(--border-alpha-subtle));
   --border-default: oklch(from var(--border-base) l c h / var(--border-alpha-default));
   --border-prominent: oklch(from var(--border-base) l c h / var(--border-alpha-prominent));
 

@@ -3,20 +3,20 @@
 :where(.form-label) {
   font-size: var(--font-size-s);
   line-height: var(--line-height-flat);
-  color: var(--foreground-muted);
+  color: var(--ink-subtle);
   font-weight: var(--font-weight-medium);
 }
 
 @layer forms.public {
   :where(.input, .select, .textarea, .checkbox, .radio) {
     --input-background: var(--background-control-default);
-    --input-foreground: var(--foreground-default);
+    --input-ink: var(--ink-default);
     --input-border: var(--border-control-default);
-    --input-placeholder: var(--foreground-control-placeholder);
-    --input-checked-foreground: var(--foreground-control-selected);
+    --input-placeholder: var(--ink-control-placeholder);
+    --input-checked-ink: var(--ink-control-selected);
 
     --_input-background: var(--input-background);
-    --_input-foreground: var(--input-foreground);
+    --_input-ink: var(--input-ink);
     --_input-border: var(--input-border);
 
     --_input-border-radius: var(--border-radius-m);
@@ -83,7 +83,7 @@
   }
 
   :where(.checkbox, .radio):checked::after {
-    color: var(--input-checked-foreground);
+    color: var(--input-checked-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -100,7 +100,7 @@
 
   :where(.input, .textarea, .select):where([aria-invalid='true']):not(:focus-visible) {
     --_input-border: var(--border-control-error);
-    --_input-foreground: var(--foreground-control-error);
+    --_input-ink: var(--ink-control-error);
   }
 }
 
@@ -111,7 +111,7 @@
     font-weight: var(--font-weight-regular);
 
     background: var(--_input-background);
-    color: var(--_input-foreground);
+    color: var(--_input-ink);
     border-color: var(--_input-border);
     border-radius: var(--_input-border-radius);
     border-width: 1px;
@@ -241,7 +241,7 @@
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
     :where(.select)::picker-icon {
-      color: var(--_input-foreground);
+      color: var(--_input-ink);
       opacity: 0.6;
       position: absolute;
       right: var(--_input-padding-inline);
@@ -251,7 +251,7 @@
 
     /*:where(.select) selectedcontent {
       font-size: var(--_input-font-size);
-      color: var(--_input-foreground);
+      color: var(--_input-ink);
     }*/
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
@@ -259,7 +259,7 @@
       appearance: base-select;
       font-size: var(--_input-font-size);
       background: var(--input-background);
-      color: var(--_input-foreground);
+      color: var(--_input-ink);
       border: 1px solid var(--_input-border);
       border-radius: var(--input-border-radius);
       padding: var(--spacing-2xs);
@@ -324,7 +324,7 @@
       padding-block: var(--spacing-4xs);
       padding-inline: var(--spacing-xs) var(--spacing-xs);
       border-radius: calc(var(--input-border-radius) - 2px);
-      color: var(--_input-foreground);
+      color: var(--_input-ink);
       outline-offset: 0;
     }
 
@@ -338,7 +338,7 @@
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
     :where(.select) option::checkmark {
-      color: var(--input-checked-foreground);
+      color: var(--input-checked-ink);
       order: 2;
       margin-left: auto;
     }
@@ -352,7 +352,7 @@
     /* Optgroup labels */
     :where(.select) optgroup {
       font-weight: var(--font-weight-medium);
-      color: var(--foreground-muted, var(--input-placeholder));
+      color: var(--ink-subtle, var(--input-placeholder));
       padding-block: var(--spacing-3xs);
       padding-inline: var(--spacing-3xs) var(--spacing-xs);
     }
@@ -371,7 +371,7 @@
     /* hr as separator inside the select */
     :where(.select) hr {
       border: none;
-      border-block-start: 1px solid var(--border-faint, var(--_input-border));
+      border-block-start: 1px solid var(--border-subtle, var(--_input-border));
       margin-block: var(--spacing-3xs);
     }
   }

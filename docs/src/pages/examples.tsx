@@ -3,9 +3,9 @@ export const path = "/examples";
 function Events({ color = "grey" }) {
   return (
     <color-mode palette={color} inverted class="">
-      <div class="py-2xs px-2xs bg-surface-dyed stack-horizontal items-start gap-m br-2xl">
+      <div class="py-2xs px-2xs surface-dyed stack-horizontal items-start gap-m br-2xl">
         <div class="px-xs-s pt-m pb-xs mw-6">
-          <h3 class="fs-4xl mb-2xs fg-emphasis">Arrangementer</h3>
+          <h3 class="fs-4xl mb-2xs ink-prominent">Arrangementer</h3>
           <p class="fs-l mb-xs">
             Bli med der det skjer! Vi deltar på konferanser, arrangerer fagmøter og andre nerdete
             samlinger. Stikk innom og si hei – vi digger å bli kjent med nye folk!
@@ -26,15 +26,15 @@ function Events({ color = "grey" }) {
         </div>
         <div class="stack gap-2xs flex-1">
           <color-mode palette="inherit">
-            <div class="bg-surface-tinted pl-m pr-xs py-xs br-xl">
-              <div class="stack-horizontal gap-2xs fg-muted">
+            <div class="surface-tinted pl-m pr-xs py-xs br-xl">
+              <div class="stack-horizontal gap-2xs ink-subtle">
                 <time>24.09.2026</time>
                 <span>•</span>
                 <p>Trondheim</p>
               </div>
               <div class="mb-2xs">
                 <h6 class="fs-2xl">Workshop: Design-Patterns for KI-produkter i 2026</h6>
-                <p class="fg-muted">
+                <p class="ink-subtle">
                   Variant inviterer til workshop med Vitaly Friedman fra Smashing Magazine dagen før
                   TDC, og byr på en innholdsrik dag etterfulgt av god mat, drikke og quiz på
                   Bariant..{" "}
@@ -48,8 +48,8 @@ function Events({ color = "grey" }) {
           </color-mode>
 
           <color-mode palette="inherit">
-            <div class="bg-surface-tinted pl-m pr-xs py-xs br-xl">
-              <div class="stack-horizontal gap-2xs fg-muted">
+            <div class="surface-tinted pl-m pr-xs py-xs br-xl">
+              <div class="stack-horizontal gap-2xs ink-subtle">
                 <time>24.09.2026</time>
                 <span>•</span>
                 <p>Trondheim</p>
@@ -73,7 +73,7 @@ function SmileyBox({ color = "green" }) {
   return (
     <color-mode class="d-block mw-6" palette={color}>
       <div
-        class="p-l bg-surface-dyed stack gap-xl aspect-square"
+        class="p-l surface-dyed stack gap-xl aspect-square"
         style="border-radius: 6rem 6rem .375rem .375rem;"
       >
         <div>
@@ -115,7 +115,7 @@ function SmileyBox({ color = "green" }) {
             />
           </svg>
         </div>
-        <h4 class="fs-2xl fg-emphasis mt-auto">
+        <h4 class="fs-2xl ink-prominent mt-auto">
           Skal vi bidra til samfunnet, må vi være åpne om hvordan vi bidrar. Derfor er alt vi gjør
           tilgjengelig for alle.{" "}
         </h4>
@@ -127,9 +127,9 @@ function SmileyBox({ color = "green" }) {
 function HandbookBox({ color = "green" }) {
   return (
     <color-mode palette={color} inverted>
-      <div class="px-m pt-xl-2xl pb-l bg-surface-dyed typeset mw-8 stack br-m">
+      <div class="px-m pt-xl-2xl pb-l surface-dyed typeset mw-8 stack br-m">
         <h3 class="fs-2xl lh-tight">Håndboka</h3>
-        <p class="fs-l fg-muted">
+        <p class="fs-l ink-subtle">
           I håndboka står alt om hvordan vi jobber og hva som er viktig for oss. Endrer vi på oss,
           da endrer vi også håndboka.
         </p>
@@ -175,16 +175,16 @@ function HandbookBox({ color = "green" }) {
 function Doodad({ color = "green" }) {
   return (
     <color-mode palette={color} inverted class="stack">
-      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s br-bl-none br-bl-none -mb-3xs">
+      <div class="surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s br-bl-none br-bl-none -mb-3xs">
         <h3 class="lh-tight fs-s">Nøkkelfund</h3>
       </div>
-      <div class="p-3xs bg-surface-dyed br-m br-tl-none br-tl-none">
-        <color-mode palette="inherit" class="d-block bg-surface-base br-s p-xs px-s pt-s">
-          <p class="fs-xl fw-medium lh-tight fg-emphasis">
+      <div class="p-3xs surface-dyed br-m br-tl-none br-tl-none">
+        <color-mode palette="inherit" class="d-block surface-base br-s p-xs px-s pt-s">
+          <p class="fs-xl fw-medium lh-tight ink-prominent">
             Mange passasjerer har et informasjonsbehov som ikke dekkes. Dette forer til kødannelse i
             kritiske deler av flyplassen.
           </p>
-          <p class="fg-muted fs-s mt-2xs">Fra innsiktsarbeid på Tromsø flyplass</p>
+          <p class="ink-subtle fs-s mt-2xs">Fra innsiktsarbeid på Tromsø flyplass</p>
         </color-mode>
       </div>
     </color-mode>

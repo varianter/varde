@@ -19,10 +19,10 @@
     );
   }
 
-  .bc-faint {
+  .bc-subtle {
     border-color: oklch(
       from var(--border-base) l c h /
-      calc(var(--border-alpha-faint) + var(--border-hover))
+      calc(var(--border-alpha-subtle) + var(--border-hover))
     );
   }
 

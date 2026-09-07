@@ -6,34 +6,22 @@ color-mode {
   --surface-base: light-dark(var(--palette-inherit-50), var(--palette-inherit-850));
   --surface-tinted: light-dark(var(--palette-inherit-100), var(--palette-inherit-800));
   --surface-dyed: light-dark(var(--palette-inherit-150), var(--palette-inherit-700));
-  --surface-tint-blend: light-dark(var(--palette-inherit-300), var(--palette-inherit-600));
-  --foreground-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-250));
-  --foreground-emphasis: light-dark(var(--palette-inherit-700), var(--palette-inherit-100));
-  --foreground-muted: light-dark(var(--palette-inherit-550), var(--palette-inherit-350));
-  --foreground-marker: light-dark(var(--palette-inherit-600), var(--palette-inherit-400));
-  --foreground-link-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
-  --foreground-link-hover: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
-  --foreground-link-decoration-idle: light-dark(
-    var(--palette-inherit-450),
-    var(--palette-inherit-450)
-  );
-  --foreground-link-decoration-hover: light-dark(
-    var(--palette-inherit-400),
-    var(--palette-inherit-400)
-  );
-  --foreground-control-default: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
-  --foreground-control-hover: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
-  --foreground-control-placeholder: light-dark(
-    var(--palette-inherit-400),
-    var(--palette-inherit-500)
-  );
-  --foreground-control-active: light-dark(var(--palette-inherit-900), var(--palette-inherit-900));
-  --foreground-control-selected: light-dark(var(--palette-inherit-600), var(--palette-inherit-400));
-  --foreground-control-selection: light-dark(
-    var(--palette-periwinkle-700),
-    var(--palette-periwinkle-150)
-  );
-  --foreground-control-error: light-dark(var(--palette-coral-650), var(--palette-coral-150));
+  --surface-tint-target: light-dark(var(--palette-inherit-300), var(--palette-inherit-600));
+  --ink-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-250));
+  --ink-prominent: light-dark(var(--palette-inherit-700), var(--palette-inherit-100));
+  --ink-subtle: light-dark(var(--palette-inherit-550), var(--palette-inherit-350));
+  --ink-marker: light-dark(var(--palette-inherit-600), var(--palette-inherit-400));
+  --ink-link-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
+  --ink-link-hover: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
+  --ink-link-decoration-idle: light-dark(var(--palette-inherit-450), var(--palette-inherit-450));
+  --ink-link-decoration-hover: light-dark(var(--palette-inherit-400), var(--palette-inherit-400));
+  --ink-control-default: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
+  --ink-control-hover: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
+  --ink-control-placeholder: light-dark(var(--palette-inherit-400), var(--palette-inherit-500));
+  --ink-control-active: light-dark(var(--palette-inherit-900), var(--palette-inherit-900));
+  --ink-control-selected: light-dark(var(--palette-inherit-600), var(--palette-inherit-400));
+  --ink-control-selection: light-dark(var(--palette-periwinkle-700), var(--palette-periwinkle-150));
+  --ink-control-error: light-dark(var(--palette-coral-650), var(--palette-coral-150));
   --background-control-default: light-dark(var(--palette-inherit-50), var(--palette-inherit-750));
   --background-control-hover: light-dark(var(--palette-inherit-100), var(--palette-inherit-700));
   --background-control-active: light-dark(
@@ -61,7 +49,7 @@ color-mode {
   --shadow: light-dark(var(--palette-inherit-700), var(--palette-inherit-950));
   --backdrop: light-dark(var(--palette-inherit-500), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-800), var(--palette-inherit-50));
-  --button-tint-blend: light-dark(var(--palette-inherit-150), var(--palette-inherit-850));
+  --button-tint-target: light-dark(var(--palette-inherit-150), var(--palette-inherit-850));
   --button-base: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
   --button-on-base: light-dark(var(--palette-inherit-50), var(--palette-inherit-850));
 }
@@ -71,34 +59,22 @@ color-mode[inverted]:not([inverted='false' i]) {
   --surface-base: light-dark(var(--palette-inherit-750), var(--palette-inherit-200));
   --surface-tinted: light-dark(var(--palette-inherit-700), var(--palette-inherit-250));
   --surface-dyed: light-dark(var(--palette-inherit-600), var(--palette-inherit-300));
-  --surface-tint-blend: light-dark(var(--palette-inherit-450), var(--palette-inherit-400));
-  --foreground-default: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
-  --foreground-emphasis: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
-  --foreground-muted: light-dark(var(--palette-inherit-200), var(--palette-inherit-750));
-  --foreground-marker: light-dark(var(--palette-inherit-200), var(--palette-inherit-600));
-  --foreground-link-default: light-dark(var(--palette-inherit-100), var(--palette-inherit-800));
-  --foreground-link-hover: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
-  --foreground-link-decoration-idle: light-dark(
-    var(--palette-inherit-400),
-    var(--palette-inherit-550)
-  );
-  --foreground-link-decoration-hover: light-dark(
-    var(--palette-inherit-250),
-    var(--palette-inherit-650)
-  );
-  --foreground-control-default: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
-  --foreground-control-hover: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
-  --foreground-control-placeholder: light-dark(
-    var(--palette-inherit-500),
-    var(--palette-inherit-450)
-  );
-  --foreground-control-active: light-dark(var(--palette-inherit-900), var(--palette-inherit-900));
-  --foreground-control-selected: light-dark(var(--palette-inherit-400), var(--palette-inherit-600));
-  --foreground-control-selection: light-dark(
-    var(--palette-periwinkle-700),
-    var(--palette-periwinkle-600)
-  );
-  --foreground-control-error: light-dark(var(--palette-coral-150), var(--palette-coral-650));
+  --surface-tint-target: light-dark(var(--palette-inherit-450), var(--palette-inherit-400));
+  --ink-default: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
+  --ink-prominent: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
+  --ink-subtle: light-dark(var(--palette-inherit-200), var(--palette-inherit-750));
+  --ink-marker: light-dark(var(--palette-inherit-200), var(--palette-inherit-600));
+  --ink-link-default: light-dark(var(--palette-inherit-100), var(--palette-inherit-800));
+  --ink-link-hover: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
+  --ink-link-decoration-idle: light-dark(var(--palette-inherit-400), var(--palette-inherit-550));
+  --ink-link-decoration-hover: light-dark(var(--palette-inherit-250), var(--palette-inherit-650));
+  --ink-control-default: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
+  --ink-control-hover: light-dark(var(--palette-inherit-800), var(--palette-inherit-800));
+  --ink-control-placeholder: light-dark(var(--palette-inherit-500), var(--palette-inherit-450));
+  --ink-control-active: light-dark(var(--palette-inherit-900), var(--palette-inherit-900));
+  --ink-control-selected: light-dark(var(--palette-inherit-400), var(--palette-inherit-600));
+  --ink-control-selection: light-dark(var(--palette-periwinkle-700), var(--palette-periwinkle-600));
+  --ink-control-error: light-dark(var(--palette-coral-150), var(--palette-coral-650));
   --background-control-default: light-dark(var(--palette-inherit-750), var(--palette-inherit-150));
   --background-control-hover: light-dark(var(--palette-inherit-700), var(--palette-inherit-200));
   --background-control-active: light-dark(
@@ -126,7 +102,7 @@ color-mode[inverted]:not([inverted='false' i]) {
   --shadow: light-dark(var(--palette-inherit-700), var(--palette-inherit-950));
   --backdrop: light-dark(var(--palette-inherit-500), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-100), var(--palette-inherit-750));
-  --button-tint-blend: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
+  --button-tint-target: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
   --button-base: light-dark(var(--palette-inherit-100), var(--palette-inherit-700));
   --button-on-base: light-dark(var(--palette-inherit-750), var(--palette-inherit-50));
 }

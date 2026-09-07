@@ -17,20 +17,20 @@ Varde names colours after the **job they do**:
 
 | Token                                   | Job                                   |
 | --------------------------------------- | ------------------------------------- |
-| `bg-surface-base`                       | the plainest background               |
-| `bg-surface-tinted`                     | a background with a bit more presence |
-| `bg-surface-dyed`                       | a background with a lot more presence |
-| `fg-default`                            | normal text                           |
-| `fg-muted`                              | quieter text                          |
-| `fg-emphasis`                           | louder text                           |
-| `bc-faint` / `bc-default` / `bc-prominent` | borders, from barely-there to obvious |
+| `surface-base`                       | the plainest background               |
+| `surface-tinted`                     | a background with a bit more presence |
+| `surface-dyed`                       | a background with a lot more presence |
+| `ink-default`                            | normal text                           |
+| `ink-subtle`                              | quieter text                          |
+| `ink-prominent`                           | louder text                           |
+| `bc-subtle` / `bc-default` / `bc-prominent` | borders, from barely-there to obvious |
 
 Notice that none of those say what colour they are. That's on purpose. They're _slots_. `<color-mode>` is what fills them in.
 
 So this:
 
 ```html
-<span class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs">
+<span class="surface-tinted ink-subtle px-2xs py-3xs br-pill fs-xs">
   Paid
 </span>
 ```
@@ -44,14 +44,14 @@ So this:
 Pick a palette, wrap something in it.
 
 ```html
-<color-mode palette="green" class="d-block bg-surface-tinted p-m br-l">
+<color-mode palette="green" class="d-block surface-tinted p-m br-l">
   <h3>Everything in here is green</h3>
-  <p class="fg-muted">Including this quieter line.</p>
+  <p class="ink-subtle">Including this quieter line.</p>
 </color-mode>
 
-<color-mode palette="blue" class="d-block bg-surface-tinted p-m br-l">
+<color-mode palette="blue" class="d-block surface-tinted p-m br-l">
   <h3>Everything in here is blue</h3>
-  <p class="fg-muted">Including this quieter line.</p>
+  <p class="ink-subtle">Including this quieter line.</p>
 </color-mode>
 ```
 
@@ -66,9 +66,9 @@ The available palettes:
 Wrap a whole page section and everything inside falls in line — headings, body text, links, buttons, form fields, the lot.
 
 ```html
-<color-mode palette="periwinkle" class="d-block bg-surface-tinted p-xl">
+<color-mode palette="periwinkle" class="d-block surface-tinted p-xl">
   <h1 class="fs-3xl fw-bold">Velkommen til Variantdag</h1>
-  <p class="fg-muted">Programmet for dagen</p>
+  <p class="ink-subtle">Programmet for dagen</p>
 
   <button class="button">Meld deg på</button>
 </color-mode>
@@ -83,11 +83,11 @@ This is the bit worth sitting with: **components don't carry colour, contexts do
 The exact same tool works on a single word.
 
 ```html
-<span class="fs-s fg-muted">MRR</span>
+<span class="fs-s ink-subtle">MRR</span>
 
 <color-mode
   palette="green"
-  class="d-iblock bg-surface-dyed px-xs py-4xs br-pill fs-xs"
+  class="d-iblock surface-dyed px-xs py-4xs br-pill fs-xs"
 >
   +3.2%
 </color-mode>
@@ -99,28 +99,28 @@ Here's the part that saves real work. A status column in a table — six badges,
 <color-mode
   inverted
   palette="green"
-  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Paid</color-mode
 >
 
 <color-mode
   inverted
   palette="orange"
-  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Unfulfilled</color-mode
 >
 
 <color-mode
   inverted
   palette="coral"
-  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Cancelled</color-mode
 >
 
 <color-mode
   inverted
   palette="grey"
-  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Refunded</color-mode
 >
 ```
@@ -132,12 +132,12 @@ No `.badge-success`. No `.badge-warning`. No `--color-status-cancelled`. "Paid i
 Modes nest, and the nearest one wins. This is where it stops feeling like a theme switcher.
 
 ```html
-<color-mode palette="yellow" class="d-block bg-surface-tinted p-s br-m">
+<color-mode palette="yellow" class="d-block surface-tinted p-s br-m">
   <p>This whole cell is yellow…</p>
 
   <color-mode
     palette="purple"
-    class="d-iblock bg-surface-dyed px-2xs br-s fs-xs"
+    class="d-iblock surface-dyed px-2xs br-s fs-xs"
   >
     …but this tag inside it is purple.
   </color-mode>
@@ -151,12 +151,12 @@ You can go as deep as you like. A green card containing an orange row containing
 `inverted` flips the light and dark ends of whatever palette you're in. Use it when you want a block to _pop_ — a hero, a highlighted card, a selected chip.
 
 ```html
-<color-mode palette="periwinkle" class="d-block bg-surface-tinted p-m b-all">
+<color-mode palette="periwinkle" class="d-block surface-tinted p-m b-all">
   <p class="p-s">
     This sits in a non-inverted color-mode. Below we've inverted the color-mode
   </p>
 
-  <color-mode inverted class="d-block bg-surface-dyed br-l px-s py-xs">
+  <color-mode inverted class="d-block surface-dyed br-l px-s py-xs">
     <p class="lh-tight">Velkommen til</p>
     <h1 class="fs-4xl fw-bold">Variantdag</h1>
   </color-mode>
@@ -174,38 +174,38 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
 ```html
 <!-- selected -->
 <div class="stack-horizontal gap-xs" data-palette-group>
-  <color-mode palette="blue" class="d-block flex-1 br-m bg-surface-tinted">
+  <color-mode palette="blue" class="d-block flex-1 br-m surface-tinted">
     <label
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">Pro trial</h5>
-        <p class="fg-muted">Free for two weeks</p>
+        <p class="ink-subtle">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" checked />
     </label>
   </color-mode>
 
   <!-- not selected — note the classes are identical -->
-  <color-mode palette="grey" class="d-block flex-1 br-m bg-surface-tinted">
+  <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
     <label
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">Team trial</h5>
-        <p class="fg-muted">Free for two weeks</p>
+        <p class="ink-subtle">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" />
     </label>
   </color-mode>
 
-  <color-mode palette="grey" class="d-block flex-1 br-m bg-surface-tinted">
+  <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
     <label
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">No thanks</h5>
-        <p class="fg-muted">I'm good</p>
+        <p class="ink-subtle">I'm good</p>
       </div>
       <input type="radio" class="radio" name="trial" />
     </label>
@@ -247,14 +247,14 @@ A short list of things that surprise people once.
 
 If you want inverted to continue, say so again on the child.
 
-**Nesting the same palette twice does nothing.** `<color-mode palette="green">` inside `<color-mode palette="green">` is a no-op. If you want a visual step, change the _surface_ instead — go from `bg-surface-tinted` to `bg-surface-dyed`.
+**Nesting the same palette twice does nothing.** `<color-mode palette="green">` inside `<color-mode palette="green">` is a no-op. If you want a visual step, change the _surface_ instead — go from `surface-tinted` to `surface-dyed`.
 
 | Want to…            | Do this                                        |
 | ------------------- | ---------------------------------------------- |
 | Colour anything     | Wrap it in `<color-mode palette="…">`          |
 | Make it visible     | Add `d-block` or `d-iblock`                    |
 | Add contrast        | Add `inverted`                                 |
-| Go a shade stronger | Change `bg-surface-tinted` → `bg-surface-dyed` |
+| Go a shade stronger | Change `surface-tinted` → `surface-dyed` |
 | Support dark mode   | Nothing — it already works                     |
 | Colour a button     | Nothing — wrap its container                   |
 

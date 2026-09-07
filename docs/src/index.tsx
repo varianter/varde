@@ -24,7 +24,7 @@ app.use(
   jsxRenderer(
     ({ children }) => {
       return (
-        <html lang="en" class="fg-default bg-surface-base">
+        <html lang="en" class="ink-default surface-base">
           <head>
             {html`<script>
               (function(){var m=document.cookie.match(/(?:^|;\\s*)theme=([^;]+)/);if(m)document.documentElement.setAttribute("data-color-scheme",m[1])})();
@@ -42,7 +42,7 @@ app.use(
                   justify-content: center;
                   background: repeating-linear-gradient(
                     125deg,
-                    var(--border-faint) 0 1px,
+                    var(--border-subtle) 0 1px,
                     transparent 0px 7px
                   );
                   border: 1px solid var(--border-default);
@@ -81,7 +81,7 @@ app.use(
 
                 .site-nav {
                   @media (min-width: 768px) {
-                    border-right: 1px solid var(--border-faint);
+                    border-right: 1px solid var(--border-subtle);
                     display: grid;
                     grid-template-rows: subgrid;
                     grid-area: nav;
@@ -106,7 +106,7 @@ app.use(
                   }
 
                   .site-logo {
-                    border-right: 1px solid var(--border-faint);
+                    border-right: 1px solid var(--border-subtle);
                   }
 
                   .menu-toggle {
@@ -120,10 +120,10 @@ app.use(
 
                 /* ── Shiki syntax theme — colors resolved from design tokens ── */
                 :root {
-                  --shiki-foreground: var(--foreground-default);
+                  --shiki-foreground: var(--ink-default);
                   --shiki-background: var(--surface-dyed);
-                  --shiki-token-comment: var(--foreground-muted);
-                  --shiki-token-punctuation: var(--foreground-muted);
+                  --shiki-token-comment: var(--ink-subtle);
+                  --shiki-token-punctuation: var(--ink-subtle);
                   --shiki-token-keyword: light-dark(var(--palette-purple-650), var(--palette-purple-300));
                   --shiki-token-string: light-dark(var(--palette-green-650), var(--palette-green-350));
                   --shiki-token-string-expression: light-dark(var(--palette-teal-650), var(--palette-teal-350));
@@ -152,7 +152,7 @@ app.use(
             <script type="module"></script>
           </head>
           <body class="fs-m">
-            <header class="site-header stack b-b bc-faint px-s-m ">
+            <header class="site-header stack b-b bc-subtle px-s-m ">
               <a
                 href="/docs"
                 class="site-logo py-xs fw-bold gap-xs stack-horizontal inline-flex self-stretch"
@@ -163,7 +163,7 @@ app.use(
                   width="24"
                   height="24"
                 />{" "}
-                <span class="fg-default lh-tight">Varde</span>
+                <span class="ink-default lh-tight">Varde</span>
               </a>
               <div class="w-full stack-horizontal gap-xs">
                 <div class="ml-auto gap-2xs stack-horizontal">
@@ -197,7 +197,7 @@ app.use(
                 popover="auto"
                 class="popover"
               >
-                <div class="px-s-m bg-surface-base site-nav-list">
+                <div class="px-s-m surface-base site-nav-list">
                   <NavLinks />
 
                   <div class="site-external-links py-s">
@@ -205,7 +205,7 @@ app.use(
                       href="https://github.com/varianter/varde"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="stack-horizontal gap-2xs fg-muted fs-s"
+                      class="stack-horizontal gap-2xs ink-subtle fs-s"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

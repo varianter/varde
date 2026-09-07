@@ -14,7 +14,7 @@ export function DocsPage({
       <header class="pt-2xl pb-2xl">
         <div class="stack gap-xs">
           <h2 class="fs-3xl fw-bold">{title}</h2>
-          <p class="fs-l fg-muted mw-7">{description}</p>
+          <p class="fs-l ink-subtle mw-7">{description}</p>
         </div>
       </header>
 
@@ -36,7 +36,7 @@ export function Section({
     <section data-component="Section" class="stack gap-m py-xl">
       <div>
         <h3 class="fs-xl fw-bold">{title}</h3>
-        {description && <p class="fg-muted fs-s">{description}</p>}
+        {description && <p class="ink-subtle fs-s">{description}</p>}
       </div>
       <div>{children}</div>
     </section>
@@ -48,7 +48,7 @@ export function ExamplePanel({ children, resize = false }: { children: Child; re
     <color-mode
       palette="inherit"
       data-component="ExamplePanel"
-      class="stack gap-s bg-surface-tinted p-l br-m of-scroll"
+      class="stack gap-s surface-tinted p-l br-m of-scroll"
       style={resize ? "resize: horizontal;" : undefined}
     >
       {children}
@@ -69,7 +69,7 @@ export function Example({
 }) {
   return (
     <div data-component="Example" class="stack gap-2xs">
-      <div class="fs-xs fg-muted">
+      <div class="fs-xs ink-subtle">
         <code>{label}</code>
         {description && <span> — {description}</span>}
       </div>
@@ -84,8 +84,8 @@ export function ExampleGroup({ children }: { children: Child }) {
 
 export function DemoBox({ children, label }: { children?: Child; label?: string }) {
   return (
-    <div class="fs-s fw-medium px-xs py-2xs br-m demo-box bg-surface-dyed">
-      <span class="fg-default fw-bold">{children || label || "Item"}</span>
+    <div class="fs-s fw-medium px-xs py-2xs br-m demo-box surface-dyed">
+      <span class="ink-default fw-bold">{children || label || "Item"}</span>
     </div>
   );
 }

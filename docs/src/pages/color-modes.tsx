@@ -26,25 +26,25 @@ const navItems = [
  */
 function WorkspacePanel({ mode }: { mode: string }) {
   return (
-    <section class="bg-surface-base b-all bc-faint br-l stack">
+    <section class="surface-base b-all bc-subtle br-l stack">
       <header class="stack px-xs pt-xs pb-xs pt-m">
         <div class="stack gap-xs">
           <h3 class="fs-xl fw-bold lh-tight" style="text-transform: capitalize;">
             {mode}
           </h3>
         </div>
-        <p class="fs-s fg-muted">Workspace settings — every token below inherits this palette.</p>
+        <p class="fs-s ink-subtle">Workspace settings — every token below inherits this palette.</p>
       </header>
 
       <div class="d-grid gap-2xs">
-        <nav class="b-all bc-faint b-r br-m m-2xs of-clip stack">
+        <nav class="b-all bc-subtle b-r br-m m-2xs of-clip stack">
           {navItems.map((item, i) => {
             const selected = i === 0;
             return (
               <a
                 href={`#${mode}-${item.label}`}
                 class={
-                  "stack-horizontal items-center gap-s pl-s pr-xs py-xs b-b bc-faint b-none:last-child bg-wash:hover fg-muted" +
+                  "stack-horizontal items-center gap-s pl-s pr-xs py-xs b-b bc-subtle b-none:last-child bg-wash:hover ink-subtle" +
                   (selected ? "" : "")
                 }
               >
@@ -56,16 +56,16 @@ function WorkspacePanel({ mode }: { mode: string }) {
           })}
         </nav>
 
-        <form class="stack gap-m px-xs pb-s pt-m bg-surface-tinted br-l">
+        <form class="stack gap-m px-xs pb-s pt-m surface-tinted br-l">
           <div class="stack gap-4xs">
-            <label class="fs-s fg-muted" for={`name-${mode}`}>
+            <label class="fs-s ink-subtle" for={`name-${mode}`}>
               Workspace name
             </label>
             <input class="input" type="text" id={`name-${mode}`} value="Variant" />
           </div>
 
           <div class="stack gap-4xs">
-            <label class="fs-s fg-muted" for={`access-${mode}`}>
+            <label class="fs-s ink-subtle" for={`access-${mode}`}>
               Default access
             </label>
             <select class="select" id={`access-${mode}`}>
@@ -75,12 +75,12 @@ function WorkspacePanel({ mode }: { mode: string }) {
             </select>
           </div>
 
-          <label class="stack-horizontal items-center gap-2xs fs-s bg-surface-dyed p-3xs b-all bc-faint br-m">
+          <label class="stack-horizontal items-center gap-2xs fs-s surface-dyed p-3xs b-all bc-subtle br-m">
             <input class="checkbox" type="checkbox" checked />
             Allow guests to join
           </label>
 
-          <div class="stack-horizontal gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t bc-faint">
+          <div class="stack-horizontal gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t bc-subtle">
             <button type="button" class="button" data-variant="plain">
               Cancel
             </button>
@@ -102,10 +102,10 @@ export default function ColorModesPage() {
     <article class="stack gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
         <h2 class="fs-3xl fw-bold">Color Modes</h2>
-        <p class="fs-l fg-muted mw-7">
+        <p class="fs-l ink-subtle mw-7">
           Every palette shown simultaneously. Each panel is scoped with{" "}
-          <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, foregrounds, borders, and
-          control states — resolve against that mode's <code>--color-N</code> variables.
+          <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, ink, borders, and control
+          states — resolve against that mode's <code>--color-N</code> variables.
         </p>
       </header>
 

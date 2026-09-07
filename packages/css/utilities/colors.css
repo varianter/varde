@@ -1,46 +1,13 @@
-/*
- * Surface hover mirrors the border trick:
- * a registered numeric (`--surface-blend`) is folded into the color
- * expression, and a single `.bg-surface:hover` opt-in flips it on hover.
- *
- * The colon is the cue: `bg-surface-*` are value classes (what color),
- * `bg-surface:hover` is the behavior modifier that steps toward the
- * blend token (a class named to read as a state, because it is one).
- *
- * Polarity is *not* encoded as `l +/-` here — that would push mode logic
- * into the utility (see button.css: "derivations never encode polarity").
- * Instead the mix target is the existing per-mode blend token, which
- * already flips with color-scheme, so hover darkens in light and lightens
- * in dark with zero mode logic in this file.
- */
-@property --surface-blend {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
-
 @layer colors.background {
-  /*
-   * --surface-tint-blend is generated from color-mode.config.ts (alongside
-   * --surface-base/tinted/dyed) and lives in color-mode.generated.css.
-   * Hover steps --surface-blend toward it; polarity comes from the token,
-   * not from the calc.
-   */
-
-  /*
-   * At rest --surface-blend is 0%, so the mix collapses to the surface token
-   * itself. Hover steps it toward --surface-tint-blend, making the surface
-   * read as one step more dyed.
-   */
-  .bg-surface-base {
+  .surface-base {
     background-color: var(--surface-base);
   }
 
-  .bg-surface-tinted {
+  .surface-tinted {
     background-color: var(--surface-tinted);
   }
 
-  .bg-surface-dyed {
+  .surface-dyed {
     background-color: var(--surface-dyed);
   }
 
@@ -51,7 +18,11 @@
 }
 
 @layer colors.wash {
-  /* Overlay: place on a child of the surface. Transparent at rest, tints on hover. */
+  /*
+   * Overlay for a child of a surface. Transparent at rest; hover mixes
+   * --wash-strength of --surface-tint-target in. The target flips with the
+   * mode, so polarity comes from the token rather than the calc.
+   */
   .bg-wash\:hover {
     transition: background-color var(--interaction-transition-duration-quick)
       var(--interaction-transition-easing-default);
@@ -62,24 +33,24 @@
       &:hover {
         background-color: color-mix(
           in oklch,
-          transparent calc(100% - var(--surface-blend-augment)),
-          var(--surface-tint-blend)
+          transparent calc(100% - var(--wash-strength)),
+          var(--surface-tint-target)
         );
       }
     }
   }
 }
 
-@layer colors.foreground {
-  .fg-default {
-    color: var(--foreground-default);
+@layer colors.ink {
+  .ink-default {
+    color: var(--ink-default);
   }
 
-  .fg-muted {
-    color: var(--foreground-muted);
+  .ink-subtle {
+    color: var(--ink-subtle);
   }
 
-  .fg-emphasis {
-    color: var(--foreground-emphasis);
+  .ink-prominent {
+    color: var(--ink-prominent);
   }
 }

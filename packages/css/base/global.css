@@ -2,17 +2,17 @@
 
 @layer {
   ::selection {
-    color: var(--foreground-control-selection);
+    color: var(--ink-control-selection);
     background-color: var(--background-control-selection);
   }
 
   :where(html) {
-    color: var(--foreground-default);
+    color: var(--ink-default);
     background-color: var(--surface-base);
 
     color-scheme: light dark;
 
-    scrollbar-color: var(--foreground-muted) transparent; /* @TODO: proper variable */
+    scrollbar-color: var(--ink-subtle) transparent; /* @TODO: proper variable */
     scrollbar-width: thin;
     scrollbar-gutter: stable;
     scroll-padding-top: var(--scroll-padding-top);

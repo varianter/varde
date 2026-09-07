@@ -39,11 +39,11 @@ export function SpacingPage() {
                     {size}
                   </code>
                   <div
-                    class={`bg-currentcolor fg-muted`}
+                    class={`bg-currentcolor ink-subtle`}
                     style={`width: var(--spacing-${size}); height: 1.5rem;`}
                   />
                 </div>
-                <span class="fg-muted fs-xs">{label}</span>
+                <span class="ink-subtle fs-xs">{label}</span>
               </div>
             ))}
           </div>
@@ -58,8 +58,8 @@ export function SpacingPage() {
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-xs">
-              <span class="fg-emphasis fw-bold fs-s">Use gap when...</span>
-              <ul class="list stack gap-2xs fs-s fg-muted">
+              <span class="ink-prominent fw-bold fs-s">Use gap when...</span>
+              <ul class="list stack gap-2xs fs-s ink-subtle">
                 <li>You're spacing children in a flex container (.stack or .stack-horizontal)</li>
                 <li>You want consistent spacing between multiple items</li>
                 <li>You want spacing that adapts when items wrap</li>
@@ -67,22 +67,22 @@ export function SpacingPage() {
               </ul>
             </div>
 
-            <div class="b-b bc-faint" />
+            <div class="b-b bc-subtle" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis fw-bold fs-s">Use padding when...</span>
-              <ul class="list stack gap-2xs fs-s fg-muted">
+              <span class="ink-prominent fw-bold fs-s">Use padding when...</span>
+              <ul class="list stack gap-2xs fs-s ink-subtle">
                 <li>You need inner space inside an element (cards, buttons, containers)</li>
                 <li>You're creating breathing room around content</li>
                 <li>You need different spacing on different sides of a container</li>
               </ul>
             </div>
 
-            <div class="b-b bc-faint" />
+            <div class="b-b bc-subtle" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis fw-bold fs-s">Use margin when...</span>
-              <ul class="list stack gap-2xs fs-s fg-muted">
+              <span class="ink-prominent fw-bold fs-s">Use margin when...</span>
+              <ul class="list stack gap-2xs fs-s ink-subtle">
                 <li>You can't use gap (not in a flex container)</li>
                 <li>You need to push a single element away from others</li>
                 <li>You need auto-centering (.mx-auto, .ml-auto, etc.)</li>
@@ -90,11 +90,11 @@ export function SpacingPage() {
               </ul>
             </div>
 
-            <div class="b-b bc-faint" />
+            <div class="b-b bc-subtle" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis fw-bold fs-s">Prefer gap over margin because...</span>
-              <ul class="list stack gap-2xs fs-s fg-muted">
+              <span class="ink-prominent fw-bold fs-s">Prefer gap over margin because...</span>
+              <ul class="list stack gap-2xs fs-s ink-subtle">
                 <li>Gap doesn't collapse or interact with neighboring margins</li>
                 <li>
                   Gap only affects the space <em>between</em> items, not before the first or after
@@ -170,7 +170,7 @@ export function SpacingPage() {
       >
         <ExampleGroup>
           <Example label=".-mx-m" description="break out of parent's horizontal padding">
-            <div class="b-all bc-default br-m px-m py-l bg-surface-dyed">
+            <div class="b-all bc-default br-m px-m py-l surface-dyed">
               <div class="mb-s">
                 <DemoBox label="Normal content" />
               </div>

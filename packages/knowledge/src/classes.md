@@ -116,26 +116,26 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 
 ```html
 <!-- Surfaces -->
-<div class="bg-surface-base"></div>
-<div class="bg-surface-tinted"></div>
-<div class="bg-surface-dyed"></div>
+<div class="surface-base"></div>
+<div class="surface-tinted"></div>
+<div class="surface-dyed"></div>
 ```
 
-**Text (foreground):**
+**Text (ink):**
 
 ```html
-<p class="fg-default"></p>
+<p class="ink-default"></p>
 <!-- body text -->
-<p class="fg-muted"></p>
+<p class="ink-subtle"></p>
 <!-- secondary/helper text -->
-<p class="fg-emphasis"></p>
+<p class="ink-prominent"></p>
 <!-- headings, labels -->
-<p class="fg-inverted"></p>
+<p class="ink-inverted"></p>
 <!-- text on dark backgrounds -->
 
 <!-- Intent text -->
-<p class="fg-danger-strong"></p>
-<p class="fg-success-medium"></p>
+<p class="ink-danger-strong"></p>
+<p class="ink-success-medium"></p>
 ```
 
 **Border color:**
@@ -145,7 +145,7 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 <div class="bc-default"></div>
 
 <!-- quieter lines: often for niceness rather than structural integrity -->
-<div class="bc-faint"></div>
+<div class="bc-subtle"></div>
 
 <!-- prominent structural lines: rarely used -->
 <div class="bc-prominent"></div>

@@ -7,5 +7,5 @@
 }
 
 .list :where(ul, li)::marker {
-  color: var(--foreground-marker);
+  color: var(--ink-marker);
 }

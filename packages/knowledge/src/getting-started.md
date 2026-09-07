@@ -10,5 +10,5 @@ description: Initial setup and the questions to answer first.
 ## Initial setup
 
 - Add `<link rel="stylesheet" href="https://varde.variant.dev/v/<INSERT_VARDE_VERSION>/styles.css" />` to the `<head>` element. If version is unknown, check https://varde.variant.dev/. Do not use `latest` unless specifically told to do so.
-- Set `fg-default bg-surface-base` onto the HTML element.
+- Set `ink-default surface-base` onto the HTML element.
 - Set `fs-m` to `body`.

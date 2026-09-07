@@ -50,7 +50,7 @@ export function TablesPage() {
       >
         <div class="stack gap-m">
           <div class="stack gap-2xs">
-            <span class="fs-xs fg-muted fw-medium">Compact</span>
+            <span class="fs-xs ink-subtle fw-medium">Compact</span>
             <ExamplePanel>
               <table class="table" data-density="compact">
                 <thead>
@@ -66,7 +66,7 @@ export function TablesPage() {
                     <td>Emma Berg</td>
                     <td>Acme Corp</td>
                     <td>
-                      34.5 <span class="fg-muted">/ 37.5h</span>
+                      34.5 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>92%</td>
                   </tr>
@@ -74,7 +74,7 @@ export function TablesPage() {
                     <td>Lars Holm</td>
                     <td>TechVent</td>
                     <td>
-                      28.0 <span class="fg-muted">/ 37.5h</span>
+                      28.0 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>75%</td>
                   </tr>
@@ -82,7 +82,7 @@ export function TablesPage() {
                     <td>Mia Andersson</td>
                     <td>FinHub</td>
                     <td>
-                      37.5 <span class="fg-muted">/ 37.5h</span>
+                      37.5 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>100%</td>
                   </tr>
@@ -92,7 +92,7 @@ export function TablesPage() {
           </div>
 
           <div class="stack gap-2xs">
-            <span class="fs-xs fg-muted fw-medium">Relaxed</span>
+            <span class="fs-xs ink-subtle fw-medium">Relaxed</span>
             <ExamplePanel>
               <table class="table" data-density="relaxed">
                 <thead>
@@ -108,7 +108,7 @@ export function TablesPage() {
                     <td>Emma Berg</td>
                     <td>Acme Corp</td>
                     <td>
-                      34.5 <span class="fg-muted">/ 37.5h</span>
+                      34.5 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>92%</td>
                   </tr>
@@ -116,7 +116,7 @@ export function TablesPage() {
                     <td>Lars Holm</td>
                     <td>TechVent</td>
                     <td>
-                      28.0 <span class="fg-muted">/ 37.5h</span>
+                      28.0 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>75%</td>
                   </tr>
@@ -124,7 +124,7 @@ export function TablesPage() {
                     <td>Mia Andersson</td>
                     <td>FinHub</td>
                     <td>
-                      37.5 <span class="fg-muted">/ 37.5h</span>
+                      37.5 <span class="ink-subtle">/ 37.5h</span>
                     </td>
                     <td>100%</td>
                   </tr>

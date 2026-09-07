@@ -4,7 +4,7 @@
  *
  *   --range-base         the identity color, used for the filled rail
  *   --range-on-base      the knob face
- *   --range-rail-blend   the unfilled rail, blended into the mode
+ *   --range-rail-target  the unfilled rail, mixed into the mode
  *
  * The rail is thin and the knob sits on top of it, larger than the rail.
  * WebKit has no progress pseudo-element, so the fill is a gradient on the
@@ -47,7 +47,7 @@
   :where(.range) {
     --range-base: var(--button-base);
     --range-on-base: var(--button-on-base);
-    --range-rail-blend: var(--surface-tint-blend);
+    --range-rail-target: var(--surface-tint-target);
     --range-focus-ring-color: var(--input-focus-ring-color);
 
     --range-track-height: 2px;
@@ -59,18 +59,18 @@
 
   :where(.range) {
     /* Progress is the identity color pushed darker in light and lighter in dark. */
-    --_range-fill: color-mix(in oklch, var(--_range-base) 75%, var(--foreground-emphasis) 25%);
+    --_range-fill: color-mix(in oklch, var(--_range-base) 75%, var(--ink-prominent) 25%);
 
     --_range-fill-hover: color-mix(in oklch, var(--_range-on-base) 8%, var(--_range-fill));
     --_range-fill-active: color-mix(in oklch, var(--_range-on-base) 14%, var(--_range-fill));
 
-    --_range-rail-rest: color-mix(in oklch, var(--_range-base) 30%, var(--range-rail-blend));
-    --_range-rail-hover: color-mix(in oklch, var(--_range-base) 40%, var(--range-rail-blend));
+    --_range-rail-rest: color-mix(in oklch, var(--_range-base) 30%, var(--range-rail-target));
+    --_range-rail-hover: color-mix(in oklch, var(--_range-base) 40%, var(--range-rail-target));
 
     --_range-fill-disabled: color-mix(in oklch, var(--_range-fill) 45%, var(--_range-rail-rest));
 
     --_range-knob-ring: oklch(from var(--_range-base) l c h / var(--border-alpha-default));
-    --_range-knob-ring-faint: oklch(from var(--_range-base) l c h / var(--border-alpha-faint));
+    --_range-knob-ring-subtle: oklch(from var(--_range-base) l c h / var(--border-alpha-subtle));
 
     --_range-ring-rest: transparent;
     --_range-ring-hover: oklch(from var(--_range-base) l c h / 0.18);
@@ -217,7 +217,7 @@
 
   :where(.range):disabled {
     --_range-fill: var(--_range-fill-disabled);
-    --_range-knob-border: var(--_range-knob-ring-faint);
+    --_range-knob-border: var(--_range-knob-ring-subtle);
     --_range-ring: transparent;
     --_range-knob-scale: 1;
 

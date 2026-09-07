@@ -25,7 +25,7 @@ export function TypographyPage() {
             { cls: "fs-4xl", label: "fs-4xl" },
           ].map(({ cls, label }) => (
             <div class="stack-horizontal gap-m">
-              <code class="fs-xs fg-muted" style="min-width: 80px; flex-shrink: 0;">
+              <code class="fs-xs ink-subtle" style="min-width: 80px; flex-shrink: 0;">
                 .{label}
               </code>
               <span class={cls}>The quick brown fox</span>
@@ -46,11 +46,11 @@ export function TypographyPage() {
             { cls: "fw-bold", label: "fw-bold", weight: "600" },
           ].map(({ cls, label, weight }) => (
             <div class="stack-horizontal gap-m">
-              <code class="fs-xs fg-muted" style="min-width: 80px; flex-shrink: 0;">
+              <code class="fs-xs ink-subtle" style="min-width: 80px; flex-shrink: 0;">
                 .{label}
               </code>
               <span class={`fs-l ${cls}`}>
-                The quick brown fox <span class="fs-xs fg-muted fw-regular">({weight})</span>
+                The quick brown fox <span class="fs-xs ink-subtle fw-regular">({weight})</span>
               </span>
             </div>
           ))}
@@ -69,7 +69,7 @@ export function TypographyPage() {
             { cls: "ta-right", label: "ta-right" },
           ].map(({ cls, label }) => (
             <div class="stack gap-2xs">
-              <code class="fs-xs fg-muted">.{label}</code>
+              <code class="fs-xs ink-subtle">.{label}</code>
               <div class={`${cls} p-s b-all bc-default br-m`}>
                 The quick brown fox jumps over the lazy dog
               </div>
@@ -85,17 +85,17 @@ export function TypographyPage() {
       >
         <ExamplePanel>
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-3xl .fw-bold .ta-center</code>
+            <code class="fs-xs ink-subtle">.fs-3xl .fw-bold .ta-center</code>
             <p class="fs-3xl fw-bold ta-center">Page Title</p>
           </div>
 
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-s .fw-medium .fg-muted</code>
-            <p class="fs-s fw-medium fg-muted">A subtle label or caption</p>
+            <code class="fs-xs ink-subtle">.fs-s .fw-medium .ink-subtle</code>
+            <p class="fs-s fw-medium ink-subtle">A subtle label or caption</p>
           </div>
 
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-xl .fw-bold .ta-right</code>
+            <code class="fs-xs ink-subtle">.fs-xl .fw-bold .ta-right</code>
             <p class="fs-xl fw-bold ta-right">Right-aligned heading</p>
           </div>
         </ExamplePanel>

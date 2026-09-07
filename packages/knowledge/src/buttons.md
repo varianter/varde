@@ -85,12 +85,12 @@ Buttons get their color from the `<color-mode palette="...">` they sit inside. W
 </div>
 ```
 
-For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on a dark surface such as `bg-surface-dyed`:
+For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on a dark surface such as `surface-dyed`:
 
 ```html
 <color-mode
   inverted
-  class="bg-surface-dyed stack-horizontal gap-xs p-xs"
+  class="surface-dyed stack-horizontal gap-xs p-xs"
   palette="periwinkle"
 >
   <button class="button">Filled</button>

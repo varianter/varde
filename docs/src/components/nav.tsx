@@ -59,11 +59,11 @@ export function NavLinks() {
     <div class="py-m stack gap-m">
       {sections.map((section) => (
         <div key={section.label}>
-          <h5 class="fs-xs fg-muted fw-bold mb-2xs">{section.label}</h5>
+          <h5 class="fs-xs ink-subtle fw-bold mb-2xs">{section.label}</h5>
           <ul class="stack gap-4xs">
             {section.items.map((item) => (
               <a
-                class="fg-default fg:hover pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"
+                class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"
                 href={`${base}${item.path}`}
                 key={item.label}
               >
