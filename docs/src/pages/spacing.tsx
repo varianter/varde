@@ -169,14 +169,14 @@ export function SpacingPage() {
         description="Use -m-* to pull elements closer or create overlapping layouts. Useful for offsetting elements, breaking out of containers, or creating visual hierarchy."
       >
         <ExampleGroup>
-          <Example label=".mx--m" description="break out of parent's horizontal padding">
+          <Example label=".-mx-m" description="break out of parent's horizontal padding">
             <div class="b-all b-default br-m px-m py-l bg-surface-dyed">
               <div class="mb-s">
                 <DemoBox label="Normal content" />
               </div>
-              <div class="mx--m">
+              <div class="-mx-m">
                 <div class="bg-brand-subtle p-s">
-                  <span class="fs-s">Full-width section with .mx--m</span>
+                  <span class="fs-s">Full-width section with .-mx-m</span>
                 </div>
               </div>
               <div class="mt-s">

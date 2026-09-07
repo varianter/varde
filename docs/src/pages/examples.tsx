@@ -175,7 +175,7 @@ function HandbookBox({ color = "green" }) {
 function Doodad({ color = "green" }) {
   return (
     <color-mode palette={color} inverted class="stack">
-      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s brbl-none brbl-none mb--3xs">
+      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s brbl-none brbl-none -mb-3xs">
         <h3 class="lh-tight fs-s">Nøkkelfund</h3>
       </div>
       <div class="p-3xs bg-surface-dyed br-m brtl-none brtl-none">

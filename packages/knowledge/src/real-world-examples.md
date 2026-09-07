@@ -24,7 +24,7 @@ description: Realistic compositions built with Varde utilities and components.
     <p>Some content contained within the modal.</p>
   </div>
   <div
-    class="mx--s mb--s px-s py-2xs b-t b-faint bg-surface-tinted stack-horizontal"
+    class="-mx-s -mb-s px-s py-2xs b-t b-faint bg-surface-tinted stack-horizontal"
   >
     <button class="button mr-auto" data-variant="outlined" data-size="small">
       Cancel
@@ -575,7 +575,7 @@ Without buttons, only `color-mode`:
   >
     <!-- Header -->
     <div
-      class="position-sticky top-0 shadow-medium  br-m bg-surface-dyed justify-between mx--xs p-2xs px-xs stack-horizontal"
+      class="position-sticky top-0 shadow-medium  br-m bg-surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
     >
       <h1 class="fs-l t-bold fg-emphasis">Filter</h1>
       <button
@@ -632,7 +632,7 @@ Without buttons, only `color-mode`:
       <p class="form-label">Avdeling</p>
       <div class="stack gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Bergen" />
           <label for="Bergen" class="fs-s stack-horizontal flex-1 ">
@@ -641,7 +641,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Oslo" />
           <label for="Oslo" class="fs-s stack-horizontal flex-1 ">
@@ -650,7 +650,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Trondheim" />
           <label for="Trondheim" class="fs-s stack-horizontal flex-1 ">
@@ -659,7 +659,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Stavanger" />
           <label for="Stavanger" class="fs-s stack-horizontal flex-1 ">
@@ -668,7 +668,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Norge" />
           <label for="Norge" class="fs-s stack-horizontal flex-1 ">
@@ -684,7 +684,7 @@ Without buttons, only `color-mode`:
       <p class="form-label">Rå-år / Antall år erfaring</p>
       <div class="stack gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
           <label
@@ -696,7 +696,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
           <label
@@ -708,7 +708,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="5-7-Denali" />
           <label for="5-7-Denali" class="fs-s stack-horizontal gap-xs flex-1">
@@ -717,7 +717,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
           <label
@@ -729,7 +729,7 @@ Without buttons, only `color-mode`:
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m"
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="12+-K2" />
           <label for="12+-K2" class="fs-s stack-horizontal gap-xs flex-1">
@@ -778,25 +778,25 @@ Without buttons, only `color-mode`:
       <p class="form-label">Kompetanse</p>
       <div class="stack gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Ledelse" />
           <label for="Ledelse" class="fs-s">Ledelse</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Design" />
           <label for="Design" class="fs-s">Design</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Utvikling" />
           <label for="Utvikling" class="fs-s">Utvikling</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input
             class="checkbox fs-s"
@@ -808,7 +808,7 @@ Without buttons, only `color-mode`:
           >
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Strategi" />
           <label for="Strategi" class="fs-s">Strategi</label>
@@ -828,49 +828,49 @@ Without buttons, only `color-mode`:
 
         <div class="stack gap-2xs py-s">
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id=".NET" />
             <label for=".NET" class="fs-s">.NET</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Frontend" />
             <label for="Frontend" class="fs-s">Frontend</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="JVM" />
             <label for="JVM" class="fs-s">JVM</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Plattform" />
             <label for="Plattform" class="fs-s">Plattform</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="PPP-ledelse" />
             <label for="PPP-ledelse" class="fs-s">PPP-ledelse</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Salg" />
             <label for="Salg" class="fs-s">Salg</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Tjenestedesign" />
             <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input
               class="checkbox fs-s"
@@ -882,7 +882,7 @@ Without buttons, only `color-mode`:
             >
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs mr--2xs pl-3xs ml--3xs  my--3xs bg-wash:hover br-m "
+            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="UX-design" />
             <label for="UX-design" class="fs-s">UX-design</label>
@@ -1352,7 +1352,7 @@ This one utilizes an escape hatch
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="ml--3xs"
+              class="-ml-3xs"
             >
               <path
                 d="M7.14645 2.14645C7.34171 1.95118 7.65829 1.95118 7.85355 2.14645L11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355C11.6583 7.04882 11.3417 7.04882 11.1464 6.85355L8 3.70711L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 3.70711L3.85355 6.85355C3.65829 7.04882 3.34171 7.04882 3.14645 6.85355C2.95118 6.65829 2.95118 6.34171 3.14645 6.14645L7.14645 2.14645Z"
@@ -1382,7 +1382,7 @@ This one utilizes an escape hatch
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="ml--3xs"
+              class="-ml-3xs"
             >
               <path
                 d="M7.14645 2.14645C7.34171 1.95118 7.65829 1.95118 7.85355 2.14645L11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355C11.6583 7.04882 11.3417 7.04882 11.1464 6.85355L8 3.70711L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 3.70711L3.85355 6.85355C3.65829 7.04882 3.34171 7.04882 3.14645 6.85355C2.95118 6.65829 2.95118 6.34171 3.14645 6.14645L7.14645 2.14645Z"
@@ -1412,7 +1412,7 @@ This one utilizes an escape hatch
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="ml--3xs"
+              class="-ml-3xs"
             >
               <path
                 d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
@@ -1442,7 +1442,7 @@ This one utilizes an escape hatch
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="ml--3xs"
+              class="-ml-3xs"
             >
               <path
                 d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z"
@@ -1484,7 +1484,7 @@ This one utilizes an escape hatch
               viewBox="0 0 15 15"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="ml--3xs"
+              class="-ml-3xs"
             >
               <path
                 d="M7.14645 2.14645C7.34171 1.95118 7.65829 1.95118 7.85355 2.14645L11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355C11.6583 7.04882 11.3417 7.04882 11.1464 6.85355L8 3.70711L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 3.70711L3.85355 6.85355C3.65829 7.04882 3.34171 7.04882 3.14645 6.85355C2.95118 6.65829 2.95118 6.34171 3.14645 6.14645L7.14645 2.14645Z"

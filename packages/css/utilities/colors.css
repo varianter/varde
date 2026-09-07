@@ -82,14 +82,6 @@
   .fg-emphasis {
     color: var(--foreground-emphasis);
   }
-
-  /* Adding this as a WIP, if we ever need it
-  .fg\:hover {
-    &:hover {
-      ??
-    }
-  }
-  */
 }
 
 @layer colors.border {

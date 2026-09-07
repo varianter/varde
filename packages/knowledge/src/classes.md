@@ -51,7 +51,7 @@ Alignment: `.items-start|end|center|stretch` and `.justify-start|end|center|betw
 <div class="mt-xl mx-auto ml-auto"></div>
 ```
 
-Negative margins: `mt--s` `ml--m` etc.
+Negative margins: `-mt-s` `-ml-m` etc.
 
 When they overlap, the more specific utility always wins, regardless of class order: single side (`pt-`) beats axis (`px-`), which beats all sides (`p-`).
 

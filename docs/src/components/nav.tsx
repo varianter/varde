@@ -63,7 +63,7 @@ export function NavLinks() {
           <ul class="stack gap-4xs">
             {section.items.map((item) => (
               <a
-                class="fg-default fg:hover pl-xs ml--xs br-m bg-wash:hover lh-tight py-3xs"
+                class="fg-default fg:hover pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"
                 href={`${base}${item.path}`}
                 key={item.label}
               >

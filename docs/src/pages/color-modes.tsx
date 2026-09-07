@@ -80,7 +80,7 @@ function WorkspacePanel({ mode }: { mode: string }) {
             Allow guests to join
           </label>
 
-          <div class="stack-horizontal gap-2xs justify-end  mx--xs mb--s p-2xs b-t b-faint">
+          <div class="stack-horizontal gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t b-faint">
             <button type="button" class="button" data-variant="plain">
               Cancel
             </button>
