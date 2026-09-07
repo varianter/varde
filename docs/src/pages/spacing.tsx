@@ -166,7 +166,7 @@ export function SpacingPage() {
       {/* Negative Margin */}
       <Section
         title="Negative Margin — Overlap & Pull"
-        description="Use m--* to pull elements closer or create overlapping layouts. Useful for offsetting elements, breaking out of containers, or creating visual hierarchy."
+        description="Use -m-* to pull elements closer or create overlapping layouts. Useful for offsetting elements, breaking out of containers, or creating visual hierarchy."
       >
         <ExampleGroup>
           <Example label=".mx--m" description="break out of parent's horizontal padding">

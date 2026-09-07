@@ -1183,7 +1183,7 @@ This one utilizes an escape hatch
 ```html
 <color-mode
   palette="periwinkle"
-  class="d-block bg-surface-tinted p-xl m--s br-inherit of-clip"
+  class="d-block bg-surface-tinted p-xl -m-s br-inherit of-clip"
 >
   <color-mode
     inverted

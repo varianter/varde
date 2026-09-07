@@ -24,7 +24,7 @@
 @import './helpers/popover.css';
 
 /* Utilities */
-@import './utilities/spacing.css';
+@import './utilities/spacing.generated.css';
 @import './utilities/font-size.css';
 @import './utilities/text.css';
 @import './utilities/colors.css';

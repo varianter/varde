@@ -21,7 +21,7 @@
 
 @layer colors.background {
   /*
-   * --surface-tint-blend is generated from token.ts (alongside
+   * --surface-tint-blend is generated from color-mode.config.ts (alongside
    * --surface-base/tinted/dyed) and lives in color-mode.generated.css.
    * Hover steps --surface-blend toward it; polarity comes from the token,
    * not from the calc.
