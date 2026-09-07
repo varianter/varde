@@ -136,11 +136,6 @@
       scroll-behavior: auto !important;
     }
 
-    /* Children still fade in; they just no longer travel to get there. */
-    [stagger-reveal] {
-      --_reveal-distance: 0 !important;
-    }
-
     /* Popovers, dialogs and drawers cross-fade in place. Drawers opt out of
        fading by default, so they need opacity handed back to them. */
     :where(.popover) {
