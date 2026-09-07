@@ -83,7 +83,6 @@
       1rem
     );
     --font-size-m: round(down, var(--font-size-m-clamp), 1px);
-    --font-size-base: var(--font-size-m);
 
     /* ---- l  (step 1) ---- */
     --_l-min: calc(var(--base-min) * pow(var(--ratio-min), 1));

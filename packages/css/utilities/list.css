@@ -7,5 +7,5 @@
 }
 
 .list :where(ul, li)::marker {
-  color: var(--foreground-brand-subtle);
+  color: var(--foreground-marker);
 }

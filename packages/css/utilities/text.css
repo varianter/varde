@@ -22,15 +22,27 @@
   .t-uppercase {
     text-transform: uppercase;
   }
+  :where(.t-uppercase) {
+    letter-spacing: var(--letter-spacing-uppercase);
+  }
 
+  .lh-micro {
+    line-height: var(--line-height-micro);
+  }
+  .lh-flat {
+    line-height: var(--line-height-flat);
+  }
   .lh-tight {
-    line-height: 1.1;
+    line-height: var(--line-height-tight);
+  }
+  .lh-snug {
+    line-height: var(--line-height-snug);
   }
   .lh-normal {
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
   }
   .lh-relaxed {
-    line-height: 1.7;
+    line-height: var(--line-height-relaxed);
   }
 
   .t-tabular {

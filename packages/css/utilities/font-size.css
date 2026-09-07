@@ -24,16 +24,23 @@
     font-size: var(--font-size-4xl);
   }
 
+  :where(.fs-xs) {
+    letter-spacing: var(--letter-spacing-loose);
+  }
+  :where(.fs-s) {
+    letter-spacing: var(--letter-spacing-loose);
+  }
+
   :where(.fs-xl) {
-    line-height: var(--leading-slim);
+    line-height: var(--line-height-snug);
   }
   :where(.fs-2xl) {
-    line-height: var(--leading-slim);
+    line-height: var(--line-height-snug);
   }
   :where(.fs-3xl) {
-    line-height: var(--leading-fine);
+    line-height: var(--line-height-tight);
   }
   :where(.fs-4xl) {
-    line-height: var(--leading-fine);
+    line-height: var(--line-height-tight);
   }
 }
