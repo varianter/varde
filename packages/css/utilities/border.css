@@ -30,7 +30,7 @@
     border-left: 0;
   }
   .b-b-none {
-    border-right: 0;
+    border-bottom: 0;
   }
 
   .b-last-none:last-child {
