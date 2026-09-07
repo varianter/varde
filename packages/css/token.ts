@@ -88,7 +88,7 @@ const dark = {
     default: { palette: "inherit", default: 250, inverted: 750 },
     emphasis: { palette: "inherit", default: 100, inverted: 900 },
     muted: { palette: "inherit", default: 350, inverted: 750 },
-    marker: { palette: "inherit", default: 200, inverted: 600 },
+    marker: { palette: "inherit", default: 400, inverted: 600 },
     link: {
       default: { palette: "inherit", default: 350, inverted: 800 },
       hover: { palette: "inherit", default: 300, inverted: 900 },

@@ -10,7 +10,7 @@ color-mode {
   --foreground-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-250));
   --foreground-emphasis: light-dark(var(--palette-inherit-700), var(--palette-inherit-100));
   --foreground-muted: light-dark(var(--palette-inherit-550), var(--palette-inherit-350));
-  --foreground-marker: light-dark(var(--palette-inherit-600), var(--palette-inherit-200));
+  --foreground-marker: light-dark(var(--palette-inherit-600), var(--palette-inherit-400));
   --foreground-link-default: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));
   --foreground-link-hover: light-dark(var(--palette-inherit-700), var(--palette-inherit-300));
   --foreground-link-decoration-idle: light-dark(
