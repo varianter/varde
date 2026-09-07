@@ -1,0 +1,44 @@
+@layer border.colors {
+  @property --border-hover {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  :where(.b-t, .b-r, .b-b, .b-l, .b-all) {
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-default) + var(--border-hover))
+    );
+  }
+
+  .bc-default {
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-default) + var(--border-hover))
+    );
+  }
+
+  .bc-faint {
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-faint) + var(--border-hover))
+    );
+  }
+
+  .bc-prominent {
+    border-color: oklch(
+      from var(--border-base) l c h /
+      calc(var(--border-alpha-prominent) + var(--border-hover))
+    );
+  }
+
+  .b\:hover {
+    transition: border-color var(--interaction-transition-duration-quick)
+      var(--interaction-transition-easing-default);
+
+    &:hover {
+      --border-hover: var(--border-hover-augment);
+    }
+  }
+}
