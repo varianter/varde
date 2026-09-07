@@ -348,7 +348,7 @@ Without buttons, only `color-mode`:
       Nåværende uke
     </button>
     <button
-      class="button aspect-ratio-1-1 p-0"
+      class="button aspect-square p-0"
       data-size="small"
       data-variant="outlined"
     >
@@ -368,7 +368,7 @@ Without buttons, only `color-mode`:
       </svg>
     </button>
     <button
-      class="button aspect-ratio-1-1 p-0"
+      class="button aspect-square p-0"
       data-size="small"
       data-variant="outlined"
     >
@@ -431,7 +431,7 @@ Without buttons, only `color-mode`:
     <div class="head-column stack-horizontal gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="bg-surface-dyed aspect-ratio-1-1 br-s mw-2"
+        class="bg-surface-dyed aspect-square br-s mw-2"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s t-medium">Jacob Berglund</p>
@@ -496,7 +496,7 @@ Without buttons, only `color-mode`:
     <div class="head-column stack-horizontal gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="bg-surface-dyed aspect-ratio-1-1 br-s mw-2"
+        class="bg-surface-dyed aspect-square br-s mw-2"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s t-medium">Jacob Berglund</p>
@@ -942,7 +942,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   <button class="button brtr-none brbr-none px-l">Save</button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    class="aspect-square brbl-none brtl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -969,7 +969,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="tinted"
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    class="aspect-square brbl-none brtl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -996,7 +996,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="outlined"
-    class="aspect-ratio-1-1 brbl-none brtl-none button p-0"
+    class="aspect-square brbl-none brtl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -1291,7 +1291,7 @@ This one utilizes an escape hatch
 
     <div class="stack-horizontal gap-2xs">
       <button
-        class="button aspect-ratio-1-1 px-3xs"
+        class="button aspect-square px-3xs"
         data-variant="plain"
         data-size="small"
       >
@@ -1311,7 +1311,7 @@ This one utilizes an escape hatch
         </svg>
       </button>
       <button
-        class="button aspect-ratio-1-1 px-3xs"
+        class="button aspect-square px-3xs"
         data-variant="plain"
         data-size="small"
       >

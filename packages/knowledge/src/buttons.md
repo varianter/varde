@@ -142,7 +142,7 @@ You can add utility classes to a button to tweak its shape, padding, and other d
 A circular icon-only button:
 
 ```html
-<button class="button br-circle p-0 aspect-ratio-1-1" aria-label="Add">
+<button class="button br-circle p-0 aspect-square" aria-label="Add">
   <span class="icon" data-icon="plus" />
 </button>
 ```

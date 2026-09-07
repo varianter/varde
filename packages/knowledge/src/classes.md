@@ -317,5 +317,5 @@ Icons inherit color from their parent. For custom icons, set `--icon-src` to an 
 <div class="of-scroll"></div>
 
 <!-- aspect-ratio: 1 / 1 -->
-<div class="aspect-ratio-1-1"></div>
+<div class="aspect-square"></div>
 ```

@@ -73,7 +73,7 @@ function SmileyBox({ color = "green" }) {
   return (
     <color-mode class="d-block mw-6" palette={color}>
       <div
-        class="p-l bg-surface-dyed stack gap-xl aspect-ratio-1-1"
+        class="p-l bg-surface-dyed stack gap-xl aspect-square"
         style="border-radius: 6rem 6rem .375rem .375rem;"
       >
         <div>

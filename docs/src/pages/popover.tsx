@@ -230,7 +230,7 @@ export function PopoverPage() {
                     palette="blue"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   A text
                 </a>
@@ -242,7 +242,7 @@ export function PopoverPage() {
                     palette="green"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   Another one
                 </a>
@@ -278,7 +278,7 @@ export function PopoverPage() {
                     palette="blue"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   A text
                 </a>
@@ -290,7 +290,7 @@ export function PopoverPage() {
                     palette="green"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   Another one
                 </a>
@@ -326,7 +326,7 @@ export function PopoverPage() {
                     palette="blue"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   A text
                 </a>
@@ -338,7 +338,7 @@ export function PopoverPage() {
                     palette="green"
                     style="opacity: 0.5"
                     inverted
-                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-ratio-1-1"
+                    class="d-block p-3xs fg-muted b-all b-emphasis bg-surface-dyed br-circle aspect-square"
                   ></color-mode>
                   Another one
                 </a>
