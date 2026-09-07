@@ -16,7 +16,7 @@ export function ButtonsPage() {
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Default (primary / grey)</span>
+              <span class="fs-xs fg-muted fw-medium">Default (primary / grey)</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Filled
@@ -33,7 +33,7 @@ export function ButtonsPage() {
               </div>
             </div>
             <color-mode palette="coral" class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Danger (coral)</span>
+              <span class="fs-xs fg-muted fw-medium">Danger (coral)</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Filled
@@ -48,7 +48,7 @@ export function ButtonsPage() {
             </color-mode>
 
             <color-mode palette="blue" class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Blue</span>
+              <span class="fs-xs fg-muted fw-medium">Blue</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Filled
@@ -66,7 +66,7 @@ export function ButtonsPage() {
             </color-mode>
 
             <color-mode palette="periwinkle" class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Periwinkle</span>
+              <span class="fs-xs fg-muted fw-medium">Periwinkle</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Filled
@@ -114,7 +114,7 @@ export function ButtonsPage() {
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Icon before text</span>
+              <span class="fs-xs fg-muted fw-medium">Icon before text</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   <span class="icon" data-icon="plus" /> Add item
@@ -128,7 +128,7 @@ export function ButtonsPage() {
               </div>
             </div>
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Icon after text</span>
+              <span class="fs-xs fg-muted fw-medium">Icon after text</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button">
                   Continue <span class="icon" data-icon="plus" />
@@ -139,7 +139,7 @@ export function ButtonsPage() {
               </div>
             </div>
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Icon only</span>
+              <span class="fs-xs fg-muted fw-medium">Icon only</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button" aria-label="Add">
                   <span class="icon" data-icon="plus" />
@@ -153,7 +153,7 @@ export function ButtonsPage() {
               </div>
             </div>
             <div class="stack gap-2xs">
-              <span class="fs-xs fg-muted t-medium">Sizes with icons</span>
+              <span class="fs-xs fg-muted fw-medium">Sizes with icons</span>
               <div class="stack-horizontal gap-m">
                 <button type="button" class="button" data-size="small">
                   <span class="icon" data-icon="plus" /> Small

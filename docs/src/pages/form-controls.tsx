@@ -178,7 +178,7 @@ export function FormControlsPage() {
               </label>
               <input class="input" type="text" id="demo-error" value="asdf" aria-invalid="true" />
               <color-mode palette="coral">
-                <p class="fs-s t-medium">– You may only enter numbers</p>
+                <p class="fs-s fw-medium">– You may only enter numbers</p>
               </color-mode>
             </div>
           </ExamplePanel>
@@ -218,7 +218,7 @@ export function FormControlsPage() {
                   aria-invalid="true"
                 />
                 <color-mode palette="coral">
-                  <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
+                  <p class="fs-xs fw-medium mt-2xs">Please enter a valid email address</p>
                 </color-mode>
               </div>
 

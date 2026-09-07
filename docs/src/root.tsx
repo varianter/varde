@@ -31,7 +31,7 @@ rootApp.get("/", (c) =>
       <header class="stack gap-m pt-3xl">
         <div class="stack-horizontal gap-s" style="align-items: center;">
           <img src="/static/logos/variant-circle-filled.svg" alt="" width="32" height="32" />
-          <h1 class="fs-3xl t-bold lh-tight">Varde</h1>
+          <h1 class="fs-3xl fw-bold lh-tight">Varde</h1>
         </div>
         <p class="fs-l fg-muted" style="max-width: 560px;">
           A utility-first CSS framework and design token system by{" "}
@@ -41,7 +41,7 @@ rootApp.get("/", (c) =>
           .
         </p>
         <div class="stack-horizontal gap-m">
-          <a href="/docs/" class="t-bold fg-default">
+          <a href="/docs/" class="fw-bold fg-default">
             Documentation →
           </a>
           <a
@@ -56,7 +56,7 @@ rootApp.get("/", (c) =>
       </header>
 
       <section class="stack gap-l b-t b-faint pt-2xl">
-        <h2 class="fs-l t-bold">Usage</h2>
+        <h2 class="fs-l fw-bold">Usage</h2>
         <p class="fg-muted">
           Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
           the newest release, or pin to a specific version.
@@ -70,7 +70,7 @@ rootApp.get("/", (c) =>
       </section>
 
       <section class="stack gap-l b-t b-faint pt-2xl">
-        <h2 class="fs-l t-bold">Versions</h2>
+        <h2 class="fs-l fw-bold">Versions</h2>
         <ul class="stack gap-xs" id="versions">
           <li>
             <strong>latest</strong>
@@ -109,7 +109,7 @@ rootApp.get("/", (c) =>
       </section>
 
       <section class="stack gap-l b-t b-faint pt-2xl">
-        <h2 class="fs-l t-bold">Static assets</h2>
+        <h2 class="fs-l fw-bold">Static assets</h2>
         <p class="fg-muted">
           Fonts and logos served at <code class="fs-s">/static/</code>:
         </p>

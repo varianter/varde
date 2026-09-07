@@ -67,7 +67,7 @@ Wrap a whole page section and everything inside falls in line — headings, body
 
 ```html
 <color-mode palette="periwinkle" class="d-block bg-surface-tinted p-xl">
-  <h1 class="fs-3xl t-bold">Velkommen til Variantdag</h1>
+  <h1 class="fs-3xl fw-bold">Velkommen til Variantdag</h1>
   <p class="fg-muted">Programmet for dagen</p>
 
   <button class="button">Meld deg på</button>
@@ -99,28 +99,28 @@ Here's the part that saves real work. A status column in a table — six badges,
 <color-mode
   inverted
   palette="green"
-  class="d-iblock bg-surface-dyed t-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
   >Paid</color-mode
 >
 
 <color-mode
   inverted
   palette="orange"
-  class="d-iblock bg-surface-dyed t-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
   >Unfulfilled</color-mode
 >
 
 <color-mode
   inverted
   palette="coral"
-  class="d-iblock bg-surface-dyed t-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
   >Cancelled</color-mode
 >
 
 <color-mode
   inverted
   palette="grey"
-  class="d-iblock bg-surface-dyed t-medium fg-muted px-2xs py-3xs br-pill fs-xs"
+  class="d-iblock bg-surface-dyed fw-medium fg-muted px-2xs py-3xs br-pill fs-xs"
   >Refunded</color-mode
 >
 ```
@@ -158,7 +158,7 @@ You can go as deep as you like. A green card containing an orange row containing
 
   <color-mode inverted class="d-block bg-surface-dyed br-l px-s py-xs">
     <p class="lh-tight">Velkommen til</p>
-    <h1 class="fs-4xl t-bold">Variantdag</h1>
+    <h1 class="fs-4xl fw-bold">Variantdag</h1>
   </color-mode>
 </color-mode>
 ```
@@ -179,7 +179,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all b-prominent br-inherit"
     >
       <div class="mr-auto">
-        <h5 class="t-medium fs-m">Pro trial</h5>
+        <h5 class="fw-medium fs-m">Pro trial</h5>
         <p class="fg-muted">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" checked />
@@ -192,7 +192,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all b-prominent br-inherit"
     >
       <div class="mr-auto">
-        <h5 class="t-medium fs-m">Team trial</h5>
+        <h5 class="fw-medium fs-m">Team trial</h5>
         <p class="fg-muted">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" />
@@ -204,7 +204,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
       class="stack-horizontal gap-m p-xs bg-wash:hover b-all b-prominent br-inherit"
     >
       <div class="mr-auto">
-        <h5 class="t-medium fs-m">No thanks</h5>
+        <h5 class="fw-medium fs-m">No thanks</h5>
         <p class="fg-muted">I'm good</p>
       </div>
       <input type="radio" class="radio" name="trial" />

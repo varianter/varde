@@ -81,18 +81,18 @@ When they overlap, the more specific utility always wins, regardless of class or
   <span class="fs-4xl">fs-4xl</span>
 
   <!-- font-weight: 400 -->
-  <span class="t-regular">t-regular</span>
+  <span class="fw-regular">fw-regular</span>
 
   <!-- font-weight: 500 -->
-  <span class="t-medium">t-medium</span>
+  <span class="fw-medium">fw-medium</span>
 
   <!-- font-weight: 600 -->
-  <span class="t-bold">t-bold</span>
+  <span class="fw-bold">fw-bold</span>
 
-  <span class="t-left">t-left</span>
-  <span class="t-center">t-center</span>
-  <span class="t-right">t-right</span>
-  <span class="t-uppercase">t-uppercase</span>
+  <span class="ta-left">ta-left</span>
+  <span class="ta-center">ta-center</span>
+  <span class="ta-right">ta-right</span>
+  <span class="tt-uppercase">tt-uppercase</span>
 
   <span class="lh-micro">lh-micro</span>
   <span class="lh-flat">lh-flat</span>

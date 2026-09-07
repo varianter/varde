@@ -1,28 +1,28 @@
 @layer text {
-  .t-regular {
+  .fw-regular {
     font-weight: var(--font-weight-regular);
   }
-  .t-medium {
+  .fw-medium {
     font-weight: var(--font-weight-medium);
   }
-  .t-bold {
+  .fw-bold {
     font-weight: var(--font-weight-bold);
   }
 
-  .t-center {
+  .ta-center {
     text-align: center;
   }
-  .t-left {
+  .ta-left {
     text-align: left;
   }
-  .t-right {
+  .ta-right {
     text-align: right;
   }
 
-  .t-uppercase {
+  .tt-uppercase {
     text-transform: uppercase;
   }
-  :where(.t-uppercase) {
+  :where(.tt-uppercase) {
     letter-spacing: var(--letter-spacing-uppercase);
   }
 

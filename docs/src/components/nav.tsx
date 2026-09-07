@@ -59,7 +59,7 @@ export function NavLinks() {
     <div class="py-m stack gap-m">
       {sections.map((section) => (
         <div key={section.label}>
-          <h5 class="fs-xs fg-muted t-bold mb-2xs">{section.label}</h5>
+          <h5 class="fs-xs fg-muted fw-bold mb-2xs">{section.label}</h5>
           <ul class="stack gap-4xs">
             {section.items.map((item) => (
               <a

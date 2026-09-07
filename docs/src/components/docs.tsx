@@ -13,7 +13,7 @@ export function DocsPage({
     <article class="stack gap-2xl mx-auto py-xl px-m-l" style="max-width: 1200px;">
       <header class="pt-2xl pb-2xl">
         <div class="stack gap-xs">
-          <h2 class="fs-3xl t-bold">{title}</h2>
+          <h2 class="fs-3xl fw-bold">{title}</h2>
           <p class="fs-l fg-muted mw-7">{description}</p>
         </div>
       </header>
@@ -35,7 +35,7 @@ export function Section({
   return (
     <section data-component="Section" class="stack gap-m py-xl">
       <div>
-        <h3 class="fs-xl t-bold">{title}</h3>
+        <h3 class="fs-xl fw-bold">{title}</h3>
         {description && <p class="fg-muted fs-s">{description}</p>}
       </div>
       <div>{children}</div>
@@ -84,8 +84,8 @@ export function ExampleGroup({ children }: { children: Child }) {
 
 export function DemoBox({ children, label }: { children?: Child; label?: string }) {
   return (
-    <div class="fs-s t-medium px-xs py-2xs br-m demo-box bg-surface-dyed">
-      <span class="fg-default t-bold">{children || label || "Item"}</span>
+    <div class="fs-s fw-medium px-xs py-2xs br-m demo-box bg-surface-dyed">
+      <span class="fg-default fw-bold">{children || label || "Item"}</span>
     </div>
   );
 }

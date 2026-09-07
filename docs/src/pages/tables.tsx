@@ -50,7 +50,7 @@ export function TablesPage() {
       >
         <div class="stack gap-m">
           <div class="stack gap-2xs">
-            <span class="fs-xs fg-muted t-medium">Compact</span>
+            <span class="fs-xs fg-muted fw-medium">Compact</span>
             <ExamplePanel>
               <table class="table" data-density="compact">
                 <thead>
@@ -92,7 +92,7 @@ export function TablesPage() {
           </div>
 
           <div class="stack gap-2xs">
-            <span class="fs-xs fg-muted t-medium">Relaxed</span>
+            <span class="fs-xs fg-muted fw-medium">Relaxed</span>
             <ExamplePanel>
               <table class="table" data-density="relaxed">
                 <thead>

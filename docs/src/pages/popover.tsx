@@ -20,19 +20,19 @@ export function PopoverPage() {
           <div id="demo-default" class="popover p-m" popover="auto">
             <div class="p-l stack bg-surface-dyed br-m shadow-medium" stagger-items>
               <a class="stack fs-xs px-3xs py-3xs" href="/fundamentet/formaal-og-verdier">
-                <span class="t-bold fg-default">Formål og verdier</span>
+                <span class="fw-bold fg-default">Formål og verdier</span>
                 <span class="subnav-description fg-muted">
                   Hvorfor vi finnes, og verdiene som styrer valgene våre
                 </span>
               </a>
               <a class="stack fs-xs px-3xs py-3xs" href="/fundamentet/formaal-og-verdier">
-                <span class="t-bold fg-default">Formål og verdier</span>
+                <span class="fw-bold fg-default">Formål og verdier</span>
                 <span class="subnav-description fg-muted">
                   Hvorfor vi finnes, og verdiene som styrer valgene våre
                 </span>
               </a>
               <a class="stack fs-xs px-3xs py-3xs" href="/fundamentet/formaal-og-verdier">
-                <span class="t-bold fg-default">Formål og verdier</span>
+                <span class="fw-bold fg-default">Formål og verdier</span>
                 <span class="subnav-description fg-muted">
                   Hvorfor vi finnes, og verdiene som styrer valgene våre
                 </span>
@@ -55,7 +55,7 @@ export function PopoverPage() {
             <div class="stack of-clip br-m shadow-high">
               <color-mode palette="grey" class="d-block bg-surface-tinted ">
                 <div class="px-l-xl pt-l-xl pb-s stack" style="max-width: 560px;" stagger-items>
-                  <h2 class="fs-xl t-bold">Er du en Variant?</h2>
+                  <h2 class="fs-xl fw-bold">Er du en Variant?</h2>
                   <p class="mt-s">
                     A centered dialog with a backdrop overlay. Click outside or press Escape to
                     dismiss.
@@ -130,7 +130,7 @@ export function PopoverPage() {
             style="width: 320px;"
           >
             <div class="p-l stack gap-m bg-surface-base shadow-high" style="height: 100%;">
-              <h2 class="fs-l t-bold">Right drawer</h2>
+              <h2 class="fs-l fw-bold">Right drawer</h2>
               <p>Slides in from the right edge. Width is up to you.</p>
             </div>
           </div>
@@ -145,7 +145,7 @@ export function PopoverPage() {
             style="width: 320px;"
           >
             <div class="p-l stack gap-m bg-surface-base shadow-high" style="height: 100%;">
-              <h2 class="fs-l t-bold">Left drawer</h2>
+              <h2 class="fs-l fw-bold">Left drawer</h2>
               <p>Slides in from the left edge.</p>
             </div>
           </div>
@@ -164,7 +164,7 @@ export function PopoverPage() {
               style="height: 100%;"
               stagger-items
             >
-              <h2 class="fs-l t-bold">Bottom drawer</h2>
+              <h2 class="fs-l fw-bold">Bottom drawer</h2>
               <p>Slides up from the bottom edge.</p>
             </div>
           </div>
@@ -213,7 +213,7 @@ export function PopoverPage() {
               class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="reverse from-below hard"
             >
-              <h5 class="fs-s t-medium mb-2xs">
+              <h5 class="fs-s fw-medium mb-2xs">
                 Tooltip <span class="fg-muted">· Top</span>{" "}
               </h5>
               <p class="fs-s lh-tight fg-muted">
@@ -221,7 +221,7 @@ export function PopoverPage() {
                 setup is needed.
               </p>
               <hr class="my-xs" style="opacity: 0.3" />
-              <div class="stack-horizontal gap-2xs fs-xs t-medium">
+              <div class="stack-horizontal gap-2xs fs-xs fw-medium">
                 <a
                   href="#"
                   class=" br-pill lh-tight pl-3xs pr-2xs py-3xs bg-surface-dyed stack-horizontal gap-3xs"
@@ -261,7 +261,7 @@ export function PopoverPage() {
               class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="from-start hard"
             >
-              <h5 class="fs-s t-medium mb-2xs">
+              <h5 class="fs-s fw-medium mb-2xs">
                 Tooltip <span class="fg-muted ml-auto">· Right</span>{" "}
               </h5>
               <p class="fs-s lh-tight fg-muted">
@@ -269,7 +269,7 @@ export function PopoverPage() {
                 setup is needed.
               </p>
               <hr class="my-xs" style="opacity: 0.3" />
-              <div class="stack-horizontal gap-2xs fs-xs t-medium">
+              <div class="stack-horizontal gap-2xs fs-xs fw-medium">
                 <a
                   href="#"
                   class=" br-pill lh-tight pl-3xs pr-2xs py-3xs bg-surface-dyed stack-horizontal gap-3xs"
@@ -309,7 +309,7 @@ export function PopoverPage() {
               class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="from-above hard "
             >
-              <h5 class="fs-s t-medium mb-2xs">
+              <h5 class="fs-s fw-medium mb-2xs">
                 Tooltip <span class="fg-muted">· Bottom</span>{" "}
               </h5>
               <p class="fs-s lh-tight fg-muted">
@@ -317,7 +317,7 @@ export function PopoverPage() {
                 setup is needed.
               </p>
               <hr class="my-xs" style="opacity: 0.3" />
-              <div class="stack-horizontal gap-2xs fs-xs t-medium">
+              <div class="stack-horizontal gap-2xs fs-xs fw-medium">
                 <a
                   href="#"
                   class=" br-pill lh-tight pl-3xs pr-2xs py-3xs bg-surface-dyed stack-horizontal gap-3xs"

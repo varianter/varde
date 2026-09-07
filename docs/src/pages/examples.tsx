@@ -180,7 +180,7 @@ function Doodad({ color = "green" }) {
       </div>
       <div class="p-3xs bg-surface-dyed br-m brtl-none brtl-none">
         <color-mode palette="inherit" class="d-block bg-surface-base br-s p-xs px-s pt-s">
-          <p class="fs-xl t-medium lh-tight fg-emphasis">
+          <p class="fs-xl fw-medium lh-tight fg-emphasis">
             Mange passasjerer har et informasjonsbehov som ikke dekkes. Dette forer til kødannelse i
             kritiske deler av flyplassen.
           </p>

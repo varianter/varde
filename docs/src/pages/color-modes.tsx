@@ -29,7 +29,7 @@ function WorkspacePanel({ mode }: { mode: string }) {
     <section class="bg-surface-base b-all b-faint br-l stack">
       <header class="stack px-xs pt-xs pb-xs pt-m">
         <div class="stack gap-xs">
-          <h3 class="fs-xl t-bold lh-tight" style="text-transform: capitalize;">
+          <h3 class="fs-xl fw-bold lh-tight" style="text-transform: capitalize;">
             {mode}
           </h3>
         </div>
@@ -49,7 +49,7 @@ function WorkspacePanel({ mode }: { mode: string }) {
                 }
               >
                 <span class="icon fs-xs " data-icon={item.icon} />
-                <span class="flex-1 fs-s t-medium">{item.label}</span>
+                <span class="flex-1 fs-s fw-medium">{item.label}</span>
                 <span class="fs-s t-tabular">{item.meta}</span>
               </a>
             );
@@ -101,7 +101,7 @@ export default function ColorModesPage() {
   return (
     <article class="stack gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
-        <h2 class="fs-3xl t-bold">Color Modes</h2>
+        <h2 class="fs-3xl fw-bold">Color Modes</h2>
         <p class="fs-l fg-muted mw-7">
           Every palette shown simultaneously. Each panel is scoped with{" "}
           <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, foregrounds, borders, and

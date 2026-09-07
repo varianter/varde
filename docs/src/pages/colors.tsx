@@ -78,7 +78,7 @@ export default function ColorsPage() {
           <div class="stack gap-m">
             <div class="stack gap-xs">
               <div class="stack gap-2xs">
-                <span class="fg-emphasis fs-l t-bold">.fg-emphasis — Page heading</span>
+                <span class="fg-emphasis fs-l fw-bold">.fg-emphasis — Page heading</span>
                 <code class="fs-xs fg-muted">.fg-emphasis</code>
               </div>
               <div class="stack gap-2xs">
@@ -128,7 +128,7 @@ export default function ColorsPage() {
             PALETTES.map((palette) => (
               <color-mode inverted={mode} palette={palette}>
                 <div class="stack ">
-                  {/* <h4 class="fs-m t-bold fg-emphasis" style="text-transform: capitalize;">
+                  {/* <h4 class="fs-m fw-bold fg-emphasis" style="text-transform: capitalize;">
                   {palette}
                 </h4> */}
                   <div class="stack-horizontal " style="overflow-x: auto;">

@@ -16,7 +16,7 @@ description: Realistic compositions built with Varde utilities and components.
   class="bg-surface-base mw-7 b-all b-fait br-xl shadow-medium p-s stack gap-s of-clip"
 >
   <div class="typeset">
-    <h4 class="t-medium fs-xs">Create token</h4>
+    <h4 class="fw-medium fs-xs">Create token</h4>
     <p>
       Enter a unique name for your token to differentiate it from other tokens
       and then select the scope.
@@ -239,22 +239,22 @@ Without buttons, only `color-mode`:
   style="width: max-content;"
 >
   <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
-    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
   </color-mode>
   <color-mode inverted class="bg-surface-dyed b-r b-faint b-last-none d-block ">
-    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s">
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s">
       Selected</a
     >
   </color-mode>
   <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
-    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
   </color-mode>
   <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
-    <a href="#" class="d-block py-2xs px-s bg-wash:hover t-medium fs-s"
+    <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
   </color-mode>
@@ -267,56 +267,56 @@ Without buttons, only `color-mode`:
 <div class="stack-horizontal gap-xs bg-surface-base p-m">
   <color-mode
     palette="blue"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     Blue
   </color-mode>
   <color-mode
     inverted
     palette="blue"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted Blue
   </color-mode>
 
   <color-mode
     palette="yellow"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     yellow
   </color-mode>
   <color-mode
     inverted
     palette="yellow"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted yellow
   </color-mode>
 
   <color-mode
     palette="coral"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     coral
   </color-mode>
   <color-mode
     inverted
     palette="coral"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted coral
   </color-mode>
 
   <color-mode
     palette="green"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     green
   </color-mode>
   <color-mode
     inverted
     palette="green"
-    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s t-medium"
+    class="bg-surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted green
   </color-mode>
@@ -409,20 +409,20 @@ Without buttons, only `color-mode`:
         grid-column: 2 / -1;
     "
     >
-      <div class="column t-right px-3xs fs-xs stack">
-        <div class="t-medium">■ uke 35</div>
+      <div class="column ta-right px-3xs fs-xs stack">
+        <div class="fw-medium">■ uke 35</div>
         <div class="fg-muted">24.08 - 28.08</div>
       </div>
-      <div class="column t-right px-3xs fs-xs stack">
-        <div class="t-medium">uke 35</div>
+      <div class="column ta-right px-3xs fs-xs stack">
+        <div class="fw-medium">uke 35</div>
         <div class="fg-muted">24.08 - 28.08</div>
       </div>
-      <div class="column t-right px-3xs fs-xs stack">
-        <div class="t-medium">uke 35</div>
+      <div class="column ta-right px-3xs fs-xs stack">
+        <div class="fw-medium">uke 35</div>
         <div class="fg-muted">24.08 - 28.08</div>
       </div>
-      <div class="column t-right px-3xs fs-xs stack">
-        <div class="t-medium">uke 35</div>
+      <div class="column ta-right px-3xs fs-xs stack">
+        <div class="fw-medium">uke 35</div>
         <div class="fg-muted">24.08 - 28.08</div>
       </div>
     </div>
@@ -434,7 +434,7 @@ Without buttons, only `color-mode`:
         class="bg-surface-dyed aspect-square br-s mw-2"
       ></div>
       <div class="name pr-2xs">
-        <p class="fs-s t-medium">Jacob Berglund</p>
+        <p class="fs-s fw-medium">Jacob Berglund</p>
         <p class="fs-xs fg-muted">12 års erfaring</p>
       </div>
     </div>
@@ -455,17 +455,17 @@ Without buttons, only `color-mode`:
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
         </color-mode>
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">30.0</div>
       </div>
       <div
         class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
       >
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">37.5</div>
       </div>
       <div
         class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
       >
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">37.5</div>
       </div>
       <color-mode
         palette="coral"
@@ -487,7 +487,7 @@ Without buttons, only `color-mode`:
             <div class="lh-tight fg-muted">7.5</div>
           </color-mode>
         </div>
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">15.0</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">15.0</div>
       </color-mode>
     </div>
   </div>
@@ -499,7 +499,7 @@ Without buttons, only `color-mode`:
         class="bg-surface-dyed aspect-square br-s mw-2"
       ></div>
       <div class="name pr-2xs">
-        <p class="fs-s t-medium">Jacob Berglund</p>
+        <p class="fs-s fw-medium">Jacob Berglund</p>
         <p class="fs-xs fg-muted">12 års erfaring</p>
       </div>
     </div>
@@ -520,17 +520,17 @@ Without buttons, only `color-mode`:
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
         </color-mode>
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">30.0</div>
       </div>
       <div
         class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
       >
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">37.5</div>
       </div>
       <div
         class="column p-3xs px-2xs bg-surface-tinted stack justify-end br-s gap-2xs"
       >
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">37.5</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">37.5</div>
       </div>
       <color-mode
         palette="yellow"
@@ -552,7 +552,7 @@ Without buttons, only `color-mode`:
             <div class="lh-tight fg-muted">7.5</div>
           </color-mode>
         </div>
-        <div class="ml-auto  t-right fs-l lh-tight fg-muted ">30.0</div>
+        <div class="ml-auto  ta-right fs-l lh-tight fg-muted ">30.0</div>
       </color-mode>
     </div>
   </div>
@@ -577,7 +577,7 @@ Without buttons, only `color-mode`:
     <div
       class="position-sticky top-0 shadow-medium  br-m bg-surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
     >
-      <h1 class="fs-l t-bold fg-emphasis">Filter</h1>
+      <h1 class="fs-l fw-bold fg-emphasis">Filter</h1>
       <button
         class="button"
         data-variant="plain"
@@ -616,7 +616,7 @@ Without buttons, only `color-mode`:
     <div class="b-all b-faint bg-surface-base br-l gap-2xs px-xs py-2xs stack">
       <div class="stack gap-2xs">
         <div class="stack-horizontal gap-2xs">
-          <label for="Ledig-tid" class="fs-s t-medium flex-1">Ledig tid</label>
+          <label for="Ledig-tid" class="fs-s fw-medium flex-1">Ledig tid</label>
           <input
             class="checkbox fs-s "
             data-size="large"
@@ -742,11 +742,11 @@ Without buttons, only `color-mode`:
         <div
           class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
         >
-          <label class="fs-xs t-medium p-3xs" for="yearsExperienceFrom"
+          <label class="fs-xs fw-medium p-3xs" for="yearsExperienceFrom"
             >Fra</label
           >
           <input
-            class="input mw-2 ml-auto t-right"
+            class="input mw-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceFrom"
@@ -755,11 +755,11 @@ Without buttons, only `color-mode`:
         <div
           class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
         >
-          <label class="fs-xs t-medium p-3xs" for="yearsExperienceTo"
+          <label class="fs-xs fw-medium p-3xs" for="yearsExperienceTo"
             >Til</label
           >
           <input
-            class="input mw-2 ml-auto t-right"
+            class="input mw-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceTo"
@@ -908,7 +908,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
       class="stack-horizontal gap-m p-xs bg-wash:hover b-prominent b-all   br-inherit"
     >
       <div class="mr-auto">
-        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <h5 class="fg-muted fw-medium fs-m">Pro trial</h5>
         <p class="fg-muted">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" checked />
@@ -921,7 +921,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
   >
     <label class="stack-horizontal gap-m p-xs bg-wash:hover">
       <div class="mr-auto">
-        <h5 class="fg-muted t-medium fs-m">Pro trial</h5>
+        <h5 class="fg-muted fw-medium fs-m">Pro trial</h5>
         <p class="fg-muted">Free for two weeks</p>
       </div>
       <input type="radio" class="radio" name="trial" />
@@ -1068,7 +1068,7 @@ This one leverages a popover, a details list, and a form
 
       <div class="shadow-medium flex-1 bg-surface-base br-l of-clip">
         <div class="px-l-xl py-m b-b b-faint stack">
-          <label class="t-medium mb-3xs">Where is your endpoint?</label>
+          <label class="fw-medium mb-3xs">Where is your endpoint?</label>
           <input
             value="https://varde.variant.dev/api"
             type="text"
@@ -1077,7 +1077,7 @@ This one leverages a popover, a details list, and a form
         </div>
 
         <div class="px-l-xl py-m b-b b-faint stack">
-          <label class="t-medium mb-3xs">Your repo</label>
+          <label class="fw-medium mb-3xs">Your repo</label>
           <input
             value="https://varde.variant.dev/api"
             type="text"
@@ -1090,7 +1090,7 @@ This one leverages a popover, a details list, and a form
           class="d-block px-l-xl py-m bg-surface-dyed"
         >
           <details>
-            <summary class="t-medium stack-horizontal">
+            <summary class="fw-medium stack-horizontal">
               <p class="mr-auto">Not yet ready to implement?</p>
               <div
                 type="button"
@@ -1102,7 +1102,7 @@ This one leverages a popover, a details list, and a form
               </div>
             </summary>
             <div class="typeset py-s">
-              <p class="t-medium">
+              <p class="fw-medium">
                 Get started and try Varde by following these steps
               </p>
               <ol>
@@ -1190,7 +1190,7 @@ This one utilizes an escape hatch
     class="bg-surface-dyed d-block br-l mb-xl mt-2xl pb-2xs pt-xs px-s"
   >
     <p class="lh-tight">Velkommen til</p>
-    <h1 class="fs-4xl t-bold">Variantdag</h1>
+    <h1 class="fs-4xl fw-bold">Variantdag</h1>
   </color-mode>
 
   <div
@@ -1344,7 +1344,7 @@ This one utilizes an escape hatch
         <span class="fs-s fg-muted">MRR</span>
         <color-mode palette="green">
           <span
-            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs t-medium"
+            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1365,7 +1365,7 @@ This one utilizes an escape hatch
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">350K</div>
+      <div class="fs-3xl fw-bold mb-2xs fg-mutedefault">350K</div>
     </color-mode>
 
     <!-- OpEx -->
@@ -1374,7 +1374,7 @@ This one utilizes an escape hatch
         <span class="fs-s fg-muted">OpEx</span>
         <color-mode palette="coral">
           <span
-            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs t-medium"
+            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1395,7 +1395,7 @@ This one utilizes an escape hatch
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">211K</div>
+      <div class="fs-3xl fw-bold mb-2xs fg-mutedefault">211K</div>
     </color-mode>
 
     <!-- CapEx -->
@@ -1404,7 +1404,7 @@ This one utilizes an escape hatch
         <span class="fs-s fg-muted">CapEx</span>
         <color-mode palette="green">
           <span
-            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs t-medium"
+            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1425,7 +1425,7 @@ This one utilizes an escape hatch
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">94K</div>
+      <div class="fs-3xl fw-bold mb-2xs fg-mutedefault">94K</div>
     </color-mode>
 
     <!-- GPM -->
@@ -1434,7 +1434,7 @@ This one utilizes an escape hatch
         <span class="fs-s fg-muted">GPM</span>
         <color-mode palette="coral">
           <span
-            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs t-medium"
+            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1455,7 +1455,7 @@ This one utilizes an escape hatch
           </span>
         </color-mode>
       </div>
-      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">44.6%</div>
+      <div class="fs-3xl fw-bold mb-2xs fg-mutedefault">44.6%</div>
     </color-mode>
 
     <!-- NPM -->
@@ -1463,11 +1463,11 @@ This one utilizes an escape hatch
       <div class="stack-horizontal items-center gap-2xs mb-2xs">
         <span class="fs-s fg-muted">NPM</span>
         <span
-          class="bg-surface-tinted fg-muted px-2xs py-4xs br-pill fs-xs t-medium"
+          class="bg-surface-tinted fg-muted px-2xs py-4xs br-pill fs-xs fw-medium"
           >0.0%</span
         >
       </div>
-      <div class="fs-3xl t-bold mb-2xs fg-mutedefault">9.1%</div>
+      <div class="fs-3xl fw-bold mb-2xs fg-mutedefault">9.1%</div>
     </color-mode>
 
     <!-- EBITDA -->
@@ -1476,7 +1476,7 @@ This one utilizes an escape hatch
         <span class="fs-s fg-muted">EBITDA</span>
         <color-mode palette="green">
           <span
-            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs t-medium"
+            class="bg-surface-dyed fg-emphasis stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1496,7 +1496,7 @@ This one utilizes an escape hatch
             4.1%
           </span>
         </color-mode>
-        <div class="fs-3xl t-bold mb-2xs fg-default">443K</div>
+        <div class="fs-3xl fw-bold mb-2xs fg-default">443K</div>
       </div>
     </color-mode>
   </div>
@@ -1536,7 +1536,7 @@ This one utilizes an escape hatch
       <span class="fs-s fg-muted">Order no.</span>
       <span class="fs-s fg-muted">Payment</span>
       <span class="fs-s fg-muted">Fulfillment</span>
-      <span class="fs-s fg-muted t-right">Amount</span>
+      <span class="fs-s fg-muted ta-right">Amount</span>
     </div>
 
     <hr />
@@ -1549,7 +1549,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Paid</span
           >
         </color-mode>
@@ -1557,12 +1557,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="orange">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Delivering</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">154.60</span>
+      <span class="fs-s ta-right">154.60</span>
     </div>
 
     <div
@@ -1573,7 +1573,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Paid</span
           >
         </color-mode>
@@ -1581,12 +1581,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="orange">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Unfulfilled</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">93.49</span>
+      <span class="fs-s ta-right">93.49</span>
     </div>
 
     <div
@@ -1597,7 +1597,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="grey">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Refunded</span
           >
         </color-mode>
@@ -1605,12 +1605,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="coral">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Cancelled</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">39.00</span>
+      <span class="fs-s ta-right">39.00</span>
     </div>
 
     <div
@@ -1621,7 +1621,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="orange">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Unpaid</span
           >
         </color-mode>
@@ -1629,12 +1629,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="orange">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Unfulfilled</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">438.90</span>
+      <span class="fs-s ta-right">438.90</span>
     </div>
 
     <div
@@ -1645,7 +1645,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Paid</span
           >
         </color-mode>
@@ -1653,12 +1653,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Fulfilled</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">532.64</span>
+      <span class="fs-s ta-right">532.64</span>
     </div>
 
     <div
@@ -1669,7 +1669,7 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Paid</span
           >
         </color-mode>
@@ -1677,12 +1677,12 @@ This one utilizes an escape hatch
       <div>
         <color-mode palette="green">
           <span
-            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs t-medium"
+            class="bg-surface-tinted fg-muted px-2xs py-3xs br-pill fs-xs fw-medium"
             >Fulfilled</span
           >
         </color-mode>
       </div>
-      <span class="fs-s t-right">625.03</span>
+      <span class="fs-s ta-right">625.03</span>
     </div>
   </div>
 

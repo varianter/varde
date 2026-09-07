@@ -43,7 +43,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
   <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
     <span class="icon fg-muted fs-xs" data-icon="pencil"></span>
     <div class="stack grow">
-      <p class="t-medium">Display name</p>
+      <p class="fw-medium">Display name</p>
       <p class="fs-s fg-muted">How you appear to others</p>
     </div>
     <button class="button" data-size="small" data-variant="outlined">
@@ -54,7 +54,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
   <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
     <span class="icon fg-muted fs-xs" data-icon="plus"></span>
     <div class="stack grow">
-      <p class="t-medium">Language</p>
+      <p class="fw-medium">Language</p>
       <p class="fs-s fg-muted">Used across the app</p>
     </div>
     <select class="select" data-size="small">
@@ -67,7 +67,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
   <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
     <span class="icon fg-muted fs-xs" data-icon="pencil"></span>
     <div class="stack grow">
-      <p class="t-medium">Email notifications</p>
+      <p class="fw-medium">Email notifications</p>
       <p class="fs-s fg-muted">Receive updates by email</p>
     </div>
     <input class="checkbox" type="checkbox" checked />
@@ -82,8 +82,8 @@ A centered card that pairs an icon, a heading, and a single primary action.
 ```html
 <div class="bg-surface-base b-all b-faint br-xl p-xl stack items-center mw-7">
   <span class="icon fs-2xl fg-muted" data-icon="plus"></span>
-  <h3 class="fs-l t-bold mt-m">No projects yet</h3>
-  <p class="fs-s fg-muted t-center mt-2xs">
+  <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
+  <p class="fs-s fg-muted ta-center mt-2xs">
     Create your first project to get started.
   </p>
   <button class="button mt-m" data-size="small">Create project</button>
@@ -99,11 +99,11 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
   <color-mode>
     <div class="flex-1 bg-surface-base b-all b-faint br-xl p-m stack">
       <div class="stack">
-        <h3 class="fs-l t-bold">Free</h3>
+        <h3 class="fs-l fw-bold">Free</h3>
         <p class="fs-s fg-muted mt-2xs">For personal projects.</p>
       </div>
       <div class="stack-horizontal items-end gap-xs mt-m">
-        <span class="fs-2xl t-bold">$0</span>
+        <span class="fs-2xl fw-bold">$0</span>
         <span class="fs-s fg-muted pb-2xs">/ month</span>
       </div>
       <ul class="list stack gap-2xs fs-s mt-s mb-m">
@@ -120,11 +120,11 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
       class="flex-1 bg-surface-dyed b-all b-faint br-xl p-m stack shadow-high"
     >
       <div class="stack">
-        <h3 class="fs-l t-bold">Pro</h3>
+        <h3 class="fs-l fw-bold">Pro</h3>
         <p class="fs-s fg-muted mt-2xs">For growing teams.</p>
       </div>
       <div class="stack-horizontal items-end gap-xs mt-m">
-        <span class="fs-2xl t-bold">$20</span>
+        <span class="fs-2xl fw-bold">$20</span>
         <span class="fs-s fg-muted pb-2xs">/ month</span>
       </div>
       <ul class="list stack gap-2xs fs-s mt-s mb-m">
@@ -139,11 +139,11 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
   <color-mode>
     <div class="flex-1 bg-surface-base b-all b-faint br-xl p-m stack">
       <div class="stack">
-        <h3 class="fs-l t-bold">Enterprise</h3>
+        <h3 class="fs-l fw-bold">Enterprise</h3>
         <p class="fs-s fg-muted mt-2xs">For large organizations.</p>
       </div>
       <div class="stack-horizontal items-end gap-xs mt-m">
-        <span class="fs-2xl t-bold">Custom</span>
+        <span class="fs-2xl fw-bold">Custom</span>
       </div>
       <ul class="list stack gap-2xs fs-s mt-s mb-m">
         <li>SSO and audit logs</li>
@@ -176,7 +176,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">08:01</p>
-      <h3 class="fs-m t-bold ">Build failed</h3>
+      <h3 class="fs-m fw-bold ">Build failed</h3>
       <p class="fs-s fg-muted">A test step errored out in the pipeline.</p>
     </div>
   </div>
@@ -193,7 +193,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">09:12</p>
-      <h3 class="fs-m t-bold ">Pull request merged</h3>
+      <h3 class="fs-m fw-bold ">Pull request merged</h3>
       <p class="fs-s fg-muted">#482 landed on main.</p>
     </div>
   </div>
@@ -210,7 +210,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">09:24</p>
-      <h3 class="fs-m t-bold ">Deployment finished</h3>
+      <h3 class="fs-m fw-bold ">Deployment finished</h3>
       <p class="fs-s fg-muted">Production is now running build #482.</p>
     </div>
   </div>
@@ -226,7 +226,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
     </div>
     <div class="stack">
       <p class="fs-xs fg-muted mb-2xs">10:05</p>
-      <h3 class="fs-m t-bold ">Comment added</h3>
+      <h3 class="fs-m fw-bold ">Comment added</h3>
       <p class="fs-s fg-muted">Ola reviewed the deploy config.</p>
     </div>
   </div>

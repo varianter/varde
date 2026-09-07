@@ -251,7 +251,7 @@ Set `aria-invalid="true"` on the control. The border and text turn red automatic
     aria-invalid="true"
   />
   <color-mode palette="coral">
-    <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
+    <p class="fs-xs fw-medium mt-2xs">Please enter a valid email address</p>
   </color-mode>
 </div>
 ```
@@ -287,7 +287,7 @@ A realistic form combining labels, layout, validation, and multiple control type
       aria-invalid="true"
     />
     <color-mode palette="coral">
-      <p class="fs-xs t-medium mt-2xs">Please enter a valid email address</p>
+      <p class="fs-xs fw-medium mt-2xs">Please enter a valid email address</p>
     </color-mode>
   </div>
 

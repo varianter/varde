@@ -155,7 +155,7 @@ app.use(
             <header class="site-header stack b-b b-faint px-s-m ">
               <a
                 href="/docs"
-                class="site-logo py-xs t-bold gap-xs stack-horizontal inline-flex self-stretch"
+                class="site-logo py-xs fw-bold gap-xs stack-horizontal inline-flex self-stretch"
               >
                 <img
                   src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"

@@ -6,7 +6,7 @@ export default function HomePage() {
       <header>
         <div class="stack gap-l">
           <div class="stack gap-m">
-            <h1 class="fs-4xl t-bold lh-tight">Varde</h1>
+            <h1 class="fs-4xl fw-bold lh-tight">Varde</h1>
             <p class="fs-xl fg-muted" style="max-width: 640px;">
               A utility-first CSS framework and design token system. Semantic classes for layout,
               spacing, color, typography, and components — no build step.
@@ -18,7 +18,7 @@ export default function HomePage() {
       <section class="stack gap-xl b-t b-faint pt-3xl">
         <div class="stack gap-l" style="max-width: 720px;">
           <div class="stack gap-s">
-            <h2 class="fs-l t-bold">Why it exists</h2>
+            <h2 class="fs-l fw-bold">Why it exists</h2>
             <p class="fg-muted">
               Spacing, layout, color, typography, buttons, form fields — every product team handles
               these same fundamentals. When we all share a common vocabulary for them, the UI stays

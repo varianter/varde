@@ -35,7 +35,7 @@ export function SpacingPage() {
             ].map(({ size, label }) => (
               <div class="stack-horizontal items-start gap-s">
                 <div class="stack-horizontal gap-2xs" style="min-width: 140px;">
-                  <code class="fs-xs t-medium" style="min-width: 3ch;">
+                  <code class="fs-xs fw-medium" style="min-width: 3ch;">
                     {size}
                   </code>
                   <div
@@ -58,7 +58,7 @@ export function SpacingPage() {
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack gap-xs">
-              <span class="fg-emphasis t-bold fs-s">Use gap when...</span>
+              <span class="fg-emphasis fw-bold fs-s">Use gap when...</span>
               <ul class="list stack gap-2xs fs-s fg-muted">
                 <li>You're spacing children in a flex container (.stack or .stack-horizontal)</li>
                 <li>You want consistent spacing between multiple items</li>
@@ -70,7 +70,7 @@ export function SpacingPage() {
             <div class="b-b b-faint" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis t-bold fs-s">Use padding when...</span>
+              <span class="fg-emphasis fw-bold fs-s">Use padding when...</span>
               <ul class="list stack gap-2xs fs-s fg-muted">
                 <li>You need inner space inside an element (cards, buttons, containers)</li>
                 <li>You're creating breathing room around content</li>
@@ -81,7 +81,7 @@ export function SpacingPage() {
             <div class="b-b b-faint" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis t-bold fs-s">Use margin when...</span>
+              <span class="fg-emphasis fw-bold fs-s">Use margin when...</span>
               <ul class="list stack gap-2xs fs-s fg-muted">
                 <li>You can't use gap (not in a flex container)</li>
                 <li>You need to push a single element away from others</li>
@@ -93,7 +93,7 @@ export function SpacingPage() {
             <div class="b-b b-faint" />
 
             <div class="stack gap-xs">
-              <span class="fg-emphasis t-bold fs-s">Prefer gap over margin because...</span>
+              <span class="fg-emphasis fw-bold fs-s">Prefer gap over margin because...</span>
               <ul class="list stack gap-2xs fs-s fg-muted">
                 <li>Gap doesn't collapse or interact with neighboring margins</li>
                 <li>

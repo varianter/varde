@@ -37,20 +37,20 @@ export function TypographyPage() {
       {/* Font Weight */}
       <Section
         title="Font Weight"
-        description="Use t-regular, t-medium, and t-bold to control font weight."
+        description="Use fw-regular, fw-medium, and fw-bold to control font weight."
       >
         <ExamplePanel>
           {[
-            { cls: "t-regular", label: "t-regular", weight: "400" },
-            { cls: "t-medium", label: "t-medium", weight: "500" },
-            { cls: "t-bold", label: "t-bold", weight: "600" },
+            { cls: "fw-regular", label: "fw-regular", weight: "400" },
+            { cls: "fw-medium", label: "fw-medium", weight: "500" },
+            { cls: "fw-bold", label: "fw-bold", weight: "600" },
           ].map(({ cls, label, weight }) => (
             <div class="stack-horizontal gap-m">
               <code class="fs-xs fg-muted" style="min-width: 80px; flex-shrink: 0;">
                 .{label}
               </code>
               <span class={`fs-l ${cls}`}>
-                The quick brown fox <span class="fs-xs fg-muted t-regular">({weight})</span>
+                The quick brown fox <span class="fs-xs fg-muted fw-regular">({weight})</span>
               </span>
             </div>
           ))}
@@ -60,13 +60,13 @@ export function TypographyPage() {
       {/* Text Alignment */}
       <Section
         title="Text Alignment"
-        description="Use t-left, t-center, and t-right to control text alignment."
+        description="Use ta-left, ta-center, and ta-right to control text alignment."
       >
         <ExamplePanel>
           {[
-            { cls: "t-left", label: "t-left" },
-            { cls: "t-center", label: "t-center" },
-            { cls: "t-right", label: "t-right" },
+            { cls: "ta-left", label: "ta-left" },
+            { cls: "ta-center", label: "ta-center" },
+            { cls: "ta-right", label: "ta-right" },
           ].map(({ cls, label }) => (
             <div class="stack gap-2xs">
               <code class="fs-xs fg-muted">.{label}</code>
@@ -85,18 +85,18 @@ export function TypographyPage() {
       >
         <ExamplePanel>
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-3xl .t-bold .t-center</code>
-            <p class="fs-3xl t-bold t-center">Page Title</p>
+            <code class="fs-xs fg-muted">.fs-3xl .fw-bold .ta-center</code>
+            <p class="fs-3xl fw-bold ta-center">Page Title</p>
           </div>
 
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-s .t-medium .fg-muted</code>
-            <p class="fs-s t-medium fg-muted">A subtle label or caption</p>
+            <code class="fs-xs fg-muted">.fs-s .fw-medium .fg-muted</code>
+            <p class="fs-s fw-medium fg-muted">A subtle label or caption</p>
           </div>
 
           <div class="stack gap-2xs">
-            <code class="fs-xs fg-muted">.fs-xl .t-bold .t-right</code>
-            <p class="fs-xl t-bold t-right">Right-aligned heading</p>
+            <code class="fs-xs fg-muted">.fs-xl .fw-bold .ta-right</code>
+            <p class="fs-xl fw-bold ta-right">Right-aligned heading</p>
           </div>
         </ExamplePanel>
       </Section>
