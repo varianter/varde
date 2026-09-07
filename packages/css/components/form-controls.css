@@ -2,7 +2,7 @@
 
 :where(.form-label) {
   font-size: var(--font-size-s);
-  line-height: var(--leading-flat);
+  line-height: var(--line-height-flat);
   color: var(--foreground-muted);
   font-weight: var(--font-weight-medium);
 }

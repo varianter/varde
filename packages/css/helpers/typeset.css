@@ -3,7 +3,7 @@
     :scope {
       --flow-space: 0.75em;
       max-width: 58ch;
-      line-height: 1.4;
+      line-height: var(--line-height-normal);
       font-weight: var(--font-weight-regular);
       font-size: var(--font-size-m);
     }
@@ -14,10 +14,10 @@
     }
 
     :is(h1, h2) {
-      line-height: 1.2;
+      line-height: var(--line-height-snug);
     }
     :is(h3, h4) {
-      line-height: 1.33;
+      line-height: var(--line-height-normal);
     }
 
     h1 {
@@ -117,6 +117,7 @@
       padding: 0.25em 0.35em;
       border-radius: var(--border-radius-s);
       background-color: var(--background-control-default);
+      box-decoration-break: clone;
     }
   }
 }
