@@ -94,7 +94,10 @@ When they overlap, the more specific utility always wins, regardless of class or
   <span class="t-right">t-right</span>
   <span class="t-uppercase">t-uppercase</span>
 
+  <span class="lh-micro">lh-micro</span>
+  <span class="lh-flat">lh-flat</span>
   <span class="lh-tight">lh-tight</span>
+  <span class="lh-snug">lh-snug</span>
   <span class="lh-normal">lh-normal</span>
   <span class="lh-relaxed">lh-relaxed</span>
 </div>
