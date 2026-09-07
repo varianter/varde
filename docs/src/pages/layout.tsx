@@ -133,7 +133,7 @@ export default function LayoutPage() {
       >
         <ExampleGroup>
           <Example label=".ml-auto" description="push last item right" resize>
-            <div class="stack-horizontal gap-s b-all b-default p-s br-m">
+            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
               <DemoBox label="Logo" />
               <DemoBox label="Nav" />
               <div class="ml-auto">
@@ -143,7 +143,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".mx-auto" description="center an item" resize>
-            <div class="stack-horizontal gap-s b-all b-default p-s br-m">
+            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
               <DemoBox label="Left" />
               <div class="mx-auto">
                 <DemoBox label="Centered" />
@@ -157,7 +157,7 @@ export default function LayoutPage() {
             description="push remaining items right (resize to see wrap behavior)"
             resize
           >
-            <div class="stack-horizontal gap-s b-all b-default p-s br-m">
+            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
               <div class="mr-auto">
                 <DemoBox label="Logo" />
               </div>
@@ -166,7 +166,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".mt-auto" description="push item to bottom">
-            <div class="stack gap-s b-all b-default p-s br-m" style="height: 18rem;">
+            <div class="stack gap-s b-all bc-default p-s br-m" style="height: 18rem;">
               <DemoBox label="Title" />
               <DemoBox label="Description" />
               <div class="mt-auto">

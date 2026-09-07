@@ -15,7 +15,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section class="stack gap-xl b-t b-faint pt-3xl">
+      <section class="stack gap-xl b-t bc-faint pt-3xl">
         <div class="stack gap-l" style="max-width: 720px;">
           <div class="stack gap-s">
             <h2 class="fs-l fw-bold">Why it exists</h2>

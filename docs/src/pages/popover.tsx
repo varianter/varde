@@ -210,7 +210,7 @@ export function PopoverPage() {
             data-type="tooltip"
           >
             <color-mode
-              class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
+              class="of-clip block b-all bc-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="reverse from-below hard"
             >
               <h5 class="fs-s fw-medium mb-2xs">
@@ -258,7 +258,7 @@ export function PopoverPage() {
             data-position="right"
           >
             <color-mode
-              class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
+              class="of-clip block b-all bc-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="from-start hard"
             >
               <h5 class="fs-s fw-medium mb-2xs">
@@ -306,7 +306,7 @@ export function PopoverPage() {
             data-position="bottom"
           >
             <color-mode
-              class="of-clip block b-all b-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
+              class="of-clip block b-all bc-faint px-xs pt-xs pb-2xs stack bg-surface-base br-m shadow-medium mw-5"
               stagger-items="from-above hard "
             >
               <h5 class="fs-s fw-medium mb-2xs">

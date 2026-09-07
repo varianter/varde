@@ -67,7 +67,7 @@ export function SpacingPage() {
               </ul>
             </div>
 
-            <div class="b-b b-faint" />
+            <div class="b-b bc-faint" />
 
             <div class="stack gap-xs">
               <span class="fg-emphasis fw-bold fs-s">Use padding when...</span>
@@ -78,7 +78,7 @@ export function SpacingPage() {
               </ul>
             </div>
 
-            <div class="b-b b-faint" />
+            <div class="b-b bc-faint" />
 
             <div class="stack gap-xs">
               <span class="fg-emphasis fw-bold fs-s">Use margin when...</span>
@@ -90,7 +90,7 @@ export function SpacingPage() {
               </ul>
             </div>
 
-            <div class="b-b b-faint" />
+            <div class="b-b bc-faint" />
 
             <div class="stack gap-xs">
               <span class="fg-emphasis fw-bold fs-s">Prefer gap over margin because...</span>
@@ -170,7 +170,7 @@ export function SpacingPage() {
       >
         <ExampleGroup>
           <Example label=".-mx-m" description="break out of parent's horizontal padding">
-            <div class="b-all b-default br-m px-m py-l bg-surface-dyed">
+            <div class="b-all bc-default br-m px-m py-l bg-surface-dyed">
               <div class="mb-s">
                 <DemoBox label="Normal content" />
               </div>

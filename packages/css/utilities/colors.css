@@ -1,5 +1,5 @@
 /*
- * Surface hover mirrors the border trick in colors.border below:
+ * Surface hover mirrors the border trick:
  * a registered numeric (`--surface-blend`) is folded into the color
  * expression, and a single `.bg-surface:hover` opt-in flips it on hover.
  *
@@ -81,50 +81,5 @@
 
   .fg-emphasis {
     color: var(--foreground-emphasis);
-  }
-}
-
-@layer colors.border {
-  @property --border-hover {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 0;
-  }
-
-  :where(.b-t, .b-r, .b-b, .b-l, .b-all) {
-    border-color: oklch(
-      from var(--border-base) l c h /
-      calc(var(--border-alpha-default) + var(--border-hover))
-    );
-  }
-
-  .b-default {
-    border-color: oklch(
-      from var(--border-base) l c h /
-      calc(var(--border-alpha-default) + var(--border-hover))
-    );
-  }
-
-  .b-faint {
-    border-color: oklch(
-      from var(--border-base) l c h /
-      calc(var(--border-alpha-faint) + var(--border-hover))
-    );
-  }
-
-  .b-prominent {
-    border-color: oklch(
-      from var(--border-base) l c h /
-      calc(var(--border-alpha-prominent) + var(--border-hover))
-    );
-  }
-
-  .b\:hover {
-    transition: border-color var(--interaction-transition-duration-quick)
-      var(--interaction-transition-easing-default);
-
-    &:hover {
-      --border-hover: var(--border-hover-augment);
-    }
   }
 }

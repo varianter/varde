@@ -29,7 +29,8 @@
 @import './utilities/text.css';
 @import './utilities/colors.css';
 @import './utilities/list.css';
-@import './utilities/border.css';
+@import './utilities/border/border.colors.css';
+@import './utilities/border/border.utilities.css';
 @import './utilities/misc.css';
 @import './utilities/width.css';
 @import './utilities/pile.css';

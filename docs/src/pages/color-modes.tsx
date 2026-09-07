@@ -26,7 +26,7 @@ const navItems = [
  */
 function WorkspacePanel({ mode }: { mode: string }) {
   return (
-    <section class="bg-surface-base b-all b-faint br-l stack">
+    <section class="bg-surface-base b-all bc-faint br-l stack">
       <header class="stack px-xs pt-xs pb-xs pt-m">
         <div class="stack gap-xs">
           <h3 class="fs-xl fw-bold lh-tight" style="text-transform: capitalize;">
@@ -37,14 +37,14 @@ function WorkspacePanel({ mode }: { mode: string }) {
       </header>
 
       <div class="d-grid gap-2xs">
-        <nav class="b-all b-faint b-r br-m m-2xs of-clip stack">
+        <nav class="b-all bc-faint b-r br-m m-2xs of-clip stack">
           {navItems.map((item, i) => {
             const selected = i === 0;
             return (
               <a
                 href={`#${mode}-${item.label}`}
                 class={
-                  "stack-horizontal items-center gap-s pl-s pr-xs py-xs b-b b-faint b-last-none bg-wash:hover fg-muted" +
+                  "stack-horizontal items-center gap-s pl-s pr-xs py-xs b-b bc-faint b-none:last-child bg-wash:hover fg-muted" +
                   (selected ? "" : "")
                 }
               >
@@ -75,12 +75,12 @@ function WorkspacePanel({ mode }: { mode: string }) {
             </select>
           </div>
 
-          <label class="stack-horizontal items-center gap-2xs fs-s bg-surface-dyed p-3xs b-all b-faint br-m">
+          <label class="stack-horizontal items-center gap-2xs fs-s bg-surface-dyed p-3xs b-all bc-faint br-m">
             <input class="checkbox" type="checkbox" checked />
             Allow guests to join
           </label>
 
-          <div class="stack-horizontal gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t b-faint">
+          <div class="stack-horizontal gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t bc-faint">
             <button type="button" class="button" data-variant="plain">
               Cancel
             </button>

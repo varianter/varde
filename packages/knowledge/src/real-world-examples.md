@@ -24,7 +24,7 @@ description: Realistic compositions built with Varde utilities and components.
     <p>Some content contained within the modal.</p>
   </div>
   <div
-    class="-mx-s -mb-s px-s py-2xs b-t b-faint bg-surface-tinted stack-horizontal"
+    class="-mx-s -mb-s px-s py-2xs b-t bc-faint bg-surface-tinted stack-horizontal"
   >
     <button class="button mr-auto" data-variant="outlined" data-size="small">
       Cancel
@@ -120,7 +120,7 @@ description: Realistic compositions built with Varde utilities and components.
 ```html
 <div class="stack gap-s mw-7">
   <color-mode palette="green">
-    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+    <div class="bg-surface-dyed py-4xs px-xs b-all bc-faint br-l">
       <div class="stack-horizontal gap-xs justify-center">
         <p class="fg-muted fs-s">
           This project was rolled back by
@@ -134,7 +134,7 @@ description: Realistic compositions built with Varde utilities and components.
   </color-mode>
 
   <color-mode palette="yellow">
-    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+    <div class="bg-surface-dyed py-4xs px-xs b-all bc-faint br-l">
       <div class="stack-horizontal gap-xs justify-center">
         <p class="fg-muted fs-s">
           This project was rolled back by
@@ -148,7 +148,7 @@ description: Realistic compositions built with Varde utilities and components.
   </color-mode>
 
   <color-mode palette="coral">
-    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+    <div class="bg-surface-dyed py-4xs px-xs b-all bc-faint br-l">
       <div class="stack-horizontal gap-xs justify-center">
         <p class="fg-muted fs-s">
           This project was rolled back by
@@ -162,7 +162,7 @@ description: Realistic compositions built with Varde utilities and components.
   </color-mode>
 
   <color-mode palette="blue">
-    <div class="bg-surface-dyed py-4xs px-xs b-all b-faint br-l">
+    <div class="bg-surface-dyed py-4xs px-xs b-all bc-faint br-l">
       <div class="stack-horizontal gap-xs justify-center">
         <p class="fg-muted fs-s">
           This project was rolled back by
@@ -238,22 +238,22 @@ Without buttons, only `color-mode`:
   class="stack-horizontal br-pill of-clip b-all  mt-xl"
   style="width: max-content;"
 >
-  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+  <color-mode class="bg-surface-dyed b-r bc-faint b-none:last-child d-block ">
     <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
   </color-mode>
-  <color-mode inverted class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+  <color-mode inverted class="bg-surface-dyed b-r bc-faint b-none:last-child d-block ">
     <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s">
       Selected</a
     >
   </color-mode>
-  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+  <color-mode class="bg-surface-dyed b-r bc-faint b-none:last-child d-block ">
     <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
   </color-mode>
-  <color-mode class="bg-surface-dyed b-r b-faint b-last-none d-block ">
+  <color-mode class="bg-surface-dyed b-r bc-faint b-none:last-child d-block ">
     <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s"
       >Not selected</a
     >
@@ -450,7 +450,7 @@ Without buttons, only `color-mode`:
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
         >
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -474,14 +474,14 @@ Without buttons, only `color-mode`:
         <div class="stack-horizontal justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight fg-muted">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
-            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight fg-muted">7.5</div>
@@ -515,7 +515,7 @@ Without buttons, only `color-mode`:
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
         >
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -539,14 +539,14 @@ Without buttons, only `color-mode`:
         <div class="stack-horizontal justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight fg-muted">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
-            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all b-faint stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs bg-surface-dyed fs-xs br-s b-all bc-faint stack-horizontal nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight fg-muted">7.5</div>
@@ -613,7 +613,7 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Status -->
-    <div class="b-all b-faint bg-surface-base br-l gap-2xs px-xs py-2xs stack">
+    <div class="b-all bc-faint bg-surface-base br-l gap-2xs px-xs py-2xs stack">
       <div class="stack gap-2xs">
         <div class="stack-horizontal gap-2xs">
           <label for="Ledig-tid" class="fs-s fw-medium flex-1">Ledig tid</label>
@@ -628,7 +628,7 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Avdeling -->
-    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+    <div class="stack gap-2xs p-xs bg-surface-base b-all bc-faint br-l">
       <p class="form-label">Avdeling</p>
       <div class="stack gap-2xs">
         <div
@@ -680,7 +680,7 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Rå-år -->
-    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+    <div class="stack gap-2xs p-xs bg-surface-base b-all bc-faint br-l">
       <p class="form-label">Rå-år / Antall år erfaring</p>
       <div class="stack gap-2xs">
         <div
@@ -740,7 +740,7 @@ Without buttons, only `color-mode`:
       </div>
       <div class="stack gap-3xs mt-s">
         <div
-          class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
+          class="stack-horizontal gap-3xs flex-1 b-all br-m bc-faint py-3xs pl-2xs pr-3xs"
         >
           <label class="fs-xs fw-medium p-3xs" for="yearsExperienceFrom"
             >Fra</label
@@ -753,7 +753,7 @@ Without buttons, only `color-mode`:
           />
         </div>
         <div
-          class="stack-horizontal gap-3xs flex-1 b-all br-m b-faint py-3xs pl-2xs pr-3xs"
+          class="stack-horizontal gap-3xs flex-1 b-all br-m bc-faint py-3xs pl-2xs pr-3xs"
         >
           <label class="fs-xs fw-medium p-3xs" for="yearsExperienceTo"
             >Til</label
@@ -769,12 +769,12 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Antall år erfaring -->
-    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+    <div class="stack gap-2xs p-xs bg-surface-base b-all bc-faint br-l">
       <p class="form-label">Antall år erfaring</p>
     </div>
 
     <!-- Kompetanse -->
-    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+    <div class="stack gap-2xs p-xs bg-surface-base b-all bc-faint br-l">
       <p class="form-label">Kompetanse</p>
       <div class="stack gap-2xs">
         <div
@@ -817,7 +817,7 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Faggruppe -->
-    <div class="stack gap-2xs p-xs bg-surface-base b-all b-faint br-l">
+    <div class="stack gap-2xs p-xs bg-surface-base b-all bc-faint br-l">
       <details>
         <summary class="stack-horizontal gap-xs">
           <h3 class="form-label">Faggruppe</h3>
@@ -905,7 +905,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
 <div class="stack-horizontal gap-s">
   <color-mode palette="blue" class="d-block flex-1  br-m  bg-surface-dyed">
     <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover b-prominent b-all   br-inherit"
+      class="stack-horizontal gap-m p-xs bg-wash:hover bc-prominent b-all   br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fg-muted fw-medium fs-m">Pro trial</h5>
@@ -917,7 +917,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
 
   <color-mode
     palette="grey"
-    class="d-block flex-1 b-all b-prominent br-m  bg-surface-dyed "
+    class="d-block flex-1 b-all bc-prominent br-m  bg-surface-dyed "
   >
     <label class="stack-horizontal gap-m p-xs bg-wash:hover">
       <div class="mr-auto">
@@ -939,10 +939,10 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
 
 ```html
 <div class="stack-horizontal nowrap">
-  <button class="button brtr-none brbr-none px-l">Save</button>
+  <button class="button br-tr-none br-br-none px-l">Save</button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
-    class="aspect-square brbl-none brtl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -963,13 +963,13 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
 </div>
 
 <div class="stack-horizontal nowrap">
-  <button data-variant="tinted" class="button brtr-none brbr-none px-l">
+  <button data-variant="tinted" class="button br-tr-none br-br-none px-l">
     Save
   </button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="tinted"
-    class="aspect-square brbl-none brtl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -990,13 +990,13 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
 </div>
 
 <div class="stack-horizontal nowrap">
-  <button data-variant="outlined" class="button brtr-none brbr-none px-l">
+  <button data-variant="outlined" class="button br-tr-none br-br-none px-l">
     Save
   </button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="outlined"
-    class="aspect-square brbl-none brtl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -1067,7 +1067,7 @@ This one leverages a popover, a details list, and a form
       </div>
 
       <div class="shadow-medium flex-1 bg-surface-base br-l of-clip">
-        <div class="px-l-xl py-m b-b b-faint stack">
+        <div class="px-l-xl py-m b-b bc-faint stack">
           <label class="fw-medium mb-3xs">Where is your endpoint?</label>
           <input
             value="https://varde.variant.dev/api"
@@ -1076,7 +1076,7 @@ This one leverages a popover, a details list, and a form
           />
         </div>
 
-        <div class="px-l-xl py-m b-b b-faint stack">
+        <div class="px-l-xl py-m b-b bc-faint stack">
           <label class="fw-medium mb-3xs">Your repo</label>
           <input
             value="https://varde.variant.dev/api"

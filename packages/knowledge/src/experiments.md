@@ -39,8 +39,8 @@ A row of outlined page buttons with one active, plus prev/next.
 Rows separated by faint bottom borders, each with an icon, a label, and a trailing control.
 
 ```html
-<div class="bg-surface-base b-all b-faint br-l of-clip mw-7">
-  <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
+<div class="bg-surface-base b-all bc-faint br-l of-clip mw-7">
+  <div class="stack-horizontal gap-s px-s py-s b-b bc-faint b-none:last-child">
     <span class="icon fg-muted fs-xs" data-icon="pencil"></span>
     <div class="stack grow">
       <p class="fw-medium">Display name</p>
@@ -51,7 +51,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
     </button>
   </div>
 
-  <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
+  <div class="stack-horizontal gap-s px-s py-s b-b bc-faint b-none:last-child">
     <span class="icon fg-muted fs-xs" data-icon="plus"></span>
     <div class="stack grow">
       <p class="fw-medium">Language</p>
@@ -64,7 +64,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
     </select>
   </div>
 
-  <div class="stack-horizontal gap-s px-s py-s b-b b-faint b-last-none">
+  <div class="stack-horizontal gap-s px-s py-s b-b bc-faint b-none:last-child">
     <span class="icon fg-muted fs-xs" data-icon="pencil"></span>
     <div class="stack grow">
       <p class="fw-medium">Email notifications</p>
@@ -80,7 +80,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
 A centered card that pairs an icon, a heading, and a single primary action.
 
 ```html
-<div class="bg-surface-base b-all b-faint br-xl p-xl stack items-center mw-7">
+<div class="bg-surface-base b-all bc-faint br-xl p-xl stack items-center mw-7">
   <span class="icon fs-2xl fg-muted" data-icon="plus"></span>
   <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
   <p class="fs-s fg-muted ta-center mt-2xs">
@@ -97,7 +97,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
 ```html
 <div class="stack-horizontal items-stretch gap-m">
   <color-mode>
-    <div class="flex-1 bg-surface-base b-all b-faint br-xl p-m stack">
+    <div class="flex-1 bg-surface-base b-all bc-faint br-xl p-m stack">
       <div class="stack">
         <h3 class="fs-l fw-bold">Free</h3>
         <p class="fs-s fg-muted mt-2xs">For personal projects.</p>
@@ -117,7 +117,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
 
   <color-mode inverted palette="periwinkle">
     <div
-      class="flex-1 bg-surface-dyed b-all b-faint br-xl p-m stack shadow-high"
+      class="flex-1 bg-surface-dyed b-all bc-faint br-xl p-m stack shadow-high"
     >
       <div class="stack">
         <h3 class="fs-l fw-bold">Pro</h3>
@@ -137,7 +137,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
   </color-mode>
 
   <color-mode>
-    <div class="flex-1 bg-surface-base b-all b-faint br-xl p-m stack">
+    <div class="flex-1 bg-surface-base b-all bc-faint br-xl p-m stack">
       <div class="stack">
         <h3 class="fs-l fw-bold">Enterprise</h3>
         <p class="fs-s fg-muted mt-2xs">For large organizations.</p>
@@ -172,7 +172,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
           style="width: 0.75rem; height: 0.75rem;"
         ></span>
       </color-mode>
-      <span class="b-l b-faint flex-1"></span>
+      <span class="b-l bc-faint flex-1"></span>
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">08:01</p>
@@ -189,7 +189,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
           style="width: 0.75rem; height: 0.75rem;"
         ></span>
       </color-mode>
-      <span class="b-l b-faint flex-1"></span>
+      <span class="b-l bc-faint flex-1"></span>
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">09:12</p>
@@ -206,7 +206,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
           style="width: 0.75rem; height: 0.75rem;"
         ></span>
       </color-mode>
-      <span class="b-l b-faint flex-1"></span>
+      <span class="b-l bc-faint flex-1"></span>
     </div>
     <div class="stack pb-m">
       <p class="fs-xs fg-muted mb-2xs">09:24</p>

@@ -152,7 +152,7 @@ app.use(
             <script type="module"></script>
           </head>
           <body class="fs-m">
-            <header class="site-header stack b-b b-faint px-s-m ">
+            <header class="site-header stack b-b bc-faint px-s-m ">
               <a
                 href="/docs"
                 class="site-logo py-xs fw-bold gap-xs stack-horizontal inline-flex self-stretch"

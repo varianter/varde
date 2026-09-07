@@ -55,7 +55,7 @@ rootApp.get("/", (c) =>
         </div>
       </header>
 
-      <section class="stack gap-l b-t b-faint pt-2xl">
+      <section class="stack gap-l b-t bc-faint pt-2xl">
         <h2 class="fs-l fw-bold">Usage</h2>
         <p class="fg-muted">
           Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
@@ -69,7 +69,7 @@ rootApp.get("/", (c) =>
         </pre>
       </section>
 
-      <section class="stack gap-l b-t b-faint pt-2xl">
+      <section class="stack gap-l b-t bc-faint pt-2xl">
         <h2 class="fs-l fw-bold">Versions</h2>
         <ul class="stack gap-xs" id="versions">
           <li>
@@ -108,7 +108,7 @@ rootApp.get("/", (c) =>
         />
       </section>
 
-      <section class="stack gap-l b-t b-faint pt-2xl">
+      <section class="stack gap-l b-t bc-faint pt-2xl">
         <h2 class="fs-l fw-bold">Static assets</h2>
         <p class="fg-muted">
           Fonts and logos served at <code class="fs-s">/static/</code>:

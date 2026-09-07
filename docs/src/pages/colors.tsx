@@ -21,9 +21,9 @@ const SURFACES = [
 ] as const;
 
 const BORDERS = [
-  { cls: "b-faint", label: "faint" },
-  { cls: "b-default", label: "default" },
-  { cls: "b-prominent", label: "prominent" },
+  { cls: "bc-faint", label: "faint" },
+  { cls: "bc-default", label: "default" },
+  { cls: "bc-prominent", label: "prominent" },
 ] as const;
 
 function BorderSwatch({ cls, label }: { cls: string; label: string }) {
@@ -59,7 +59,7 @@ export default function ColorsPage() {
             ].map(({ cls, label }) => (
               <div class="stack gap-2xs grow" style="min-width: 100px;">
                 <div
-                  class={`${cls} br-m b-all b-default`}
+                  class={`${cls} br-m b-all bc-default`}
                   style="height: 4rem; min-width: 140px;"
                 />
                 <code class="fs-xs fg-muted">.{label}</code>
@@ -102,14 +102,14 @@ export default function ColorsPage() {
       {/* ── Structural Borders ── */}
       <Section
         title="Borders: Structural"
-        description="Most borders don't communicate meaning — they just separate or outline things. Reach for these first. .b-default is the workhorse; .b-faint for quieter lines, .b-prominent when the line needs to be clearly visible."
+        description="Most borders don't communicate meaning — they just separate or outline things. Reach for these first. .bc-default is the workhorse; .bc-faint for quieter lines, .bc-prominent when the line needs to be clearly visible."
       >
         <ExamplePanel>
           <div class="stack gap-m">
             <div class="stack-horizontal gap-m">
-              <BorderSwatch cls="b-faint b:hover" label="b-faint" />
-              <BorderSwatch cls="b-default b:hover" label="b-default" />
-              <BorderSwatch cls="b-prominent b:hover" label="b-prominent" />
+              <BorderSwatch cls="bc-faint b:hover" label="bc-faint" />
+              <BorderSwatch cls="bc-default b:hover" label="bc-default" />
+              <BorderSwatch cls="bc-prominent b:hover" label="bc-prominent" />
             </div>
           </div>
         </ExamplePanel>

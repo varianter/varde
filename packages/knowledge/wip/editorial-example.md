@@ -35,7 +35,7 @@ A quote earns its size. A thick left rule does the work of quotation marks; the 
 
 ```html
 <figure class="stack gap-m mw-7">
-  <blockquote class="fs-3xl fw-medium lh-normal b-l b-thick b-prominent pl-m">
+  <blockquote class="fs-3xl fw-medium lh-normal b-l bw-thick bc-prominent pl-m">
     “Restraint reads as confidence only when it is deliberate.”
   </blockquote>
   <figcaption class="fs-s fg-muted">
@@ -105,12 +105,12 @@ A magazine index. Ruled rows, titles that lead, and page numbers set in `t-tabul
 
 ```html
 <nav class="stack mw-8">
-  <div class="stack-horizontal items-end gap-s b-b b-faint pb-s">
+  <div class="stack-horizontal items-end gap-s b-b bc-faint pb-s">
     <p class="fs-xs tt-uppercase fg-muted">Contents</p>
     <p class="fs-3xl fw-bold ml-auto">04</p>
   </div>
 
-  <a class="stack-horizontal items-end gap-s b-b b-faint py-s" href="#">
+  <a class="stack-horizontal items-end gap-s b-b bc-faint py-s" href="#">
     <div class="stack gap-2xs">
       <h3 class="fs-xl fw-bold">The quiet art of making space</h3>
       <p class="fs-s fg-muted">Ada Lindberg</p>
@@ -118,7 +118,7 @@ A magazine index. Ruled rows, titles that lead, and page numbers set in `t-tabul
     <p class="fs-m fg-muted ml-auto t-tabular">12</p>
   </a>
 
-  <a class="stack-horizontal items-end gap-s b-b b-faint py-s" href="#">
+  <a class="stack-horizontal items-end gap-s b-b bc-faint py-s" href="#">
     <div class="stack gap-2xs">
       <h3 class="fs-xl fw-bold">A field guide to negative space</h3>
       <p class="fs-s fg-muted">Maren Solberg</p>

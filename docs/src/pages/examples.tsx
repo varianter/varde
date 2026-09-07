@@ -41,8 +41,8 @@ function Events({ color = "grey" }) {
                 </p>
               </div>
               <div class="stack-horizontal gap-2xs justify-end">
-                <p class="b-all b-prominent py-4xs px-xs lh-tight br-pill">Design</p>
-                <p class="b-all b-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
+                <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Design</p>
+                <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
               </div>
             </div>
           </color-mode>
@@ -58,8 +58,8 @@ function Events({ color = "grey" }) {
                 <h6 class="fs-2xl">Offentlig frontend: Minifagdag</h6>
               </div>
               <div class="stack-horizontal gap-2xs justify-end">
-                <p class="b-all b-prominent py-4xs px-xs lh-tight br-pill">Design</p>
-                <p class="b-all b-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
+                <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Design</p>
+                <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
               </div>
             </div>
           </color-mode>
@@ -175,10 +175,10 @@ function HandbookBox({ color = "green" }) {
 function Doodad({ color = "green" }) {
   return (
     <color-mode palette={color} inverted class="stack">
-      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s brbl-none brbl-none -mb-3xs">
+      <div class="bg-surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s br-bl-none br-bl-none -mb-3xs">
         <h3 class="lh-tight fs-s">Nøkkelfund</h3>
       </div>
-      <div class="p-3xs bg-surface-dyed br-m brtl-none brtl-none">
+      <div class="p-3xs bg-surface-dyed br-m br-tl-none br-tl-none">
         <color-mode palette="inherit" class="d-block bg-surface-base br-s p-xs px-s pt-s">
           <p class="fs-xl fw-medium lh-tight fg-emphasis">
             Mange passasjerer har et informasjonsbehov som ikke dekkes. Dette forer til kødannelse i

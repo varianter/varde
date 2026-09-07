@@ -70,7 +70,7 @@ export function TypographyPage() {
           ].map(({ cls, label }) => (
             <div class="stack gap-2xs">
               <code class="fs-xs fg-muted">.{label}</code>
-              <div class={`${cls} p-s b-all b-default br-m`}>
+              <div class={`${cls} p-s b-all bc-default br-m`}>
                 The quick brown fox jumps over the lazy dog
               </div>
             </div>

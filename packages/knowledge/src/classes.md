@@ -142,16 +142,13 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 
 ```html
 <!-- everyday borders -->
-<div class="b-default"></div>
+<div class="bc-default"></div>
 
 <!-- quieter lines: often for niceness rather than structural integrity -->
-<div class="b-muted"></div>
+<div class="bc-faint"></div>
 
 <!-- prominent structural lines: rarely used -->
-<div class="b-emphasis"></div>
-
-<!-- Intent borders — only when border communicates status -->
-<div class="b-danger-strong"></div>
+<div class="bc-prominent"></div>
 ```
 
 ---
@@ -171,16 +168,16 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 <!-- bottom only -->
 <div class="b-l"></div>
 <!-- left only -->
-<div class="b-last-none"></div>
+<div class="b-none:last-child"></div>
 <!-- removes border from :last-child -->
-<div class="b-first-none"></div>
+<div class="b-none:first-child"></div>
 <!-- removes border from :first-child -->
 ```
 
 Always pair a border side class with a border color class:
 
 ```html
-<li class="b-b b-default"></li>
+<li class="b-b bc-default"></li>
 ```
 
 **Border radius:**
