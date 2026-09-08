@@ -2,11 +2,10 @@
   :where(color-mode) {
     display: contents;
   }
-}
 
-color-mode,
-color-mode[inverted] {
-  color: var(--ink-default);
+  :where(color-mode, color-mode[inverted]) {
+    color: var(--ink-default);
+  }
 }
 
 color-mode[palette='grey'],
