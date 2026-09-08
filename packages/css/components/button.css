@@ -170,7 +170,7 @@
     padding-inline: var(--_button-padding-inline);
 
     text-align: center;
-    line-height: var(--line-height-flat);
+    line-height: var(--line-height-tight);
     text-decoration: none;
 
     outline-offset: 0.125rem;

@@ -26,11 +26,8 @@
     letter-spacing: var(--letter-spacing-uppercase);
   }
 
-  .lh-micro {
-    line-height: var(--line-height-micro);
-  }
-  .lh-flat {
-    line-height: var(--line-height-flat);
+  .lh-extra-tight {
+    line-height: var(--line-height-extra-tight);
   }
   .lh-tight {
     line-height: var(--line-height-tight);

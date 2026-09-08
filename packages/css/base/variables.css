@@ -9,12 +9,11 @@
   --font-weight-bold: 650;
 
   /* line-height */
-  --line-height-micro: 0.8;
-  --line-height-flat: 1;
-  --line-height-tight: 1.1;
-  --line-height-snug: 1.25;
+  --line-height-extra-tight: 0.9;
+  --line-height-tight: 1;
+  --line-height-snug: 1.2;
   --line-height-normal: 1.5;
-  --line-height-relaxed: 1.7;
+  --line-height-relaxed: 1.6;
 
   /* letter-spacing */
   --letter-spacing-tight: -0.04ch;

@@ -94,8 +94,7 @@ When they overlap, the more specific utility always wins, regardless of class or
   <span class="ta-right">ta-right</span>
   <span class="tt-uppercase">tt-uppercase</span>
 
-  <span class="lh-micro">lh-micro</span>
-  <span class="lh-flat">lh-flat</span>
+  <span class="lh-extra-tight">lh-extra-tight</span>
   <span class="lh-tight">lh-tight</span>
   <span class="lh-snug">lh-snug</span>
   <span class="lh-normal">lh-normal</span>
@@ -109,7 +108,6 @@ When they overlap, the more specific utility always wins, regardless of class or
 
 Never hardcode colors. Never use `--palette-*` variables directly. Always use semantic classes.
 
-**Intents:** `neutral` `brand` `danger` `warning` `success` `info`
 **Intensities:** `subtle` `medium` `strong`
 
 **Background:**
@@ -129,26 +127,19 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 <p class="ink-subtle"></p>
 <!-- secondary/helper text -->
 <p class="ink-prominent"></p>
-<!-- headings, labels -->
-<p class="ink-inverted"></p>
-<!-- text on dark backgrounds -->
-
-<!-- Intent text -->
-<p class="ink-danger-strong"></p>
-<p class="ink-success-medium"></p>
 ```
 
 **Border color:**
 
 ```html
-<!-- everyday borders -->
-<div class="bc-default"></div>
-
 <!-- quieter lines: often for niceness rather than structural integrity -->
-<div class="bc-subtle"></div>
+<div class="bc-subtle b-all p-xs mb-xs">.bc-subtle</div>
+
+<!-- everyday borders -->
+<div class="bc-default b-all p-xs mb-xs">.bc-default</div>
 
 <!-- prominent structural lines: rarely used -->
-<div class="bc-prominent"></div>
+<div class="bc-prominent b-all p-xs mb-xs">.bc-prominent</div>
 ```
 
 ---
