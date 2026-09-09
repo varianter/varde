@@ -5,9 +5,6 @@
  * there is distributed by justify-content, flex-grow, and auto margins.
  */
 
-/* Must come after the stack layer so these utilities override stack defaults. */
-@layer stack, align;
-
 @layer align {
   .items-start {
     align-items: start;

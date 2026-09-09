@@ -31,9 +31,5 @@
 @import './utilities/list.css';
 @import './utilities/border/border.colors.css';
 @import './utilities/border/border.utilities.css';
-@import './utilities/misc.css';
-@import './utilities/width.css';
-@import './utilities/pile.css';
+@import './utilities/layout/layout.css';
 @import './utilities/shadow.css';
-@import './utilities/stack.css';
-@import './utilities/align.css';
