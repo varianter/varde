@@ -3,14 +3,14 @@ export const path = "/examples";
 function Events({ color = "grey" }) {
   return (
     <color-mode palette={color} inverted class="">
-      <div class="py-2xs px-2xs surface-dyed stack-horizontal items-start gap-m br-2xl">
+      <div class="py-2xs px-2xs surface-dyed stack-h items-start gap-m br-2xl">
         <div class="px-xs-s pt-m pb-xs mw-6">
           <h3 class="fs-4xl mb-2xs ink-prominent">Arrangementer</h3>
           <p class="fs-l mb-xs">
             Bli med der det skjer! Vi deltar på konferanser, arrangerer fagmøter og andre nerdete
             samlinger. Stikk innom og si hei – vi digger å bli kjent med nye folk!
           </p>
-          <div class="stack-horizontal gap-xs py-2xs">
+          <div class="stack-h gap-xs py-2xs">
             <p>Lokasjon</p>
             <button class="button br-pill" data-variant="outlined" data-size="small">
               Alle (3)
@@ -24,10 +24,10 @@ function Events({ color = "grey" }) {
           </div>
           <button class="button mt-l">Se alle arrangementer</button>
         </div>
-        <div class="stack gap-2xs flex-1">
+        <div class="stack-v gap-2xs flex-1">
           <color-mode palette="inherit">
             <div class="surface-tinted pl-m pr-xs py-xs br-xl">
-              <div class="stack-horizontal gap-2xs ink-subtle">
+              <div class="stack-h gap-2xs ink-subtle">
                 <time>24.09.2026</time>
                 <span>•</span>
                 <p>Trondheim</p>
@@ -40,7 +40,7 @@ function Events({ color = "grey" }) {
                   Bariant..{" "}
                 </p>
               </div>
-              <div class="stack-horizontal gap-2xs justify-end">
+              <div class="stack-h gap-2xs justify-end">
                 <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Design</p>
                 <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
               </div>
@@ -49,7 +49,7 @@ function Events({ color = "grey" }) {
 
           <color-mode palette="inherit">
             <div class="surface-tinted pl-m pr-xs py-xs br-xl">
-              <div class="stack-horizontal gap-2xs ink-subtle">
+              <div class="stack-h gap-2xs ink-subtle">
                 <time>24.09.2026</time>
                 <span>•</span>
                 <p>Trondheim</p>
@@ -57,7 +57,7 @@ function Events({ color = "grey" }) {
               <div class="mb-2xs">
                 <h6 class="fs-2xl">Offentlig frontend: Minifagdag</h6>
               </div>
-              <div class="stack-horizontal gap-2xs justify-end">
+              <div class="stack-h gap-2xs justify-end">
                 <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Design</p>
                 <p class="b-all bc-prominent py-4xs px-xs lh-tight br-pill">Utvikling</p>
               </div>
@@ -73,7 +73,7 @@ function SmileyBox({ color = "green" }) {
   return (
     <color-mode class="d-block mw-6" palette={color}>
       <div
-        class="p-l surface-dyed stack gap-xl aspect-square"
+        class="p-l surface-dyed stack-v gap-xl aspect-square"
         style="border-radius: 6rem 6rem .375rem .375rem;"
       >
         <div>
@@ -127,14 +127,14 @@ function SmileyBox({ color = "green" }) {
 function HandbookBox({ color = "green" }) {
   return (
     <color-mode palette={color} inverted>
-      <div class="px-m pt-xl-2xl pb-l surface-dyed typeset mw-8 stack br-m">
+      <div class="px-m pt-xl-2xl pb-l surface-dyed typeset mw-8 stack-v br-m">
         <h3 class="fs-2xl lh-tight">Håndboka</h3>
         <p class="fs-l ink-subtle">
           I håndboka står alt om hvordan vi jobber og hva som er viktig for oss. Endrer vi på oss,
           da endrer vi også håndboka.
         </p>
 
-        <div class="stack-horizontal gap-m gap-row-3xs fs-2xl">
+        <div class="stack-h gap-m gap-row-3xs fs-2xl">
           <a href="/" class="link">
             Verdier
           </a>
@@ -174,7 +174,7 @@ function HandbookBox({ color = "green" }) {
 
 function Doodad({ color = "green" }) {
   return (
-    <color-mode palette={color} inverted class="stack">
+    <color-mode palette={color} inverted class="stack-v">
       <div class="surface-dyed pt-3xs pb-3xs px-s shrink mr-auto br-s br-bl-none br-bl-none -mb-3xs">
         <h3 class="lh-tight fs-s">Nøkkelfund</h3>
       </div>
@@ -195,23 +195,23 @@ const palettes = ["grey", "periwinkle", "purple", "blue", "green", "teal", "cora
 export default function Examples() {
   return (
     <div class="p-xl">
-      <div class=" m-xl mx-xl stack-horizontal gap-m mw-7">
+      <div class=" m-xl mx-xl stack-h gap-m mw-7">
         {palettes.map((color) => (
           <Doodad color={color} />
         ))}
       </div>
 
-      <div class=" w-full m-xl stack-horizontal gap-m mw-7">
+      <div class=" w-full m-xl stack-h gap-m mw-7">
         {palettes.map((color) => (
           <HandbookBox color={color} />
         ))}
       </div>
-      <div class=" w-full m-xl stack-horizontal gap-m ">
+      <div class=" w-full m-xl stack-h gap-m ">
         {palettes.map((color) => (
           <SmileyBox color={color} />
         ))}
       </div>
-      <div style="max-width: 1200px" class=" my-3xl stack gap-m">
+      <div style="max-width: 1200px" class=" my-3xl stack-v gap-m">
         {palettes.map((color) => (
           <Events color={color} />
         ))}

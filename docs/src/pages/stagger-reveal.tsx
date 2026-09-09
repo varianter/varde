@@ -16,13 +16,13 @@ function StaggerDemo({
       grid-auto-flow: column;
       grid-auto-columns: 1fr;"
     >
-      <div class="stack gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
+      <div class="stack-v gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
         <div>Soft</div>
         {items.map((n) => (
           <DemoBox key={n} label={`Item ${n}`} />
         ))}
       </div>
-      <div class="stack gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
+      <div class="stack-v gap-3xs" stagger-items={`${origin} from-below soft`} data-stagger-demo>
         <div>Hard</div>
         {items.map((n) => (
           <DemoBox key={n} label={`Item ${n}`} />
@@ -74,7 +74,7 @@ export function StaggerRevealPage() {
       `,
         }}
       ></script>
-      <div class="stack-horizontal gap-xs justify-center pt-l" style={{ position: "fixed" }}>
+      <div class="stack-h gap-xs justify-center pt-l" style={{ position: "fixed" }}>
         <button type="button" data-replay class="button" data-variant="outlined" data-size="small">
           Replay
         </button>

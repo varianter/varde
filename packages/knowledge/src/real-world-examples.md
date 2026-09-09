@@ -13,7 +13,7 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 <div
-  class="surface-base mw-7 b-all b-fait br-xl shadow-mid p-s stack gap-s of-clip"
+  class="surface-base mw-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
 >
   <div class="typeset">
     <h4 class="fw-medium fs-xs">Create token</h4>
@@ -24,7 +24,7 @@ description: Realistic compositions built with Varde utilities and components.
     <p>Some content contained within the modal.</p>
   </div>
   <div
-    class="-mx-s -mb-s px-s py-2xs b-t bc-subtle surface-tinted stack-horizontal"
+    class="-mx-s -mb-s px-s py-2xs b-t bc-subtle surface-tinted stack-h"
   >
     <button class="button mr-auto" data-variant="outlined" data-size="small">
       Cancel
@@ -40,14 +40,14 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 
-<div class="surface-base mw-4 b-all b-fait br-xl shadow-mid p-3xs stack" >
+<div class="surface-base mw-4 b-all b-fait br-xl shadow-mid p-3xs stack-v" >
   <div class="" stagger-items>
     <input type="text" class="input w-full" placeholder="Søk blant kontrakter">
   </div>
   <div class="of-scroll px-2xs mt-4xs " style="max-height: 200px">
   <ul class="py-xs " stagger-items >
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -55,7 +55,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -63,7 +63,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -71,7 +71,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -79,7 +79,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -87,7 +87,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -95,7 +95,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -103,7 +103,7 @@ description: Realistic compositions built with Varde utilities and components.
       </a>
     </li>
     <li class="">
-      <a class="bg-wash:hover p-3xs stack-horizontal gap-2xs br-s" href="#">
+      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
         <span class="icon fs-xs" data-icon="plus"></span>
         <span>
         Item 1
@@ -118,10 +118,10 @@ description: Realistic compositions built with Varde utilities and components.
 # Banner
 
 ```html
-<div class="stack gap-s mw-7">
+<div class="stack-v gap-s mw-7">
   <color-mode palette="green">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
-      <div class="stack-horizontal gap-xs justify-center">
+      <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
           <a class="link" href="#">@jberglund</a>
@@ -135,7 +135,7 @@ description: Realistic compositions built with Varde utilities and components.
 
   <color-mode palette="yellow">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
-      <div class="stack-horizontal gap-xs justify-center">
+      <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
           <a class="link" href="#">@jberglund</a>
@@ -149,7 +149,7 @@ description: Realistic compositions built with Varde utilities and components.
 
   <color-mode palette="coral">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
-      <div class="stack-horizontal gap-xs justify-center">
+      <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
           <a class="link" href="#">@jberglund</a>
@@ -163,7 +163,7 @@ description: Realistic compositions built with Varde utilities and components.
 
   <color-mode palette="blue">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
-      <div class="stack-horizontal gap-xs justify-center">
+      <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
           <a class="link" href="#">@jberglund</a>
@@ -212,7 +212,7 @@ Using several `.button`, you can use different variants to toggle which one look
 Or, we might do `<color-mode>` to inverted and the button from `data-variant="plain` to `data-variant="tinted`:
 
 ```html
-<div class="stack-horizontal of-clip br-pill b-all" style="width: max-content;">
+<div class="stack-h of-clip br-pill b-all" style="width: max-content;">
   <color-mode class="">
     <div class="button br-none" data-size="small" data-variant="plain">
       Not selected
@@ -235,7 +235,7 @@ Without buttons, only `color-mode`:
 
 ```html
 <color-mode
-  class="stack-horizontal br-pill of-clip b-all  mt-xl"
+  class="stack-h br-pill of-clip b-all  mt-xl"
   style="width: max-content;"
 >
   <color-mode class="surface-dyed b-r bc-subtle b-none:last-child d-block ">
@@ -267,59 +267,59 @@ Without buttons, only `color-mode`:
 # Badges
 
 ```html
-<div class="stack-horizontal gap-xs surface-base p-m">
+<div class="stack-h gap-xs surface-base p-m">
   <color-mode
     palette="blue"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     Blue
   </color-mode>
   <color-mode
     inverted
     palette="blue"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted Blue
   </color-mode>
 
   <color-mode
     palette="yellow"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     yellow
   </color-mode>
   <color-mode
     inverted
     palette="yellow"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted yellow
   </color-mode>
 
   <color-mode
     palette="coral"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     coral
   </color-mode>
   <color-mode
     inverted
     palette="coral"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted coral
   </color-mode>
 
   <color-mode
     palette="green"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     green
   </color-mode>
   <color-mode
     inverted
     palette="green"
-    class="surface-dyed stack br-pill px-xs py-3xs fs-s fw-medium"
+    class="surface-dyed stack-v br-pill px-xs py-3xs fs-s fw-medium"
   >
     Inverted green
   </color-mode>
@@ -329,7 +329,7 @@ Without buttons, only `color-mode`:
 # Bemanning
 
 ```html
-<div class="stack-horizontal gap-m mb-l">
+<div class="stack-h gap-m mb-l">
   <div class=" mr-auto">
     <button
       class="button"
@@ -341,7 +341,7 @@ Without buttons, only `color-mode`:
     </button>
   </div>
 
-  <div class="ml-auto stack-horizontal gap-3xs">
+  <div class="ml-auto stack-h gap-3xs">
     <select data-size="small" class="select mr-s">
       <option>4 uker</option>
       <option>12 uker</option>
@@ -397,7 +397,7 @@ Without buttons, only `color-mode`:
   style="grid-template-columns: 250px repeat(4, 1fr);"
 >
   <div class="row grid-subgrid grid-all-columns pb-s" style="">
-    <div class="head-column stack-horizontal gap-2xs ">
+    <div class="head-column stack-h gap-2xs ">
       Konsulenter
       <color-mode
         palette="orange"
@@ -412,26 +412,26 @@ Without buttons, only `color-mode`:
         grid-column: 2 / -1;
     "
     >
-      <div class="column ta-right px-3xs fs-xs stack">
+      <div class="column ta-right px-3xs fs-xs stack-v">
         <div class="fw-medium">■ uke 35</div>
         <div class="ink-subtle">24.08 - 28.08</div>
       </div>
-      <div class="column ta-right px-3xs fs-xs stack">
+      <div class="column ta-right px-3xs fs-xs stack-v">
         <div class="fw-medium">uke 35</div>
         <div class="ink-subtle">24.08 - 28.08</div>
       </div>
-      <div class="column ta-right px-3xs fs-xs stack">
+      <div class="column ta-right px-3xs fs-xs stack-v">
         <div class="fw-medium">uke 35</div>
         <div class="ink-subtle">24.08 - 28.08</div>
       </div>
-      <div class="column ta-right px-3xs fs-xs stack">
+      <div class="column ta-right px-3xs fs-xs stack-v">
         <div class="fw-medium">uke 35</div>
         <div class="ink-subtle">24.08 - 28.08</div>
       </div>
     </div>
   </div>
   <div class="row grid-subgrid grid-all-columns" style="">
-    <div class="head-column stack-horizontal gap-xs">
+    <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
         class="surface-dyed aspect-square br-s mw-2"
@@ -449,11 +449,11 @@ Without buttons, only `color-mode`:
   "
     >
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
         >
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -461,30 +461,30 @@ Without buttons, only `color-mode`:
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
       </div>
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
       <color-mode
         palette="coral"
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
-        <div class="stack-horizontal justify-end gap-3xs">
+        <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
@@ -496,7 +496,7 @@ Without buttons, only `color-mode`:
   </div>
 
   <div class="row grid-subgrid grid-all-columns" style="">
-    <div class="head-column stack-horizontal gap-xs">
+    <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
         class="surface-dyed aspect-square br-s mw-2"
@@ -514,11 +514,11 @@ Without buttons, only `color-mode`:
   "
     >
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
         >
           <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -526,30 +526,30 @@ Without buttons, only `color-mode`:
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
       </div>
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
       <div
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
       <color-mode
         palette="yellow"
-        class="column p-3xs px-2xs surface-tinted stack justify-end br-s gap-2xs"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
       >
-        <div class="stack-horizontal justify-end gap-3xs">
+        <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-horizontal nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
             <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
@@ -570,7 +570,7 @@ Without buttons, only `color-mode`:
   style="width: 420px;"
 >
   <div
-    class="stack nowrap gap-s p-m surface-tinted  of-scroll shadow-high m-s"
+    class="stack-v nowrap gap-s p-m surface-tinted  of-scroll shadow-high m-s"
     style="
       min-height: 100svh;
       max-height: 100svh;
@@ -578,7 +578,7 @@ Without buttons, only `color-mode`:
   >
     <!-- Header -->
     <div
-      class="pos-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
+      class="pos-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-h"
     >
       <h1 class="fs-l fw-bold ink-prominent">Filter</h1>
       <button
@@ -605,7 +605,7 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Søk -->
-    <div class="stack gap-2xs my-l">
+    <div class="stack-v gap-2xs my-l">
       <label class="form-label" for="consultantSearch">Søk etter navn</label>
       <input
         class="input"
@@ -616,9 +616,9 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Status -->
-    <div class="b-all bc-subtle surface-base br-l gap-2xs px-xs py-2xs stack">
-      <div class="stack gap-2xs">
-        <div class="stack-horizontal gap-2xs">
+    <div class="b-all bc-subtle surface-base br-l gap-2xs px-xs py-2xs stack-v">
+      <div class="stack-v gap-2xs">
+        <div class="stack-h gap-2xs">
           <label for="Ledig-tid" class="fs-s fw-medium flex-1">Ledig tid</label>
           <input
             class="checkbox fs-s "
@@ -631,50 +631,50 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Avdeling -->
-    <div class="stack gap-2xs p-xs surface-base b-all bc-subtle br-l">
+    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <p class="form-label">Avdeling</p>
-      <div class="stack gap-2xs">
+      <div class="stack-v gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Bergen" />
-          <label for="Bergen" class="fs-s stack-horizontal flex-1 ">
+          <label for="Bergen" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Bergen</span>
             <span class="ink-subtle">30</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Oslo" />
-          <label for="Oslo" class="fs-s stack-horizontal flex-1 ">
+          <label for="Oslo" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Oslo</span>
             <span class="ink-subtle">30</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Trondheim" />
-          <label for="Trondheim" class="fs-s stack-horizontal flex-1 ">
+          <label for="Trondheim" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Trondheim</span>
             <span class="ink-subtle">30</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Stavanger" />
-          <label for="Stavanger" class="fs-s stack-horizontal flex-1 ">
+          <label for="Stavanger" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Stavanger</span>
             <span class="ink-subtle">30</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Norge" />
-          <label for="Norge" class="fs-s stack-horizontal flex-1 ">
+          <label for="Norge" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Norge</span>
             <span class="ink-subtle">30</span>
           </label>
@@ -683,67 +683,67 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Rå-år -->
-    <div class="stack gap-2xs p-xs surface-base b-all bc-subtle br-l">
+    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <p class="form-label">Rå-år / Antall år erfaring</p>
-      <div class="stack gap-2xs">
+      <div class="stack-v gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
           <label
             for="0-2-Kilimanjaro"
-            class="fs-s stack-horizontal gap-xs flex-1"
+            class="fs-s stack-h gap-xs flex-1"
           >
             <span class="mr-auto">Kilimanjaro</span>
             <span class="ink-subtle">0-2</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
           <label
             for="3-4-Mont-Blanc"
-            class="fs-s stack-horizontal gap-xs flex-1"
+            class="fs-s stack-h gap-xs flex-1"
           >
             <span class="mr-auto">Mont Blanc</span>
             <span class="ink-subtle">3-4 </span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="5-7-Denali" />
-          <label for="5-7-Denali" class="fs-s stack-horizontal gap-xs flex-1">
+          <label for="5-7-Denali" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">Denali</span>
             <span class="ink-subtle">5-7 </span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
           <label
             for="8-11-Cerro-Torre"
-            class="fs-s stack-horizontal gap-xs flex-1"
+            class="fs-s stack-h gap-xs flex-1"
           >
             <span class="mr-auto"> Cerro Torre</span>
             <span class="ink-subtle">8-11</span>
           </label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="checkbox fs-s" type="checkbox" id="12+-K2" />
-          <label for="12+-K2" class="fs-s stack-horizontal gap-xs flex-1">
+          <label for="12+-K2" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">K2</span>
             <span class="ink-subtle">12+ </span>
           </label>
         </div>
       </div>
-      <div class="stack gap-3xs mt-s">
+      <div class="stack-v gap-3xs mt-s">
         <div
-          class="stack-horizontal gap-3xs flex-1 b-all br-m bc-subtle py-3xs pl-2xs pr-3xs"
+          class="stack-h gap-3xs flex-1 b-all br-m bc-subtle py-3xs pl-2xs pr-3xs"
         >
           <label class="fs-xs fw-medium p-3xs" for="yearsExperienceFrom"
             >Fra</label
@@ -756,7 +756,7 @@ Without buttons, only `color-mode`:
           />
         </div>
         <div
-          class="stack-horizontal gap-3xs flex-1 b-all br-m bc-subtle py-3xs pl-2xs pr-3xs"
+          class="stack-h gap-3xs flex-1 b-all br-m bc-subtle py-3xs pl-2xs pr-3xs"
         >
           <label class="fs-xs fw-medium p-3xs" for="yearsExperienceTo"
             >Til</label
@@ -772,34 +772,34 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Antall år erfaring -->
-    <div class="stack gap-2xs p-xs surface-base b-all bc-subtle br-l">
+    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <p class="form-label">Antall år erfaring</p>
     </div>
 
     <!-- Kompetanse -->
-    <div class="stack gap-2xs p-xs surface-base b-all bc-subtle br-l">
+    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <p class="form-label">Kompetanse</p>
-      <div class="stack gap-2xs">
+      <div class="stack-v gap-2xs">
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Ledelse" />
           <label for="Ledelse" class="fs-s">Ledelse</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Design" />
           <label for="Design" class="fs-s">Design</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Utvikling" />
           <label for="Utvikling" class="fs-s">Utvikling</label>
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input
             class="checkbox fs-s"
@@ -811,7 +811,7 @@ Without buttons, only `color-mode`:
           >
         </div>
         <div
-          class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+          class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input class="checkbox fs-s" type="checkbox" id="Strategi" />
           <label for="Strategi" class="fs-s">Strategi</label>
@@ -820,60 +820,60 @@ Without buttons, only `color-mode`:
     </div>
 
     <!-- Faggruppe -->
-    <div class="stack gap-2xs p-xs surface-base b-all bc-subtle br-l">
+    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <details>
-        <summary class="stack-horizontal gap-xs">
+        <summary class="stack-h gap-xs">
           <h3 class="form-label">Faggruppe</h3>
           <div class="button ml-auto" data-variant="tinted" data-size="small">
             Vis
           </div>
         </summary>
 
-        <div class="stack gap-2xs py-s">
+        <div class="stack-v gap-2xs py-s">
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id=".NET" />
             <label for=".NET" class="fs-s">.NET</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Frontend" />
             <label for="Frontend" class="fs-s">Frontend</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="JVM" />
             <label for="JVM" class="fs-s">JVM</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Plattform" />
             <label for="Plattform" class="fs-s">Plattform</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="PPP-ledelse" />
             <label for="PPP-ledelse" class="fs-s">PPP-ledelse</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Salg" />
             <label for="Salg" class="fs-s">Salg</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="Tjenestedesign" />
             <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input
               class="checkbox fs-s"
@@ -885,7 +885,7 @@ Without buttons, only `color-mode`:
             >
           </div>
           <div
-            class="stack-horizontal gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
+            class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input class="checkbox fs-s" type="checkbox" id="UX-design" />
             <label for="UX-design" class="fs-s">UX-design</label>
@@ -905,10 +905,10 @@ https://vercel.com/geist/choicebox
 This is where JS would come in hand to switch between `palette="blue|grey"` when the radio is selected.
 
 ```html
-<div class="stack-horizontal gap-s">
+<div class="stack-h gap-s">
   <color-mode palette="blue" class="d-block flex-1  br-m  surface-dyed">
     <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover bc-prominent b-all   br-inherit"
+      class="stack-h gap-m p-xs bg-wash:hover bc-prominent b-all   br-inherit"
     >
       <div class="mr-auto">
         <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
@@ -922,7 +922,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
     palette="grey"
     class="d-block flex-1 b-all bc-prominent br-m  surface-dyed "
   >
-    <label class="stack-horizontal gap-m p-xs bg-wash:hover">
+    <label class="stack-h gap-m p-xs bg-wash:hover">
       <div class="mr-auto">
         <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
         <p class="ink-subtle">Free for two weeks</p>
@@ -938,10 +938,10 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
 Not sure if it is possible, but here we go!
 https://vercel.com/geist/split-button
 
-Edit: turns out it's somewhat possible. We're using two buttons in a `stack-horizontal nowrap`, when using a
+Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h nowrap`, when using a
 
 ```html
-<div class="stack-horizontal nowrap">
+<div class="stack-h nowrap">
   <button class="button br-tr-none br-br-none px-l">Save</button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
@@ -965,7 +965,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   </button>
 </div>
 
-<div class="stack-horizontal nowrap">
+<div class="stack-h nowrap">
   <button data-variant="tinted" class="button br-tr-none br-br-none px-l">
     Save
   </button>
@@ -992,7 +992,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   </button>
 </div>
 
-<div class="stack-horizontal nowrap">
+<div class="stack-h nowrap">
   <button data-variant="outlined" class="button br-tr-none br-br-none px-l">
     Save
   </button>
@@ -1026,14 +1026,14 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-hori
   data-position="bottom"
 >
   <div
-    class="p-3xs b-all surface-base stack br-l mw-4 fs-s m-2xs"
+    class="p-3xs b-all surface-base stack-v br-l mw-4 fs-s m-2xs"
     stagger-items="from-above"
   >
-    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+    <div class="p-3xs bg-wash:hover br-m stack-v gap-3xs" href="#">
       <h4>Save</h4>
       <p class="ink-subtle">Save charges</p>
     </div>
-    <div class="p-3xs bg-wash:hover br-m stack gap-3xs" href="#">
+    <div class="p-3xs bg-wash:hover br-m stack-v gap-3xs" href="#">
       <h4>Save + Redeploy</h4>
       <p class="ink-subtle">
         Save changes and create a new production deployment
@@ -1060,17 +1060,17 @@ This one leverages a popover, a details list, and a form
   style="max-width: 68rem;"
 >
   <div
-    class="d-block p-l stack surface-tinted br-xl shadow-high"
+    class="d-block p-l stack-v surface-tinted br-xl shadow-high"
     stagger-items="soft"
   >
-    <div class="stack-horizontal gap-m items-start">
+    <div class="stack-h gap-m items-start">
       <div class="mw-4">
         <h1 class="lh-tight">Get started with Varde</h1>
         <p class="ink-subtle mt-xs">It's really simple – anyone could do it!</p>
       </div>
 
       <div class="shadow-mid flex-1 surface-base br-l of-clip">
-        <div class="px-l-xl py-m b-b bc-subtle stack">
+        <div class="px-l-xl py-m b-b bc-subtle stack-v">
           <label class="fw-medium mb-3xs">Where is your endpoint?</label>
           <input
             value="https://varde.variant.dev/api"
@@ -1079,7 +1079,7 @@ This one leverages a popover, a details list, and a form
           />
         </div>
 
-        <div class="px-l-xl py-m b-b bc-subtle stack">
+        <div class="px-l-xl py-m b-b bc-subtle stack-v">
           <label class="fw-medium mb-3xs">Your repo</label>
           <input
             value="https://varde.variant.dev/api"
@@ -1093,7 +1093,7 @@ This one leverages a popover, a details list, and a form
           class="d-block px-l-xl py-m surface-dyed"
         >
           <details>
-            <summary class="fw-medium stack-horizontal">
+            <summary class="fw-medium stack-h">
               <p class="mr-auto">Not yet ready to implement?</p>
               <div
                 type="button"
@@ -1122,7 +1122,7 @@ This one leverages a popover, a details list, and a form
         </color-mode>
       </div>
     </div>
-    <div class="stack-horizontal mt-l">
+    <div class="stack-h mt-l">
       <button
         type="button"
         class="button mr-auto"
@@ -1143,7 +1143,7 @@ This one leverages a popover, a details list, and a form
 This one utilizes an escape hatch
 
 ```html
-<div class="stack-horizontal gap-xs">
+<div class="stack-h gap-xs">
   <button
     type="button"
     class="button br-pill"
@@ -1211,7 +1211,7 @@ This one utilizes an escape hatch
 
     <div class="grid-subgrid grid-all-columns">
       <time class="pt-3xs">08:30 – 10:15</time>
-      <div class="stack">
+      <div class="stack-v">
         <h3>Fagaktiviteter</h3>
         <p>Utvikling → k8 workshop</p>
         <p>Design → k8 workshop</p>
@@ -1286,13 +1286,13 @@ This one utilizes an escape hatch
 
 ```html
 <div class="surface-base br-m py-m px-xl">
-  <div class="stack-horizontal items-start mb-l ">
+  <div class="stack-h items-start mb-l ">
     <div class="mr-auto">
       <h3 class="fs-2xl">Finansiell status</h3>
       <p class="fs-s ink-subtle">Variants KPIs denne vs forrige måned.</p>
     </div>
 
-    <div class="stack-horizontal gap-2xs">
+    <div class="stack-h gap-2xs">
       <button
         class="button aspect-square px-3xs"
         data-variant="plain"
@@ -1343,11 +1343,11 @@ This one utilizes an escape hatch
   >
     <!-- MRR -->
     <color-mode palette="green" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">MRR</span>
         <color-mode palette="green">
           <span
-            class="surface-dyed ink-prominent stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
+            class="surface-dyed ink-prominent stack-h gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1373,11 +1373,11 @@ This one utilizes an escape hatch
 
     <!-- OpEx -->
     <color-mode palette="coral" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">OpEx</span>
         <color-mode palette="coral">
           <span
-            class="surface-dyed ink-prominent stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
+            class="surface-dyed ink-prominent stack-h gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1403,11 +1403,11 @@ This one utilizes an escape hatch
 
     <!-- CapEx -->
     <color-mode palette="green" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">CapEx</span>
         <color-mode palette="green">
           <span
-            class="surface-dyed ink-prominent stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
+            class="surface-dyed ink-prominent stack-h gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1433,11 +1433,11 @@ This one utilizes an escape hatch
 
     <!-- GPM -->
     <color-mode palette="coral" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">GPM</span>
         <color-mode palette="coral">
           <span
-            class="surface-dyed ink-prominent stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
+            class="surface-dyed ink-prominent stack-h gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1463,7 +1463,7 @@ This one utilizes an escape hatch
 
     <!-- NPM -->
     <color-mode palette="green" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">NPM</span>
         <span
           class="surface-tinted ink-subtle px-2xs py-4xs br-pill fs-xs fw-medium"
@@ -1475,11 +1475,11 @@ This one utilizes an escape hatch
 
     <!-- EBITDA -->
     <color-mode palette="green" class="d-block">
-      <div class="stack-horizontal items-center gap-2xs mb-2xs">
+      <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-s ink-subtle">EBITDA</span>
         <color-mode palette="green">
           <span
-            class="surface-dyed ink-prominent stack-horizontal gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
+            class="surface-dyed ink-prominent stack-h gap-3xs px-xs py-4xs br-pill fs-xs fw-medium"
           >
             <svg
               width="12"
@@ -1510,7 +1510,7 @@ This one utilizes an escape hatch
 
 ```html
 <div class="surface-base br-m mw-7 mx-auto my-xl p-m">
-  <div class="stack-horizontal items-center justify-between mb-s">
+  <div class="stack-h items-center justify-between mb-s">
     <h3 class="fs-l">Orders</h3>
     <button class="button" data-variant="plain" data-size="small">
       <svg
@@ -1531,7 +1531,7 @@ This one utilizes an escape hatch
     </button>
   </div>
 
-  <div class="stack gap-xs mb-s">
+  <div class="stack-v gap-xs mb-s">
     <div
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
@@ -1689,7 +1689,7 @@ This one utilizes an escape hatch
     </div>
   </div>
 
-  <div class="stack justify-end mt-l">
+  <div class="stack-v justify-end mt-l">
     <button class="button mx-s px-xl" data-variant="tinted" data-size="small">
       Show more
     </button>

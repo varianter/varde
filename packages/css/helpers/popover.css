@@ -2,7 +2,7 @@
 
 /** .popover ONLY cares about transitions and position of itself
  * This means two things:
- * 1. You don't put other classes on the same element as .popover, especially not `.stack` or other `display` rules.
+ * 1. You don't put other classes on the same element as .popover, especially not `.stack-v/.stack-h` or other `display` rules.
  * 2. You must add backgrounds, border-radius and shadows on an element inside.
  **/
 

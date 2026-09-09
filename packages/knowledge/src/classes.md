@@ -16,19 +16,19 @@ From smallest to largest. `m` equals `1rem`.
 
 ```html
 <!-- column, top-aligned -->
-<div class="stack gap-m"></div>
+<div class="stack-v gap-m"></div>
 
 <!-- row, vertically centered -->
-<div class="stack-horizontal gap-s"></div>
+<div class="stack-h gap-s"></div>
 
 <!-- row, aligned to top -->
-<div class="stack-horizontal items-start gap-s"></div>
+<div class="stack-h items-start gap-s"></div>
 
 <!-- row, aligned to bottom -->
-<div class="stack-horizontal items-end gap-s"></div>
+<div class="stack-h items-end gap-s"></div>
 
 <!-- row, children stretch full height -->
-<div class="stack-horizontal items-stretch"></div>
+<div class="stack-h items-stretch"></div>
 ```
 
 Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.d-inline-flex`
@@ -68,7 +68,7 @@ When they overlap, the more specific utility always wins, regardless of class or
 ## Typography
 
 ```html
-<div class="stack gap-xs">
+<div class="stack-v gap-xs">
   <span class="fs-xs">fs-xs</span>
   <span class="fs-s">fs-s</span>
 

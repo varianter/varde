@@ -2,15 +2,15 @@ export const path = "/patterns/forms";
 
 export default function FormPage() {
   return (
-    <form method="post" class="stack gap-m mx-auto" style="max-width: 600px;">
-      <div class="stack gap-xs">
+    <form method="post" class="stack-v gap-m mx-auto" style="max-width: 600px;">
+      <div class="stack-v gap-xs">
         <label class="fs-s ink-subtle" for="Name">
           Name
         </label>
         <input class="input" type="text" id="Name" name="Name" />
       </div>
-      <div class="stack-horizontal items-start gap-m">
-        <div class="stack gap-xs grow">
+      <div class="stack-h items-start gap-m">
+        <div class="stack-v gap-xs grow">
           <label class="fs-s ink-subtle" for="Nationality">
             Nationality (ISO 3166-1 numeric)
           </label>
@@ -22,7 +22,7 @@ export default function FormPage() {
             placeholder="e.g. 578 - Norway"
           />
         </div>
-        <div class="stack grow">
+        <div class="stack-v grow">
           <label class="fs-s ink-subtle mb-xs" for="NationalOrgNumber">
             National organization number
           </label>
@@ -53,7 +53,7 @@ export default function FormPage() {
           </p>
         </div>
       </div>
-      <div class="stack gap-xs">
+      <div class="stack-v gap-xs">
         <label class="fs-s ink-subtle" for="Address">
           Address
         </label>

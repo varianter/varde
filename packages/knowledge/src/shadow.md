@@ -8,7 +8,7 @@ Three elevations: `.shadow-low`, `.shadow-mid`, `.shadow-high`. Each is a multi-
 ## Usage
 
 ```html
-<div class="stack gap-xl py-xl">
+<div class="stack-v gap-xl py-xl">
   <div class="shadow-low surface-base br-m p-m">Low</div>
   <div class="shadow-mid surface-base br-m p-m">Medium</div>
   <div class="shadow-high surface-base br-m p-m">High</div>

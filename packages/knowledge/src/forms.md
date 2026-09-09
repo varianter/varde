@@ -16,7 +16,7 @@ Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respec
 Text-like inputs on `<input>` elements:
 
 ```html
-<div class="stack gap-2xs">
+<div class="stack-v gap-2xs">
   <label class="form-label" for="name">Full name</label>
   <input class="input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
 </div>
@@ -25,7 +25,7 @@ Text-like inputs on `<input>` elements:
 Textareas on `<textarea>`:
 
 ```html
-<div class="stack gap-2xs">
+<div class="stack-v gap-2xs">
   <label class="form-label" for="message">Message</label>
   <textarea
     class="textarea"
@@ -39,7 +39,7 @@ Textareas on `<textarea>`:
 Selects on `<select>`. A custom chevron is rendered via `background-image` — no wrapper element or icon needed. Supports `<optgroup>` labels, `<hr>` separators, and disabled `<option>` elements.
 
 ```html
-<div class="stack gap-2xs">
+<div class="stack-v gap-2xs">
   <label class="form-label" for="country">Country</label>
   <select class="select" id="country">
     <option value="">Choose…</option>
@@ -55,14 +55,14 @@ Selects on `<select>`. A custom chevron is rendered via `background-image` — n
 All three control types share the same sizing scale:
 
 ```html
-<div class="stack-horizontal gap-m">
-  <div class="stack gap-s w-full flex-1">
+<div class="stack-h gap-m">
+  <div class="stack-v gap-s w-full flex-1">
     <input class="input" type="text" data-size="small" placeholder="Small" />
     <input class="input" type="text" placeholder="Medium" />
     <input class="input" type="text" data-size="large" placeholder="Large" />
   </div>
 
-  <div class="stack gap-s w-full flex-1">
+  <div class="stack-v gap-s w-full flex-1">
     <select class="select" data-size="small">
       <option>Small</option>
       <option>Small</option>
@@ -80,7 +80,7 @@ All three control types share the same sizing scale:
     </select>
   </div>
 
-  <div class="stack gap-s w-full flex-1">
+  <div class="stack-v gap-s w-full flex-1">
     <textarea
       class="textarea"
       data-size="small"
@@ -101,8 +101,8 @@ All three control types share the same sizing scale:
 Inputs and buttons at matching sizes align naturally in a row:
 
 ```html
-<div class="stack gap-xs">
-  <div class="stack-horizontal gap-s">
+<div class="stack-v gap-xs">
+  <div class="stack-h gap-s">
     <input
       class="input grow"
       type="text"
@@ -112,7 +112,7 @@ Inputs and buttons at matching sizes align naturally in a row:
     <button class="button " data-size="small">Go</button>
   </div>
 
-  <div class="stack-horizontal gap-s">
+  <div class="stack-h gap-s">
     <input
       class="input grow"
       type="text"
@@ -122,7 +122,7 @@ Inputs and buttons at matching sizes align naturally in a row:
     <button class="button " data-size="medium">Go</button>
   </div>
 
-  <div class="stack-horizontal gap-s">
+  <div class="stack-h gap-s">
     <input
       class="input grow"
       type="text"
@@ -171,18 +171,18 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 | `data-size` | `"small"`, `"medium"`, `"large"` |
 
 ```html
-<div class="stack-horizontal gap-s">
+<div class="stack-h gap-s">
   <input class="checkbox" type="checkbox" id="terms" checked />
   <label for="terms">I accept the terms</label>
 </div>
 ```
 
 ```html
-<div class="stack-horizontal gap-s">
+<div class="stack-h gap-s">
   <input class="radio" type="radio" name="choice" id="opt-a" checked />
   <label for="opt-a">Option A</label>
 </div>
-<div class="stack-horizontal gap-s">
+<div class="stack-h gap-s">
   <input class="radio" type="radio" name="choice" id="opt-b" />
   <label for="opt-b">Option B</label>
 </div>
@@ -193,31 +193,31 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 Both controls share the same sizing scale:
 
 ```html
-<div class="stack gap-xs">
-  <div class="stack-horizontal items-center gap-m">
-    <div class="stack-horizontal gap-2xs">
+<div class="stack-v gap-xs">
+  <div class="stack-h items-center gap-m">
+    <div class="stack-h gap-2xs">
       <input class="checkbox" type="checkbox" data-size="small" checked />
       <label>Small</label>
     </div>
-    <div class="stack-horizontal gap-2xs">
+    <div class="stack-h gap-2xs">
       <input class="checkbox" type="checkbox" checked />
       <label>Medium</label>
     </div>
-    <div class="stack-horizontal gap-2xs">
+    <div class="stack-h gap-2xs">
       <input class="checkbox" type="checkbox" data-size="large" checked />
       <label>Large</label>
     </div>
   </div>
-  <div class="stack-horizontal items-center gap-m">
-    <div class="stack-horizontal gap-2xs">
+  <div class="stack-h items-center gap-m">
+    <div class="stack-h gap-2xs">
       <input class="radio" type="radio" name="size" data-size="small" checked />
       <label>Small</label>
     </div>
-    <div class="stack-horizontal gap-2xs">
+    <div class="stack-h gap-2xs">
       <input class="radio" type="radio" name="size" />
       <label>Medium</label>
     </div>
-    <div class="stack-horizontal gap-2xs">
+    <div class="stack-h gap-2xs">
       <input class="radio" type="radio" name="size" data-size="large" />
       <label>Large</label>
     </div>
@@ -230,7 +230,7 @@ Both controls share the same sizing scale:
 `.form-label` provides consistent label styling: muted color, small size, medium weight.
 
 ```html
-<div class="stack gap-2xs">
+<div class="stack-v gap-2xs">
   <label class="form-label" for="email">Email</label>
   <input class="input" type="email" id="email" />
 </div>
@@ -241,7 +241,7 @@ Both controls share the same sizing scale:
 Set `aria-invalid="true"` on the control. The border and text turn red automatically — no custom error classes needed. Wrap the error message in `<color-mode palette="coral">` to match the color:
 
 ```html
-<div class="stack">
+<div class="stack-v">
   <label class="form-label" for="email">Email</label>
   <input
     class="input"
@@ -265,19 +265,19 @@ Disabled controls get `cursor: not-allowed`, but no visual graying out — consi
 A realistic form combining labels, layout, validation, and multiple control types:
 
 ```html
-<form class="stack gap-m">
-  <div class="stack-horizontal items-start gap-m">
-    <div class="stack gap-2xs grow">
+<form class="stack-v gap-m">
+  <div class="stack-h items-start gap-m">
+    <div class="stack-v gap-2xs grow">
       <label class="form-label" for="first">First name</label>
       <input class="input" type="text" id="first" placeholder="Ola" />
     </div>
-    <div class="stack gap-2xs grow">
+    <div class="stack-v gap-2xs grow">
       <label class="form-label" for="last">Last name</label>
       <input class="input" type="text" id="last" placeholder="Nordmann" />
     </div>
   </div>
 
-  <div class="stack">
+  <div class="stack-v">
     <label class="form-label mb-3xs" for="email">Email</label>
     <input
       class="input"
@@ -291,7 +291,7 @@ A realistic form combining labels, layout, validation, and multiple control type
     </color-mode>
   </div>
 
-  <div class="stack gap-2xs">
+  <div class="stack-v gap-2xs">
     <label class="form-label" for="country">Country</label>
     <select class="select" id="country">
       <option value="">Choose…</option>
@@ -301,7 +301,7 @@ A realistic form combining labels, layout, validation, and multiple control type
     </select>
   </div>
 
-  <div class="stack gap-2xs">
+  <div class="stack-v gap-2xs">
     <label class="form-label" for="message">Message</label>
     <textarea
       class="textarea"
@@ -311,7 +311,7 @@ A realistic form combining labels, layout, validation, and multiple control type
     ></textarea>
   </div>
 
-  <div class="stack-horizontal gap-s">
+  <div class="stack-h gap-s">
     <input class="checkbox" type="checkbox" id="terms" />
     <label class="fs-s" for="terms">I accept the terms and conditions</label>
   </div>

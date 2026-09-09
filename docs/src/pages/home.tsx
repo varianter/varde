@@ -2,10 +2,10 @@ export const path = "/";
 
 export default function HomePage() {
   return (
-    <article class="stack gap-2xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
+    <article class="stack-v gap-2xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
       <header>
-        <div class="stack gap-l">
-          <div class="stack gap-m">
+        <div class="stack-v gap-l">
+          <div class="stack-v gap-m">
             <h1 class="fs-4xl fw-bold lh-tight">Varde</h1>
             <p class="fs-xl ink-subtle" style="max-width: 640px;">
               A utility-first CSS framework and design token system. Semantic classes for layout,
@@ -15,9 +15,9 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section class="stack gap-xl b-t bc-subtle pt-3xl">
-        <div class="stack gap-l" style="max-width: 720px;">
-          <div class="stack gap-s">
+      <section class="stack-v gap-xl b-t bc-subtle pt-3xl">
+        <div class="stack-v gap-l" style="max-width: 720px;">
+          <div class="stack-v gap-s">
             <h2 class="fs-l fw-bold">Why it exists</h2>
             <p class="ink-subtle">
               Spacing, layout, color, typography, buttons, form fields — every product team handles

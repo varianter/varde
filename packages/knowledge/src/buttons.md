@@ -22,7 +22,7 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 ### Button Variants
 
 ```html
-<div class="stack-horizontal gap-m">
+<div class="stack-h gap-m">
   <button class="button" data-variant="filled">Filled</button>
   <button class="button" data-variant="tinted">Tinted</button>
   <button class="button" data-variant="outlined">Outlined</button>
@@ -33,7 +33,7 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 ### Button Sizes
 
 ```html
-<div class="stack-horizontal gap-m">
+<div class="stack-h gap-m">
   <button class="button" data-size="small">Small</button>
   <button class="button">Medium</button>
   <button class="button" data-size="large">Large</button>
@@ -45,42 +45,42 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 Buttons get their color from the `<color-mode palette="...">` they sit inside. Wrap your buttons in a `<color-mode>` and they use the palette. You don't need to set a color on each button.
 
 ```html
-<div class="stack gap-xs">
-  <div class="stack-horizontal gap-xs">
+<div class="stack-v gap-xs">
+  <div class="stack-h gap-xs">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
     <button class="button" data-variant="plain">Plain</button>
   </div>
 
-  <color-mode class="stack-horizontal gap-xs" palette="periwinkle">
+  <color-mode class="stack-h gap-xs" palette="periwinkle">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
     <button class="button" data-variant="plain">Plain</button>
   </color-mode>
 
-  <color-mode class="stack-horizontal gap-xs" palette="coral">
+  <color-mode class="stack-h gap-xs" palette="coral">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
     <button class="button" data-variant="plain">Plain</button>
   </color-mode>
-  <color-mode class="stack-horizontal gap-xs" palette="purple">
-    <button class="button">Filled</button>
-    <button class="button" data-variant="tinted">Tinted</button>
-    <button class="button" data-variant="outlined">Outlined</button>
-    <button class="button" data-variant="plain">Plain</button>
-  </color-mode>
-
-  <color-mode class="stack-horizontal gap-xs" palette="green">
+  <color-mode class="stack-h gap-xs" palette="purple">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
     <button class="button" data-variant="plain">Plain</button>
   </color-mode>
 
-  <color-mode class="stack-horizontal gap-xs" palette="yellow">
+  <color-mode class="stack-h gap-xs" palette="green">
+    <button class="button">Filled</button>
+    <button class="button" data-variant="tinted">Tinted</button>
+    <button class="button" data-variant="outlined">Outlined</button>
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode class="stack-h gap-xs" palette="yellow">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
@@ -94,7 +94,7 @@ For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on
 ```html
 <color-mode
   inverted
-  class="surface-dyed stack-horizontal gap-xs p-xs"
+  class="surface-dyed stack-h gap-xs p-xs"
   palette="periwinkle"
 >
   <button class="button">Filled</button>
@@ -109,7 +109,7 @@ For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on
 To show that an action is loading or processing, put a `.spinner` inside the button. The spinner inherits the button's color and size. Use a spinner to show progress rather than disabling the button.
 
 ```html
-<div class="stack-horizontal gap-xs mb-xs">
+<div class="stack-h gap-xs mb-xs">
   <button class="button">
     <span class="spinner"></span>
     Saving…
@@ -123,7 +123,7 @@ To show that an action is loading or processing, put a `.spinner` inside the but
     Saving…
   </button>
 </div>
-<color-mode palette="periwinkle" class="stack-horizontal gap-xs">
+<color-mode palette="periwinkle" class="stack-h gap-xs">
   <button class="button">
     <span class="spinner"></span>
     Saving…
@@ -166,7 +166,7 @@ A pill shape:
 To make one button the primary action, widen its padding and wrap it in a `color-mode`. Keep the others subdued:
 
 ```html
-<div class="stack-horizontal gap-xs">
+<div class="stack-h gap-xs">
   <color-mode palette="periwinkle">
     <button class="button px-l">Save changes</button>
   </color-mode>

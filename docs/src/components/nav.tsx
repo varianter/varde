@@ -56,11 +56,11 @@ const sections: NavSection[] = [
 
 export function NavLinks() {
   return (
-    <div class="py-m stack gap-m">
+    <div class="py-m stack-v gap-m">
       {sections.map((section) => (
         <div key={section.label}>
           <h5 class="fs-xs ink-subtle fw-medium mb-2xs tt-uppercase">{section.label}</h5>
-          <ul class="stack gap-4xs">
+          <ul class="stack-v gap-4xs">
             {section.items.map((item) => (
               <a
                 class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"

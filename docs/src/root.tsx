@@ -27,9 +27,9 @@ rootApp.use(
 
 rootApp.get("/", (c) =>
   c.render(
-    <main class="stack gap-3xl mx-auto py-3xl px-xl" style="max-width: 800px;">
-      <header class="stack gap-m pt-3xl">
-        <div class="stack-horizontal gap-s" style="align-items: center;">
+    <main class="stack-v gap-3xl mx-auto py-3xl px-xl" style="max-width: 800px;">
+      <header class="stack-v gap-m pt-3xl">
+        <div class="stack-h gap-s" style="align-items: center;">
           <img src="/static/logos/variant-circle-filled.svg" alt="" width="32" height="32" />
           <h1 class="fs-3xl fw-bold lh-tight">Varde</h1>
         </div>
@@ -40,7 +40,7 @@ rootApp.get("/", (c) =>
           </a>
           .
         </p>
-        <div class="stack-horizontal gap-m">
+        <div class="stack-h gap-m">
           <a href="/docs/" class="fw-bold ink-default">
             Documentation →
           </a>
@@ -55,7 +55,7 @@ rootApp.get("/", (c) =>
         </div>
       </header>
 
-      <section class="stack gap-l b-t bc-subtle pt-2xl">
+      <section class="stack-v gap-l b-t bc-subtle pt-2xl">
         <h2 class="fs-l fw-bold">Usage</h2>
         <p class="ink-subtle">
           Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
@@ -69,9 +69,9 @@ rootApp.get("/", (c) =>
         </pre>
       </section>
 
-      <section class="stack gap-l b-t bc-subtle pt-2xl">
+      <section class="stack-v gap-l b-t bc-subtle pt-2xl">
         <h2 class="fs-l fw-bold">Versions</h2>
-        <ul class="stack gap-xs" id="versions">
+        <ul class="stack-v gap-xs" id="versions">
           <li>
             <strong>latest</strong>
             <span class="ink-subtle fs-s">
@@ -108,12 +108,12 @@ rootApp.get("/", (c) =>
         />
       </section>
 
-      <section class="stack gap-l b-t bc-subtle pt-2xl">
+      <section class="stack-v gap-l b-t bc-subtle pt-2xl">
         <h2 class="fs-l fw-bold">Static assets</h2>
         <p class="ink-subtle">
           Fonts and logos served at <code class="fs-s">/static/</code>:
         </p>
-        <ul class="stack gap-xs">
+        <ul class="stack-v gap-xs">
           <li>
             <a class="ink-default" href="/static/font/varde-bs-variable.ttf">
               /static/font/varde-bs-variable.ttf

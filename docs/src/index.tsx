@@ -304,10 +304,10 @@ app.use(
             <script type="module" src="/docs/clientside/code-editor.js"></script>
           </head>
           <body class="fs-m">
-            <header class="site-header stack b-b bc-subtle px-s-m ">
+            <header class="site-header stack-v b-b bc-subtle px-s-m ">
               <a
                 href="/docs"
-                class="site-logo py-xs fw-bold gap-xs stack-horizontal d-inline-flex self-stretch"
+                class="site-logo py-xs fw-bold gap-xs stack-h d-inline-flex self-stretch"
               >
                 <img
                   src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"
@@ -317,8 +317,8 @@ app.use(
                 />{" "}
                 <span class="ink-default lh-tight">Varde</span>
               </a>
-              <div class="w-full stack-horizontal gap-xs">
-                <div class="ml-auto gap-2xs stack-horizontal">
+              <div class="w-full stack-h gap-xs">
+                <div class="ml-auto gap-2xs stack-h">
                   <button
                     id="theme-toggle"
                     type="button"
@@ -357,7 +357,7 @@ app.use(
                       href="https://github.com/varianter/varde"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="stack-horizontal gap-2xs ink-subtle fs-s"
+                      class="stack-h gap-2xs ink-subtle fs-s"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

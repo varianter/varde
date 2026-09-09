@@ -8,7 +8,7 @@ description: Work-in-progress compositions built only from existing Varde utilit
 A row of outlined page buttons with one active, plus prev/next.
 
 ```html
-<div class="stack-horizontal gap-xs">
+<div class="stack-h gap-xs">
   <button
     class="button"
     data-size="small"
@@ -40,9 +40,9 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
 
 ```html
 <div class="surface-base b-all bc-subtle br-l of-clip mw-7">
-  <div class="stack-horizontal gap-s px-s py-s b-b bc-subtle b-none:last-child">
+  <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
     <span class="icon ink-subtle fs-xs" data-icon="pencil"></span>
-    <div class="stack grow">
+    <div class="stack-v grow">
       <p class="fw-medium">Display name</p>
       <p class="fs-s ink-subtle">How you appear to others</p>
     </div>
@@ -51,9 +51,9 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
     </button>
   </div>
 
-  <div class="stack-horizontal gap-s px-s py-s b-b bc-subtle b-none:last-child">
+  <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
     <span class="icon ink-subtle fs-xs" data-icon="plus"></span>
-    <div class="stack grow">
+    <div class="stack-v grow">
       <p class="fw-medium">Language</p>
       <p class="fs-s ink-subtle">Used across the app</p>
     </div>
@@ -64,9 +64,9 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
     </select>
   </div>
 
-  <div class="stack-horizontal gap-s px-s py-s b-b bc-subtle b-none:last-child">
+  <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
     <span class="icon ink-subtle fs-xs" data-icon="pencil"></span>
-    <div class="stack grow">
+    <div class="stack-v grow">
       <p class="fw-medium">Email notifications</p>
       <p class="fs-s ink-subtle">Receive updates by email</p>
     </div>
@@ -80,7 +80,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
 A centered card that pairs an icon, a heading, and a single primary action.
 
 ```html
-<div class="surface-base b-all bc-subtle br-xl p-xl stack items-center mw-7">
+<div class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center mw-7">
   <span class="icon fs-2xl ink-subtle" data-icon="plus"></span>
   <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
   <p class="fs-s ink-subtle ta-center mt-2xs">
@@ -95,18 +95,18 @@ A centered card that pairs an icon, a heading, and a single primary action.
 Three tiers, with the middle one featured by inverting its `color-mode`.
 
 ```html
-<div class="stack-horizontal items-stretch gap-m">
+<div class="stack-h items-stretch gap-m">
   <color-mode>
-    <div class="flex-1 surface-base b-all bc-subtle br-xl p-m stack">
-      <div class="stack">
+    <div class="flex-1 surface-base b-all bc-subtle br-xl p-m stack-v">
+      <div class="stack-v">
         <h3 class="fs-l fw-bold">Free</h3>
         <p class="fs-s ink-subtle mt-2xs">For personal projects.</p>
       </div>
-      <div class="stack-horizontal items-end gap-xs mt-m">
+      <div class="stack-h items-end gap-xs mt-m">
         <span class="fs-2xl fw-bold">$0</span>
         <span class="fs-s ink-subtle pb-2xs">/ month</span>
       </div>
-      <ul class="list stack gap-2xs fs-s mt-s mb-m">
+      <ul class="list stack-v gap-2xs fs-s mt-s mb-m">
         <li>Up to 3 projects</li>
         <li>Community support</li>
         <li>1 GB storage</li>
@@ -117,17 +117,17 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
 
   <color-mode inverted palette="periwinkle">
     <div
-      class="flex-1 surface-dyed b-all bc-subtle br-xl p-m stack shadow-high"
+      class="flex-1 surface-dyed b-all bc-subtle br-xl p-m stack-v shadow-high"
     >
-      <div class="stack">
+      <div class="stack-v">
         <h3 class="fs-l fw-bold">Pro</h3>
         <p class="fs-s ink-subtle mt-2xs">For growing teams.</p>
       </div>
-      <div class="stack-horizontal items-end gap-xs mt-m">
+      <div class="stack-h items-end gap-xs mt-m">
         <span class="fs-2xl fw-bold">$20</span>
         <span class="fs-s ink-subtle pb-2xs">/ month</span>
       </div>
-      <ul class="list stack gap-2xs fs-s mt-s mb-m">
+      <ul class="list stack-v gap-2xs fs-s mt-s mb-m">
         <li>Unlimited projects</li>
         <li>Priority support</li>
         <li>100 GB storage</li>
@@ -137,15 +137,15 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
   </color-mode>
 
   <color-mode>
-    <div class="flex-1 surface-base b-all bc-subtle br-xl p-m stack">
-      <div class="stack">
+    <div class="flex-1 surface-base b-all bc-subtle br-xl p-m stack-v">
+      <div class="stack-v">
         <h3 class="fs-l fw-bold">Enterprise</h3>
         <p class="fs-s ink-subtle mt-2xs">For large organizations.</p>
       </div>
-      <div class="stack-horizontal items-end gap-xs mt-m">
+      <div class="stack-h items-end gap-xs mt-m">
         <span class="fs-2xl fw-bold">Custom</span>
       </div>
-      <ul class="list stack gap-2xs fs-s mt-s mb-m">
+      <ul class="list stack-v gap-2xs fs-s mt-s mb-m">
         <li>SSO and audit logs</li>
         <li>Dedicated support</li>
         <li>Unlimited storage</li>
@@ -163,9 +163,9 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
 A vertical timeline: a faint rail down the left with an inverted `color-mode` dot marking each event.
 
 ```html
-<div class="stack">
-  <div class="stack-horizontal items-start gap-m">
-    <div class="stack items-center self-stretch" aria-hidden="true">
+<div class="stack-v">
+  <div class="stack-h items-start gap-m">
+    <div class="stack-v items-center self-stretch" aria-hidden="true">
       <color-mode palette="coral">
         <span
           class="bg-currentcolor br-circle ink-subtle mt-4xs"
@@ -174,15 +174,15 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
       </color-mode>
       <span class="b-l bc-subtle flex-1"></span>
     </div>
-    <div class="stack pb-m">
+    <div class="stack-v pb-m">
       <p class="fs-xs ink-subtle mb-2xs">08:01</p>
       <h3 class="fs-m fw-bold ">Build failed</h3>
       <p class="fs-s ink-subtle">A test step errored out in the pipeline.</p>
     </div>
   </div>
 
-  <div class="stack-horizontal items-start gap-m">
-    <div class="stack items-center self-stretch" aria-hidden="true">
+  <div class="stack-h items-start gap-m">
+    <div class="stack-v items-center self-stretch" aria-hidden="true">
       <color-mode palette="blue">
         <span
           class="bg-currentcolor br-circle ink-subtle mt-4xs"
@@ -191,15 +191,15 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
       </color-mode>
       <span class="b-l bc-subtle flex-1"></span>
     </div>
-    <div class="stack pb-m">
+    <div class="stack-v pb-m">
       <p class="fs-xs ink-subtle mb-2xs">09:12</p>
       <h3 class="fs-m fw-bold ">Pull request merged</h3>
       <p class="fs-s ink-subtle">#482 landed on main.</p>
     </div>
   </div>
 
-  <div class="stack-horizontal items-start gap-m">
-    <div class="stack items-center self-stretch" aria-hidden="true">
+  <div class="stack-h items-start gap-m">
+    <div class="stack-v items-center self-stretch" aria-hidden="true">
       <color-mode palette="green">
         <span
           class="bg-currentcolor br-circle ink-subtle mt-4xs"
@@ -208,15 +208,15 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
       </color-mode>
       <span class="b-l bc-subtle flex-1"></span>
     </div>
-    <div class="stack pb-m">
+    <div class="stack-v pb-m">
       <p class="fs-xs ink-subtle mb-2xs">09:24</p>
       <h3 class="fs-m fw-bold ">Deployment finished</h3>
       <p class="fs-s ink-subtle">Production is now running build #482.</p>
     </div>
   </div>
 
-  <div class="stack-horizontal items-start gap-m">
-    <div class="stack items-center" aria-hidden="true">
+  <div class="stack-h items-start gap-m">
+    <div class="stack-v items-center" aria-hidden="true">
       <color-mode palette="periwinkle">
         <span
           class="bg-currentcolor br-circle ink-subtle mt-4xs"
@@ -224,7 +224,7 @@ A vertical timeline: a faint rail down the left with an inverted `color-mode` do
         ></span>
       </color-mode>
     </div>
-    <div class="stack">
+    <div class="stack-v">
       <p class="fs-xs ink-subtle mb-2xs">10:05</p>
       <h3 class="fs-m fw-bold ">Comment added</h3>
       <p class="fs-s ink-subtle">Ola reviewed the deploy config.</p>

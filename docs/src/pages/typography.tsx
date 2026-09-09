@@ -24,7 +24,7 @@ export function TypographyPage() {
             { cls: "fs-3xl", label: "fs-3xl" },
             { cls: "fs-4xl", label: "fs-4xl" },
           ].map(({ cls, label }) => (
-            <div class="stack-horizontal gap-m">
+            <div class="stack-h gap-m">
               <code class="fs-xs ink-subtle" style="min-width: 80px; flex-shrink: 0;">
                 .{label}
               </code>
@@ -45,7 +45,7 @@ export function TypographyPage() {
             { cls: "fw-medium", label: "fw-medium", weight: "500" },
             { cls: "fw-bold", label: "fw-bold", weight: "600" },
           ].map(({ cls, label, weight }) => (
-            <div class="stack-horizontal gap-m">
+            <div class="stack-h gap-m">
               <code class="fs-xs ink-subtle" style="min-width: 80px; flex-shrink: 0;">
                 .{label}
               </code>
@@ -68,7 +68,7 @@ export function TypographyPage() {
             { cls: "ta-center", label: "ta-center" },
             { cls: "ta-right", label: "ta-right" },
           ].map(({ cls, label }) => (
-            <div class="stack gap-2xs">
+            <div class="stack-v gap-2xs">
               <code class="fs-xs ink-subtle">.{label}</code>
               <div class={`${cls} p-s b-all bc-default br-m`}>
                 The quick brown fox jumps over the lazy dog
@@ -84,17 +84,17 @@ export function TypographyPage() {
         description="Typography utilities compose naturally. Combine size, weight, and alignment as needed."
       >
         <ExamplePanel>
-          <div class="stack gap-2xs">
+          <div class="stack-v gap-2xs">
             <code class="fs-xs ink-subtle">.fs-3xl .fw-bold .ta-center</code>
             <p class="fs-3xl fw-bold ta-center">Page Title</p>
           </div>
 
-          <div class="stack gap-2xs">
+          <div class="stack-v gap-2xs">
             <code class="fs-xs ink-subtle">.fs-s .fw-medium .ink-subtle</code>
             <p class="fs-s fw-medium ink-subtle">A subtle label or caption</p>
           </div>
 
-          <div class="stack gap-2xs">
+          <div class="stack-v gap-2xs">
             <code class="fs-xs ink-subtle">.fs-xl .fw-bold .ta-right</code>
             <p class="fs-xl fw-bold ta-right">Right-aligned heading</p>
           </div>

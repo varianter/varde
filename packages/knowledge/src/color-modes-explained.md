@@ -59,7 +59,7 @@ The available palettes:
 
 `grey` · `blue` · `green` · `yellow` · `orange` · `coral` · `purple` · `teal` · `periwinkle`
 
-> **One thing to remember:** `<color-mode>` is invisible by default — it doesn't create a box, it just passes colour down. If you want it to _have_ a background, give it a display class too: `d-block`, `d-inline-block`, `stack`, or `stack-horizontal`. If your background isn't showing up, this is almost always why.
+> **One thing to remember:** `<color-mode>` is invisible by default — it doesn't create a box, it just passes colour down. If you want it to _have_ a background, give it a display class too: `d-block`, `d-inline-block`, `stack-v`, or `stack-h`. If your background isn't showing up, this is almost always why.
 
 ## Usage on wrappers or sections
 
@@ -173,10 +173,10 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
 
 ```html
 <!-- selected -->
-<div class="stack-horizontal gap-xs" data-palette-group>
+<div class="stack-h gap-xs" data-palette-group>
   <color-mode palette="blue" class="d-block flex-1 br-m surface-tinted">
     <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">Pro trial</h5>
@@ -189,7 +189,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
   <!-- not selected — note the classes are identical -->
   <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
     <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">Team trial</h5>
@@ -201,7 +201,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
 
   <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
     <label
-      class="stack-horizontal gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
         <h5 class="fw-medium fs-m">No thanks</h5>
@@ -241,7 +241,7 @@ The developer/designer shouldn't have to think about setting colors to an aria-i
 
 A short list of things that surprise people once.
 
-**Backgrounds not showing?** You forgot the display class. `<color-mode>` is invisible until you add `d-block`, `d-inline-block`, `stack`, or `stack-horizontal`.
+**Backgrounds not showing?** You forgot the display class. `<color-mode>` is invisible until you add `d-block`, `d-inline-block`, `stack-v`, or `stack-h`.
 
 **`inverted` doesn't pass through a nested `palette`.** If you set a palette on a child, it starts fresh in the normal (non-inverted) direction:
 

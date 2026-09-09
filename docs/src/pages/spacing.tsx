@@ -21,7 +21,7 @@ export function SpacingPage() {
         description="All spacing utilities use the same scale: 3xs → 2xs → xs → s → m → l → xl → 2xl → 3xl → 4xl. Think of m as your baseline (typically 1rem), then step up or down as needed."
       >
         <ExamplePanel>
-          <div class="stack gap-xs">
+          <div class="stack-v gap-xs">
             {[
               { size: "3xs", label: "Tightest — inline text spacing, tight components" },
               { size: "2xs", label: "Very tight — compact lists, dense layouts" },
@@ -33,8 +33,8 @@ export function SpacingPage() {
               { size: "2xl", label: "Very spacious — page sections, hero spacing" },
               { size: "3xl", label: "Generous — page-level spacing" },
             ].map(({ size, label }) => (
-              <div class="stack-horizontal items-start gap-s">
-                <div class="stack-horizontal gap-2xs" style="min-width: 140px;">
+              <div class="stack-h items-start gap-s">
+                <div class="stack-h gap-2xs" style="min-width: 140px;">
                   <code class="fs-xs fw-medium" style="min-width: 3ch;">
                     {size}
                   </code>
@@ -56,11 +56,11 @@ export function SpacingPage() {
         description="A quick guide to choosing the right tool for the job."
       >
         <ExamplePanel>
-          <div class="stack gap-m">
-            <div class="stack gap-xs">
+          <div class="stack-v gap-m">
+            <div class="stack-v gap-xs">
               <span class="ink-prominent fw-bold fs-s">Use gap when...</span>
-              <ul class="list stack gap-2xs fs-s ink-subtle">
-                <li>You're spacing children in a flex container (.stack or .stack-horizontal)</li>
+              <ul class="list stack-v gap-2xs fs-s ink-subtle">
+                <li>You're spacing children in a flex container (.stack-v or .stack-h)</li>
                 <li>You want consistent spacing between multiple items</li>
                 <li>You want spacing that adapts when items wrap</li>
                 <li>This should be your first choice 90% of the time</li>
@@ -69,9 +69,9 @@ export function SpacingPage() {
 
             <div class="b-b bc-subtle" />
 
-            <div class="stack gap-xs">
+            <div class="stack-v gap-xs">
               <span class="ink-prominent fw-bold fs-s">Use padding when...</span>
-              <ul class="list stack gap-2xs fs-s ink-subtle">
+              <ul class="list stack-v gap-2xs fs-s ink-subtle">
                 <li>You need inner space inside an element (cards, buttons, containers)</li>
                 <li>You're creating breathing room around content</li>
                 <li>You need different spacing on different sides of a container</li>
@@ -80,9 +80,9 @@ export function SpacingPage() {
 
             <div class="b-b bc-subtle" />
 
-            <div class="stack gap-xs">
+            <div class="stack-v gap-xs">
               <span class="ink-prominent fw-bold fs-s">Use margin when...</span>
-              <ul class="list stack gap-2xs fs-s ink-subtle">
+              <ul class="list stack-v gap-2xs fs-s ink-subtle">
                 <li>You can't use gap (not in a flex container)</li>
                 <li>You need to push a single element away from others</li>
                 <li>You need auto-centering (.mx-auto, .ml-auto, etc.)</li>
@@ -92,9 +92,9 @@ export function SpacingPage() {
 
             <div class="b-b bc-subtle" />
 
-            <div class="stack gap-xs">
+            <div class="stack-v gap-xs">
               <span class="ink-prominent fw-bold fs-s">Prefer gap over margin because...</span>
-              <ul class="list stack gap-2xs fs-s ink-subtle">
+              <ul class="list stack-v gap-2xs fs-s ink-subtle">
                 <li>Gap doesn't collapse or interact with neighboring margins</li>
                 <li>
                   Gap only affects the space <em>between</em> items, not before the first or after
@@ -110,11 +110,11 @@ export function SpacingPage() {
       {/* Gap (preferred) */}
       <Section
         title="Gap — Space Between Items"
-        description="Use gap-* on flex containers (.stack or .stack-horizontal) to space children. This is the cleanest way to add space — no margin math needed."
+        description="Use gap-* on flex containers (.stack-v or .stack-h) to space children. This is the cleanest way to add space — no margin math needed."
       >
         <ExampleGroup>
           <Example label=".gap-xs" description="tight spacing for related items">
-            <div class="stack gap-xs">
+            <div class="stack-v gap-xs">
               <DemoBox label="Item 1" />
               <DemoBox label="Item 2" />
               <DemoBox label="Item 3" />
@@ -122,7 +122,7 @@ export function SpacingPage() {
           </Example>
 
           <Example label=".gap-m" description="default spacing, good for most cases">
-            <div class="stack gap-m">
+            <div class="stack-v gap-m">
               <DemoBox label="Item 1" />
               <DemoBox label="Item 2" />
               <DemoBox label="Item 3" />
@@ -130,7 +130,7 @@ export function SpacingPage() {
           </Example>
 
           <Example label=".gap-l" description="comfortable spacing with breathing room">
-            <div class="stack gap-l">
+            <div class="stack-v gap-l">
               <DemoBox label="Item 1" />
               <DemoBox label="Item 2" />
               <DemoBox label="Item 3" />
@@ -140,7 +140,7 @@ export function SpacingPage() {
 
         <ExampleGroup>
           <Example label=".gap-row-*" description="control only vertical spacing">
-            <div class="stack-horizontal gap-row-l gap-column-2xs">
+            <div class="stack-h gap-row-l gap-column-2xs">
               <DemoBox label="A" />
               <DemoBox label="B" />
               <DemoBox label="C" />
@@ -151,7 +151,7 @@ export function SpacingPage() {
           </Example>
 
           <Example label=".gap-column-*" description="control only horizontal spacing">
-            <div class="stack-horizontal gap-row-2xs gap-column-l">
+            <div class="stack-h gap-row-2xs gap-column-l">
               <DemoBox label="A" />
               <DemoBox label="B" />
               <DemoBox label="C" />

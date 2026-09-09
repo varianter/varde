@@ -15,7 +15,7 @@ export function FormControlsPage() {
           description="Use .input on any text-like input element. Includes built-in focus ring and placeholder styling."
         >
           <ExamplePanel>
-            <div class="stack gap-2xs">
+            <div class="stack-v gap-2xs">
               <label class="form-label" for="demo-text">
                 Full name
               </label>
@@ -27,7 +27,7 @@ export function FormControlsPage() {
         {/* Textarea */}
         <Section title="Textarea" description="Use .textarea on a native textarea element.">
           <ExamplePanel>
-            <div class="stack gap-2xs">
+            <div class="stack-v gap-2xs">
               <label class="form-label" for="demo-textarea">
                 Description
               </label>
@@ -47,7 +47,7 @@ export function FormControlsPage() {
           description="Use .select on a native select element. A custom chevron is provided via background-image."
         >
           <ExamplePanel>
-            <div class="stack gap-2xs">
+            <div class="stack-v gap-2xs">
               <label class="form-label" for="demo-select">
                 Country
               </label>
@@ -100,14 +100,14 @@ export function FormControlsPage() {
         >
           <ExampleGroup>
             <Example label=".checkbox">
-              <div class="stack gap-s">
-                <div class="stack-horizontal  gap-s">
+              <div class="stack-v gap-s">
+                <div class="stack-h  gap-s">
                   <input class="checkbox" type="checkbox" id="demo-cb1" checked />
                   <label class="fs-s" for="demo-cb1">
                     Checked
                   </label>
                 </div>
-                <div class="stack-horizontal  gap-s">
+                <div class="stack-h  gap-s">
                   <input class="checkbox" type="checkbox" id="demo-cb2" />
                   <label class="fs-s" for="demo-cb2">
                     Unchecked
@@ -117,14 +117,14 @@ export function FormControlsPage() {
             </Example>
 
             <Example label=".radio">
-              <div class="stack gap-s">
-                <div class="stack-horizontal gap-s">
+              <div class="stack-v gap-s">
+                <div class="stack-h gap-s">
                   <input class="radio" type="radio" name="demo-radio" id="demo-r1" checked />
                   <label class="fs-s" for="demo-r1">
                     Option A
                   </label>
                 </div>
-                <div class="stack-horizontal gap-s">
+                <div class="stack-h gap-s">
                   <input class="radio" type="radio" name="demo-radio" id="demo-r2" />
                   <label class="fs-s" for="demo-r2">
                     Option B
@@ -141,20 +141,20 @@ export function FormControlsPage() {
           description='All controls support data-size="small" and data-size="large". Medium is the default.'
         >
           <ExamplePanel>
-            <div class="stack gap-s">
-              <div class="stack-horizontal gap-s">
+            <div class="stack-v gap-s">
+              <div class="stack-h gap-s">
                 <input class="input grow" type="text" data-size="small" placeholder="Small" />
                 <button type="button" class="button" data-size="small">
                   Matching button
                 </button>
               </div>
-              <div class="stack-horizontal gap-s">
+              <div class="stack-h gap-s">
                 <input class="input grow" type="text" data-size="medium" placeholder="Medium" />
                 <button type="button" class="button" data-size="medium">
                   Matching button
                 </button>
               </div>
-              <div class="stack-horizontal gap-s">
+              <div class="stack-h gap-s">
                 <input class="input grow" type="text" data-size="large" placeholder="large" />
                 <button type="button" class="button" data-size="large">
                   Matching button
@@ -172,7 +172,7 @@ export function FormControlsPage() {
           }
         >
           <ExamplePanel>
-            <div class="stack gap-2xs">
+            <div class="stack-v gap-2xs">
               <label class="form-label" for="demo-error">
                 Organization number
               </label>
@@ -190,15 +190,15 @@ export function FormControlsPage() {
           description="A realistic form combining labels, layout, validation, and multiple control types."
         >
           <ExamplePanel>
-            <form class="stack gap-m">
-              <div class="stack-horizontal items-start gap-m">
-                <div class="stack gap-2xs grow">
+            <form class="stack-v gap-m">
+              <div class="stack-h items-start gap-m">
+                <div class="stack-v gap-2xs grow">
                   <label class="form-label" for="demo-first">
                     First name
                   </label>
                   <input class="input" type="text" id="demo-first" placeholder="Ola" />
                 </div>
-                <div class="stack gap-2xs grow">
+                <div class="stack-v gap-2xs grow">
                   <label class="form-label" for="demo-last">
                     Last name
                   </label>
@@ -206,7 +206,7 @@ export function FormControlsPage() {
                 </div>
               </div>
 
-              <div class="stack">
+              <div class="stack-v">
                 <label class="form-label mb-3xs" for="demo-email">
                   Email
                 </label>
@@ -222,7 +222,7 @@ export function FormControlsPage() {
                 </color-mode>
               </div>
 
-              <div class="stack gap-2xs">
+              <div class="stack-v gap-2xs">
                 <label class="form-label" for="demo-country">
                   Country
                 </label>
@@ -234,7 +234,7 @@ export function FormControlsPage() {
                 </select>
               </div>
 
-              <div class="stack gap-2xs">
+              <div class="stack-v gap-2xs">
                 <label class="form-label" for="demo-message">
                   Message
                 </label>
@@ -246,7 +246,7 @@ export function FormControlsPage() {
                 />
               </div>
 
-              <div class="stack-horizontal gap-s">
+              <div class="stack-h gap-s">
                 <input class="checkbox" type="checkbox" id="demo-terms" />
                 <label class="fs-s" for="demo-terms">
                   I accept the terms and conditions
@@ -265,7 +265,7 @@ export function FormControlsPage() {
           description="A realistic form combining labels, layout, validation, and multiple control types."
         >
           <ExamplePanel>
-            <div class="input stack-horizontal stack-nowrap">
+            <div class="input stack-h stack-v-nowrap">
               <input type="text" class="flex-1" />
               <span class="ml-auto">boop</span>
             </div>

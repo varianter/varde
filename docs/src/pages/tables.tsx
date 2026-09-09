@@ -48,8 +48,8 @@ export function TablesPage() {
         title="Density"
         description='You can set data-density to "compact" or "relaxed" to control cell padding.'
       >
-        <div class="stack gap-m">
-          <div class="stack gap-2xs">
+        <div class="stack-v gap-m">
+          <div class="stack-v gap-2xs">
             <span class="fs-xs ink-subtle fw-medium">Compact</span>
             <ExamplePanel>
               <table class="table" data-density="compact">
@@ -91,7 +91,7 @@ export function TablesPage() {
             </ExamplePanel>
           </div>
 
-          <div class="stack gap-2xs">
+          <div class="stack-v gap-2xs">
             <span class="fs-xs ink-subtle fw-medium">Relaxed</span>
             <ExamplePanel>
               <table class="table" data-density="relaxed">

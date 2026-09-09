@@ -1,12 +1,12 @@
 @layer stack {
-  .stack,
-  .stack-horizontal {
+  .stack-v,
+  .stack-h {
     display: flex;
     justify-content: flex-start;
     flex-flow: column wrap;
   }
 
-  .stack-horizontal {
+  .stack-h {
     align-items: center;
     flex-direction: row;
   }

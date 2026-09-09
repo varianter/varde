@@ -26,10 +26,10 @@ export default function LayoutPage() {
       {/* Vertical Stack */}
       <Section
         title="Vertical Stack"
-        description="The default .stack is a vertical flex column. Use it for any top-to-bottom flow."
+        description="The default .stack-v is a vertical flex column. Use it for any top-to-bottom flow."
       >
         <ExamplePanel>
-          <div class="stack gap-s">
+          <div class="stack-v gap-s">
             <DemoBox label="First" />
             <DemoBox label="Second" />
             <DemoBox label="Third" />
@@ -43,24 +43,24 @@ export default function LayoutPage() {
         description="Three horizontal variants control cross-axis alignment. All wrap by default — use .nowrap only when you're certain items should never wrap."
       >
         <ExampleGroup>
-          <Example label=".stack-horizontal" description="centered (default)" resize>
-            <div class="stack-horizontal gap-s">
+          <Example label=".stack-h" description="centered (default)" resize>
+            <div class="stack-h gap-s">
               <DemoBox label="A" />
               {tallBox}
               <DemoBox label="C" />
             </div>
           </Example>
 
-          <Example label=".stack-horizontal items-start" description="top-aligned" resize>
-            <div class="stack-horizontal items-start gap-s">
+          <Example label=".stack-h items-start" description="top-aligned" resize>
+            <div class="stack-h items-start gap-s">
               <DemoBox label="A" />
               {tallBox}
               <DemoBox label="C" />
             </div>
           </Example>
 
-          <Example label=".stack-horizontal items-end" description="bottom-aligned" resize>
-            <div class="stack-horizontal items-end gap-s">
+          <Example label=".stack-h items-end" description="bottom-aligned" resize>
+            <div class="stack-h items-end gap-s">
               <DemoBox label="A" />
               {tallBox}
               <DemoBox label="C" />
@@ -69,8 +69,8 @@ export default function LayoutPage() {
         </ExampleGroup>
 
         <ExampleGroup>
-          <Example label=".stack-horizontal" description="items wrap when space runs out" resize>
-            <div class="stack-horizontal gap-s">
+          <Example label=".stack-h" description="items wrap when space runs out" resize>
+            <div class="stack-h gap-s">
               {wrappingItems.map((item) => (
                 <DemoBox label={item} />
               ))}
@@ -78,7 +78,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".nowrap" description="forced single line (use sparingly)" resize>
-            <div class="stack-horizontal nowrap gap-s of-scroll">
+            <div class="stack-h nowrap gap-s of-scroll">
               {wrappingItems.map((item) => (
                 <DemoBox label={item} />
               ))}
@@ -91,7 +91,7 @@ export default function LayoutPage() {
       <Section title="Flex Sizing" description="Control how items grow and shrink within a stack.">
         <ExampleGroup>
           <Example label=".grow" description="flex-grow: 1" resize>
-            <div class="stack-horizontal gap-s">
+            <div class="stack-h gap-s">
               <DemoBox label="Fixed" />
               <div class="grow">
                 <DemoBox label=".grow (fills remaining space)" />
@@ -100,7 +100,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".flex-1" description="flex: 1 (equal sizing)" resize>
-            <div class="stack-horizontal gap-s">
+            <div class="stack-h gap-s">
               <div class="flex-1">
                 <DemoBox label=".flex-1" />
               </div>
@@ -114,7 +114,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".shrink" description="flex-shrink: 1" resize>
-            <div class="stack-horizontal nowrap gap-s">
+            <div class="stack-h nowrap gap-s">
               <div class="grow">
                 <DemoBox label=".grow" />
               </div>
@@ -133,7 +133,7 @@ export default function LayoutPage() {
       >
         <ExampleGroup>
           <Example label=".ml-auto" description="push last item right" resize>
-            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
+            <div class="stack-h gap-s b-all bc-default p-s br-m">
               <DemoBox label="Logo" />
               <DemoBox label="Nav" />
               <div class="ml-auto">
@@ -143,7 +143,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".mx-auto" description="center an item" resize>
-            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
+            <div class="stack-h gap-s b-all bc-default p-s br-m">
               <DemoBox label="Left" />
               <div class="mx-auto">
                 <DemoBox label="Centered" />
@@ -157,7 +157,7 @@ export default function LayoutPage() {
             description="push remaining items right (resize to see wrap behavior)"
             resize
           >
-            <div class="stack-horizontal gap-s b-all bc-default p-s br-m">
+            <div class="stack-h gap-s b-all bc-default p-s br-m">
               <div class="mr-auto">
                 <DemoBox label="Logo" />
               </div>
@@ -166,7 +166,7 @@ export default function LayoutPage() {
           </Example>
 
           <Example label=".mt-auto" description="push item to bottom">
-            <div class="stack gap-s b-all bc-default p-s br-m" style="height: 18rem;">
+            <div class="stack-v gap-s b-all bc-default p-s br-m" style="height: 18rem;">
               <DemoBox label="Title" />
               <DemoBox label="Description" />
               <div class="mt-auto">

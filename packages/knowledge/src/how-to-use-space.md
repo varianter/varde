@@ -9,7 +9,7 @@ We generally want less spacing when things are getting nested. As an example, a 
 
 Do:
 
-- When more than two elements in the same container: use `.stack`
+- When more than two elements in the same container: use `.stack-v`
 - When just one element, and there is no background involved, use the `.m-*` classes.
 - When many elements look the same, like lists or cards spacing should be uniform.
 - When elements are not alike, do not use the same spacing between them.
@@ -19,7 +19,7 @@ Do:
 Here's an example of a regular input:
 
 ```html
-<div class="stack">
+<div class="stack-v">
   <label class="label mb-3xs" for="demo-email">Email</label>
   <input class="input mb-2xs" type="email" id="demo-email" />
 </div>
@@ -28,7 +28,7 @@ Here's an example of a regular input:
 With a validation error:
 
 ```html
-<div class="stack">
+<div class="stack-v">
   <label class="label mb-3xs" for="demo-email">Email</label>
   <input
     class="input"
@@ -43,4 +43,4 @@ With a validation error:
 </div>
 ```
 
-Note that we do not use `.stack` here, because the spacing of the label and the error is not 1:1. These are three different elements and should have non-uniform spacing.
+Note that we do not use `.stack-v` here, because the spacing of the label and the error is not 1:1. These are three different elements and should have non-uniform spacing.
