@@ -1,61 +1,52 @@
 import { defineMdastPlugin, markdownToHtml } from "satteri";
-import { createCssVariablesTheme, createHighlighter, type Highlighter } from "shiki";
 
-const vardeTheme = createCssVariablesTheme({ name: "varde" });
-
-let highlighterPromise: Promise<Highlighter> | null = null;
-
-function getHighlighter(): Promise<Highlighter> {
-  highlighterPromise ??= createHighlighter({
-    themes: [vardeTheme],
-    langs: ["html", "css", "bash", "js", "ts", "tsx", "json", "text", "shell"],
-  });
-  return highlighterPromise;
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
-/** Build the HTML string for a code-example wrapper (preview + details toggle). */
-function wrapCodeExample(rawHtml: string, highlightedPre: string): string {
+/** Build a live code example: a rendered preview (HTML only) plus an editable,
+ * client-highlighted editor. The client mounts it via `<code-example>`. */
+function codeExample(lang: string, code: string, meta: string | null | undefined): string {
+  const open = meta?.split(/\s+/).includes("open") ? " open" : "";
+  const preview =
+    lang === "html"
+      ? `<color-mode palette="inherit" class="d-block code-example__preview p-s surface-base untypeset">${code}</color-mode>`
+      : "";
+
   return [
-    `<div class="b-all bc-subtle br-m mt-m mb-xl of-clip">`,
-    `<color-mode palette="inherit" class="d-block code-example__preview p-s surface-base untypeset">${rawHtml}</color-mode>`,
-    `<details class="b-t bc-subtle surface-tinted">`,
-    `<summary class="px-s py-2xs my-xs mx-xs  button" data-size='small' data-variant='outlined'><div class="">Show code</div></summary>`,
+    `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block">`,
+    preview,
+    `<details class="b-t bc-subtle surface-tinted"${open}>`,
+    `<summary class="px-s py-2xs my-xs mx-xs button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
     `<div class="px-s">`,
-    highlightedPre,
+    `<pre class="microjar px-m py-m -mx-s"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
     `</div>`,
     `</details>`,
-    `</div>`,
+    `</code-example>`,
   ].join("");
 }
 
-function highlightCodePlugin(hl: Highlighter) {
+function highlightCodePlugin() {
   return defineMdastPlugin({
     name: "highlight-code",
-    async code(node, ctx) {
-      const lang = node.lang || "text";
-      const text = node.value;
-
-      const highlighted = hl.codeToHtml(text, {
-        lang,
-        theme: vardeTheme,
+    code(node, ctx) {
+      if (!node.value.trim()) return;
+      ctx.replaceNode(node, {
+        type: "html",
+        value: codeExample(node.lang || "text", node.value, node.meta),
       });
-
-      if (lang === "html" && text.trim().length > 0) {
-        const wrapperHtml = wrapCodeExample(text, highlighted);
-        ctx.replaceNode(node, { type: "html", value: wrapperHtml });
-      } else {
-        ctx.replaceNode(node, { type: "html", value: highlighted });
-      }
     },
   });
 }
 
 export async function processMarkdown(content: string): Promise<string> {
-  const hl = await getHighlighter();
-
   const result = await markdownToHtml(content, {
     features: { gfm: true, frontmatter: true },
-    mdastPlugins: [highlightCodePlugin(hl)],
+    mdastPlugins: [highlightCodePlugin()],
   });
 
   return result.html;

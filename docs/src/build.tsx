@@ -6,6 +6,8 @@ import { rootApp } from "./root";
 
 const STATIC_SRC = join(import.meta.dir, "../../packages/static");
 const STATIC_DEST = join("./dist", "static");
+const CLIENTSIDE_SRC = join(import.meta.dir, "clientside");
+const CLIENTSIDE_DEST = join("./dist", "docs", "clientside");
 
 await toSSG(app, { dir: "./dist" });
 await toSSG(rootApp, { dir: "./dist" });
@@ -31,3 +33,4 @@ async function toDirectoryStyle(dir: string): Promise<void> {
 await toDirectoryStyle("./dist");
 
 await cp(STATIC_SRC, STATIC_DEST, { recursive: true });
+await cp(CLIENTSIDE_SRC, CLIENTSIDE_DEST, { recursive: true });

@@ -1,5 +1,6 @@
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: decorative icons do not need titles */
 
+import { join } from "node:path";
 import stylesCSS from "@varde/css" with { type: "text" };
 import { Hono } from "hono";
 import { css, Style } from "hono/css";
@@ -17,6 +18,20 @@ const app = new Hono({ strict: false }).basePath("/docs");
 app.get("/styles.css", (c) => {
   c.header("Content-Type", "text/css");
   return c.body(stylesCSS);
+});
+
+const clientsideDir = join(import.meta.dir, "clientside");
+
+app.get("/clientside/:file", async (c) => {
+  const rel = c.req.param("file");
+  if (!rel) {
+    return c.notFound();
+  }
+  const file = Bun.file(join(clientsideDir, rel));
+  if (!(await file.exists())) {
+    return c.notFound();
+  }
+  return new Response(file, { headers: { "Content-Type": "text/javascript" } });
 });
 
 app.use(
@@ -118,22 +133,148 @@ app.use(
                   }
                 }
 
-                /* ── Shiki syntax theme — colors resolved from design tokens ── */
+                /* ── Syntax theme — colors resolved from design tokens ── */
                 :root {
-                  --shiki-foreground: var(--ink-default);
-                  --shiki-background: var(--surface-dyed);
-                  --shiki-token-comment: var(--ink-subtle);
-                  --shiki-token-punctuation: var(--ink-subtle);
-                  --shiki-token-keyword: light-dark(var(--palette-purple-650), var(--palette-purple-300));
-                  --shiki-token-string: light-dark(var(--palette-green-650), var(--palette-green-350));
-                  --shiki-token-string-expression: light-dark(var(--palette-teal-650), var(--palette-teal-350));
-                  --shiki-token-constant: light-dark(var(--palette-orange-650), var(--palette-orange-350));
-                  --shiki-token-function: light-dark(var(--palette-blue-650), var(--palette-blue-300));
-                  --shiki-token-parameter: light-dark(var(--palette-coral-600), var(--palette-coral-300));
-                  --shiki-token-link: light-dark(var(--palette-periwinkle-650), var(--palette-periwinkle-300));
-                  --shiki-token-inserted: light-dark(var(--palette-green-650), var(--palette-green-350));
-                  --shiki-token-deleted: light-dark(var(--palette-coral-650), var(--palette-coral-350));
-                  --shiki-token-changed: light-dark(var(--palette-yellow-650), var(--palette-yellow-350));
+                  --syntax-bg: light-dark(var(--palette-grey-100), var(--palette-grey-850));
+                  --syntax-ink: light-dark(var(--palette-grey-800), var(--palette-grey-150));
+                  --syntax-rule: light-dark(var(--palette-orange-300), var(--palette-orange-650));
+                  --syntax-caret: light-dark(var(--palette-purple-500), var(--palette-purple-400));
+                  --syntax-select: light-dark(var(--palette-grey-250), var(--palette-grey-700));
+                  --syntax-comment: light-dark(var(--palette-grey-550), var(--palette-grey-450));
+                  --syntax-keyword: light-dark(
+                    var(--palette-purple-550),
+                    var(--palette-purple-450)
+                  );
+                  --syntax-string: light-dark(var(--palette-green-500), var(--palette-green-250));
+                  --syntax-number: light-dark(var(--palette-orange-600), var(--palette-orange-350));
+                  --syntax-entity: light-dark(var(--palette-blue-500), var(--palette-blue-400));
+                  --syntax-binding: light-dark(var(--palette-teal-700), var(--palette-teal-450));
+                  --syntax-mark: light-dark(var(--palette-grey-650), var(--palette-grey-350));
+                  --syntax-regexp: light-dark(var(--palette-coral-500), var(--palette-coral-450));
+                  --syntax-support: light-dark(
+                    var(--palette-purple-650),
+                    var(--palette-purple-350)
+                  );
+                  --syntax-added-bg: light-dark(var(--palette-green-200), var(--palette-green-750));
+                  --syntax-removed-bg: light-dark(
+                    var(--palette-coral-200),
+                    var(--palette-coral-750)
+                  );
+                }
+
+                pre:has(code) {
+                  background-color: var(--syntax-bg);
+                  color: var(--syntax-ink);
+                  overflow-x: auto;
+                }
+
+                ::highlight(comment) {
+                  color: var(--syntax-comment);
+                }
+                ::highlight(quote) {
+                  color: var(--syntax-comment);
+                }
+
+                ::highlight(keyword) {
+                  color: var(--syntax-keyword);
+                }
+                ::highlight(storage) {
+                  color: var(--syntax-keyword);
+                }
+                ::highlight(at-rule) {
+                  color: var(--syntax-keyword);
+                }
+                ::highlight(doctype) {
+                  color: var(--syntax-keyword);
+                }
+
+                ::highlight(string) {
+                  color: var(--syntax-string);
+                }
+                ::highlight(attribute-value) {
+                  color: var(--syntax-string);
+                }
+                ::highlight(raw) {
+                  color: var(--syntax-string);
+                }
+
+                ::highlight(numeric) {
+                  color: var(--syntax-number);
+                }
+                ::highlight(boolean) {
+                  color: var(--syntax-number);
+                }
+                ::highlight(constant) {
+                  color: var(--syntax-number);
+                }
+                ::highlight(symbol) {
+                  color: var(--syntax-number);
+                }
+                ::highlight(character-entity) {
+                  color: var(--syntax-number);
+                }
+
+                ::highlight(entity) {
+                  color: var(--syntax-entity);
+                }
+                ::highlight(function) {
+                  color: var(--syntax-entity);
+                }
+                ::highlight(class) {
+                  color: var(--syntax-entity);
+                }
+                ::highlight(type) {
+                  color: var(--syntax-entity);
+                }
+                ::highlight(tag) {
+                  color: var(--syntax-entity);
+                }
+                ::highlight(section) {
+                  color: var(--syntax-entity);
+                }
+
+                ::highlight(variable) {
+                  color: var(--syntax-binding);
+                }
+                ::highlight(property) {
+                  color: var(--syntax-binding);
+                }
+                ::highlight(attribute-name) {
+                  color: var(--syntax-binding);
+                }
+
+                ::highlight(punctuation) {
+                  color: var(--syntax-mark);
+                }
+                ::highlight(operator) {
+                  color: var(--syntax-mark);
+                }
+
+                ::highlight(regexp) {
+                  color: var(--syntax-regexp);
+                }
+                ::highlight(support) {
+                  color: var(--syntax-support);
+                }
+
+                ::highlight(link) {
+                  color: var(--syntax-entity);
+                  text-decoration: underline;
+                  text-underline-offset: 2px;
+                }
+
+                ::highlight(important) {
+                  color: var(--syntax-keyword);
+                  text-decoration: underline;
+                  text-decoration-style: wavy;
+                  text-underline-offset: 3px;
+                }
+
+                ::highlight(inserted) {
+                  background-color: var(--syntax-added-bg);
+                }
+                ::highlight(deleted) {
+                  background-color: var(--syntax-removed-bg);
                 }
               `}
             </Style>
@@ -149,7 +290,18 @@ app.use(
             {html`<script type="module">
               import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
             </script>`}
-            <script type="module"></script>
+
+            <script
+              type="importmap"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  imports: {
+                    microlighter: "https://cdn.jsdelivr.net/npm/microlighter@2.1.0/dist/index.js",
+                  },
+                }),
+              }}
+            />
+            <script type="module" src="/docs/clientside/code-editor.js"></script>
           </head>
           <body class="fs-m">
             <header class="site-header stack b-b bc-subtle px-s-m ">

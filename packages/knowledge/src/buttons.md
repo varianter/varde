@@ -1,14 +1,14 @@
 ---
 title: Buttons
-description: Turn a button or link into a styled button with variants and sizes.
+description: Style buttons and links with variants and sizes.
 ---
 
-Add `.button` to a `<button>` or `<a>` element to turn it into a styled button. You can change its look with two optional settings:
+Add `.button` to a `<button>` or `<a>` element to style it. Two attributes change the look:
 
-- `data-variant` — changes how color is applied
-- `data-size` — changes how big the button is
+- `data-variant` changes how color is applied
+- `data-size` changes how big the button is
 
-Both are optional. If you leave them off, you get a medium-sized filled button. Color comes from the surrounding `<color-mode palette="...">`. Buttons placed outside a `<color-mode>` use the default grey palette.
+Without them you get a medium filled button. Color comes from the surrounding `<color-mode palette="...">`. Buttons outside a `<color-mode>` use the default grey palette.
 
 ## Variants and sizes
 
@@ -42,7 +42,7 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 
 ## Color
 
-Buttons get their color from the `<color-mode palette="...">` they sit inside. Wrap your buttons in a `<color-mode>` and they pick up the palette automatically — you don't need to set a color on each button.
+Buttons get their color from the `<color-mode palette="...">` they sit inside. Wrap your buttons in a `<color-mode>` and they use the palette. You don't need to set a color on each button.
 
 ```html
 <div class="stack gap-xs">
@@ -70,13 +70,17 @@ Buttons get their color from the `<color-mode palette="...">` they sit inside. W
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
-    <button class="button" data-variant="plain">Plain</button> </color-mode
-  ><color-mode class="stack-horizontal gap-xs" palette="green">
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode class="stack-horizontal gap-xs" palette="green">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
-    <button class="button" data-variant="plain">Plain</button> </color-mode
-  ><color-mode class="stack-horizontal gap-xs" palette="yellow">
+    <button class="button" data-variant="plain">Plain</button>
+  </color-mode>
+
+  <color-mode class="stack-horizontal gap-xs" palette="yellow">
     <button class="button">Filled</button>
     <button class="button" data-variant="tinted">Tinted</button>
     <button class="button" data-variant="outlined">Outlined</button>
@@ -102,7 +106,7 @@ For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on
 
 ### Loading states
 
-To show that an action is loading or processing, put a `.spinner` inside the button. The spinner picks up the button's color and size on its own. Use a spinner to show progress rather than disabling the button.
+To show that an action is loading or processing, put a `.spinner` inside the button. The spinner inherits the button's color and size. Use a spinner to show progress rather than disabling the button.
 
 ```html
 <div class="stack-horizontal gap-xs mb-xs">
@@ -159,7 +163,7 @@ A pill shape:
 </button>
 ```
 
-Make one button stand out as the primary action with **wider padding** and a `color-mode`, while keeping other buttons subdued:
+To make one button the primary action, widen its padding and wrap it in a `color-mode`. Keep the others subdued:
 
 ```html
 <div class="stack-horizontal gap-xs">

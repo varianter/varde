@@ -33,29 +33,29 @@ From smallest to largest. `m` equals `1rem`.
 
 Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.inline-flex`
 
-Alignment: `.items-start|end|center|stretch` and `.justify-start|end|center|between` on the container; `.self-start|end|center|stretch` on a single child. `.justify-self-start|end|center|stretch` positions one child on the main axis in grid layouts (no effect in flex).
+Alignment: `.items-start`, `.items-end`, `.items-center`, and `.items-stretch` on the container. For the main axis: `.justify-start`, `.justify-end`, `.justify-center`, and `.justify-between`. On a single child: `.self-start`, `.self-end`, `.self-center`, and `.self-stretch`. In grid layouts, `.justify-self-start`, `.justify-self-end`, `.justify-self-center`, and `.justify-self-stretch` position one child on the main axis (no effect in flex).
 
 ---
 
 ## Spacing utilities
 
-**Padding** — prefix `p`, direction optional (`x` `y` `l` `r` `t` `b`):
+**Padding.** Prefix `p`, direction optional (`x` `y` `l` `r` `t` `b`):
 
 ```html
 <div class="p-m px-l pt-xs"></div>
 ```
 
-**Margin** — prefix `m`, direction optional (`x` `y` `l` `r` `t` `b`):
+**Margin.** Prefix `m`, direction optional (`x` `y` `l` `r` `t` `b`):
 
 ```html
 <div class="mt-xl mx-auto ml-auto"></div>
 ```
 
-Negative margins: `-mt-s` `-ml-m` etc.
+Negative margins use the same scale, e.g. `-mt-s`, `-ml-m`.
 
 When they overlap, the more specific utility always wins, regardless of class order: single side (`pt-`) beats axis (`px-`), which beats all sides (`p-`).
 
-**Gap** — for flex/grid containers:
+**Gap.** For flex/grid containers:
 
 ```html
 <div class="gap-m">
@@ -72,7 +72,7 @@ When they overlap, the more specific utility always wins, regardless of class or
   <span class="fs-xs">fs-xs</span>
   <span class="fs-s">fs-s</span>
 
-  <!-- this is default and is set at html element. -->
+  <!-- the default, set on the html element -->
   <span class="fs-m">fs-m</span>
   <span class="fs-l">fs-l</span>
   <span class="fs-xl">fs-xl</span>
@@ -132,7 +132,7 @@ Never hardcode colors. Never use `--palette-*` variables directly. Always use se
 **Border color:**
 
 ```html
-<!-- quieter lines: often for niceness rather than structural integrity -->
+<!-- decorative lines, not structural -->
 <div class="bc-subtle b-all p-xs mb-xs">.bc-subtle</div>
 
 <!-- everyday borders -->
@@ -211,31 +211,20 @@ Always pair a border side class with a border color class:
 
 ### Button
 
-Apply `.button` to `<button>` or `<a>`. Axes are independent and combinable.
+Apply `.button` to `<button>` or `<a>`. Variant and size are independent; combine them freely. Color comes from the surrounding `<color-mode>`.
 
 ```html
-<!-- Color (default: primary) -->
-<button class="button">Primary</button>
-<button class="button" data-color="secondary">Secondary</button>
-<button class="button" data-color="danger">Danger</button>
-
 <!-- Variant (default: filled) -->
 <button class="button" data-variant="tinted">Tinted</button>
+<button class="button" data-variant="outlined">Outlined</button>
 <button class="button" data-variant="plain">Plain</button>
 
 <!-- Size (default: medium) -->
 <button class="button" data-size="small">Small</button>
 <button class="button" data-size="large">Large</button>
 
-<!-- or combined together -->
-<button
-  class="button"
-  data-size="small"
-  data-variant="plain"
-  data-color="danger"
->
-  Delete
-</button>
+<!-- or combined -->
+<button class="button" data-size="small" data-variant="plain">Delete</button>
 ```
 
 ### Form controls
@@ -252,7 +241,7 @@ Apply `.button` to `<button>` or `<a>`. Axes are independent and combinable.
 <input class="radio" type="radio" />
 ```
 
-Invalid state (don't add custom error classes — use the attribute):
+For invalid state, use the attribute rather than a custom error class:
 
 ```html
 <input class="input" aria-invalid="true" />

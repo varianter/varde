@@ -11,8 +11,7 @@
   "dependencies": {
     "@varde/css": "workspace:*",
     "hono": "^4.12.4",
-    "satteri": "^0.9.5",
-    "shiki": "^4.2.0"
+    "satteri": "^0.9.5"
   },
   "devDependencies": {
     "@types/bun": "latest"

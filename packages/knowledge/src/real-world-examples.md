@@ -243,7 +243,10 @@ Without buttons, only `color-mode`:
       >Not selected</a
     >
   </color-mode>
-  <color-mode inverted class="surface-dyed b-r bc-subtle b-none:last-child d-block ">
+  <color-mode
+    inverted
+    class="surface-dyed b-r bc-subtle b-none:last-child d-block "
+  >
     <a href="#" class="d-block py-2xs px-s bg-wash:hover fw-medium fs-s">
       Selected</a
     >
