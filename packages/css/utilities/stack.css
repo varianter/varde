@@ -24,7 +24,4 @@
   .nowrap {
     flex-wrap: nowrap;
   }
-  .inline-flex {
-    display: inline-flex;
-  }
 }

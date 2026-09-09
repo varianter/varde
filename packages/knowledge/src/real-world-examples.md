@@ -401,7 +401,7 @@ Without buttons, only `color-mode`:
       Konsulenter
       <color-mode
         palette="orange"
-        class="d-iblock px-2xs surface-dyed br-pill fs-xs"
+        class="d-inline-block px-2xs surface-dyed br-pill fs-xs"
         >96</color-mode
       >
     </div>
@@ -578,7 +578,7 @@ Without buttons, only `color-mode`:
   >
     <!-- Header -->
     <div
-      class="position-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
+      class="pos-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
     >
       <h1 class="fs-l fw-bold ink-prominent">Filter</h1>
       <button

@@ -31,7 +31,7 @@ From smallest to largest. `m` equals `1rem`.
 <div class="stack-horizontal items-stretch"></div>
 ```
 
-Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.inline-flex`
+Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.d-inline-flex`
 
 Alignment: `.items-start`, `.items-end`, `.items-center`, and `.items-stretch` on the container. For the main axis: `.justify-start`, `.justify-end`, `.justify-center`, and `.justify-between`. On a single child: `.self-start`, `.self-end`, `.self-center`, and `.self-stretch`. In grid layouts, `.justify-self-start`, `.justify-self-end`, `.justify-self-center`, and `.justify-self-stretch` position one child on the main axis (no effect in flex).
 

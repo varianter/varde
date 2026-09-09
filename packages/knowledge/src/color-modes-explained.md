@@ -15,14 +15,14 @@ Most design systems name colours after the colour: `--green-500`, `--color-succe
 
 Varde names colours after the **job they do**:
 
-| Token                                   | Job                                   |
-| --------------------------------------- | ------------------------------------- |
-| `surface-base`                       | the plainest background               |
-| `surface-tinted`                     | a background with a bit more presence |
-| `surface-dyed`                       | a background with a lot more presence |
-| `ink-default`                            | normal text                           |
-| `ink-subtle`                              | quieter text                          |
-| `ink-prominent`                           | louder text                           |
+| Token                                       | Job                                   |
+| ------------------------------------------- | ------------------------------------- |
+| `surface-base`                              | the plainest background               |
+| `surface-tinted`                            | a background with a bit more presence |
+| `surface-dyed`                              | a background with a lot more presence |
+| `ink-default`                               | normal text                           |
+| `ink-subtle`                                | quieter text                          |
+| `ink-prominent`                             | louder text                           |
 | `bc-subtle` / `bc-default` / `bc-prominent` | borders, from barely-there to obvious |
 
 Notice that none of those say what colour they are. That's on purpose. They're _slots_. `<color-mode>` is what fills them in.
@@ -59,7 +59,7 @@ The available palettes:
 
 `grey` · `blue` · `green` · `yellow` · `orange` · `coral` · `purple` · `teal` · `periwinkle`
 
-> **One thing to remember:** `<color-mode>` is invisible by default — it doesn't create a box, it just passes colour down. If you want it to _have_ a background, give it a display class too: `d-block`, `d-iblock`, `stack`, or `stack-horizontal`. If your background isn't showing up, this is almost always why.
+> **One thing to remember:** `<color-mode>` is invisible by default — it doesn't create a box, it just passes colour down. If you want it to _have_ a background, give it a display class too: `d-block`, `d-inline-block`, `stack`, or `stack-horizontal`. If your background isn't showing up, this is almost always why.
 
 ## Usage on wrappers or sections
 
@@ -87,7 +87,7 @@ The exact same tool works on a single word.
 
 <color-mode
   palette="green"
-  class="d-iblock surface-dyed px-xs py-4xs br-pill fs-xs"
+  class="d-inline-block surface-dyed px-xs py-4xs br-pill fs-xs"
 >
   +3.2%
 </color-mode>
@@ -99,28 +99,28 @@ Here's the part that saves real work. A status column in a table — six badges,
 <color-mode
   inverted
   palette="green"
-  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
+  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Paid</color-mode
 >
 
 <color-mode
   inverted
   palette="orange"
-  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
+  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Unfulfilled</color-mode
 >
 
 <color-mode
   inverted
   palette="coral"
-  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
+  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Cancelled</color-mode
 >
 
 <color-mode
   inverted
   palette="grey"
-  class="d-iblock surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
+  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
   >Refunded</color-mode
 >
 ```
@@ -137,7 +137,7 @@ Modes nest, and the nearest one wins. This is where it stops feeling like a them
 
   <color-mode
     palette="purple"
-    class="d-iblock surface-dyed px-2xs br-s fs-xs"
+    class="d-inline-block surface-dyed px-2xs br-s fs-xs"
   >
     …but this tag inside it is purple.
   </color-mode>
@@ -241,7 +241,7 @@ The developer/designer shouldn't have to think about setting colors to an aria-i
 
 A short list of things that surprise people once.
 
-**Backgrounds not showing?** You forgot the display class. `<color-mode>` is invisible until you add `d-block`, `d-iblock`, `stack`, or `stack-horizontal`.
+**Backgrounds not showing?** You forgot the display class. `<color-mode>` is invisible until you add `d-block`, `d-inline-block`, `stack`, or `stack-horizontal`.
 
 **`inverted` doesn't pass through a nested `palette`.** If you set a palette on a child, it starts fresh in the normal (non-inverted) direction:
 
@@ -249,14 +249,14 @@ If you want inverted to continue, say so again on the child.
 
 **Nesting the same palette twice does nothing.** `<color-mode palette="green">` inside `<color-mode palette="green">` is a no-op. If you want a visual step, change the _surface_ instead — go from `surface-tinted` to `surface-dyed`.
 
-| Want to…            | Do this                                        |
-| ------------------- | ---------------------------------------------- |
-| Colour anything     | Wrap it in `<color-mode palette="…">`          |
-| Make it visible     | Add `d-block` or `d-iblock`                    |
-| Add contrast        | Add `inverted`                                 |
+| Want to…            | Do this                                  |
+| ------------------- | ---------------------------------------- |
+| Colour anything     | Wrap it in `<color-mode palette="…">`    |
+| Make it visible     | Add `d-block` or `d-inline-block`        |
+| Add contrast        | Add `inverted`                           |
 | Go a shade stronger | Change `surface-tinted` → `surface-dyed` |
-| Support dark mode   | Nothing — it already works                     |
-| Colour a button     | Nothing — wrap its container                   |
+| Support dark mode   | Nothing — it already works               |
+| Colour a button     | Nothing — wrap its container             |
 
 ## In one line
 

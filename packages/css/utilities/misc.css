@@ -23,8 +23,12 @@
 .d-inline {
   display: inline;
 }
-.d-iblock {
+.d-inline-block {
   display: inline-block;
+}
+
+.d-inline-flex {
+  display: inline-flex;
 }
 
 .d-grid {
@@ -40,13 +44,13 @@
   grid-column: 1 / -1;
 }
 
-.position-sticky {
+.pos-sticky {
   position: sticky;
 }
-.position-absolute {
+.pos-absolute {
   position: absolute;
 }
-.position-fixed {
+.pos-fixed {
   position: fixed;
 }
 
