@@ -10,7 +10,7 @@
 }
 
 .shadow-low,
-.shadow-medium,
+.shadow-mid,
 .shadow-high {
   --_shadow-base: var(--shadow, var(--palette-grey-800));
 }
@@ -31,7 +31,7 @@
     oklch(from var(--_shadow-color) l c h / calc(alpha * pow(var(--_alpha-falloff), 2)));
 }
 
-.shadow-medium {
+.shadow-mid {
   --_alpha-falloff: 0.7;
   --_shadow-color: light-dark(
     oklch(from var(--_shadow-base) l c h / 0.24),

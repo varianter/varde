@@ -13,7 +13,7 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 <div
-  class="surface-base mw-7 b-all b-fait br-xl shadow-medium p-s stack gap-s of-clip"
+  class="surface-base mw-7 b-all b-fait br-xl shadow-mid p-s stack gap-s of-clip"
 >
   <div class="typeset">
     <h4 class="fw-medium fs-xs">Create token</h4>
@@ -40,7 +40,7 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 
-<div class="surface-base mw-4 b-all b-fait br-xl shadow-medium p-3xs stack" >
+<div class="surface-base mw-4 b-all b-fait br-xl shadow-mid p-3xs stack" >
   <div class="" stagger-items>
     <input type="text" class="input w-full" placeholder="Søk blant kontrakter">
   </div>
@@ -578,7 +578,7 @@ Without buttons, only `color-mode`:
   >
     <!-- Header -->
     <div
-      class="position-sticky top-0 shadow-medium  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
+      class="position-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-horizontal"
     >
       <h1 class="fs-l fw-bold ink-prominent">Filter</h1>
       <button
@@ -1069,7 +1069,7 @@ This one leverages a popover, a details list, and a form
         <p class="ink-subtle mt-xs">It's really simple – anyone could do it!</p>
       </div>
 
-      <div class="shadow-medium flex-1 surface-base br-l of-clip">
+      <div class="shadow-mid flex-1 surface-base br-l of-clip">
         <div class="px-l-xl py-m b-b bc-subtle stack">
           <label class="fw-medium mb-3xs">Where is your endpoint?</label>
           <input
