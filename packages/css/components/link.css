@@ -1,6 +1,6 @@
 @layer link {
-  /* Mirror: .typeset :any-link in helpers/typeset.css */
-  :where(.link) {
+  /* Mirror: .v-typeset :any-link in helpers/typeset.css */
+  :where(.v-link) {
     color: var(--ink-link-default);
     font-weight: var(--font-weight-medium);
     text-decoration-skip-ink: auto;

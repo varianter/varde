@@ -15,7 +15,7 @@ description: Realistic compositions built with Varde utilities and components.
 <div
   class="surface-base mw-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
 >
-  <div class="typeset">
+  <div class="v-typeset">
     <h4 class="fw-medium fs-xs">Create token</h4>
     <p>
       Enter a unique name for your token to differentiate it from other tokens
@@ -26,10 +26,10 @@ description: Realistic compositions built with Varde utilities and components.
   <div
     class="-mx-s -mb-s px-s py-2xs b-t bc-subtle surface-tinted stack-h"
   >
-    <button class="button mr-auto" data-variant="outlined" data-size="small">
+    <button class="v-button mr-auto" data-variant="outlined" data-size="small">
       Cancel
     </button>
-    <button class="button px-l" data-variant="filled" data-size="small">
+    <button class="v-button px-l" data-variant="filled" data-size="small">
       Submit
     </button>
   </div>
@@ -42,13 +42,13 @@ description: Realistic compositions built with Varde utilities and components.
 
 <div class="surface-base mw-4 b-all b-fait br-xl shadow-mid p-3xs stack-v" >
   <div class="" stagger-items>
-    <input type="text" class="input w-full" placeholder="Søk blant kontrakter">
+    <input type="text" class="v-input w-full" placeholder="Søk blant kontrakter">
   </div>
   <div class="of-scroll px-2xs mt-4xs " style="max-height: 200px">
   <ul class="py-xs " stagger-items >
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -56,7 +56,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -64,7 +64,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -72,7 +72,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -80,7 +80,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -88,7 +88,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -96,7 +96,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -104,7 +104,7 @@ description: Realistic compositions built with Varde utilities and components.
     </li>
     <li class="">
       <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="icon fs-xs" data-icon="plus"></span>
+        <span class="v-icon fs-xs" data-v-icon="plus"></span>
         <span>
         Item 1
         </span>
@@ -124,9 +124,9 @@ description: Realistic compositions built with Varde utilities and components.
       <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
-          <a class="link" href="#">@jberglund</a>
+          <a class="v-link" href="#">@jberglund</a>
         </p>
-        <button class="button" data-variant="plain" data-size="small">
+        <button class="v-button" data-variant="plain" data-size="small">
           Undo rollback
         </button>
       </div>
@@ -138,9 +138,9 @@ description: Realistic compositions built with Varde utilities and components.
       <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
-          <a class="link" href="#">@jberglund</a>
+          <a class="v-link" href="#">@jberglund</a>
         </p>
-        <button class="button" data-variant="plain" data-size="small">
+        <button class="v-button" data-variant="plain" data-size="small">
           Undo rollback
         </button>
       </div>
@@ -152,9 +152,9 @@ description: Realistic compositions built with Varde utilities and components.
       <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
-          <a class="link" href="#">@jberglund</a>
+          <a class="v-link" href="#">@jberglund</a>
         </p>
-        <button class="button" data-variant="plain" data-size="small">
+        <button class="v-button" data-variant="plain" data-size="small">
           Undo rollback
         </button>
       </div>
@@ -166,9 +166,9 @@ description: Realistic compositions built with Varde utilities and components.
       <div class="stack-h gap-xs justify-center">
         <p class="ink-subtle fs-s">
           This project was rolled back by
-          <a class="link" href="#">@jberglund</a>
+          <a class="v-link" href="#">@jberglund</a>
         </p>
-        <button class="button" data-variant="plain" data-size="small">
+        <button class="v-button" data-variant="plain" data-size="small">
           Undo rollback
         </button>
       </div>
@@ -179,12 +179,12 @@ description: Realistic compositions built with Varde utilities and components.
 
 ## Tabs
 
-Using several `.button`, you can use different variants to toggle which one looks active. This would require JS, because you'd need to toggle from `data-variant="outlined` to `data-variant="filled`
+Using several `.v-button`, you can use different variants to toggle which one looks active. This would require JS, because you'd need to toggle from `data-variant="outlined` to `data-variant="filled`
 
 ```html
 <button
   role="tab"
-  class="button br-pill"
+  class="v-button br-pill"
   data-size="small"
   data-variant="outlined"
 >
@@ -192,7 +192,7 @@ Using several `.button`, you can use different variants to toggle which one look
 </button>
 <button
   role="tab"
-  class="button br-pill"
+  class="v-button br-pill"
   data-size="small"
   data-variant="outlined"
 >
@@ -201,7 +201,7 @@ Using several `.button`, you can use different variants to toggle which one look
 <button
   role="tab"
   aria-selected="true"
-  class="button br-pill"
+  class="v-button br-pill"
   data-size="small"
   data-variant="filled"
 >
@@ -214,17 +214,17 @@ Or, we might do `<color-mode>` to inverted and the button from `data-variant="pl
 ```html
 <div class="stack-h of-clip br-pill b-all" style="width: max-content;">
   <color-mode class="">
-    <div class="button br-none" data-size="small" data-variant="plain">
+    <div class="v-button br-none" data-size="small" data-variant="plain">
       Not selected
     </div>
   </color-mode>
   <color-mode inverted>
-    <div class="button  br-none" data-size="small" data-variant="tinted">
+    <div class="v-button  br-none" data-size="small" data-variant="tinted">
       Selected
     </div>
   </color-mode>
   <color-mode class="">
-    <div class="button  br-none" data-size="small" data-variant="plain">
+    <div class="v-button  br-none" data-size="small" data-variant="plain">
       Not selected
     </div>
   </color-mode>
@@ -332,7 +332,7 @@ Without buttons, only `color-mode`:
 <div class="stack-h gap-m mb-l">
   <div class=" mr-auto">
     <button
-      class="button"
+      class="v-button"
       data-size="small"
       data-variant="outlined"
       popovertarget="filter-drawer"
@@ -342,16 +342,16 @@ Without buttons, only `color-mode`:
   </div>
 
   <div class="ml-auto stack-h gap-3xs">
-    <select data-size="small" class="select mr-s">
+    <select data-size="small" class="v-select mr-s">
       <option>4 uker</option>
       <option>12 uker</option>
       <option>26 uker</option>
     </select>
-    <button class="button" data-size="small" data-variant="outlined">
+    <button class="v-button" data-size="small" data-variant="outlined">
       Nåværende uke
     </button>
     <button
-      class="button aspect-square p-0"
+      class="v-button aspect-square p-0"
       data-size="small"
       data-variant="outlined"
     >
@@ -371,7 +371,7 @@ Without buttons, only `color-mode`:
       </svg>
     </button>
     <button
-      class="button aspect-square p-0"
+      class="v-button aspect-square p-0"
       data-size="small"
       data-variant="outlined"
     >
@@ -455,7 +455,7 @@ Without buttons, only `color-mode`:
           palette="blue"
           class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
         >
-          <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+          <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
           <div class="lh-tight">7.5</div>
         </color-mode>
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
@@ -479,14 +479,14 @@ Without buttons, only `color-mode`:
             palette="purple"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
         </div>
@@ -520,7 +520,7 @@ Without buttons, only `color-mode`:
           palette="blue"
           class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
         >
-          <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+          <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
           <div class="lh-tight">7.5</div>
         </color-mode>
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
@@ -544,14 +544,14 @@ Without buttons, only `color-mode`:
             palette="purple"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="icon" style="font-size: 8px;" data-icon="plus"></div>
+            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
         </div>
@@ -563,7 +563,7 @@ Without buttons, only `color-mode`:
 
 <div
   id="filter-drawer"
-  class="popover"
+  class="v-popover"
   popover="auto"
   data-type="drawer"
   data-position="left"
@@ -582,7 +582,7 @@ Without buttons, only `color-mode`:
     >
       <h1 class="fs-l fw-bold ink-prominent">Filter</h1>
       <button
-        class="button"
+        class="v-button"
         data-variant="plain"
         data-size="small"
         aria-label="Lukk"
@@ -606,9 +606,9 @@ Without buttons, only `color-mode`:
 
     <!-- Søk -->
     <div class="stack-v gap-2xs my-l">
-      <label class="form-label" for="consultantSearch">Søk etter navn</label>
+      <label class="v-form-label" for="consultantSearch">Søk etter navn</label>
       <input
-        class="input"
+        class="v-input"
         type="text"
         id="consultantSearch"
         data-size="large"
@@ -621,7 +621,7 @@ Without buttons, only `color-mode`:
         <div class="stack-h gap-2xs">
           <label for="Ledig-tid" class="fs-s fw-medium flex-1">Ledig tid</label>
           <input
-            class="checkbox fs-s "
+            class="v-checkbox fs-s "
             data-size="large"
             type="checkbox"
             id="Ledig-tid"
@@ -632,12 +632,12 @@ Without buttons, only `color-mode`:
 
     <!-- Avdeling -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="form-label">Avdeling</p>
+      <p class="v-form-label">Avdeling</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Bergen" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Bergen" />
           <label for="Bergen" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Bergen</span>
             <span class="ink-subtle">30</span>
@@ -646,7 +646,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Oslo" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Oslo" />
           <label for="Oslo" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Oslo</span>
             <span class="ink-subtle">30</span>
@@ -655,7 +655,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Trondheim" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Trondheim" />
           <label for="Trondheim" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Trondheim</span>
             <span class="ink-subtle">30</span>
@@ -664,7 +664,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Stavanger" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Stavanger" />
           <label for="Stavanger" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Stavanger</span>
             <span class="ink-subtle">30</span>
@@ -673,7 +673,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Norge" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Norge" />
           <label for="Norge" class="fs-s stack-h flex-1 ">
             <span class="mr-auto">Norge</span>
             <span class="ink-subtle">30</span>
@@ -684,12 +684,12 @@ Without buttons, only `color-mode`:
 
     <!-- Rå-år -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="form-label">Rå-år / Antall år erfaring</p>
+      <p class="v-form-label">Rå-år / Antall år erfaring</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
+          <input class="v-checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
           <label
             for="0-2-Kilimanjaro"
             class="fs-s stack-h gap-xs flex-1"
@@ -701,7 +701,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
+          <input class="v-checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
           <label
             for="3-4-Mont-Blanc"
             class="fs-s stack-h gap-xs flex-1"
@@ -713,7 +713,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="checkbox fs-s" type="checkbox" id="5-7-Denali" />
+          <input class="v-checkbox fs-s" type="checkbox" id="5-7-Denali" />
           <label for="5-7-Denali" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">Denali</span>
             <span class="ink-subtle">5-7 </span>
@@ -722,7 +722,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
+          <input class="v-checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
           <label
             for="8-11-Cerro-Torre"
             class="fs-s stack-h gap-xs flex-1"
@@ -734,7 +734,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="checkbox fs-s" type="checkbox" id="12+-K2" />
+          <input class="v-checkbox fs-s" type="checkbox" id="12+-K2" />
           <label for="12+-K2" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">K2</span>
             <span class="ink-subtle">12+ </span>
@@ -749,7 +749,7 @@ Without buttons, only `color-mode`:
             >Fra</label
           >
           <input
-            class="input mw-2 ml-auto ta-right"
+            class="v-input mw-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceFrom"
@@ -762,7 +762,7 @@ Without buttons, only `color-mode`:
             >Til</label
           >
           <input
-            class="input mw-2 ml-auto ta-right"
+            class="v-input mw-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceTo"
@@ -773,36 +773,36 @@ Without buttons, only `color-mode`:
 
     <!-- Antall år erfaring -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="form-label">Antall år erfaring</p>
+      <p class="v-form-label">Antall år erfaring</p>
     </div>
 
     <!-- Kompetanse -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="form-label">Kompetanse</p>
+      <p class="v-form-label">Kompetanse</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Ledelse" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Ledelse" />
           <label for="Ledelse" class="fs-s">Ledelse</label>
         </div>
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Design" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Design" />
           <label for="Design" class="fs-s">Design</label>
         </div>
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Utvikling" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Utvikling" />
           <label for="Utvikling" class="fs-s">Utvikling</label>
         </div>
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
           <input
-            class="checkbox fs-s"
+            class="v-checkbox fs-s"
             type="checkbox"
             id="Prosjekt--og-produktledelse"
           />
@@ -813,7 +813,7 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
         >
-          <input class="checkbox fs-s" type="checkbox" id="Strategi" />
+          <input class="v-checkbox fs-s" type="checkbox" id="Strategi" />
           <label for="Strategi" class="fs-s">Strategi</label>
         </div>
       </div>
@@ -823,8 +823,8 @@ Without buttons, only `color-mode`:
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
       <details>
         <summary class="stack-h gap-xs">
-          <h3 class="form-label">Faggruppe</h3>
-          <div class="button ml-auto" data-variant="tinted" data-size="small">
+          <h3 class="v-form-label">Faggruppe</h3>
+          <div class="v-button ml-auto" data-variant="tinted" data-size="small">
             Vis
           </div>
         </summary>
@@ -833,50 +833,50 @@ Without buttons, only `color-mode`:
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id=".NET" />
+            <input class="v-checkbox fs-s" type="checkbox" id=".NET" />
             <label for=".NET" class="fs-s">.NET</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="Frontend" />
+            <input class="v-checkbox fs-s" type="checkbox" id="Frontend" />
             <label for="Frontend" class="fs-s">Frontend</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="JVM" />
+            <input class="v-checkbox fs-s" type="checkbox" id="JVM" />
             <label for="JVM" class="fs-s">JVM</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="Plattform" />
+            <input class="v-checkbox fs-s" type="checkbox" id="Plattform" />
             <label for="Plattform" class="fs-s">Plattform</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="PPP-ledelse" />
+            <input class="v-checkbox fs-s" type="checkbox" id="PPP-ledelse" />
             <label for="PPP-ledelse" class="fs-s">PPP-ledelse</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="Salg" />
+            <input class="v-checkbox fs-s" type="checkbox" id="Salg" />
             <label for="Salg" class="fs-s">Salg</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="Tjenestedesign" />
+            <input class="v-checkbox fs-s" type="checkbox" id="Tjenestedesign" />
             <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
           </div>
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
             <input
-              class="checkbox fs-s"
+              class="v-checkbox fs-s"
               type="checkbox"
               id="Strategisk-design"
             />
@@ -887,7 +887,7 @@ Without buttons, only `color-mode`:
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="checkbox fs-s" type="checkbox" id="UX-design" />
+            <input class="v-checkbox fs-s" type="checkbox" id="UX-design" />
             <label for="UX-design" class="fs-s">UX-design</label>
           </div>
         </div>
@@ -914,7 +914,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
         <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
         <p class="ink-subtle">Free for two weeks</p>
       </div>
-      <input type="radio" class="radio" name="trial" checked />
+      <input type="radio" class="v-radio" name="trial" checked />
     </label>
   </color-mode>
 
@@ -927,7 +927,7 @@ This is where JS would come in hand to switch between `palette="blue|grey"` when
         <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
         <p class="ink-subtle">Free for two weeks</p>
       </div>
-      <input type="radio" class="radio" name="trial" />
+      <input type="radio" class="v-radio" name="trial" />
     </label>
   </color-mode>
 </div>
@@ -942,10 +942,10 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
 
 ```html
 <div class="stack-h nowrap">
-  <button class="button br-tr-none br-br-none px-l">Save</button>
+  <button class="v-button br-tr-none br-br-none px-l">Save</button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
-    class="aspect-square br-bl-none br-tl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none v-button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -966,13 +966,13 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
 </div>
 
 <div class="stack-h nowrap">
-  <button data-variant="tinted" class="button br-tr-none br-br-none px-l">
+  <button data-variant="tinted" class="v-button br-tr-none br-br-none px-l">
     Save
   </button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="tinted"
-    class="aspect-square br-bl-none br-tl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none v-button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -993,13 +993,13 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
 </div>
 
 <div class="stack-h nowrap">
-  <button data-variant="outlined" class="button br-tr-none br-br-none px-l">
+  <button data-variant="outlined" class="v-button br-tr-none br-br-none px-l">
     Save
   </button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
     data-variant="outlined"
-    class="aspect-square br-bl-none br-tl-none button p-0"
+    class="aspect-square br-bl-none br-tl-none v-button p-0"
     popovertarget="split-button-popover"
   >
     <svg
@@ -1020,7 +1020,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
 </div>
 <div
   id="split-button-popover"
-  class="popover"
+  class="v-popover"
   popover="auto"
   data-type="tooltip"
   data-position="bottom"
@@ -1048,13 +1048,13 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
 This one leverages a popover, a details list, and a form
 
 ```html
-<button type="button" class="button" popovertarget="demo-default">
+<button type="button" class="v-button" popovertarget="demo-default">
   Open popover
 </button>
 
 <div
   id="demo-default"
-  class="popover w-full"
+  class="v-popover w-full"
   data-backdrop
   popover="auto"
   style="max-width: 68rem;"
@@ -1075,7 +1075,7 @@ This one leverages a popover, a details list, and a form
           <input
             value="https://varde.variant.dev/api"
             type="text"
-            class="input"
+            class="v-input"
           />
         </div>
 
@@ -1084,7 +1084,7 @@ This one leverages a popover, a details list, and a form
           <input
             value="https://varde.variant.dev/api"
             type="text"
-            class="input"
+            class="v-input"
           />
         </div>
 
@@ -1099,12 +1099,12 @@ This one leverages a popover, a details list, and a form
                 type="button"
                 data-variant="tinted"
                 data-size="small"
-                class="button"
+                class="v-button"
               >
                 Tell me more
               </div>
             </summary>
-            <div class="typeset py-s">
+            <div class="v-typeset py-s">
               <p class="fw-medium">
                 Get started and try Varde by following these steps
               </p>
@@ -1125,14 +1125,14 @@ This one leverages a popover, a details list, and a form
     <div class="stack-h mt-l">
       <button
         type="button"
-        class="button mr-auto"
+        class="v-button mr-auto"
         data-variant="tinted"
         popovertargetaction="hide"
         popovertarget="demo-default"
       >
         Cancel
       </button>
-      <button type="button" class="button">Go, go, go!</button>
+      <button type="button" class="v-button">Go, go, go!</button>
     </div>
   </div>
 </div>
@@ -1146,7 +1146,7 @@ This one utilizes an escape hatch
 <div class="stack-h gap-xs">
   <button
     type="button"
-    class="button br-pill"
+    class="v-button br-pill"
     data-size="small"
     data-variant="outlined"
   >
@@ -1154,7 +1154,7 @@ This one utilizes an escape hatch
   </button>
   <button
     type="button"
-    class="button br-pill"
+    class="v-button br-pill"
     data-size="small"
     data-variant="outlined"
   >
@@ -1163,7 +1163,7 @@ This one utilizes an escape hatch
   <color-mode inverted>
     <button
       type="button"
-      class="button br-pill"
+      class="v-button br-pill"
       data-size="small"
       data-variant="tinted"
     >
@@ -1172,7 +1172,7 @@ This one utilizes an escape hatch
   </color-mode>
   <button
     type="button"
-    class="button br-pill"
+    class="v-button br-pill"
     data-size="small"
     data-variant="outlined"
   >
@@ -1294,7 +1294,7 @@ This one utilizes an escape hatch
 
     <div class="stack-h gap-2xs">
       <button
-        class="button aspect-square px-3xs"
+        class="v-button aspect-square px-3xs"
         data-variant="plain"
         data-size="small"
       >
@@ -1314,7 +1314,7 @@ This one utilizes an escape hatch
         </svg>
       </button>
       <button
-        class="button aspect-square px-3xs"
+        class="v-button aspect-square px-3xs"
         data-variant="plain"
         data-size="small"
       >
@@ -1512,7 +1512,7 @@ This one utilizes an escape hatch
 <div class="surface-base br-m mw-7 mx-auto my-xl p-m">
   <div class="stack-h items-center justify-between mb-s">
     <h3 class="fs-l">Orders</h3>
-    <button class="button" data-variant="plain" data-size="small">
+    <button class="v-button" data-variant="plain" data-size="small">
       <svg
         width="12"
         height="12"
@@ -1548,7 +1548,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1005</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1005</a></span>
       <div>
         <color-mode palette="green">
           <span
@@ -1572,7 +1572,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1004</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1004</a></span>
       <div>
         <color-mode palette="green">
           <span
@@ -1596,7 +1596,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1003</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1003</a></span>
       <div>
         <color-mode palette="grey">
           <span
@@ -1620,7 +1620,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1002</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1002</a></span>
       <div>
         <color-mode palette="orange">
           <span
@@ -1644,7 +1644,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1001</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1001</a></span>
       <div>
         <color-mode palette="green">
           <span
@@ -1668,7 +1668,7 @@ This one utilizes an escape hatch
       class="d-grid bg-wash:hover items-center"
       style="grid-template-columns: repeat(4, 1fr)"
     >
-      <span class="fs-m"><a href="#" class="link fs-s">#1000</a></span>
+      <span class="fs-m"><a href="#" class="v-link fs-s">#1000</a></span>
       <div>
         <color-mode palette="green">
           <span
@@ -1690,7 +1690,7 @@ This one utilizes an escape hatch
   </div>
 
   <div class="stack-v justify-end mt-l">
-    <button class="button mx-s px-xl" data-variant="tinted" data-size="small">
+    <button class="v-button mx-s px-xl" data-variant="tinted" data-size="small">
       Show more
     </button>
   </div>

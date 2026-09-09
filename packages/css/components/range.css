@@ -44,7 +44,7 @@
 @layer range.base, range.public, range.state;
 
 @layer range.public {
-  :where(.range) {
+  :where(.v-range) {
     --range-base: var(--button-base);
     --range-on-base: var(--button-on-base);
     --range-rail-target: var(--surface-tint-target);
@@ -57,7 +57,7 @@
     --_range-on-base: var(--range-on-base);
   }
 
-  :where(.range) {
+  :where(.v-range) {
     /* Progress is the identity color pushed darker in light and lighter in dark. */
     --_range-fill: color-mix(in oklch, var(--_range-base) 75%, var(--ink-prominent) 25%);
 
@@ -88,21 +88,21 @@
     --_range-thumb-offset: calc((var(--range-track-height) - var(--range-thumb-size)) / 2);
   }
 
-  :where(.range:not([data-size]), .range[data-size='medium']) {
+  :where(.v-range:not([data-size]), .v-range[data-size='medium']) {
     --range-thumb-size: 16px;
   }
 
-  :where(.range[data-size='small']) {
+  :where(.v-range[data-size='small']) {
     --range-thumb-size: 14px;
   }
 
-  :where(.range[data-size='large']) {
+  :where(.v-range[data-size='large']) {
     --range-thumb-size: 20px;
   }
 }
 
 @layer range.base {
-  :where(.range) {
+  :where(.v-range) {
     appearance: none;
     font: inherit;
 
@@ -120,7 +120,7 @@
     transition-timing-function: var(--interaction-transition-easing-default);
   }
 
-  :where(.range)::-webkit-slider-runnable-track {
+  :where(.v-range)::-webkit-slider-runnable-track {
     block-size: var(--range-track-height);
     margin-top: var(--_range-track-offset);
     border-radius: var(--_range-track-radius);
@@ -133,7 +133,7 @@
     );
   }
 
-  :where(.range):dir(rtl)::-webkit-slider-runnable-track {
+  :where(.v-range):dir(rtl)::-webkit-slider-runnable-track {
     background: linear-gradient(
       to left,
       var(--_range-fill) 0,
@@ -143,7 +143,7 @@
     );
   }
 
-  :where(.range)::-webkit-slider-thumb {
+  :where(.v-range)::-webkit-slider-thumb {
     appearance: none;
     box-sizing: border-box;
     block-size: var(--range-thumb-size);
@@ -158,7 +158,7 @@
       0 0 0 var(--_range-ring-size) var(--_range-ring);
   }
 
-  :where(.range)::-moz-range-track {
+  :where(.v-range)::-moz-range-track {
     block-size: var(--range-track-height);
     border-radius: var(--_range-track-radius);
     background: linear-gradient(
@@ -170,7 +170,7 @@
     );
   }
 
-  :where(.range):dir(rtl)::-moz-range-track {
+  :where(.v-range):dir(rtl)::-moz-range-track {
     background: linear-gradient(
       to left,
       var(--_range-fill) 0,
@@ -180,7 +180,7 @@
     );
   }
 
-  :where(.range)::-moz-range-thumb {
+  :where(.v-range)::-moz-range-thumb {
     box-sizing: border-box;
     block-size: var(--range-thumb-size);
     inline-size: var(--range-thumb-size);
@@ -196,7 +196,7 @@
 
 @layer range.state {
   @media (hover: hover) and (pointer: fine) {
-    :where(.range):hover:not(:disabled) {
+    :where(.v-range):hover:not(:disabled) {
       --_range-fill: var(--_range-fill-hover);
       --_range-rail: var(--_range-rail-hover);
       --_range-ring: var(--_range-ring-hover);
@@ -204,18 +204,18 @@
     }
   }
 
-  :where(.range):focus-visible:not(:disabled) {
+  :where(.v-range):focus-visible:not(:disabled) {
     --_range-ring: var(--_range-ring-focus);
     --_range-knob-scale: 1.1;
   }
 
-  :where(.range):active:not(:disabled) {
+  :where(.v-range):active:not(:disabled) {
     --_range-fill: var(--_range-fill-active);
     --_range-rail: var(--_range-rail-hover);
     --_range-knob-scale: 0.95;
   }
 
-  :where(.range):disabled {
+  :where(.v-range):disabled {
     --_range-fill: var(--_range-fill-disabled);
     --_range-knob-border: var(--_range-knob-ring-subtle);
     --_range-ring: transparent;
@@ -225,8 +225,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :where(.range)::-webkit-slider-thumb,
-    :where(.range)::-moz-range-thumb {
+    :where(.v-range)::-webkit-slider-thumb,
+    :where(.v-range)::-moz-range-thumb {
       transform: none;
     }
   }

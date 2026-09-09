@@ -41,7 +41,7 @@ export function StaggerRevealPage() {
       <Section title="How it works" description="">
         <Example label="<div stagger-reveal>" description="">
           {/* <css-var-bind variable="--scale" unit="px" target=":root" strategy="global">
-            <input class="range" type="range" min="0" max="100" value="50" />
+            <input class="v-range" type="range" min="0" max="100" value="50" />
             <input type="number" min="0" max="100" value="50" />
           </css-var-bind> */}
           <StaggerDemo />
@@ -75,7 +75,13 @@ export function StaggerRevealPage() {
         }}
       ></script>
       <div class="stack-h gap-xs justify-center pt-l" style={{ position: "fixed" }}>
-        <button type="button" data-replay class="button" data-variant="outlined" data-size="small">
+        <button
+          type="button"
+          data-replay
+          class="v-button"
+          data-variant="outlined"
+          data-size="small"
+        >
           Replay
         </button>
       </div>

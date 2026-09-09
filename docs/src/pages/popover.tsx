@@ -6,18 +6,18 @@ export function PopoverPage() {
   return (
     <DocsPage
       title="Popover"
-      description="An opt-in helper for the native Popover API. Layer on data-type, data-position, and data-backdrop to control positioning and transitions — start with a bare .popover and add only what you need."
+      description="An opt-in helper for the native Popover API. Layer on data-type, data-position, and data-backdrop to control positioning and transitions — start with a bare .v-popover and add only what you need."
     >
       {/* Default */}
       <Section
         title="Default"
-        description='A .popover with no attributes: centered, fades in with a subtle slide-down. Use the class="button" style from the buttons helper for the trigger.'
+        description='A .v-popover with no attributes: centered, fades in with a subtle slide-down. Use the class="v-button" style from the buttons helper for the trigger.'
       >
         <ExamplePanel>
-          <button type="button" class="button" popovertarget="demo-default">
+          <button type="button" class="v-button" popovertarget="demo-default">
             Open popover
           </button>
-          <div id="demo-default" class="popover p-m" popover="auto">
+          <div id="demo-default" class="v-popover p-m" popover="auto">
             <div class="p-l stack-v surface-dyed br-m shadow-mid" stagger-items>
               <a class="stack-v fs-xs px-3xs py-3xs" href="/fundamentet/formaal-og-verdier">
                 <span class="fw-bold ink-default">Formål og verdier</span>
@@ -48,10 +48,10 @@ export function PopoverPage() {
         description='data-type="dialog" adds a scale+fade transition. Add data-backdrop for a visible overlay behind it.'
       >
         <ExamplePanel>
-          <button type="button" class="button" popovertarget="demo-dialog">
+          <button type="button" class="v-button" popovertarget="demo-dialog">
             Open dialog
           </button>
-          <div id="demo-dialog" class="popover" popover="auto" data-type="dialog" data-backdrop>
+          <div id="demo-dialog" class="v-popover" popover="auto" data-type="dialog" data-backdrop>
             <div class="stack-v of-clip br-m shadow-high">
               <color-mode palette="grey" class="d-block surface-tinted ">
                 <div class="px-l-xl pt-l-xl pb-s stack-v" style="max-width: 560px;" stagger-items>
@@ -64,7 +64,7 @@ export function PopoverPage() {
                     <color-mode class="contents" palette="blue">
                       <button
                         type="button"
-                        class="button"
+                        class="v-button"
                         popovertarget="demo-dialog"
                         popovertargetaction="hide"
                       >
@@ -73,7 +73,7 @@ export function PopoverPage() {
                     </color-mode>
                     <button
                       type="button"
-                      class="button"
+                      class="v-button"
                       data-variant="tinted"
                       popovertarget="demo-dialog"
                       popovertargetaction="hide"
@@ -97,7 +97,7 @@ export function PopoverPage() {
           <div class="stack-h gap-xs">
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-drawer-right"
             >
@@ -105,7 +105,7 @@ export function PopoverPage() {
             </button>
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-drawer-left"
             >
@@ -113,7 +113,7 @@ export function PopoverPage() {
             </button>
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-drawer-bottom"
             >
@@ -123,7 +123,7 @@ export function PopoverPage() {
 
           <div
             id="demo-drawer-right"
-            class="popover"
+            class="v-popover"
             popover="auto"
             data-type="drawer"
             data-backdrop="true"
@@ -137,7 +137,7 @@ export function PopoverPage() {
 
           <div
             id="demo-drawer-left"
-            class="popover"
+            class="v-popover"
             popover="auto"
             data-type="drawer"
             data-position="left"
@@ -152,7 +152,7 @@ export function PopoverPage() {
 
           <div
             id="demo-drawer-bottom"
-            class="popover"
+            class="v-popover"
             popover="auto"
             data-type="drawer"
             data-position="bottom"
@@ -179,7 +179,7 @@ export function PopoverPage() {
           <div class="stack-h gap-xs pb-3xl">
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-tooltip-top"
             >
@@ -187,7 +187,7 @@ export function PopoverPage() {
             </button>
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-tooltip-right"
             >
@@ -195,7 +195,7 @@ export function PopoverPage() {
             </button>
             <button
               type="button"
-              class="button"
+              class="v-button"
               data-variant="tinted"
               popovertarget="demo-tooltip-bottom"
             >
@@ -205,7 +205,7 @@ export function PopoverPage() {
 
           <div
             id="demo-tooltip-top"
-            class="popover px-2xs py-2xs"
+            class="v-popover px-2xs py-2xs"
             popover="auto"
             data-type="tooltip"
           >
@@ -252,7 +252,7 @@ export function PopoverPage() {
 
           <div
             id="demo-tooltip-right"
-            class="popover px-s py-2xs"
+            class="v-popover px-s py-2xs"
             popover="auto"
             data-type="tooltip"
             data-position="right"
@@ -300,7 +300,7 @@ export function PopoverPage() {
 
           <div
             id="demo-tooltip-bottom"
-            class="popover px-s py-2xs"
+            class="v-popover px-s py-2xs"
             popover="auto"
             data-type="tooltip"
             data-position="bottom"

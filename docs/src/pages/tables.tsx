@@ -6,15 +6,15 @@ export function TablesPage() {
   return (
     <DocsPage
       title="Tables"
-      description="Use .table on <table> elements. Control density with data-density. Row hover is on by default."
+      description="Use .v-table on <table> elements. Control density with data-density. Row hover is on by default."
     >
       {/* Default */}
       <Section
         title="Default"
-        description="A plain .table with no extra attributes gives you a clean, medium-density table."
+        description="A plain .v-table with no extra attributes gives you a clean, medium-density table."
       >
         <ExamplePanel>
-          <table class="table">
+          <table class="v-table">
             <thead>
               <tr>
                 <th>Consultant</th>
@@ -52,7 +52,7 @@ export function TablesPage() {
           <div class="stack-v gap-2xs">
             <span class="fs-xs ink-subtle fw-medium">Compact</span>
             <ExamplePanel>
-              <table class="table" data-density="compact">
+              <table class="v-table" data-density="compact">
                 <thead>
                   <tr>
                     <th>Consultant</th>
@@ -94,7 +94,7 @@ export function TablesPage() {
           <div class="stack-v gap-2xs">
             <span class="fs-xs ink-subtle fw-medium">Relaxed</span>
             <ExamplePanel>
-              <table class="table" data-density="relaxed">
+              <table class="v-table" data-density="relaxed">
                 <thead>
                   <tr>
                     <th>Consultant</th>
@@ -141,7 +141,7 @@ export function TablesPage() {
         description="Use <caption> for a table description and <tfoot> for summary rows. Both are styled automatically."
       >
         <ExamplePanel>
-          <table class="table">
+          <table class="v-table">
             <caption>Booked hours by consultant — H1 2026</caption>
             <thead>
               <tr>

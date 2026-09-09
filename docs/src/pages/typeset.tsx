@@ -6,7 +6,7 @@ export function TypesetPage() {
   return (
     <DocsPage
       title="Typeset"
-      description="A prose container for long-form text content. Wrap any article, blog post, or documentation block in .typeset to get sensible typography, vertical rhythm, and readable line length — no per-element tweaking needed."
+      description="A prose container for long-form text content. Wrap any article, blog post, or documentation block in .v-typeset to get sensible typography, vertical rhythm, and readable line length — no per-element tweaking needed."
     >
       {/* Vertical Rhythm */}
       <Section
@@ -14,7 +14,7 @@ export function TypesetPage() {
         description="Block siblings (p, ul, ol, blockquote, headings) are automatically spaced with --flow-space (default 0.75em). Line-height is set to 1.4 and max-width to 65ch for optimal readability."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <p>
               The king, seeing how much heavier his nephew's attention was to home than his, and
               that all his own meaſures were fruſtrated by the unaccountable prejudice his nephew
@@ -34,7 +34,7 @@ export function TypesetPage() {
         description="h1–h4 are sized relative to each other with tighter line-height (1.2 for h1/h2, 1.33 for h3/h4). h1 gets extra top margin for section separation."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <h1>This is a level-one heading</h1>
             <p>Body text following an h1.</p>
             <h2>This is a level-two heading</h2>
@@ -53,7 +53,7 @@ export function TypesetPage() {
         description="Spacing between headings and body adapts to the context. A spacious 2rem gap appears before headings that follow body content, while headings after an h1 stay tightly coupled at 1rem. Body after a heading gets a close 0.5rem gap."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <h1>Page Title</h1>
             <h2>Subtitled — tightly coupled to h1</h2>
             <p>
@@ -84,7 +84,7 @@ export function TypesetPage() {
         description="Unordered lists use square markers; ordered lists use decimal. Markers use the accent font and reduced opacity. List items have a small gap between them."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <p>A paragraph before the list:</p>
             <ul>
               <li>Square markers for unordered lists</li>
@@ -118,7 +118,7 @@ export function TypesetPage() {
         description="dl elements use a two-column grid. Terms sit in the left column (60% opacity, no wrap) and descriptions span the right column."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <dl>
               <dt>Typeset</dt>
               <dd>A prose container with sensible typography defaults.</dd>
@@ -140,14 +140,14 @@ export function TypesetPage() {
         description="Inline code gets a monospace font, slightly reduced size, padding, and a subtle background. Code blocks (pre > code) are left untouched — only inline code within paragraphs or list items is styled."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <p>
-              The <code>.typeset</code> class applies a set of sensible defaults to all child
+              The <code>.v-typeset</code> class applies a set of sensible defaults to all child
               elements. Use <code>--flow-space</code> to customize the vertical rhythm spacing.
             </p>
             <p>
               Inline code looks distinct from body text, making it easy to spot class names like{" "}
-              <code>.typeset</code> or property names like <code>max-width</code> inline.
+              <code>.v-typeset</code> or property names like <code>max-width</code> inline.
             </p>
           </div>
         </ExamplePanel>
@@ -156,15 +156,15 @@ export function TypesetPage() {
       {/* Full Article Example */}
       <Section
         title="Putting It All Together"
-        description="A realistic example combining headings, paragraphs, lists, definition lists, and inline code — all in a single .typeset container."
+        description="A realistic example combining headings, paragraphs, lists, definition lists, and inline code — all in a single .v-typeset container."
       >
         <ExamplePanel>
-          <div class="typeset">
+          <div class="v-typeset">
             <h1>On the Design of Typesetting</h1>
             <h2>A brief guide to readable prose on the web</h2>
             <p>
               Good typography is invisible. The reader should never notice the spacing, the line
-              length, or the font choices — they should simply read. The <code>.typeset</code>{" "}
+              length, or the font choices — they should simply read. The <code>.v-typeset</code>{" "}
               utility provides a set of defaults that make this possible.
             </p>
             <h3>Core Principles</h3>
@@ -187,7 +187,7 @@ export function TypesetPage() {
               <dt>Layer</dt>
               <dd>typeset</dd>
               <dt>Selector</dt>
-              <dd>:where(.typeset)</dd>
+              <dd>:where(.v-typeset)</dd>
               <dt>Max Width</dt>
               <dd>65ch</dd>
               <dt>Default Flow</dt>

@@ -14,14 +14,14 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
   const open = meta?.split(/\s+/).includes("open") ? " open" : "";
   const preview =
     lang === "html"
-      ? `<color-mode palette="inherit" class="d-block code-example__preview p-s surface-base untypeset">${code}</color-mode>`
+      ? `<color-mode palette="inherit" class="d-block code-example__preview p-s surface-base v-untypeset">${code}</color-mode>`
       : "";
 
   return [
     `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block">`,
     preview,
     `<details class="b-t bc-subtle surface-tinted"${open}>`,
-    `<summary class="px-s py-2xs my-xs mx-xs button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
+    `<summary class="px-s py-2xs my-xs mx-xs v-button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
     `<div class="px-s">`,
     `<pre class="microjar px-m py-m -mx-s"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
     `</div>`,
@@ -54,6 +54,10 @@ export async function processMarkdown(content: string): Promise<string> {
 
 export function Markdown({ html }: { html: string }) {
   return (
-    <div class="typeset" style={{ maxWidth: "100%" }} dangerouslySetInnerHTML={{ __html: html }} />
+    <div
+      class="v-typeset"
+      style={{ maxWidth: "100%" }}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }

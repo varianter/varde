@@ -10,21 +10,21 @@ A row of outlined page buttons with one active, plus prev/next.
 ```html
 <div class="stack-h gap-xs">
   <button
-    class="button"
+    class="v-button"
     data-size="small"
     data-variant="outlined"
     aria-label="Previous"
   >
     ‹
   </button>
-  <button class="button" data-size="small" data-variant="outlined">1</button>
-  <button class="button" data-size="small" data-variant="filled">2</button>
-  <button class="button" data-size="small" data-variant="outlined">3</button>
-  <button class="button" data-size="small" data-variant="outlined">4</button>
+  <button class="v-button" data-size="small" data-variant="outlined">1</button>
+  <button class="v-button" data-size="small" data-variant="filled">2</button>
+  <button class="v-button" data-size="small" data-variant="outlined">3</button>
+  <button class="v-button" data-size="small" data-variant="outlined">4</button>
   <span class="fs-s ink-subtle px-2xs">…</span>
-  <button class="button" data-size="small" data-variant="outlined">12</button>
+  <button class="v-button" data-size="small" data-variant="outlined">12</button>
   <button
-    class="button"
+    class="v-button"
     data-size="small"
     data-variant="outlined"
     aria-label="Next"
@@ -41,23 +41,23 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
 ```html
 <div class="surface-base b-all bc-subtle br-l of-clip mw-7">
   <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
-    <span class="icon ink-subtle fs-xs" data-icon="pencil"></span>
+    <span class="v-icon ink-subtle fs-xs" data-v-icon="pencil"></span>
     <div class="stack-v grow">
       <p class="fw-medium">Display name</p>
       <p class="fs-s ink-subtle">How you appear to others</p>
     </div>
-    <button class="button" data-size="small" data-variant="outlined">
+    <button class="v-button" data-size="small" data-variant="outlined">
       Edit
     </button>
   </div>
 
   <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
-    <span class="icon ink-subtle fs-xs" data-icon="plus"></span>
+    <span class="v-icon ink-subtle fs-xs" data-v-icon="plus"></span>
     <div class="stack-v grow">
       <p class="fw-medium">Language</p>
       <p class="fs-s ink-subtle">Used across the app</p>
     </div>
-    <select class="select" data-size="small">
+    <select class="v-select" data-size="small">
       <option>English</option>
       <option>Norsk</option>
       <option>Svenska</option>
@@ -65,12 +65,12 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
   </div>
 
   <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
-    <span class="icon ink-subtle fs-xs" data-icon="pencil"></span>
+    <span class="v-icon ink-subtle fs-xs" data-v-icon="pencil"></span>
     <div class="stack-v grow">
       <p class="fw-medium">Email notifications</p>
       <p class="fs-s ink-subtle">Receive updates by email</p>
     </div>
-    <input class="checkbox" type="checkbox" checked />
+    <input class="v-checkbox" type="checkbox" checked />
   </div>
 </div>
 ```
@@ -81,12 +81,12 @@ A centered card that pairs an icon, a heading, and a single primary action.
 
 ```html
 <div class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center mw-7">
-  <span class="icon fs-2xl ink-subtle" data-icon="plus"></span>
+  <span class="v-icon fs-2xl ink-subtle" data-v-icon="plus"></span>
   <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
   <p class="fs-s ink-subtle ta-center mt-2xs">
     Create your first project to get started.
   </p>
-  <button class="button mt-m" data-size="small">Create project</button>
+  <button class="v-button mt-m" data-size="small">Create project</button>
 </div>
 ```
 
@@ -111,7 +111,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
         <li>Community support</li>
         <li>1 GB storage</li>
       </ul>
-      <button class="button mt-auto" data-variant="outlined">Start free</button>
+      <button class="v-button mt-auto" data-variant="outlined">Start free</button>
     </div>
   </color-mode>
 
@@ -132,7 +132,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
         <li>Priority support</li>
         <li>100 GB storage</li>
       </ul>
-      <button class="button mt-auto">Start free trial</button>
+      <button class="v-button mt-auto">Start free trial</button>
     </div>
   </color-mode>
 
@@ -150,7 +150,7 @@ Three tiers, with the middle one featured by inverting its `color-mode`.
         <li>Dedicated support</li>
         <li>Unlimited storage</li>
       </ul>
-      <button class="button mt-auto" data-variant="outlined">
+      <button class="v-button mt-auto" data-variant="outlined">
         Contact sales
       </button>
     </div>

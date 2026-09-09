@@ -6,7 +6,7 @@ export function ButtonsPage() {
   return (
     <DocsPage
       title="Buttons"
-      description='Use .button on <button> or <a> elements. Wrap in <color-mode palette="..."> to set the color, configure variant with data-variant, and size with data-size.'
+      description='Use .v-button on <button> or <a> elements. Wrap in <color-mode palette="..."> to set the color, configure variant with data-variant, and size with data-size.'
     >
       {/* Colors & Variants */}
       <Section
@@ -18,16 +18,16 @@ export function ButtonsPage() {
             <div class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Default (primary / grey)</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
+                <button type="button" class="v-button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="outlined">
+                <button type="button" class="v-button" data-variant="outlined">
                   Outlined
                 </button>
-                <button type="button" class="button" data-variant="tinted">
+                <button type="button" class="v-button" data-variant="tinted">
                   Tinted
                 </button>
-                <button type="button" class="button" data-variant="plain">
+                <button type="button" class="v-button" data-variant="plain">
                   Plain
                 </button>
               </div>
@@ -35,13 +35,13 @@ export function ButtonsPage() {
             <color-mode palette="coral" class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Danger (coral)</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
+                <button type="button" class="v-button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="outlined">
+                <button type="button" class="v-button" data-variant="outlined">
                   Outlined
                 </button>
-                <button type="button" class="button" data-variant="plain">
+                <button type="button" class="v-button" data-variant="plain">
                   Plain
                 </button>
               </div>
@@ -50,16 +50,16 @@ export function ButtonsPage() {
             <color-mode palette="blue" class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Blue</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
+                <button type="button" class="v-button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="outlined">
+                <button type="button" class="v-button" data-variant="outlined">
                   Outlined
                 </button>
-                <button type="button" class="button" data-variant="tinted">
+                <button type="button" class="v-button" data-variant="tinted">
                   Tinted
                 </button>
-                <button type="button" class="button" data-variant="plain">
+                <button type="button" class="v-button" data-variant="plain">
                   Plain
                 </button>
               </div>
@@ -68,16 +68,16 @@ export function ButtonsPage() {
             <color-mode palette="periwinkle" class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Periwinkle</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
+                <button type="button" class="v-button">
                   Filled
                 </button>
-                <button type="button" class="button" data-variant="outlined">
+                <button type="button" class="v-button" data-variant="outlined">
                   Outlined
                 </button>
-                <button type="button" class="button" data-variant="tinted">
+                <button type="button" class="v-button" data-variant="tinted">
                   Tinted
                 </button>
-                <button type="button" class="button" data-variant="plain">
+                <button type="button" class="v-button" data-variant="plain">
                   Plain
                 </button>
               </div>
@@ -93,13 +93,13 @@ export function ButtonsPage() {
       >
         <ExamplePanel>
           <div class="stack-h gap-m">
-            <button type="button" class="button" data-size="small">
+            <button type="button" class="v-button" data-size="small">
               Small
             </button>
-            <button type="button" class="button">
+            <button type="button" class="v-button">
               Medium
             </button>
-            <button type="button" class="button" data-size="large">
+            <button type="button" class="v-button" data-size="large">
               Large
             </button>
           </div>
@@ -109,60 +109,60 @@ export function ButtonsPage() {
       {/* With Icons */}
       <Section
         title="With Icons"
-        description="Place a .icon span with a data-icon attribute inside the button. The icon inherits color from the button and scales with font size."
+        description="Place a .v-icon span with a data-v-icon attribute inside the button. The icon inherits color from the button and scales with font size."
       >
         <ExamplePanel>
           <div class="stack-v gap-m">
             <div class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Icon before text</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
-                  <span class="icon" data-icon="plus" /> Add item
+                <button type="button" class="v-button">
+                  <span class="v-icon" data-v-icon="plus" /> Add item
                 </button>
-                <button type="button" class="button" data-variant="outlined">
-                  <span class="icon" data-icon="pencil" /> Edit
+                <button type="button" class="v-button" data-variant="outlined">
+                  <span class="v-icon" data-v-icon="pencil" /> Edit
                 </button>
-                <button type="button" class="button" data-variant="plain">
-                  <span class="icon" data-icon="pencil" /> Edit
+                <button type="button" class="v-button" data-variant="plain">
+                  <span class="v-icon" data-v-icon="pencil" /> Edit
                 </button>
               </div>
             </div>
             <div class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Icon after text</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button">
-                  Continue <span class="icon" data-icon="plus" />
+                <button type="button" class="v-button">
+                  Continue <span class="v-icon" data-v-icon="plus" />
                 </button>
-                <button type="button" class="button">
-                  Settings <span class="icon" data-icon="pencil" />
+                <button type="button" class="v-button">
+                  Settings <span class="v-icon" data-v-icon="pencil" />
                 </button>
               </div>
             </div>
             <div class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Icon only</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button" aria-label="Add">
-                  <span class="icon" data-icon="plus" />
+                <button type="button" class="v-button" aria-label="Add">
+                  <span class="v-icon" data-v-icon="plus" />
                 </button>
-                <button type="button" class="button" data-variant="outlined" aria-label="Edit">
-                  <span class="icon" data-icon="pencil" />
+                <button type="button" class="v-button" data-variant="outlined" aria-label="Edit">
+                  <span class="v-icon" data-v-icon="pencil" />
                 </button>
-                <button type="button" class="button" data-variant="plain" aria-label="Pencil">
-                  <span class="icon" data-icon="plus" />
+                <button type="button" class="v-button" data-variant="plain" aria-label="Pencil">
+                  <span class="v-icon" data-v-icon="plus" />
                 </button>
               </div>
             </div>
             <div class="stack-v gap-2xs">
               <span class="fs-xs ink-subtle fw-medium">Sizes with icons</span>
               <div class="stack-h gap-m">
-                <button type="button" class="button" data-size="small">
-                  <span class="icon" data-icon="plus" /> Small
+                <button type="button" class="v-button" data-size="small">
+                  <span class="v-icon" data-v-icon="plus" /> Small
                 </button>
-                <button type="button" class="button">
-                  <span class="icon" data-icon="plus" /> Medium
+                <button type="button" class="v-button">
+                  <span class="v-icon" data-v-icon="plus" /> Medium
                 </button>
-                <button type="button" class="button" data-size="large">
-                  <span class="icon" data-icon="plus" /> Large
+                <button type="button" class="v-button" data-size="large">
+                  <span class="v-icon" data-v-icon="plus" /> Large
                 </button>
               </div>
             </div>
@@ -173,19 +173,19 @@ export function ButtonsPage() {
       {/* With Spinner */}
       <Section
         title="With Spinner"
-        description="Place a .spinner inside the button. It inherits color from the button and scales to the font size automatically."
+        description="Place a .v-spinner inside the button. It inherits color from the button and scales to the font size automatically."
       >
         <ExamplePanel>
           <div class="stack-v gap-m">
             <div class="stack-h gap-m">
-              <button type="button" class="button">
-                <span class="spinner" /> Saving…
+              <button type="button" class="v-button">
+                <span class="v-spinner" /> Saving…
               </button>
-              <button type="button" class="button" data-variant="outlined">
-                <span class="spinner" /> Saving…
+              <button type="button" class="v-button" data-variant="outlined">
+                <span class="v-spinner" /> Saving…
               </button>
-              <button type="button" class="button" data-variant="plain">
-                <span class="spinner" /> Saving…
+              <button type="button" class="v-button" data-variant="plain">
+                <span class="v-spinner" /> Saving…
               </button>
             </div>
           </div>

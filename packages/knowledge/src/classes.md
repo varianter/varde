@@ -211,56 +211,56 @@ Always pair a border side class with a border color class:
 
 ### Button
 
-Apply `.button` to `<button>` or `<a>`. Variant and size are independent; combine them freely. Color comes from the surrounding `<color-mode>`.
+Apply `.v-button` to `<button>` or `<a>`. Variant and size are independent; combine them freely. Color comes from the surrounding `<color-mode>`.
 
 ```html
 <!-- Variant (default: filled) -->
-<button class="button" data-variant="tinted">Tinted</button>
-<button class="button" data-variant="outlined">Outlined</button>
-<button class="button" data-variant="plain">Plain</button>
+<button class="v-button" data-variant="tinted">Tinted</button>
+<button class="v-button" data-variant="outlined">Outlined</button>
+<button class="v-button" data-variant="plain">Plain</button>
 
 <!-- Size (default: medium) -->
-<button class="button" data-size="small">Small</button>
-<button class="button" data-size="large">Large</button>
+<button class="v-button" data-size="small">Small</button>
+<button class="v-button" data-size="large">Large</button>
 
 <!-- or combined -->
-<button class="button" data-size="small" data-variant="plain">Delete</button>
+<button class="v-button" data-size="small" data-variant="plain">Delete</button>
 ```
 
 ### Form controls
 
 ```html
-<input class="input" type="text" />
-<input class="input" data-size="small" type="text" />
-<input class="input" data-size="large" type="text" />
+<input class="v-input" type="text" />
+<input class="v-input" data-size="small" type="text" />
+<input class="v-input" data-size="large" type="text" />
 
-<textarea class="textarea"></textarea>
-<select class="select"></select>
+<textarea class="v-textarea"></textarea>
+<select class="v-select"></select>
 
-<input class="checkbox" type="checkbox" />
-<input class="radio" type="radio" />
+<input class="v-checkbox" type="checkbox" />
+<input class="v-radio" type="radio" />
 ```
 
 For invalid state, use the attribute rather than a custom error class:
 
 ```html
-<input class="input" aria-invalid="true" />
+<input class="v-input" aria-invalid="true" />
 ```
 
 ### Table
 
 ```html
-<table class="table"></table>
+<table class="v-table"></table>
 
 <!-- or if you need more or less spacing in the table -->
-<table class="table" data-density="compact"></table>
-<table class="table" data-density="relaxed"></table>
+<table class="v-table" data-density="compact"></table>
+<table class="v-table" data-density="relaxed"></table>
 ```
 
 ### Spinner
 
 ```html
-<span class="spinner"></span>
+<span class="v-spinner"></span>
 ```
 
 Customizable via CSS custom properties on the element:
@@ -272,9 +272,9 @@ Customizable via CSS custom properties on the element:
 ### Icon
 
 ```html
-<span class="icon" data-icon="plus"></span>
-<span class="icon" data-icon="pencil"></span>
-<span class="icon" data-icon="cage"></span>
+<span class="v-icon" data-v-icon="plus"></span>
+<span class="v-icon" data-v-icon="pencil"></span>
+<span class="v-icon" data-v-icon="cage"></span>
 ```
 
 Icons inherit color from their parent. For custom icons, set `--icon-src` to an SVG data URI.

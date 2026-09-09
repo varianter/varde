@@ -48,7 +48,7 @@ function WorkspacePanel({ mode }: { mode: string }) {
                   (selected ? "" : "")
                 }
               >
-                <span class="icon fs-xs " data-icon={item.icon} />
+                <span class="v-icon fs-xs " data-v-icon={item.icon} />
                 <span class="flex-1 fs-s fw-medium">{item.label}</span>
                 <span class="fs-s t-tabular">{item.meta}</span>
               </a>
@@ -61,14 +61,14 @@ function WorkspacePanel({ mode }: { mode: string }) {
             <label class="fs-s ink-subtle" for={`name-${mode}`}>
               Workspace name
             </label>
-            <input class="input" type="text" id={`name-${mode}`} value="Variant" />
+            <input class="v-input" type="text" id={`name-${mode}`} value="Variant" />
           </div>
 
           <div class="stack-v gap-4xs">
             <label class="fs-s ink-subtle" for={`access-${mode}`}>
               Default access
             </label>
-            <select class="select" id={`access-${mode}`}>
+            <select class="v-select" id={`access-${mode}`}>
               <option value="members">Members only</option>
               <option value="org">Whole organization</option>
               <option value="public">Public</option>
@@ -76,18 +76,18 @@ function WorkspacePanel({ mode }: { mode: string }) {
           </div>
 
           <label class="stack-h items-center gap-2xs fs-s surface-dyed p-3xs b-all bc-subtle br-m">
-            <input class="checkbox" type="checkbox" checked />
+            <input class="v-checkbox" type="checkbox" checked />
             Allow guests to join
           </label>
 
           <div class="stack-h gap-2xs justify-end  -mx-xs -mb-s p-2xs b-t bc-subtle">
-            <button type="button" class="button" data-variant="plain">
+            <button type="button" class="v-button" data-variant="plain">
               Cancel
             </button>
-            <button type="button" class="button" data-variant="tinted">
+            <button type="button" class="v-button" data-variant="tinted">
               Preview
             </button>
-            <button type="submit" class="button px-l flex-1">
+            <button type="submit" class="v-button px-l flex-1">
               Save
             </button>
           </div>

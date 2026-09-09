@@ -1,5 +1,5 @@
 @layer spinner {
-  .spinner {
+  .v-spinner {
     /* The spinner should scale to line-height. */
     --_spinner-size: var(--spinner-size, 1.25lh);
     --_spinner-color: var(--spinner-color, currentColor);
@@ -21,13 +21,13 @@
     -webkit-mask-composite: source-out;
     mask-composite: subtract;
 
-    animation-name: spinner;
+    animation-name: v-spinner;
     animation-duration: var(--_spinner-speed);
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
-  @keyframes spinner {
+  @keyframes v-spinner {
     100% {
       transform: rotate(1turn);
     }

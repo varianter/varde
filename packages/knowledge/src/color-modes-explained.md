@@ -70,7 +70,7 @@ Wrap a whole page section and everything inside falls in line — headings, body
   <h1 class="fs-3xl fw-bold">Velkommen til Variantdag</h1>
   <p class="ink-subtle">Programmet for dagen</p>
 
-  <button class="button">Meld deg på</button>
+  <button class="v-button">Meld deg på</button>
 </color-mode>
 ```
 
@@ -182,7 +182,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
         <h5 class="fw-medium fs-m">Pro trial</h5>
         <p class="ink-subtle">Free for two weeks</p>
       </div>
-      <input type="radio" class="radio" name="trial" checked />
+      <input type="radio" class="v-radio" name="trial" checked />
     </label>
   </color-mode>
 
@@ -195,7 +195,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
         <h5 class="fw-medium fs-m">Team trial</h5>
         <p class="ink-subtle">Free for two weeks</p>
       </div>
-      <input type="radio" class="radio" name="trial" />
+      <input type="radio" class="v-radio" name="trial" />
     </label>
   </color-mode>
 
@@ -207,7 +207,7 @@ Because colour lives on the wrapper, **changing state is one attribute**. Select
         <h5 class="fw-medium fs-m">No thanks</h5>
         <p class="ink-subtle">I'm good</p>
       </div>
-      <input type="radio" class="radio" name="trial" />
+      <input type="radio" class="v-radio" name="trial" />
     </label>
   </color-mode>
 </div>

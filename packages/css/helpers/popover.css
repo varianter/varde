@@ -1,44 +1,44 @@
 @layer popover.base, popover.state;
 
-/** .popover ONLY cares about transitions and position of itself
+/** .v-popover ONLY cares about transitions and position of itself
  * This means two things:
- * 1. You don't put other classes on the same element as .popover, especially not `.stack-v/.stack-h` or other `display` rules.
+ * 1. You don't put other classes on the same element as .v-popover, especially not `.stack-v/.stack-h` or other `display` rules.
  * 2. You must add backgrounds, border-radius and shadows on an element inside.
  **/
 
 @layer popover.base {
-  :where(.popover) {
+  :where(.v-popover) {
     margin: auto;
     padding: 0;
     border: none;
     overflow: visible;
   }
 
-  :where(.popover[data-type='drawer']) {
+  :where(.v-popover[data-type='drawer']) {
     margin: 0;
   }
 
   /* Right (default): unstick the left edge, stretch height */
-  :where(.popover[data-type='drawer']:not([data-position])),
-  :where(.popover[data-type='drawer'][data-position='right']) {
+  :where(.v-popover[data-type='drawer']:not([data-position])),
+  :where(.v-popover[data-type='drawer'][data-position='right']) {
     left: auto;
     height: 100%;
   }
 
   /* Left: unstick the right edge */
-  :where(.popover[data-type='drawer'][data-position='left']) {
+  :where(.v-popover[data-type='drawer'][data-position='left']) {
     right: auto;
     height: 100%;
   }
 
   /* Top: unstick the bottom edge */
-  :where(.popover[data-type='drawer'][data-position='top']) {
+  :where(.v-popover[data-type='drawer'][data-position='top']) {
     bottom: auto;
     width: 100%;
   }
 
   /* Bottom: unstick the top edge */
-  :where(.popover[data-type='drawer'][data-position='bottom']) {
+  :where(.v-popover[data-type='drawer'][data-position='bottom']) {
     top: auto;
     width: 100%;
   }
@@ -47,26 +47,26 @@
   /* The popover's implicit anchor is its triggering element (popovertarget).
      position-area positions relative to it automatically — no anchor-name needed. */
 
-  :where(.popover[data-type='tooltip']:not([data-position])),
-  :where(.popover[data-type='tooltip'][data-position='top']) {
+  :where(.v-popover[data-type='tooltip']:not([data-position])),
+  :where(.v-popover[data-type='tooltip'][data-position='top']) {
     position-area: top;
   }
 
-  :where(.popover[data-type='tooltip'][data-position='bottom']) {
+  :where(.v-popover[data-type='tooltip'][data-position='bottom']) {
     position-area: bottom;
   }
 
-  :where(.popover[data-type='tooltip'][data-position='left']) {
+  :where(.v-popover[data-type='tooltip'][data-position='left']) {
     position-area: left;
   }
 
-  :where(.popover[data-type='tooltip'][data-position='right']) {
+  :where(.v-popover[data-type='tooltip'][data-position='right']) {
     position-area: right;
   }
 
   /* --- Backdrop --- */
 
-  :where(.popover[data-backdrop])::backdrop {
+  :where(.v-popover[data-backdrop])::backdrop {
     background: oklch(from var(--backdrop) l c h / 0.2);
     filter: blur(15px);
   }
@@ -78,7 +78,7 @@
 
 @layer popover.state {
   /* Shared transition mechanics */
-  :where(.popover) {
+  :where(.v-popover) {
     --_popover-duration-enter: var(
       --popover-duration-enter,
       var(--interaction-transition-duration-enter)
@@ -106,7 +106,7 @@
     transform: var(--_popover-exit-transform, none);
   }
 
-  :where(.popover):popover-open {
+  :where(.v-popover):popover-open {
     /* Resting transition */
     opacity: 1;
     transform: none;
@@ -121,11 +121,11 @@
 
   /* Centred, so they scale from their own centre like a modal. Nothing starts
      from scale(0) — a near-full start reads as "it was always almost there". */
-  :where(.popover:not([data-type])) {
+  :where(.v-popover:not([data-type])) {
     --_popover-enter-transform: translateY(-0.5rem) scale(0.97);
   }
 
-  :where(.popover[data-type='dialog']) {
+  :where(.v-popover[data-type='dialog']) {
     --_popover-enter-transform: translateY(-1rem) scale(0.97);
   }
 
@@ -136,30 +136,30 @@
    * trigger rather than arriving from nowhere. Small element, short travel,
    * so it takes the quick duration.
    */
-  :where(.popover[data-type='tooltip']) {
+  :where(.v-popover[data-type='tooltip']) {
     --_popover-duration-enter: var(
       --popover-duration-enter,
       var(--interaction-transition-duration-enter)
     );
   }
 
-  :where(.popover[data-type='tooltip']:not([data-position])),
-  :where(.popover[data-type='tooltip'][data-position='top']) {
+  :where(.v-popover[data-type='tooltip']:not([data-position])),
+  :where(.v-popover[data-type='tooltip'][data-position='top']) {
     --_popover-enter-transform: translateY(2.25rem) scale(0.95);
     /* transform-origin: bottom center; */
   }
 
-  :where(.popover[data-type='tooltip'][data-position='bottom']) {
+  :where(.v-popover[data-type='tooltip'][data-position='bottom']) {
     --_popover-enter-transform: translateY(-2.25rem) scale(0.95);
     /* transform-origin: top center; */
   }
 
-  :where(.popover[data-type='tooltip'][data-position='left']) {
+  :where(.v-popover[data-type='tooltip'][data-position='left']) {
     --_popover-enter-transform: translateX(2.25rem) scale(0.95);
     /* transform-origin: right center; */
   }
 
-  :where(.popover[data-type='tooltip'][data-position='right']) {
+  :where(.v-popover[data-type='tooltip'][data-position='right']) {
     --_popover-enter-transform: translateX(-2.25rem) scale(0.95);
     /* transform-origin: left center; */
   }
@@ -170,7 +170,7 @@
    * longer duration and a steeper curve — at the tooltip's 150ms this reads
    * as a whip. It slides rather than fading, and it leaves the way it came.
    */
-  :where(.popover[data-type='drawer']) {
+  :where(.v-popover[data-type='drawer']) {
     --_popover-duration-enter: var(
       --popover-duration-enter,
       var(--interaction-transition-duration-enter-large)
@@ -184,32 +184,32 @@
     --_popover-exit-opacity: 1;
   }
 
-  :where(.popover[data-type='drawer']:not([data-position])),
-  :where(.popover[data-type='drawer'][data-position='right']) {
+  :where(.v-popover[data-type='drawer']:not([data-position])),
+  :where(.v-popover[data-type='drawer'][data-position='right']) {
     --_popover-enter-transform: translateX(100%);
     --_popover-exit-transform: translateX(100%);
   }
 
   /* Drawer: left */
-  :where(.popover[data-type='drawer'][data-position='left']) {
+  :where(.v-popover[data-type='drawer'][data-position='left']) {
     --_popover-enter-transform: translateX(-100%);
     --_popover-exit-transform: translateX(-100%);
   }
 
   /* Drawer: top */
-  :where(.popover[data-type='drawer'][data-position='top']) {
+  :where(.v-popover[data-type='drawer'][data-position='top']) {
     --_popover-enter-transform: translateY(-100%);
     --_popover-exit-transform: translateY(-100%);
   }
 
   /* Drawer: bottom */
-  :where(.popover[data-type='drawer'][data-position='bottom']) {
+  :where(.v-popover[data-type='drawer'][data-position='bottom']) {
     --_popover-enter-transform: translateY(100%);
     --_popover-exit-transform: translateY(100%);
   }
 
   /* Backdrop fade. Shares the popover's timing so the two read as one entity. */
-  :where(.popover[data-backdrop])::backdrop {
+  :where(.v-popover[data-backdrop])::backdrop {
     transition:
       opacity var(--_popover-duration-exit) var(--_popover-easing),
       overlay var(--_popover-duration-exit) var(--_popover-easing) allow-discrete,
@@ -217,7 +217,7 @@
     opacity: 0;
   }
 
-  :where(.popover[data-backdrop]):popover-open::backdrop {
+  :where(.v-popover[data-backdrop]):popover-open::backdrop {
     opacity: 1;
     transition-duration: var(--_popover-duration-enter);
 

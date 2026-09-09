@@ -7,7 +7,7 @@ export default function FormPage() {
         <label class="fs-s ink-subtle" for="Name">
           Name
         </label>
-        <input class="input" type="text" id="Name" name="Name" />
+        <input class="v-input" type="text" id="Name" name="Name" />
       </div>
       <div class="stack-h items-start gap-m">
         <div class="stack-v gap-xs grow">
@@ -15,7 +15,7 @@ export default function FormPage() {
             Nationality (ISO 3166-1 numeric)
           </label>
           <input
-            class="input"
+            class="v-input"
             type="text"
             id="Nationality"
             name="Nationality"
@@ -27,7 +27,7 @@ export default function FormPage() {
             National organization number
           </label>
           <input
-            class="input"
+            class="v-input"
             type="text"
             value="asdf"
             id="NationalOrgNumber"
@@ -57,9 +57,9 @@ export default function FormPage() {
         <label class="fs-s ink-subtle" for="Address">
           Address
         </label>
-        <textarea class="textarea" rows={3} id="Address" name="Address"></textarea>
+        <textarea class="v-textarea" rows={3} id="Address" name="Address"></textarea>
       </div>
-      <button class="button ml-auto px-xl" type="submit">
+      <button class="v-button ml-auto px-xl" type="submit">
         Add Company
       </button>
     </form>

@@ -322,7 +322,7 @@ app.use(
                   <button
                     id="theme-toggle"
                     type="button"
-                    class="button"
+                    class="v-button"
                     data-variant="tinted"
                     data-size="small"
                     aria-label="Toggle color scheme"
@@ -333,7 +333,7 @@ app.use(
                     type="button"
                     data-size="small"
                     popovertarget="nav-popover"
-                    class="button menu-toggle"
+                    class="v-button menu-toggle"
                     aria-label="Toggle navigation menu"
                   >
                     <span aria-hidden="true">☰</span> Menu
@@ -347,7 +347,7 @@ app.use(
                 data-type="drawer"
                 data-position="left"
                 popover="auto"
-                class="popover"
+                class="v-popover"
               >
                 <div class="px-s-m surface-base site-nav-list">
                   <NavLinks />

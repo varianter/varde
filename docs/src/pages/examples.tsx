@@ -12,17 +12,17 @@ function Events({ color = "grey" }) {
           </p>
           <div class="stack-h gap-xs py-2xs">
             <p>Lokasjon</p>
-            <button class="button br-pill" data-variant="outlined" data-size="small">
+            <button class="v-button br-pill" data-variant="outlined" data-size="small">
               Alle (3)
             </button>
-            <button class="button br-pill" data-variant="outlined" data-size="small">
+            <button class="v-button br-pill" data-variant="outlined" data-size="small">
               Trondheim (2)
             </button>
-            <button class="button br-pill" data-variant="outlined" data-size="small">
+            <button class="v-button br-pill" data-variant="outlined" data-size="small">
               Oslo (1)
             </button>
           </div>
-          <button class="button mt-l">Se alle arrangementer</button>
+          <button class="v-button mt-l">Se alle arrangementer</button>
         </div>
         <div class="stack-v gap-2xs flex-1">
           <color-mode palette="inherit">
@@ -127,7 +127,7 @@ function SmileyBox({ color = "green" }) {
 function HandbookBox({ color = "green" }) {
   return (
     <color-mode palette={color} inverted>
-      <div class="px-m pt-xl-2xl pb-l surface-dyed typeset mw-8 stack-v br-m">
+      <div class="px-m pt-xl-2xl pb-l surface-dyed v-typeset mw-8 stack-v br-m">
         <h3 class="fs-2xl lh-tight">Håndboka</h3>
         <p class="fs-l ink-subtle">
           I håndboka står alt om hvordan vi jobber og hva som er viktig for oss. Endrer vi på oss,
@@ -135,36 +135,36 @@ function HandbookBox({ color = "green" }) {
         </p>
 
         <div class="stack-h gap-m gap-row-3xs fs-2xl">
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Verdier
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Familieliv
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Likestilling
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Helse
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Samfunn
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Open Source
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Lønn
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Bonus
           </a>
-          <a href="/" class="link">
+          <a href="/" class="v-link">
             Pensjon og forsikring
           </a>
         </div>
 
-        <button class="button mt-l-xl ml-auto" data-variant="outlined">
+        <button class="v-button mt-l-xl ml-auto" data-variant="outlined">
           Kikk i håndboka
         </button>
       </div>

@@ -1,5 +1,5 @@
 @layer typeset {
-  @scope (.typeset) to (.untypeset) {
+  @scope (.v-typeset) to (.v-untypeset) {
     :scope {
       --flow-space: 0.75em;
       max-width: 58ch;
@@ -33,7 +33,7 @@
       font-size: var(--font-size-m);
     }
 
-    /* Mirror: .link in components/link.css */
+    /* Mirror: .v-link in components/link.css */
     :any-link {
       color: var(--ink-link-default);
       font-weight: var(--font-weight-medium);

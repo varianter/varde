@@ -51,7 +51,7 @@
 @layer buttons.public {
   /* Color: just picks up the button tokens, which inherit palette from color-mode. */
 
-  :where(.button) {
+  :where(.v-button) {
     --_button-base: var(--button-base);
     --_button-on-base: var(--button-on-base);
   }
@@ -60,7 +60,7 @@
    * Derivations. Three tiers in this file: inputs (above), derivations
    * (here), slots (--_button-background/ink/border, below).
    */
-  :where(.button) {
+  :where(.v-button) {
     /*
      * Filled states: mix toward on-base — the "state layer" move. In light
      * mode on-base is light, so hover lifts; in dark mode it's dark, so
@@ -95,26 +95,26 @@
 
   /* Variant axis: decides where the channels land, never what they are. */
 
-  :where(.button:not([data-variant]), .button[data-variant='filled']) {
+  :where(.v-button:not([data-variant]), .v-button[data-variant='filled']) {
     --_button-background: var(--_button-base);
     --_button-ink: var(--_button-on-base);
     --_button-border: var(--_button-base);
   }
 
   /* Between filled and plain: carries the tint at rest, no border chrome. */
-  :where(.button[data-variant='tinted']) {
+  :where(.v-button[data-variant='tinted']) {
     --_button-background: var(--_button-tint);
     --_button-ink: var(--_button-on-tint);
     --_button-border: transparent;
   }
 
-  :where(.button[data-variant='outlined']) {
+  :where(.v-button[data-variant='outlined']) {
     --_button-background: transparent;
     --_button-ink: var(--_button-on-surface);
     --_button-border: oklch(from var(--_button-base) l c h / 0.25);
   }
 
-  :where(.button[data-variant='plain']) {
+  :where(.v-button[data-variant='plain']) {
     --_button-background: transparent;
     --_button-ink: var(--_button-on-surface);
     --_button-border: transparent;
@@ -122,7 +122,7 @@
 
   /* Sizes */
 
-  :where(.button:not([data-size]), .button[data-size='medium']) {
+  :where(.v-button:not([data-size]), .v-button[data-size='medium']) {
     --_button-height: var(--size-control-height-medium);
     --_button-padding-inline: var(--spacing-s);
     --_button-font-size: var(--font-size-m);
@@ -130,7 +130,7 @@
     --_button-border-radius: var(--border-radius-m);
   }
 
-  :where(.button[data-size='small']) {
+  :where(.v-button[data-size='small']) {
     --_button-height: var(--size-control-height-small);
     --_button-padding-inline: var(--spacing-xs);
     --_button-font-size: var(--font-size-s);
@@ -138,7 +138,7 @@
     --_button-border-radius: var(--border-radius-m);
   }
 
-  :where(.button[data-size='large']) {
+  :where(.v-button[data-size='large']) {
     --_button-height: var(--size-control-height-large);
     --_button-padding-inline: var(--spacing-m);
     --_button-font-size: var(--font-size-l);
@@ -148,7 +148,7 @@
 }
 
 @layer buttons.base {
-  :where(.button) {
+  :where(.v-button) {
     appearance: none;
     font: inherit;
 
@@ -204,13 +204,13 @@
    */
   @media (hover: hover) and (pointer: fine) {
     /* Only the surfaces move; the label no longer shifts with them. */
-    :where(.button:not([data-variant]), .button[data-variant='filled']):hover {
+    :where(.v-button:not([data-variant]), .v-button[data-variant='filled']):hover {
       --_button-background: var(--_button-base-hover);
       --_button-border: var(--_button-base-hover);
     }
 
     /* Tinted already sits at 12%; hover steps the mix up. */
-    :where(.button[data-variant='tinted']):hover {
+    :where(.v-button[data-variant='tinted']):hover {
       --_button-background: var(--_button-tint-hover);
     }
 
@@ -218,8 +218,8 @@
      * Outlined and plain gain the tint. Border is deliberately untouched on
      * outlined — it keeps holding base, so the outline identity survives hover.
      */
-    :where(.button[data-variant='outlined']):hover,
-    :where(.button[data-variant='plain']):hover {
+    :where(.v-button[data-variant='outlined']):hover,
+    :where(.v-button[data-variant='plain']):hover {
       --_button-background: var(--_button-tint);
       --_button-ink: var(--_button-on-tint);
     }
@@ -228,32 +228,32 @@
   /*
    * Not hover-gated: touch users get press feedback too.
    */
-  :where(.button):active {
+  :where(.v-button):active {
     transform: scale(0.97);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :where(.button):active {
+    :where(.v-button):active {
       transform: none;
     }
   }
 
-  :where(.button:not([data-variant]), .button[data-variant='filled']):active {
+  :where(.v-button:not([data-variant]), .v-button[data-variant='filled']):active {
     --_button-background: var(--_button-base-active);
     --_button-border: var(--_button-base-active);
   }
 
-  :where(.button[data-variant='tinted']):active {
+  :where(.v-button[data-variant='tinted']):active {
     --_button-background: var(--_button-tint-active);
   }
 
-  :where(.button[data-variant='outlined']):active,
-  :where(.button[data-variant='plain']):active {
+  :where(.v-button[data-variant='outlined']):active,
+  :where(.v-button[data-variant='plain']):active {
     --_button-background: var(--_button-tint-active);
     --_button-ink: var(--_button-on-tint);
   }
 
-  :where(.button):focus-visible {
+  :where(.v-button):focus-visible {
     outline-color: var(--button-focus-ring-color);
   }
 }

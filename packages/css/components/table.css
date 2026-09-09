@@ -3,24 +3,24 @@
 @layer table.public {
   /* Density axis */
 
-  :where(.table:not([data-density]), .table[data-density='default'], .typeset table) {
+  :where(.v-table:not([data-density]), .v-table[data-density='default'], .v-typeset table) {
     --_table-padding-block: var(--spacing-xs);
     --_table-padding-inline: var(--spacing-s);
   }
 
-  :where(.table[data-density='compact']) {
+  :where(.v-table[data-density='compact']) {
     --_table-padding-block: var(--spacing-3xs);
     --_table-padding-inline: var(--spacing-xs);
   }
 
-  :where(.table[data-density='relaxed']) {
+  :where(.v-table[data-density='relaxed']) {
     --_table-padding-block: var(--spacing-s);
     --_table-padding-inline: var(--spacing-m);
   }
 }
 
 @layer table.base {
-  :where(.table, .typeset table) {
+  :where(.v-table, .v-typeset table) {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -29,7 +29,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  :where(.table, .typeset table) :where(th) {
+  :where(.v-table, .v-typeset table) :where(th) {
     font-weight: var(--font-weight-bold);
     text-align: inherit;
     color: var(--ink-prominent);
@@ -38,29 +38,29 @@
     border-block-end: 1px solid var(--border-default);
   }
 
-  :where(.table, .typeset table) :where(td) {
+  :where(.v-table, .v-typeset table) :where(td) {
     padding-block: var(--_table-padding-block);
     padding-inline: var(--_table-padding-inline);
     border-block-end: 1px solid var(--border-subtle);
     color: var(--ink-default);
   }
 
-  :where(.table, .typeset table) :where(thead th) {
+  :where(.v-table, .v-typeset table) :where(thead th) {
     vertical-align: bottom;
   }
 
-  :where(.table, .typeset table) :where(tbody th) {
+  :where(.v-table, .v-typeset table) :where(tbody th) {
     font-weight: var(--font-weight-medium);
   }
 
-  :where(.table, .typeset table) :where(tfoot td, tfoot th) {
+  :where(.v-table, .v-typeset table) :where(tfoot td, tfoot th) {
     border-block-end: none;
     border-block-start: 1px solid var(--border-default);
     font-weight: var(--font-weight-medium);
     color: var(--ink-prominent);
   }
 
-  :where(.table, .typeset table) :where(caption) {
+  :where(.v-table, .v-typeset table) :where(caption) {
     padding-block: var(--_table-padding-block);
     color: var(--ink-subtle);
     caption-side: bottom;
@@ -69,7 +69,7 @@
   }
 
   /* Remove bottom border from last row in tbody when there is no tfoot */
-  :where(.table, .typeset table)
+  :where(.v-table, .v-typeset table)
     :where(tbody:last-child tr:last-child td, tbody:last-child tr:last-child th) {
     border-block-end: none;
   }

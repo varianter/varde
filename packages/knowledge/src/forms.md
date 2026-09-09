@@ -3,9 +3,9 @@ title: Form controls
 description: Inputs, selects, textareas, checkboxes, radios, and labels.
 ---
 
-Apply `.input`, `.select`, `.textarea`, `.checkbox`, or `.radio` to their respective native HTML elements. Pair with `.form-label` for labels. Size with `data-size` and mark errors with `aria-invalid`.
+Apply `.v-input`, `.v-select`, `.v-textarea`, `.v-checkbox`, or `.v-radio` to their respective native HTML elements. Pair with `.v-form-label` for labels. Size with `data-size` and mark errors with `aria-invalid`.
 
-## .input / .textarea / .select
+## .v-input / .v-textarea / .v-select
 
 `data-size` scales height, padding, font size, and border radius proportionally. Medium is the default — omit the attribute for the standard size.
 
@@ -17,8 +17,8 @@ Text-like inputs on `<input>` elements:
 
 ```html
 <div class="stack-v gap-2xs">
-  <label class="form-label" for="name">Full name</label>
-  <input class="input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
+  <label class="v-form-label" for="name">Full name</label>
+  <input class="v-input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
 </div>
 ```
 
@@ -26,9 +26,9 @@ Textareas on `<textarea>`:
 
 ```html
 <div class="stack-v gap-2xs">
-  <label class="form-label" for="message">Message</label>
+  <label class="v-form-label" for="message">Message</label>
   <textarea
-    class="textarea"
+    class="v-textarea"
     id="message"
     rows="3"
     placeholder="Write something…"
@@ -40,8 +40,8 @@ Selects on `<select>`. A custom chevron is rendered via `background-image` — n
 
 ```html
 <div class="stack-v gap-2xs">
-  <label class="form-label" for="country">Country</label>
-  <select class="select" id="country">
+  <label class="v-form-label" for="country">Country</label>
+  <select class="v-select" id="country">
     <option value="">Choose…</option>
     <option value="no">Norway</option>
     <option value="se">Sweden</option>
@@ -57,23 +57,23 @@ All three control types share the same sizing scale:
 ```html
 <div class="stack-h gap-m">
   <div class="stack-v gap-s w-full flex-1">
-    <input class="input" type="text" data-size="small" placeholder="Small" />
-    <input class="input" type="text" placeholder="Medium" />
-    <input class="input" type="text" data-size="large" placeholder="Large" />
+    <input class="v-input" type="text" data-size="small" placeholder="Small" />
+    <input class="v-input" type="text" placeholder="Medium" />
+    <input class="v-input" type="text" data-size="large" placeholder="Large" />
   </div>
 
   <div class="stack-v gap-s w-full flex-1">
-    <select class="select" data-size="small">
+    <select class="v-select" data-size="small">
       <option>Small</option>
       <option>Small</option>
       <option>Small</option>
     </select>
-    <select class="select">
+    <select class="v-select">
       <option>Medium</option>
       <option>Medium</option>
       <option>Medium</option>
     </select>
-    <select class="select" data-size="large">
+    <select class="v-select" data-size="large">
       <option>Large</option>
       <option>Large</option>
       <option>Large</option>
@@ -82,14 +82,14 @@ All three control types share the same sizing scale:
 
   <div class="stack-v gap-s w-full flex-1">
     <textarea
-      class="textarea"
+      class="v-textarea"
       data-size="small"
       rows="1"
       placeholder="Small"
     ></textarea>
-    <textarea class="textarea" rows="1" placeholder="Medium"></textarea>
+    <textarea class="v-textarea" rows="1" placeholder="Medium"></textarea>
     <textarea
-      class="textarea"
+      class="v-textarea"
       data-size="large"
       rows="1"
       placeholder="Large"
@@ -104,32 +104,32 @@ Inputs and buttons at matching sizes align naturally in a row:
 <div class="stack-v gap-xs">
   <div class="stack-h gap-s">
     <input
-      class="input grow"
+      class="v-input grow"
       type="text"
       data-size="small"
       placeholder="Search…"
     />
-    <button class="button " data-size="small">Go</button>
+    <button class="v-button " data-size="small">Go</button>
   </div>
 
   <div class="stack-h gap-s">
     <input
-      class="input grow"
+      class="v-input grow"
       type="text"
       data-size="medium"
       placeholder="Search…"
     />
-    <button class="button " data-size="medium">Go</button>
+    <button class="v-button " data-size="medium">Go</button>
   </div>
 
   <div class="stack-h gap-s">
     <input
-      class="input grow"
+      class="v-input grow"
       type="text"
       data-size="large"
       placeholder="Search…"
     />
-    <button class="button " data-size="large">Go</button>
+    <button class="v-button " data-size="large">Go</button>
   </div>
 </div>
 ```
@@ -139,7 +139,7 @@ Inputs and buttons at matching sizes align naturally in a row:
 With optgroups and separators. In Chromium-based browsers, the dropdown is fully styled (optgroup labels, checkmarks, hover states). Other browsers get a custom chevron with a native dropdown.
 
 ```html
-<select class="select">
+<select class="v-select">
   <option value="">Choose a food</option>
   <hr />
   <optgroup label="Fruit">
@@ -159,12 +159,12 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 ## range input
 
 ```html
-<input class="range" type="range" min="0" max="100" step="5" />
+<input class="v-range" type="range" min="0" max="100" step="5" />
 ```
 
-## .radio / .checkbox
+## .v-radio / .v-checkbox
 
-`.checkbox` and `.radio` replace the native appearance with a styled check or dot mark. Checked state fills the mark automatically — no extra classes needed. Always pair with a `<label>`.
+`.v-checkbox` and `.v-radio` replace the native appearance with a styled check or dot mark. Checked state fills the mark automatically — no extra classes needed. Always pair with a `<label>`.
 
 | Attribute   | Values                           |
 | ----------- | -------------------------------- |
@@ -172,18 +172,18 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 
 ```html
 <div class="stack-h gap-s">
-  <input class="checkbox" type="checkbox" id="terms" checked />
+  <input class="v-checkbox" type="checkbox" id="terms" checked />
   <label for="terms">I accept the terms</label>
 </div>
 ```
 
 ```html
 <div class="stack-h gap-s">
-  <input class="radio" type="radio" name="choice" id="opt-a" checked />
+  <input class="v-radio" type="radio" name="choice" id="opt-a" checked />
   <label for="opt-a">Option A</label>
 </div>
 <div class="stack-h gap-s">
-  <input class="radio" type="radio" name="choice" id="opt-b" />
+  <input class="v-radio" type="radio" name="choice" id="opt-b" />
   <label for="opt-b">Option B</label>
 </div>
 ```
@@ -196,29 +196,29 @@ Both controls share the same sizing scale:
 <div class="stack-v gap-xs">
   <div class="stack-h items-center gap-m">
     <div class="stack-h gap-2xs">
-      <input class="checkbox" type="checkbox" data-size="small" checked />
+      <input class="v-checkbox" type="checkbox" data-size="small" checked />
       <label>Small</label>
     </div>
     <div class="stack-h gap-2xs">
-      <input class="checkbox" type="checkbox" checked />
+      <input class="v-checkbox" type="checkbox" checked />
       <label>Medium</label>
     </div>
     <div class="stack-h gap-2xs">
-      <input class="checkbox" type="checkbox" data-size="large" checked />
+      <input class="v-checkbox" type="checkbox" data-size="large" checked />
       <label>Large</label>
     </div>
   </div>
   <div class="stack-h items-center gap-m">
     <div class="stack-h gap-2xs">
-      <input class="radio" type="radio" name="size" data-size="small" checked />
+      <input class="v-radio" type="radio" name="size" data-size="small" checked />
       <label>Small</label>
     </div>
     <div class="stack-h gap-2xs">
-      <input class="radio" type="radio" name="size" />
+      <input class="v-radio" type="radio" name="size" />
       <label>Medium</label>
     </div>
     <div class="stack-h gap-2xs">
-      <input class="radio" type="radio" name="size" data-size="large" />
+      <input class="v-radio" type="radio" name="size" data-size="large" />
       <label>Large</label>
     </div>
   </div>
@@ -227,12 +227,12 @@ Both controls share the same sizing scale:
 
 ## Labels
 
-`.form-label` provides consistent label styling: muted color, small size, medium weight.
+`.v-form-label` provides consistent label styling: muted color, small size, medium weight.
 
 ```html
 <div class="stack-v gap-2xs">
-  <label class="form-label" for="email">Email</label>
-  <input class="input" type="email" id="email" />
+  <label class="v-form-label" for="email">Email</label>
+  <input class="v-input" type="email" id="email" />
 </div>
 ```
 
@@ -242,9 +242,9 @@ Set `aria-invalid="true"` on the control. The border and text turn red automatic
 
 ```html
 <div class="stack-v">
-  <label class="form-label" for="email">Email</label>
+  <label class="v-form-label" for="email">Email</label>
   <input
-    class="input"
+    class="v-input"
     type="email"
     id="email"
     value="not-an-email"
@@ -268,19 +268,19 @@ A realistic form combining labels, layout, validation, and multiple control type
 <form class="stack-v gap-m">
   <div class="stack-h items-start gap-m">
     <div class="stack-v gap-2xs grow">
-      <label class="form-label" for="first">First name</label>
-      <input class="input" type="text" id="first" placeholder="Ola" />
+      <label class="v-form-label" for="first">First name</label>
+      <input class="v-input" type="text" id="first" placeholder="Ola" />
     </div>
     <div class="stack-v gap-2xs grow">
-      <label class="form-label" for="last">Last name</label>
-      <input class="input" type="text" id="last" placeholder="Nordmann" />
+      <label class="v-form-label" for="last">Last name</label>
+      <input class="v-input" type="text" id="last" placeholder="Nordmann" />
     </div>
   </div>
 
   <div class="stack-v">
-    <label class="form-label mb-3xs" for="email">Email</label>
+    <label class="v-form-label mb-3xs" for="email">Email</label>
     <input
-      class="input"
+      class="v-input"
       type="email"
       id="email"
       value="bad"
@@ -292,8 +292,8 @@ A realistic form combining labels, layout, validation, and multiple control type
   </div>
 
   <div class="stack-v gap-2xs">
-    <label class="form-label" for="country">Country</label>
-    <select class="select" id="country">
+    <label class="v-form-label" for="country">Country</label>
+    <select class="v-select" id="country">
       <option value="">Choose…</option>
       <option value="no">Norway</option>
       <option value="se">Sweden</option>
@@ -302,9 +302,9 @@ A realistic form combining labels, layout, validation, and multiple control type
   </div>
 
   <div class="stack-v gap-2xs">
-    <label class="form-label" for="message">Message</label>
+    <label class="v-form-label" for="message">Message</label>
     <textarea
-      class="textarea"
+      class="v-textarea"
       id="message"
       rows="3"
       placeholder="Write something…"
@@ -312,10 +312,10 @@ A realistic form combining labels, layout, validation, and multiple control type
   </div>
 
   <div class="stack-h gap-s">
-    <input class="checkbox" type="checkbox" id="terms" />
+    <input class="v-checkbox" type="checkbox" id="terms" />
     <label class="fs-s" for="terms">I accept the terms and conditions</label>
   </div>
 
-  <button class="button ml-auto px-xl" type="submit">Submit</button>
+  <button class="v-button ml-auto px-xl" type="submit">Submit</button>
 </form>
 ```

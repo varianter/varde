@@ -87,7 +87,7 @@
     font-weight: var(--font-weight-medium);
   }
   :where(:any-link) {
-    /* By default, links are unstyled. Use .typeset or .link */
+    /* By default, links are unstyled. Use .v-typeset or .v-link */
     text-decoration-color: transparent;
     color: currentColor;
   }
@@ -138,7 +138,7 @@
 
     /* Popovers, dialogs and drawers cross-fade in place. Drawers opt out of
        fading by default, so they need opacity handed back to them. */
-    :where(.popover) {
+    :where(.v-popover) {
       --_popover-enter-transform: none !important;
       --_popover-exit-transform: none !important;
       --_popover-enter-opacity: 0 !important;
@@ -147,7 +147,7 @@
 
     /* A frozen spinner communicates nothing, and status feedback is essential
        rather than decorative. It keeps turning. */
-    .spinner {
+    .v-spinner {
       animation-iteration-count: infinite !important;
     }
   }

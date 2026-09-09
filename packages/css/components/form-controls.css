@@ -1,6 +1,6 @@
 @layer forms.base, forms.public, forms.state, forms.base-select;
 
-:where(.form-label) {
+:where(.v-form-label) {
   font-size: var(--font-size-s);
   line-height: var(--line-height-tight);
   color: var(--ink-subtle);
@@ -8,7 +8,7 @@
 }
 
 @layer forms.public {
-  :where(.input, .select, .textarea, .checkbox, .radio) {
+  :where(.v-input, .v-select, .v-textarea, .v-checkbox, .v-radio) {
     --input-background: var(--background-control-default);
     --input-ink: var(--ink-default);
     --input-border: var(--border-control-default);
@@ -22,7 +22,7 @@
     --_input-border-radius: var(--border-radius-m);
   }
 
-  :where(.input, .select, .textarea) {
+  :where(.v-input, .v-select, .v-textarea) {
     --_input-height: var(--size-control-height-medium);
     --_input-font-size: var(--font-size-m);
     --_input-padding-inline: var(--spacing-xs);
@@ -30,7 +30,7 @@
     --_input-border-radius: var(--border-radius-l);
   }
 
-  :where(.input, .select, .textarea):where([data-size='small']) {
+  :where(.v-input, .v-select, .v-textarea):where([data-size='small']) {
     --_input-height: var(--size-control-height-small);
     --_input-font-size: var(--font-size-m);
     --_input-padding-inline: var(--spacing-xs);
@@ -38,7 +38,7 @@
     --_input-border-radius: var(--border-radius-m);
   }
 
-  :where(.input, .select, .textarea):where([data-size='large']) {
+  :where(.v-input, .v-select, .v-textarea):where([data-size='large']) {
     --_input-height: var(--size-control-height-large);
     --_input-font-size: var(--font-size-l);
     --_input-padding-inline: var(--spacing-xs);
@@ -48,19 +48,19 @@
 
   /* Checkbox & radio sizing */
 
-  :where(.radio, .checkbox):not([data-size]),
-  :where(.radio, .checkbox):where([data-size='medium']) {
+  :where(.v-radio, .v-checkbox):not([data-size]),
+  :where(.v-radio, .v-checkbox):where([data-size='medium']) {
     --_input-height: var(--size-selection-control-medium);
   }
 
-  :where(.radio, .checkbox):where([data-size='small']) {
+  :where(.v-radio, .v-checkbox):where([data-size='small']) {
     --_input-height: var(--size-selection-control-small);
   }
 
-  :where(.radio, .checkbox):where([data-size='large']) {
+  :where(.v-radio, .v-checkbox):where([data-size='large']) {
     --_input-height: var(--size-selection-control-large);
   }
-  :where(.textarea) {
+  :where(.v-textarea) {
     --_input-padding-block: var(--spacing-xs);
   }
 }
@@ -69,43 +69,46 @@
   /* Gated: on touch, :hover latches after a tap and the control stays
      highlighted until something else is tapped. */
   @media (hover: hover) and (pointer: fine) {
-    :where(.input, .select, .textarea, .checkbox, .radio):hover:not(:focus-visible, [disabled]) {
+    :where(.v-input, .v-select, .v-textarea, .v-checkbox, .v-radio):hover:not(
+        :focus-visible,
+        [disabled]
+      ) {
       border-color: var(--border-control-hover);
       outline-color: var(--border-control-hover);
       /*background-color: var(--background-control-hover);*/
     }
   }
 
-  :where(.input, .select, .textarea, .checkbox, .radio):focus-visible {
+  :where(.v-input, .v-select, .v-textarea, .v-checkbox, .v-radio):focus-visible {
     border-color: var(--border-control-focused);
     outline-color: var(--input-focus-ring-color);
     /*background-color: var(--background-control-hover);*/
   }
 
-  :where(.checkbox, .radio):checked::after {
+  :where(.v-checkbox, .v-radio):checked::after {
     color: var(--input-checked-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :where(.radio)::after,
-    :where(.radio):checked::after {
+    :where(.v-radio)::after,
+    :where(.v-radio):checked::after {
       transform: none;
     }
 
-    :where(.checkbox)::after,
-    :where(.checkbox):checked::after {
+    :where(.v-checkbox)::after,
+    :where(.v-checkbox):checked::after {
       clip-path: none;
     }
   }
 
-  :where(.input, .textarea, .select):where([aria-invalid='true']):not(:focus-visible) {
+  :where(.v-input, .v-textarea, .v-select):where([aria-invalid='true']):not(:focus-visible) {
     --_input-border: var(--border-control-error);
     --_input-ink: var(--ink-control-error);
   }
 }
 
 @layer forms.base {
-  :where(.input, .select, .textarea, .checkbox, .radio) {
+  :where(.v-input, .v-select, .v-textarea, .v-checkbox, .v-radio) {
     appearance: none;
     font: inherit;
     font-weight: var(--font-weight-regular);
@@ -142,14 +145,14 @@
     }
   }
 
-  :where(.input, .select, .textarea) {
+  :where(.v-input, .v-select, .v-textarea) {
     padding-inline: var(--_input-padding-inline);
     padding-block: var(--_input-padding-block);
   }
 
   /* Checkbox & radio */
 
-  :where(.radio, .checkbox) {
+  :where(.v-radio, .v-checkbox) {
     width: var(--_input-height);
     aspect-ratio: 1;
     display: grid;
@@ -157,11 +160,11 @@
     cursor: pointer;
   }
 
-  :where(.radio) {
+  :where(.v-radio) {
     border-radius: 50%;
   }
 
-  :where(.radio, .checkbox)::after {
+  :where(.v-radio, .v-checkbox)::after {
     content: '';
     width: 80%;
     aspect-ratio: 1;
@@ -176,7 +179,7 @@
     }
   }
 
-  :where(.radio)::after {
+  :where(.v-radio)::after {
     mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Ccircle cx="12" cy="12" r="8" /%3E%3C/svg%3E');
     transform: scale(0);
     transition:
@@ -186,11 +189,11 @@
       var(--interaction-transition-easing-default);
   }
 
-  :where(.radio):checked::after {
+  :where(.v-radio):checked::after {
     transform: scale(1);
   }
 
-  :where(.checkbox)::after {
+  :where(.v-checkbox)::after {
     mask-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" %3E%3Cpath d="M20 6L9 17l-5-5"/%3E%3C/svg%3E');
     clip-path: rect(0px 100% 100% 100%);
     filter: blur(5px);
@@ -198,7 +201,7 @@
     transform-origin: right center;
   }
 
-  :where(.checkbox):checked::after {
+  :where(.v-checkbox):checked::after {
     transform: translateY(0);
     clip-path: rect(0px 100% 100% 0);
     filter: blur(0px);
@@ -211,7 +214,7 @@
 
   /* Select */
 
-  :where(.select) {
+  :where(.v-select) {
     padding-inline-end: calc(var(--_input-padding-inline, 1em) + 1.5em + var(--spacing-2xs));
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(94, 117, 131)" viewBox="0 0 24 24"><path d="M12.7 15.7a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 1.4-1.4l5.3 5.29 5.3-5.3a1 1 0 1 1 1.4 1.42z"/></svg>');
     background-position: calc(100% - var(--_input-padding-inline, 1em));
@@ -230,7 +233,7 @@
 
 @layer forms.base-select {
   @supports (appearance: base-select) {
-    :where(.select) {
+    :where(.v-select) {
       appearance: base-select;
       align-content: center;
       min-width: 10rem; /* base-select does not consider the width of it's <options> */
@@ -240,7 +243,7 @@
     }
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
-    :where(.select)::picker-icon {
+    :where(.v-select)::picker-icon {
       color: var(--_input-ink);
       opacity: 0.6;
       position: absolute;
@@ -249,13 +252,13 @@
       translate: 0 -50%;
     }
 
-    /*:where(.select) selectedcontent {
+    /*:where(.v-select) selectedcontent {
       font-size: var(--_input-font-size);
       color: var(--_input-ink);
     }*/
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
-    :where(.select)::picker(select) {
+    :where(.v-select)::picker(select) {
       appearance: base-select;
       font-size: var(--_input-font-size);
       background: var(--input-background);
@@ -308,19 +311,19 @@
 
     /*
     These we can hold off on for a little while.
-    :where(.select)::picker(select):popover-open {
+    :where(.v-select)::picker(select):popover-open {
 
       opacity: 1;
     }
 
     @starting-style {
-      :where(.select)::picker(select):popover-open {
+      :where(.v-select)::picker(select):popover-open {
         opacity: 0;
       }
     }*/
 
     /* Options inside the dropdown */
-    :where(.select) option {
+    :where(.v-select) option {
       padding-block: var(--spacing-4xs);
       padding-inline: var(--spacing-xs) var(--spacing-xs);
       border-radius: calc(var(--input-border-radius) - 2px);
@@ -328,36 +331,36 @@
       outline-offset: 0;
     }
 
-    :where(.select) option:hover {
+    :where(.v-select) option:hover {
       background-color: var(--background-control-hover);
     }
 
-    :where(.select) option:checked {
+    :where(.v-select) option:checked {
       font-weight: var(--font-weight-medium);
     }
 
     /* biome-ignore lint/correctness/noUnknownPseudoElement: Chrome/Edge supports this */
-    :where(.select) option::checkmark {
+    :where(.v-select) option::checkmark {
       color: var(--input-checked-ink);
       order: 2;
       margin-left: auto;
     }
 
     /* Disabled options */
-    :where(.select) option:disabled {
+    :where(.v-select) option:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
 
     /* Optgroup labels */
-    :where(.select) optgroup {
+    :where(.v-select) optgroup {
       font-weight: var(--font-weight-medium);
       color: var(--ink-subtle, var(--input-placeholder));
       padding-block: var(--spacing-3xs);
       padding-inline: var(--spacing-3xs) var(--spacing-xs);
     }
 
-    :where(.select) optgroup legend {
+    :where(.v-select) optgroup legend {
       font-weight: var(--font-weight-medium);
       font-size: 0.75em;
       padding-inline: var(--spacing-3xs) var(--spacing-xs);
@@ -369,7 +372,7 @@
     }
 
     /* hr as separator inside the select */
-    :where(.select) hr {
+    :where(.v-select) hr {
       border: none;
       border-block-start: 1px solid var(--border-subtle, var(--_input-border));
       margin-block: var(--spacing-3xs);
