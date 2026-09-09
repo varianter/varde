@@ -3,12 +3,6 @@ title: Real world examples
 description: Realistic compositions built with Varde utilities and components.
 ---
 
-## Cards
-
-```html
-<color-mode> </color-mode>
-```
-
 # Modal
 
 ```html
@@ -16,101 +10,20 @@ description: Realistic compositions built with Varde utilities and components.
   class="surface-base w-max-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
 >
   <div class="v-typeset">
-    <h4 class="fw-medium fs-xs">Create token</h4>
+    <h4 class="fw-bold fs-xs tt-uppercase">Create token</h4>
     <p>
       Enter a unique name for your token to differentiate it from other tokens
       and then select the scope.
     </p>
     <p>Some content contained within the modal.</p>
   </div>
-  <div
-    class="-mx-s -mb-s px-s py-2xs b-t bc-subtle surface-tinted stack-h"
-  >
+  <div class="-mx-s -mb-s px-s py-2xs b-t bc-subtle surface-tinted stack-h">
     <button class="v-button mr-auto" data-variant="outlined" data-size="small">
       Cancel
     </button>
     <button class="v-button px-l" data-variant="filled" data-size="small">
       Submit
     </button>
-  </div>
-</div>
-```
-
-# Popover #2
-
-```html
-
-<div class="surface-base w-max-4 b-all b-fait br-xl shadow-mid p-3xs stack-v" >
-  <div class="" stagger-items>
-    <input type="text" class="v-input w-full" placeholder="Søk blant kontrakter">
-  </div>
-  <div class="of-scroll px-2xs mt-4xs " style="max-height: 200px">
-  <ul class="py-xs " stagger-items >
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-    <li class="">
-      <a class="bg-wash:hover p-3xs stack-h gap-2xs br-s" href="#">
-        <span class="v-icon fs-xs" data-v-icon="plus"></span>
-        <span>
-        Item 1
-        </span>
-      </a>
-    </li>
-  <ul>
   </div>
 </div>
 ```
@@ -393,8 +306,8 @@ Without buttons, only `color-mode`:
   </div>
 </div>
 <div
-  class="d-grid surface-base gap-3xs"
-  style="grid-template-columns: 250px repeat(4, 1fr);"
+  class="d-grid surface-base gap-3xs of-scroll"
+  style="grid-template-columns: 250px repeat(4, 100px);"
 >
   <div class="row grid-subgrid grid-all-columns pb-s" style="">
     <div class="head-column stack-h gap-2xs ">
@@ -479,14 +392,22 @@ Without buttons, only `color-mode`:
             palette="purple"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
         </div>
@@ -544,14 +465,22 @@ Without buttons, only `color-mode`:
             palette="purple"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
           <color-mode
             palette="yellow"
             class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
           >
-            <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
         </div>
@@ -690,10 +619,7 @@ Without buttons, only `color-mode`:
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="v-checkbox fs-s" type="checkbox" id="0-2-Kilimanjaro" />
-          <label
-            for="0-2-Kilimanjaro"
-            class="fs-s stack-h gap-xs flex-1"
-          >
+          <label for="0-2-Kilimanjaro" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">Kilimanjaro</span>
             <span class="ink-subtle">0-2</span>
           </label>
@@ -702,10 +628,7 @@ Without buttons, only `color-mode`:
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
           <input class="v-checkbox fs-s" type="checkbox" id="3-4-Mont-Blanc" />
-          <label
-            for="3-4-Mont-Blanc"
-            class="fs-s stack-h gap-xs flex-1"
-          >
+          <label for="3-4-Mont-Blanc" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto">Mont Blanc</span>
             <span class="ink-subtle">3-4 </span>
           </label>
@@ -722,11 +645,12 @@ Without buttons, only `color-mode`:
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
         >
-          <input class="v-checkbox fs-s" type="checkbox" id="8-11-Cerro-Torre" />
-          <label
-            for="8-11-Cerro-Torre"
-            class="fs-s stack-h gap-xs flex-1"
-          >
+          <input
+            class="v-checkbox fs-s"
+            type="checkbox"
+            id="8-11-Cerro-Torre"
+          />
+          <label for="8-11-Cerro-Torre" class="fs-s stack-h gap-xs flex-1">
             <span class="mr-auto"> Cerro Torre</span>
             <span class="ink-subtle">8-11</span>
           </label>
@@ -869,7 +793,11 @@ Without buttons, only `color-mode`:
           <div
             class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
           >
-            <input class="v-checkbox fs-s" type="checkbox" id="Tjenestedesign" />
+            <input
+              class="v-checkbox fs-s"
+              type="checkbox"
+              id="Tjenestedesign"
+            />
             <label for="Tjenestedesign" class="fs-s">Tjenestedesign</label>
           </div>
           <div

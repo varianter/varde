@@ -78,10 +78,6 @@ export function Example({
   );
 }
 
-export function ExampleGroup({ children }: { children: Child }) {
-  return <div class="stack-v gap-m">{children}</div>;
-}
-
 export function DemoBox({ children, label }: { children?: Child; label?: string }) {
   return (
     <div class="fs-s fw-medium px-xs py-2xs br-m demo-box surface-dyed">

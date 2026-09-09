@@ -1,14 +1,7 @@
-import { knowledgeDocs } from "../knowledge";
+import { knowledgeDocs, slugToTitle } from "../knowledge";
 import { path as colorModesPath } from "../pages/color-modes";
 import { path as colorsPath } from "../pages/colors";
-import { path as colorModesExamplesPath } from "../pages/examples";
-import { path as layoutPath } from "../pages/layout";
-import { path as popoverPath } from "../pages/popover";
-import { path as spacingPath } from "../pages/spacing";
 import { path as staggerRevealPath } from "../pages/stagger-reveal";
-import { path as tablesPath } from "../pages/tables";
-import { path as typesetPath } from "../pages/typeset";
-import { path as typographyPath } from "../pages/typography";
 
 const base = "/docs";
 
@@ -17,41 +10,39 @@ type NavSection = {
   items: { label: string; path: string }[];
 };
 
-const knowledgeItems = knowledgeDocs.map((doc) => ({
-  label: doc.title,
-  path: `/reference/${doc.slug}`,
-}));
+const categoryOrder = ["getting-started", "how-to", "foundations", "reference", "examples"];
+
+const knowledgeSections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => doc.category))]
+  .filter((category) => category !== "utilities")
+  .sort((a, b) => {
+    const ia = categoryOrder.indexOf(a);
+    const ib = categoryOrder.indexOf(b);
+    const rank = (i: number) => (i === -1 ? categoryOrder.length : i);
+    return rank(ia) - rank(ib) || a.localeCompare(b);
+  })
+  .map((category) => ({
+    label: slugToTitle(category),
+    items: knowledgeDocs
+      .filter((doc) => doc.category === category)
+      .map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
+  }));
+
+const utilityDocs = knowledgeDocs.filter((doc) => doc.category === "utilities");
 
 const sections: NavSection[] = [
   {
     label: "Utilities",
     items: [
       { label: "Colors", path: colorsPath },
-      { label: "Layout", path: layoutPath },
-      { label: "Spacing", path: spacingPath },
-      { label: "Typography", path: typographyPath },
-      { label: "Typeset", path: typesetPath },
+      ...utilityDocs.map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
       { label: "Stagger items", path: staggerRevealPath },
     ],
   },
   {
-    label: "Components",
-    items: [
-      { label: "Popover", path: popoverPath },
-      { label: "Tables", path: tablesPath },
-    ],
-  },
-  {
     label: "Color Modes",
-    items: [
-      { label: "Demo", path: colorModesPath },
-      { label: "Examples", path: colorModesExamplesPath },
-    ],
+    items: [{ label: "Demo", path: colorModesPath }],
   },
-  {
-    label: "Reference",
-    items: knowledgeItems,
-  },
+  ...knowledgeSections,
 ];
 
 export function NavLinks() {

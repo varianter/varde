@@ -11,10 +11,14 @@ function escapeHtml(value: string): string {
 /** Build a live code example: a rendered preview (HTML only) plus an editable,
  * client-highlighted editor. The client mounts it via `<code-example>`. */
 function codeExample(lang: string, code: string, meta: string | null | undefined): string {
-  const open = meta?.split(/\s+/).includes("open") ? " open" : "";
+  const flags = meta?.split(/\s+/) ?? [];
+  const open = flags.includes("open") ? " open" : "";
+  const resize = flags.includes("resize");
+  const previewClass = `d-block code-example__preview p-s surface-base v-untypeset${resize ? " of-scroll" : ""}`;
+  const previewStyle = resize ? ' style="resize: horizontal;"' : "";
   const preview =
     lang === "html"
-      ? `<color-mode palette="inherit" class="d-block code-example__preview p-s surface-base v-untypeset">${code}</color-mode>`
+      ? `<color-mode palette="inherit" class="${previewClass}"${previewStyle}>${code}</color-mode>`
       : "";
 
   return [

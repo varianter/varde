@@ -387,7 +387,7 @@ app.use(
   ),
 );
 
-// Auto-register pages from packages/knowledge/src/*.md
+// Auto-register pages from packages/knowledge/src/**/*.md
 
 const pages = await Promise.all(
   knowledgeDocs.map(async (doc) => {
@@ -396,8 +396,8 @@ const pages = await Promise.all(
   }),
 );
 
-for (const { slug, title, description, content } of pages) {
-  app.get(`/reference/${slug}`, (c) => {
+for (const { category, slug, title, description, content } of pages) {
+  app.get(`/${category}/${slug}`, (c) => {
     return c.render(
       <DocsPage title={title} description={description}>
         <Markdown html={content} />

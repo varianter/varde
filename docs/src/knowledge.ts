@@ -1,8 +1,9 @@
 export const knowledgeDir = `${import.meta.dir}/../../packages/knowledge/src`;
 
-const fileNames = await Array.fromAsync(new Bun.Glob("*.md").scan(knowledgeDir));
+const fileNames = await Array.fromAsync(new Bun.Glob("**/*.md").scan(knowledgeDir));
 
 export type KnowledgeDoc = {
+  category: string;
   slug: string;
   title: string;
   description: string;
@@ -16,14 +17,17 @@ type Frontmatter = {
 
 const FRONTMATTER = /^---\n([\s\S]*?)\n---\n?/;
 
-function slugToTitle(slug: string): string {
+export function slugToTitle(slug: string): string {
   return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export const knowledgeDocs: KnowledgeDoc[] = (
   await Promise.all(
     fileNames.map(async (fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
+      const segments = fileName.split("/");
+      const slug = (segments.pop() ?? fileName).replace(/\.md$/, "");
+      const category = segments.join("/");
+
       const raw: string = (await import(`${knowledgeDir}/${fileName}`, { with: { type: "text" } }))
         .default;
 
@@ -33,6 +37,7 @@ export const knowledgeDocs: KnowledgeDoc[] = (
       const content = match ? raw.slice(match[0].length) : raw;
 
       return {
+        category,
         slug,
         title: frontmatter.title ?? slugToTitle(slug),
         description: frontmatter.description ?? "",

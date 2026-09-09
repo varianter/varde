@@ -22,14 +22,14 @@ bun preview    # Build and serve locally at http://localhost:1337/varde/
 
 Pages are glob-discovered from `src/pages/**/*.tsx`. Each file must export:
 
-- `path` — the route string (e.g. `"/utilities/spacing"`)
+- `path` — the route string (e.g. `"/utilities/layout"`)
 - A default component that renders the page content
 
 ```ts
-// src/pages/utilities/spacing.tsx
-export const path = "/utilities/spacing";
+// src/pages/utilities/layout.tsx
+export const path = "/utilities/layout";
 
-export default function SpacingPage() {
+export default function LayoutPage() {
   return <main>...</main>;
 }
 ```

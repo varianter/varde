@@ -139,6 +139,47 @@ To show that an action is loading or processing, put a `.v-spinner` inside the b
 </color-mode>
 ```
 
+## Icons
+
+Put a `.v-icon` inside the button. It inherits the button's color and scales with the font size.
+
+```html
+<div class="stack-h gap-m">
+  <button class="v-button">
+    <span class="v-icon" data-v-icon="plus"></span> Add item
+  </button>
+  <button class="v-button" data-variant="outlined">
+    <span class="v-icon" data-v-icon="pencil"></span> Edit
+  </button>
+</div>
+```
+
+Trailing icons work the same way:
+
+```html
+<div class="stack-h gap-m">
+  <button class="v-button">
+    Continue <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button class="v-button">
+    Settings <span class="v-icon" data-v-icon="pencil"></span>
+  </button>
+</div>
+```
+
+An icon-only button needs an `aria-label` since it has no visible text:
+
+```html
+<div class="stack-h gap-m">
+  <button class="v-button" aria-label="Add">
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button class="v-button" data-variant="outlined" aria-label="Edit">
+    <span class="v-icon" data-v-icon="pencil"></span>
+  </button>
+</div>
+```
+
 ## Combining with other classes
 
 You can add utility classes to a button to tweak its shape, padding, and other details.
