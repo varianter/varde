@@ -105,6 +105,7 @@ app.use(
 
                 .site-main {
                   grid-area: main;
+                  max-width: 100vw;
                 }
 
 
