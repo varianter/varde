@@ -13,6 +13,7 @@
   html {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
     line-height: var(--line-height-normal);
     -webkit-font-smoothing: antialiased;
     block-size: 100%;
