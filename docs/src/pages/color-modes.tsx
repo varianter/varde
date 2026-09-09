@@ -102,7 +102,7 @@ export default function ColorModesPage() {
     <article class="stack-v gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
         <h2 class="fs-3xl fw-bold">Color Modes</h2>
-        <p class="fs-l ink-subtle mw-7">
+        <p class="fs-l ink-subtle w-max-7">
           Every palette shown simultaneously. Each panel is scoped with{" "}
           <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, ink, borders, and control
           states — resolve against that mode's <code>--color-N</code> variables.

@@ -19,37 +19,37 @@
 }
 
 /* Max-width utilities */
-.mw-0 {
+.w-max-0 {
   max-width: var(--width-0);
 }
-.mw-1 {
+.w-max-1 {
   max-width: var(--width-1);
 }
-.mw-2 {
+.w-max-2 {
   max-width: var(--width-2);
 }
-.mw-3 {
+.w-max-3 {
   max-width: var(--width-3);
 }
-.mw-4 {
+.w-max-4 {
   max-width: var(--width-4);
 }
-.mw-5 {
+.w-max-5 {
   max-width: var(--width-5);
 }
-.mw-6 {
+.w-max-6 {
   max-width: var(--width-6);
 }
-.mw-7 {
+.w-max-7 {
   max-width: var(--width-7);
 }
-.mw-8 {
+.w-max-8 {
   max-width: var(--width-8);
 }
-.mw-9 {
+.w-max-9 {
   max-width: var(--width-9);
 }
-.mw-10 {
+.w-max-10 {
   max-width: var(--width-10);
 }
 
@@ -63,12 +63,12 @@
 .w-fit {
   width: fit-content;
 }
-.w-min {
+.w-min-content {
   width: min-content;
 }
 
-/* Min-width (just the essential one) */
+/* Min-width utilities */
 /* flex child escape hatch */
-.minw-0 {
+.w-min-0 {
   min-width: 0;
 }

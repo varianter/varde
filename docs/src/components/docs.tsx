@@ -14,7 +14,7 @@ export function DocsPage({
       <header class="pt-2xl pb-2xl">
         <div class="stack-v gap-xs">
           <h2 class="fs-3xl fw-bold">{title}</h2>
-          <p class="fs-l ink-subtle mw-7">{description}</p>
+          <p class="fs-l ink-subtle w-max-7">{description}</p>
         </div>
       </header>
 

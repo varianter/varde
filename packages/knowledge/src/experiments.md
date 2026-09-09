@@ -39,7 +39,7 @@ A row of outlined page buttons with one active, plus prev/next.
 Rows separated by faint bottom borders, each with an icon, a label, and a trailing control.
 
 ```html
-<div class="surface-base b-all bc-subtle br-l of-clip mw-7">
+<div class="surface-base b-all bc-subtle br-l of-clip w-max-7">
   <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
     <span class="v-icon ink-subtle fs-xs" data-v-icon="pencil"></span>
     <div class="stack-v grow">
@@ -80,7 +80,7 @@ Rows separated by faint bottom borders, each with an icon, a label, and a traili
 A centered card that pairs an icon, a heading, and a single primary action.
 
 ```html
-<div class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center mw-7">
+<div class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center w-max-7">
   <span class="v-icon fs-2xl ink-subtle" data-v-icon="plus"></span>
   <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
   <p class="fs-s ink-subtle ta-center mt-2xs">

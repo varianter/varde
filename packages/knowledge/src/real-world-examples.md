@@ -13,7 +13,7 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 <div
-  class="surface-base mw-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
+  class="surface-base w-max-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
 >
   <div class="v-typeset">
     <h4 class="fw-medium fs-xs">Create token</h4>
@@ -40,7 +40,7 @@ description: Realistic compositions built with Varde utilities and components.
 
 ```html
 
-<div class="surface-base mw-4 b-all b-fait br-xl shadow-mid p-3xs stack-v" >
+<div class="surface-base w-max-4 b-all b-fait br-xl shadow-mid p-3xs stack-v" >
   <div class="" stagger-items>
     <input type="text" class="v-input w-full" placeholder="Søk blant kontrakter">
   </div>
@@ -118,7 +118,7 @@ description: Realistic compositions built with Varde utilities and components.
 # Banner
 
 ```html
-<div class="stack-v gap-s mw-7">
+<div class="stack-v gap-s w-max-7">
   <color-mode palette="green">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
       <div class="stack-h gap-xs justify-center">
@@ -434,7 +434,7 @@ Without buttons, only `color-mode`:
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s mw-2"
+        class="surface-dyed aspect-square br-s w-max-2"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Jacob Berglund</p>
@@ -499,7 +499,7 @@ Without buttons, only `color-mode`:
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s mw-2"
+        class="surface-dyed aspect-square br-s w-max-2"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Jacob Berglund</p>
@@ -749,7 +749,7 @@ Without buttons, only `color-mode`:
             >Fra</label
           >
           <input
-            class="v-input mw-2 ml-auto ta-right"
+            class="v-input w-max-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceFrom"
@@ -762,7 +762,7 @@ Without buttons, only `color-mode`:
             >Til</label
           >
           <input
-            class="v-input mw-2 ml-auto ta-right"
+            class="v-input w-max-2 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceTo"
@@ -1026,7 +1026,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
   data-position="bottom"
 >
   <div
-    class="p-3xs b-all surface-base stack-v br-l mw-4 fs-s m-2xs"
+    class="p-3xs b-all surface-base stack-v br-l w-max-4 fs-s m-2xs"
     stagger-items="from-above"
   >
     <div class="p-3xs bg-wash:hover br-m stack-v gap-3xs" href="#">
@@ -1064,7 +1064,7 @@ This one leverages a popover, a details list, and a form
     stagger-items="soft"
   >
     <div class="stack-h gap-m items-start">
-      <div class="mw-4">
+      <div class="w-max-4">
         <h1 class="lh-tight">Get started with Varde</h1>
         <p class="ink-subtle mt-xs">It's really simple – anyone could do it!</p>
       </div>
@@ -1509,7 +1509,7 @@ This one utilizes an escape hatch
 ## A table
 
 ```html
-<div class="surface-base br-m mw-7 mx-auto my-xl p-m">
+<div class="surface-base br-m w-max-7 mx-auto my-xl p-m">
   <div class="stack-h items-center justify-between mb-s">
     <h3 class="fs-l">Orders</h3>
     <button class="v-button" data-variant="plain" data-size="small">

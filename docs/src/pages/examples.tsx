@@ -4,7 +4,7 @@ function Events({ color = "grey" }) {
   return (
     <color-mode palette={color} inverted class="">
       <div class="py-2xs px-2xs surface-dyed stack-h items-start gap-m br-2xl">
-        <div class="px-xs-s pt-m pb-xs mw-6">
+        <div class="px-xs-s pt-m pb-xs w-max-6">
           <h3 class="fs-4xl mb-2xs ink-prominent">Arrangementer</h3>
           <p class="fs-l mb-xs">
             Bli med der det skjer! Vi deltar på konferanser, arrangerer fagmøter og andre nerdete
@@ -71,7 +71,7 @@ function Events({ color = "grey" }) {
 
 function SmileyBox({ color = "green" }) {
   return (
-    <color-mode class="d-block mw-6" palette={color}>
+    <color-mode class="d-block w-max-6" palette={color}>
       <div
         class="p-l surface-dyed stack-v gap-xl aspect-square"
         style="border-radius: 6rem 6rem .375rem .375rem;"
@@ -127,7 +127,7 @@ function SmileyBox({ color = "green" }) {
 function HandbookBox({ color = "green" }) {
   return (
     <color-mode palette={color} inverted>
-      <div class="px-m pt-xl-2xl pb-l surface-dyed v-typeset mw-8 stack-v br-m">
+      <div class="px-m pt-xl-2xl pb-l surface-dyed v-typeset w-max-8 stack-v br-m">
         <h3 class="fs-2xl lh-tight">Håndboka</h3>
         <p class="fs-l ink-subtle">
           I håndboka står alt om hvordan vi jobber og hva som er viktig for oss. Endrer vi på oss,
@@ -195,13 +195,13 @@ const palettes = ["grey", "periwinkle", "purple", "blue", "green", "teal", "cora
 export default function Examples() {
   return (
     <div class="p-xl">
-      <div class=" m-xl mx-xl stack-h gap-m mw-7">
+      <div class=" m-xl mx-xl stack-h gap-m w-max-7">
         {palettes.map((color) => (
           <Doodad color={color} />
         ))}
       </div>
 
-      <div class=" w-full m-xl stack-h gap-m mw-7">
+      <div class=" w-full m-xl stack-h gap-m w-max-7">
         {palettes.map((color) => (
           <HandbookBox color={color} />
         ))}

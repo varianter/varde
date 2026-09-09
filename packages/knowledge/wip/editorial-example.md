@@ -13,7 +13,7 @@ One statement, one supporting line, one byline. The whole block is lit by a `col
 
 ```html
 <color-mode palette="periwinkle" class="d-block surface-tinted br-l p-xl">
-  <div class="stack-v gap-s mw-7">
+  <div class="stack-v gap-s w-max-7">
     <p class="fs-xs tt-uppercase ink-subtle">Issue 04 · Winter 2026</p>
     <h1 class="fs-4xl fw-bold">The quiet art of making space</h1>
     <p class="fs-xl ink-subtle lh-normal">
@@ -34,7 +34,7 @@ One statement, one supporting line, one byline. The whole block is lit by a `col
 A quote earns its size. A thick left rule does the work of quotation marks; the attribution stays quiet underneath.
 
 ```html
-<figure class="stack-v gap-m mw-7">
+<figure class="stack-v gap-m w-max-7">
   <blockquote class="fs-3xl fw-medium lh-normal b-l bw-thick bc-prominent pl-m">
     “Restraint reads as confidence only when it is deliberate.”
   </blockquote>
@@ -46,10 +46,10 @@ A quote earns its size. A thick left rule does the work of quotation marks; the 
 
 ## Long-form article
 
-The reading experience. A narrow measure (`mw-6`), a standfirst that leads, body text with a little extra air (`lh-relaxed`), and a subhead that interrupts rather than competes.
+The reading experience. A narrow measure (`w-max-6`), a standfirst that leads, body text with a little extra air (`lh-relaxed`), and a subhead that interrupts rather than competes.
 
 ```html
-<article class="stack-v gap-m mw-6">
+<article class="stack-v gap-m w-max-6">
   <header class="stack-v gap-2xs">
     <p class="fs-xs tt-uppercase ink-subtle">Essay</p>
     <h2 class="fs-2xl fw-bold">Less is a decision</h2>
@@ -85,7 +85,7 @@ The reading experience. A narrow measure (`mw-6`), a standfirst that leads, body
 A chapter break. The index numeral is large and tinted by its own `color-mode`; the heading stays neutral and lets the number do the decorating.
 
 ```html
-<div class="stack-h items-end gap-m mw-8">
+<div class="stack-h items-end gap-m w-max-8">
   <color-mode palette="purple" class="d-block">
     <p class="fs-4xl fw-bold ink-subtle">01</p>
   </color-mode>
@@ -104,7 +104,7 @@ A chapter break. The index numeral is large and tinted by its own `color-mode`; 
 A magazine index. Ruled rows, titles that lead, and page numbers set in `t-tabular` so the column lines up.
 
 ```html
-<nav class="stack-v mw-8">
+<nav class="stack-v w-max-8">
   <div class="stack-h items-end gap-s b-b bc-subtle pb-s">
     <p class="fs-xs tt-uppercase ink-subtle">Contents</p>
     <p class="fs-3xl fw-bold ml-auto">04</p>
@@ -141,7 +141,7 @@ A magazine index. Ruled rows, titles that lead, and page numbers set in `t-tabul
 Big figures with small, uppercase labels. The numbers carry the page; the labels just name them.
 
 ```html
-<div class="stack-h items-end gap-l mw-8">
+<div class="stack-h items-end gap-l w-max-8">
   <div class="stack-v gap-2xs">
     <p class="fs-4xl fw-bold">48</p>
     <p class="fs-s ink-subtle tt-uppercase">Issues published</p>
