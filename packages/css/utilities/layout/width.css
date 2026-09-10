@@ -66,6 +66,9 @@
 .w-min-content {
   width: min-content;
 }
+.w-max-content {
+  width: max-content;
+}
 
 /* Min-width utilities */
 /* flex child escape hatch */
