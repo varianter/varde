@@ -277,6 +277,24 @@ app.use(
                 ::highlight(deleted) {
                   background-color: var(--syntax-removed-bg);
                 }
+
+                #theme-toggle svg {
+                  transition:
+                    opacity var(--interaction-transition-duration-enter)
+                    var(--interaction-transition-easing-entrance),
+                    rotate var(--interaction-transition-duration-enter)
+                    var(--interaction-transition-easing-entrance),
+                    scale var(--interaction-transition-duration-enter)
+                    var(--interaction-transition-easing-entrance);
+                }
+
+                [data-color-scheme="light"] #theme-toggle .lucide-sun,
+                [data-color-scheme="dark"] #theme-toggle .lucide-moon {
+                  opacity: 0;
+                  scale: 0.5;
+                  rotate: -90deg;
+                  pointer-events: none;
+                }
               `}
             </Style>
             <meta charset="UTF-8" />
@@ -322,13 +340,49 @@ app.use(
                 <div class="ml-auto gap-2xs stack-h">
                   <button
                     id="theme-toggle"
-                    type="button"
-                    class="v-button"
-                    data-variant="tinted"
+                    class="v-button pile ml-auto"
+                    data-variant="plain"
                     data-size="small"
-                    aria-label="Toggle color scheme"
+                    type="button"
+                    aria-label="Toggle between light and dark color scheme"
                   >
-                    Theme
+                    <svg
+                      role="presentation"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-moon-icon lucide-moon"
+                    >
+                      <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                    </svg>
+
+                    <svg
+                      role="presentation"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-sun-icon lucide-sun"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
                   </button>
                   <button
                     type="button"
