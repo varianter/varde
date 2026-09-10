@@ -1,169 +1,193 @@
 ---
 title: Classes
-description: Reference for Varde's utility and component classes.
+description: Quick reference for Varde's utility and component classes.
 ---
+
+The full class list, at a glance. For worked examples and the reasoning behind a topic, see the dedicated pages: [Spacing](/docs/reference/spacing), [Layout](/docs/reference/layout), [Typography](/docs/reference/typography), [Color](/docs/reference/color), [Widths](/docs/reference/widths), [Shadow](/docs/reference/shadow), [Buttons](/docs/reference/buttons), [Forms](/docs/reference/forms), and [Tables](/docs/reference/tables).
 
 ## Spacing scale
 
-`3xs` `2xs` `xs` `s` `m` `l` `xl` `2xl` `3xl` `4xl`
-From smallest to largest. `m` equals `1rem`.
+Every spacing utility shares one fluid scale. Each step maps to `var(--spacing-*)`. Smallest applies at narrow widths, largest at wide widths.
 
----
+| Step  | Smallest | Largest |
+| ----- | -------- | ------- |
+| `4xs` | 2px      | 3px     |
+| `3xs` | 4px      | 5px     |
+| `2xs` | 8px      | 10px    |
+| `xs`  | 12px     | 15px    |
+| `s`   | 16px     | 20px    |
+| `m`   | 24px     | 30px    |
+| `l`   | 32px     | 40px    |
+| `xl`  | 48px     | 60px    |
+| `2xl` | 64px     | 80px    |
+| `3xl` | 96px     | 120px   |
 
-## Layout
-
-**Stack (flexbox):**
-
-```html
-<!-- column, top-aligned -->
-<div class="stack-v gap-m"></div>
-
-<!-- row, vertically centered -->
-<div class="stack-h gap-s"></div>
-
-<!-- row, aligned to top -->
-<div class="stack-h items-start gap-s"></div>
-
-<!-- row, aligned to bottom -->
-<div class="stack-h items-end gap-s"></div>
-
-<!-- row, children stretch full height -->
-<div class="stack-h items-stretch"></div>
-```
-
-Flex modifiers: `.grow` `.shrink` `.flex-1` `.nowrap` `.d-inline-flex`
-
-Alignment: `.items-start`, `.items-end`, `.items-center`, and `.items-stretch` on the container. For the main axis: `.justify-start`, `.justify-end`, `.justify-center`, and `.justify-between`. On a single child: `.self-start`, `.self-end`, `.self-center`, and `.self-stretch`. In grid layouts, `.justify-self-start`, `.justify-self-end`, `.justify-self-center`, and `.justify-self-stretch` position one child on the main axis (no effect in flex).
-
----
+Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp between adjacent steps in a single value.
 
 ## Spacing utilities
 
-**Padding.** Prefix `p`, direction optional (`x` `y` `l` `r` `t` `b`):
+| Purpose | Prefix | Directions              | Example              |
+| ------- | ------ | ----------------------- | -------------------- |
+| Padding | `p`    | `x` `y` `l` `r` `t` `b` | `px-l`, `pt-xs`      |
+| Margin  | `m`    | `x` `y` `l` `r` `t` `b` | `mt-xl`, `mx-auto`   |
+| Gap     | `gap`  | `row` `column`          | `gap-m`, `gap-row-s` |
 
 ```html
 <div class="p-m px-l pt-xs"></div>
-```
-
-**Margin.** Prefix `m`, direction optional (`x` `y` `l` `r` `t` `b`):
-
-```html
 <div class="mt-xl mx-auto ml-auto"></div>
+<div class="stack-v gap-m"></div>
 ```
 
-Negative margins use the same scale, e.g. `-mt-s`, `-ml-m`.
+- `0` zeroes spacing: `p-0`, `m-0`, `gap-none`, `gap-column-0`.
+- `auto` is margin-only: `m-auto`, `mx-auto`, `ml-auto`, `mt-auto`, `mb-auto`.
+- Negative margins prefix `-`: `-mt-s`, `-ml-m`.
+- When they overlap, the more specific utility wins regardless of class order: single side (`pt-`) beats axis (`px-`), which beats all sides (`p-`).
 
-When they overlap, the more specific utility always wins, regardless of class order: single side (`pt-`) beats axis (`px-`), which beats all sides (`p-`).
+## Layout
 
-**Gap.** For flex/grid containers:
+**Stacks:**
 
-```html
-<div class="gap-m">
-  <div class="gap-row-s gap-column-xl"></div>
-</div>
-```
+| Class      | Description                           |
+| ---------- | ------------------------------------- |
+| `.stack-v` | Vertical column, top-aligned          |
+| `.stack-h` | Horizontal row, vertically centered   |
+| `.pile`    | Every child in one grid cell, stacked |
 
----
+**Flex modifiers:**
+
+| Class     | CSS                 |
+| --------- | ------------------- |
+| `.grow`   | `flex-grow: 1`      |
+| `.shrink` | `flex-shrink: 1`    |
+| `.flex-1` | `flex: 1`           |
+| `.nowrap` | `flex-wrap: nowrap` |
+
+**Alignment:**
+
+| Axis               | On the container                                                 | On a single child                                                                    |
+| ------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Cross (`align-*`)  | `items-start` `items-end` `items-center` `items-stretch`         | `self-start` `self-end` `self-center` `self-stretch`                                 |
+| Main (`justify-*`) | `justify-start` `justify-end` `justify-center` `justify-between` | `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch` |
+
+`justify-self-*` only works in grid. In flex, distribute main-axis space with `justify-*` on the container, `.grow`, or auto margins.
+
+**Display:**
+
+| Class               | CSS                              |
+| ------------------- | -------------------------------- |
+| `.d-block`          | `display: block`                 |
+| `.d-inline`         | `display: inline`                |
+| `.d-inline-block`   | `display: inline-block`          |
+| `.d-inline-flex`    | `display: inline-flex`           |
+| `.d-grid`           | `display: grid`                  |
+| `.d-contents`       | `display: contents`              |
+| `.grid-subgrid`     | `grid-template-columns: subgrid` |
+| `.grid-all-columns` | `grid-column: 1 / -1`            |
+
+**Position:**
+
+| Class                                     | CSS                     |
+| ----------------------------------------- | ----------------------- |
+| `.pos-sticky`                             | `position: sticky`      |
+| `.pos-absolute`                           | `position: absolute`    |
+| `.pos-fixed`                              | `position: fixed`       |
+| `.top-0` `.bottom-0` `.left-0` `.right-0` | `0` offset on that edge |
 
 ## Typography
 
-```html
-<div class="stack-v gap-xs">
-  <span class="fs-xs">fs-xs</span>
-  <span class="fs-s">fs-s</span>
+**Font size** — a fluid scale, each step up roughly ×1.2–1.25:
 
-  <!-- the default, set on the html element -->
-  <span class="fs-m">fs-m</span>
-  <span class="fs-l">fs-l</span>
-  <span class="fs-xl">fs-xl</span>
-  <span class="fs-2xl">fs-2xl</span>
-  <span class="fs-3xl">fs-3xl</span>
-  <span class="fs-4xl">fs-4xl</span>
+| Class     | Step     |
+| --------- | -------- |
+| `.fs-xs`  | −2       |
+| `.fs-s`   | −1       |
+| `.fs-m`   | 0 (base) |
+| `.fs-l`   | +1       |
+| `.fs-xl`  | +2       |
+| `.fs-2xl` | +3       |
+| `.fs-3xl` | +4       |
+| `.fs-4xl` | +5       |
 
-  <!-- font-weight: 400 -->
-  <span class="fw-regular">fw-regular</span>
+**Weight, alignment, and transform:**
 
-  <!-- font-weight: 500 -->
-  <span class="fw-medium">fw-medium</span>
+| Class           | Value                                |
+| --------------- | ------------------------------------ |
+| `.fw-regular`   | `font-weight: 400`                   |
+| `.fw-medium`    | `font-weight: 525`                   |
+| `.fw-bold`      | `font-weight: 650`                   |
+| `.ta-left`      | `text-align: left`                   |
+| `.ta-center`    | `text-align: center`                 |
+| `.ta-right`     | `text-align: right`                  |
+| `.tt-uppercase` | `text-transform: uppercase`          |
+| `.t-tabular`    | `font-variant-numeric: tabular-nums` |
 
-  <!-- font-weight: 600 -->
-  <span class="fw-bold">fw-bold</span>
+**Line height:**
 
-  <span class="ta-left">ta-left</span>
-  <span class="ta-center">ta-center</span>
-  <span class="ta-right">ta-right</span>
-  <span class="tt-uppercase">tt-uppercase</span>
-
-  <span class="lh-extra-tight">lh-extra-tight</span>
-  <span class="lh-tight">lh-tight</span>
-  <span class="lh-snug">lh-snug</span>
-  <span class="lh-normal">lh-normal</span>
-  <span class="lh-relaxed">lh-relaxed</span>
-</div>
-```
-
----
+| Class             | Value |
+| ----------------- | ----- |
+| `.lh-extra-tight` | 0.9   |
+| `.lh-tight`       | 1     |
+| `.lh-snug`        | 1.2   |
+| `.lh-normal`      | 1.5   |
+| `.lh-relaxed`     | 1.6   |
 
 ## Colors
 
-Never hardcode colors. Never use `--palette-*` variables directly. Always use semantic classes.
+Never hardcode colors. Never use `--palette-*` variables directly. Always use semantic classes, and color the container with `<color-mode>` rather than the element itself.
 
-**Intensities:** `subtle` `medium` `strong`
+**Surfaces:**
 
-**Background:**
-
-```html
-<!-- Surfaces -->
-<div class="surface-base"></div>
-<div class="surface-tinted"></div>
-<div class="surface-dyed"></div>
-```
+| Class             | Use                  |
+| ----------------- | -------------------- |
+| `.surface-base`   | Default page surface |
+| `.surface-tinted` | One step above base  |
+| `.surface-dyed`   | Strongest surface    |
 
 **Text (ink):**
 
-```html
-<p class="ink-default"></p>
-<!-- body text -->
-<p class="ink-subtle"></p>
-<!-- secondary/helper text -->
-<p class="ink-prominent"></p>
-```
+| Class            | Use                   |
+| ---------------- | --------------------- |
+| `.ink-default`   | Body text             |
+| `.ink-subtle`    | Secondary/helper text |
+| `.ink-prominent` | Emphasized text       |
 
 **Border color:**
 
-```html
-<!-- decorative lines, not structural -->
-<div class="bc-subtle b-all p-xs mb-xs">.bc-subtle</div>
+| Class           | Use                     |
+| --------------- | ----------------------- |
+| `.bc-subtle`    | Decorative lines        |
+| `.bc-default`   | Everyday borders        |
+| `.bc-prominent` | Structural lines (rare) |
 
-<!-- everyday borders -->
-<div class="bc-default b-all p-xs mb-xs">.bc-default</div>
-
-<!-- prominent structural lines: rarely used -->
-<div class="bc-prominent b-all p-xs mb-xs">.bc-prominent</div>
-```
-
----
+Escapes: `.bg-currentcolor` sets a background to `currentColor` (use sparingly), and `.bg-wash:hover` adds a hover wash that mixes in the mode's tint target.
 
 ## Borders
 
-**Border sides:**
+**Sides** (each is `1px solid`, set the color separately):
 
-```html
-<div class="b-all"></div>
-<!-- all sides, 1px solid -->
-<div class="b-t"></div>
-<!-- top only -->
-<div class="b-r"></div>
-<!-- right only -->
-<div class="b-b"></div>
-<!-- bottom only -->
-<div class="b-l"></div>
-<!-- left only -->
-<div class="b-none:last-child"></div>
-<!-- removes border from :last-child -->
-<div class="b-none:first-child"></div>
-<!-- removes border from :first-child -->
-```
+| Class    | Side   |
+| -------- | ------ |
+| `.b-all` | All    |
+| `.b-t`   | Top    |
+| `.b-r`   | Right  |
+| `.b-b`   | Bottom |
+| `.b-l`   | Left   |
+
+**Width:**
+
+| Class          | Width |
+| -------------- | ----- |
+| `.bw-hairline` | 0.5px |
+| `.bw-thick`    | 2px   |
+
+**Removal:**
+
+| Class                                           | Removes                    |
+| ----------------------------------------------- | -------------------------- |
+| `.b-none`                                       | Border on all sides        |
+| `.b-t-none` `.b-r-none` `.b-b-none` `.b-l-none` | Border on one side         |
+| `.b-none:first-child`                           | Border from `:first-child` |
+| `.b-none:last-child`                            | Border from `:last-child`  |
 
 Always pair a border side class with a border color class:
 
@@ -171,90 +195,88 @@ Always pair a border side class with a border color class:
 <li class="b-b bc-default"></li>
 ```
 
-**Border radius:**
+**Radius:**
 
-```html
-<!-- removes border-radius -->
-<div class="br-none"></div>
+| Class         | Value   |
+| ------------- | ------- |
+| `.br-none`    | 0       |
+| `.br-inherit` | inherit |
+| `.br-xs`      | 2px     |
+| `.br-s`       | 4px     |
+| `.br-m`       | 8px     |
+| `.br-l`       | 12px    |
+| `.br-xl`      | 16px    |
+| `.br-2xl`     | 24px    |
+| `.br-pill`    | 9999px  |
+| `.br-circle`  | 50%     |
 
-<!-- inherits border-radius from parent, useful for when clipping occurs -->
-<div class="br-inherit"></div>
+Reset a single corner with `.br-tl-none`, `.br-tr-none`, `.br-bl-none`, or `.br-br-none`.
 
-<!-- 2px -->
-<div class="br-xs"></div>
+## Shadows
 
-<!-- 4px -->
-<div class="br-s"></div>
+| Class          | Elevation |
+| -------------- | --------- |
+| `.shadow-low`  | Low       |
+| `.shadow-mid`  | Medium    |
+| `.shadow-high` | High      |
 
-<!-- 8px -->
-<div class="br-m"></div>
+## Widths
 
-<!-- 12px -->
-<div class="br-l"></div>
-
-<!-- 16px -->
-<div class="br-xl"></div>
-
-<!-- 24px -->
-<div class="br-2xl"></div>
-
-<!-- 9999px -->
-<div class="br-pill"></div>
-
-<!-- 50% -->
-<div class="br-circle"></div>
-```
-
----
+| Class                  | Value                               |
+| ---------------------- | ----------------------------------- |
+| `.w-full`              | `width: 100%`                       |
+| `.w-auto`              | `width: auto`                       |
+| `.w-fit`               | `width: fit-content`                |
+| `.w-min-content`       | `width: min-content`                |
+| `.w-max-content`       | `width: max-content`                |
+| `.w-min-0`             | `min-width: 0`                      |
+| `.w-max-0`–`.w-max-10` | `max-width` against the width scale |
 
 ## Components
 
 ### Button
 
-Apply `.v-button` to `<button>` or `<a>`. Variant and size are independent; combine them freely. Color comes from the surrounding `<color-mode>`.
+Apply `.v-button` to `<button>` or `<a>`. Variant and size are independent; color comes from the surrounding `<color-mode>`.
+
+| Attribute      | Values                                          |
+| -------------- | ----------------------------------------------- |
+| `data-variant` | `"filled"`, `"tinted"`, `"outlined"`, `"plain"` |
+| `data-size`    | `"small"`, `"medium"`, `"large"`                |
 
 ```html
-<!-- Variant (default: filled) -->
-<button class="v-button" data-variant="tinted">Tinted</button>
-<button class="v-button" data-variant="outlined">Outlined</button>
-<button class="v-button" data-variant="plain">Plain</button>
-
-<!-- Size (default: medium) -->
-<button class="v-button" data-size="small">Small</button>
-<button class="v-button" data-size="large">Large</button>
-
-<!-- or combined -->
-<button class="v-button" data-size="small" data-variant="plain">Delete</button>
+<button class="v-button" data-variant="outlined" data-size="small">
+  Delete
+</button>
 ```
 
 ### Form controls
 
+| Class           | Element                   |
+| --------------- | ------------------------- |
+| `.v-input`      | `<input>`                 |
+| `.v-textarea`   | `<textarea>`              |
+| `.v-select`     | `<select>`                |
+| `.v-checkbox`   | `<input type="checkbox">` |
+| `.v-radio`      | `<input type="radio">`    |
+| `.v-range`      | `<input type="range">`    |
+| `.v-form-label` | `<label>`                 |
+
+`data-size` scales controls; `aria-invalid="true"` marks an error without a custom class. For `.v-range`, keep `--range-progress` in sync with the input's value.
+
 ```html
 <input class="v-input" type="text" />
-<input class="v-input" data-size="small" type="text" />
-<input class="v-input" data-size="large" type="text" />
-
-<textarea class="v-textarea"></textarea>
 <select class="v-select"></select>
-
-<input class="v-checkbox" type="checkbox" />
-<input class="v-radio" type="radio" />
-```
-
-For invalid state, use the attribute rather than a custom error class:
-
-```html
-<input class="v-input" aria-invalid="true" />
+<input class="v-range" type="range" />
 ```
 
 ### Table
 
+| Attribute      | Values                                |
+| -------------- | ------------------------------------- |
+| `data-density` | `"default"`, `"compact"`, `"relaxed"` |
+
 ```html
 <table class="v-table"></table>
-
-<!-- or if you need more or less spacing in the table -->
-<table class="v-table" data-density="compact"></table>
-<table class="v-table" data-density="relaxed"></table>
 ```
 
 ### Spinner
@@ -265,34 +287,32 @@ For invalid state, use the attribute rather than a custom error class:
 
 Customizable via CSS custom properties on the element:
 
-- `--spinner-size` (default: `1.25lh`)
-- `--spinner-color` (default: `currentColor`)
-- `--spinner-speed` (default: `1s`)
+| Property                 | Default          |
+| ------------------------ | ---------------- |
+| `--spinner-size`         | `1.25lh`         |
+| `--spinner-color`        | `currentColor`   |
+| `--spinner-speed`        | `1s`             |
+| `--spinner-border-width` | `calc(size / 8)` |
 
 ### Icon
 
 ```html
 <span class="v-icon" data-v-icon="plus"></span>
 <span class="v-icon" data-v-icon="pencil"></span>
-<span class="v-icon" data-v-icon="cage"></span>
 ```
 
-Icons inherit color from their parent. For custom icons, set `--icon-src` to an SVG data URI.
+Built-in icons: `plus`, `pencil`. Icons inherit color from their parent. For a custom icon, set `--icon-src` to an SVG data URI.
 
----
+### Link
+
+`.v-link` styles a standalone `<a>`; inside `.v-typeset`, plain `<a>` tags are styled automatically.
 
 ## Misc
 
-```html
-<!-- overflow: hidden -->
-<div class="of-hidden"></div>
-
-<!-- overflow: clip -->
-<div class="of-clip"></div>
-
-<!-- overflow: scroll -->
-<div class="of-scroll"></div>
-
-<!-- aspect-ratio: 1 / 1 -->
-<div class="aspect-square"></div>
-```
+| Class            | Value                                              |
+| ---------------- | -------------------------------------------------- |
+| `.of-hidden`     | `overflow: hidden`                                 |
+| `.of-clip`       | `overflow: clip`                                   |
+| `.of-scroll`     | `overflow: scroll`                                 |
+| `.aspect-square` | `aspect-ratio: 1 / 1`                              |
+| `.list`          | `list-style-position: inside`, square `ul` bullets |

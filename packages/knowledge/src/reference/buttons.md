@@ -3,7 +3,7 @@ title: Buttons
 description: Style buttons and links with variants and sizes.
 ---
 
-Add `.v-button` to a `<button>` or `<a>` element to style it. Two attributes change the look:
+`.v-button` styles a `<button>` or `<a>`. Two attributes change the look:
 
 - `data-variant` changes how color is applied
 - `data-size` changes how big the button is
@@ -12,14 +12,14 @@ Without them you get a medium filled button. Color comes from the surrounding `<
 
 ## Variants and sizes
 
-Use `data-variant` to pick a visual style and `data-size` to pick a size. You can combine any variant with any size.
+`data-variant` picks the visual style, `data-size` the size. Any variant combines with any size.
 
 | Attribute      | Values                                          |
 | -------------- | ----------------------------------------------- |
 | `data-variant` | `"filled"`, `"tinted"`, `"outlined"`, `"plain"` |
 | `data-size`    | `"small"`, `"medium"`, `"large"`                |
 
-### Button Variants
+### Button variants
 
 ```html
 <div class="stack-h gap-m">
@@ -30,7 +30,7 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 </div>
 ```
 
-### Button Sizes
+### Button sizes
 
 ```html
 <div class="stack-h gap-m">
@@ -42,7 +42,7 @@ Use `data-variant` to pick a visual style and `data-size` to pick a size. You ca
 
 ## Color
 
-Buttons get their color from the `<color-mode palette="...">` they sit inside. Wrap your buttons in a `<color-mode>` and they use the palette. You don't need to set a color on each button.
+Buttons get their color from the surrounding `<color-mode palette="...">`. Color is inherited — no class is set on the button itself.
 
 ```html
 <div class="stack-v gap-xs">
@@ -106,7 +106,7 @@ For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on
 
 ### Loading states
 
-To show that an action is loading or processing, put a `.v-spinner` inside the button. The spinner inherits the button's color and size. Use a spinner to show progress rather than disabling the button.
+A `.v-spinner` inside a button renders a loading state. It inherits the button's color and size.
 
 ```html
 <div class="stack-h gap-xs mb-xs">
@@ -141,7 +141,7 @@ To show that an action is loading or processing, put a `.v-spinner` inside the b
 
 ## Icons
 
-Put a `.v-icon` inside the button. It inherits the button's color and scales with the font size.
+A `.v-icon` inside a button inherits the button's color and scales with the font size.
 
 ```html
 <div class="stack-h gap-m">
@@ -167,7 +167,7 @@ Trailing icons work the same way:
 </div>
 ```
 
-An icon-only button needs an `aria-label` since it has no visible text:
+An icon-only button requires an `aria-label` because it has no visible text:
 
 ```html
 <div class="stack-h gap-m">
@@ -182,7 +182,7 @@ An icon-only button needs an `aria-label` since it has no visible text:
 
 ## Combining with other classes
 
-You can add utility classes to a button to tweak its shape, padding, and other details.
+Utility classes combine with `.v-button` to adjust shape, padding, and other details.
 
 A circular icon-only button:
 
@@ -204,7 +204,7 @@ A pill shape:
 </button>
 ```
 
-To make one button the primary action, widen its padding and wrap it in a `color-mode`. Keep the others subdued:
+Wider padding and a `color-mode` wrapper mark a primary action. The others stay subdued:
 
 ```html
 <div class="stack-h gap-xs">

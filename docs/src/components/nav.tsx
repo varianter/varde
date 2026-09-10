@@ -10,10 +10,15 @@ type NavSection = {
   items: { label: string; path: string }[];
 };
 
-const categoryOrder = ["getting-started", "how-to", "foundations", "reference", "examples"];
+const categoryOrder = ["tutorial", "how-to", "explanation", "reference", "examples"];
 
-const knowledgeSections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => doc.category))]
-  .filter((category) => category !== "utilities")
+const exampleItems = [
+  { label: "Colors", path: colorsPath },
+  { label: "Stagger items", path: staggerRevealPath },
+  { label: "Color Modes Demo", path: colorModesPath },
+];
+
+const sections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => doc.category))]
   .sort((a, b) => {
     const ia = categoryOrder.indexOf(a);
     const ib = categoryOrder.indexOf(b);
@@ -22,35 +27,20 @@ const knowledgeSections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => d
   })
   .map((category) => ({
     label: slugToTitle(category),
-    items: knowledgeDocs
-      .filter((doc) => doc.category === category)
-      .map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
-  }));
-
-const utilityDocs = knowledgeDocs.filter((doc) => doc.category === "utilities");
-
-const sections: NavSection[] = [
-  {
-    label: "Utilities",
     items: [
-      { label: "Colors", path: colorsPath },
-      ...utilityDocs.map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
-      { label: "Stagger items", path: staggerRevealPath },
+      ...(category === "examples" ? exampleItems : []),
+      ...knowledgeDocs
+        .filter((doc) => doc.category === category)
+        .map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
     ],
-  },
-  {
-    label: "Color Modes",
-    items: [{ label: "Demo", path: colorModesPath }],
-  },
-  ...knowledgeSections,
-];
+  }));
 
 export function NavLinks() {
   return (
     <div class="py-m stack-v gap-m">
       {sections.map((section) => (
         <div key={section.label}>
-          <h5 class="fs-xs ink-subtle fw-medium mb-2xs tt-uppercase">{section.label}</h5>
+          <h5 class="fs-xs ink-subtle fw-bold mb-2xs tt-uppercase">{section.label}</h5>
           <ul class="stack-v gap-4xs">
             {section.items.map((item) => (
               <a

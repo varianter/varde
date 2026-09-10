@@ -1,112 +1,101 @@
 ---
-title: How to colour something
-description: Recipes for applying colour with <color-mode>.
+title: How to color something
+description: Recipes for applying color with <color-mode>.
 ---
 
-Task-first. For the reasoning behind any of it, see [Colour modes](/docs/foundations/color-modes).
+Color lives on a wrapper, not on components. Point a `<color-mode>` at a `palette`, and everything inside follows — you never name a color. Two knobs do the work: `palette` sets the hue, `inverted` flips to the other end of it.
 
-## Before you start
+For the reasoning behind any of it, see [Color modes](/docs/explanation/color-modes).
 
-`<color-mode>` is invisible. It creates no box — it only passes colour down. If you want it to have a background, give it a display class:
-
-```html
-<color-mode palette="green" class="d-block surface-tinted p-m br-l"
-  >…</color-mode
->
-```
-
-Use `d-block`, `d-inline-block`, `stack-v` or `stack-h`. Missing background? This is why, almost every time.
-
-## Colour a page section
+## Color a section
 
 Wrap it. Headings, body text, links, buttons and form fields all follow.
 
 ```html
-<color-mode palette="periwinkle" class="d-block surface-tinted p-xl">
+<color-mode palette="periwinkle" class="d-block surface-tinted p-xl br-l">
   <h1 class="fs-3xl fw-bold">Velkommen til Variantdag</h1>
   <p class="ink-subtle">Programmet for dagen</p>
   <button class="v-button">Meld deg på</button>
 </color-mode>
 ```
 
-The button is periwinkle. Don't add a class to it.
+Two details make it work:
 
-## Colour a single word
+- `d-block` gives the mode a box. Without it there's nothing to paint the background on.
+- `surface-tinted` is the background. You wrote "periwinkle" only in the `palette` attribute — the text, link and button pick it up.
 
-The same tool works on a leaf node.
+Swap `periwinkle` for `green`, `blue`, `coral` or `teal`. Same markup, same contrast; only the hue moves.
+
+## Let a button inherit
+
+Don't color the button. Color its container.
 
 ```html
-<span class="fs-s ink-subtle">MRR</span>
-
-<color-mode
-  palette="green"
-  class="d-inline-block surface-dyed px-xs py-4xs br-pill fs-xs"
->
-  +3.2%
+<color-mode palette="periwinkle" class="d-block surface-tinted p-m br-l">
+  <button class="v-button">Meld deg på</button>
 </color-mode>
 ```
 
-## Build a status column
+The button is periwinkle because its container is. There's nothing to add: Varde has no classes named after a color, and no button variant per palette.
 
-Six meanings, one set of classes. Only the palette changes.
+## Make a badge
+
+One set of classes, many meanings. Only the `palette` changes.
+
+```html
+<color-mode
+  palette="green"
+  class="d-inline-block surface-dyed px-xs py-3xs br-pill fs-s fw-medium"
+>
+  Paid
+</color-mode>
+```
+
+`surface-dyed` is the strongest background, so a badge reads as filled. Add `inverted` to flip it to the other end of the same hue:
 
 ```html
 <color-mode
   inverted
   palette="green"
-  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
-  >Paid</color-mode
+  class="d-inline-block surface-dyed px-xs py-3xs br-pill fs-s fw-medium"
 >
-
-<color-mode
-  inverted
-  palette="orange"
-  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
-  >Unfulfilled</color-mode
->
-
-<color-mode
-  inverted
-  palette="coral"
-  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
-  >Cancelled</color-mode
->
-
-<color-mode
-  inverted
-  palette="grey"
-  class="d-inline-block surface-dyed fw-medium ink-subtle px-2xs py-3xs br-pill fs-xs"
-  >Refunded</color-mode
->
-```
-
-Map status to palette in your own code. Varde ships no `.badge-success`.
-
-## Make a block pop
-
-Add `inverted`. Use it for heroes, featured cards and selected states.
-
-```html
-<color-mode palette="periwinkle" class="d-block surface-tinted p-m b-all">
-  <p class="p-s">Normal.</p>
-
-  <color-mode inverted class="d-block surface-dyed br-l px-s py-xs">
-    <p class="lh-tight">Velkommen til</p>
-    <h1 class="fs-4xl fw-bold">Variantdag</h1>
-  </color-mode>
+  Paid
 </color-mode>
 ```
 
-The inner mode has no `palette`, so it inherits periwinkle and only flips.
+Map status to palette in your own code — `green` for paid, `orange` for pending, `coral` for cancelled. Varde ships no `.badge-success`.
 
-## Tie colour to state
+## Feature one card in a set
+
+Make one card stand out by inverting its mode. Same card, different lighting:
+
+```html
+<color-mode>
+  <div class="surface-base b-all bc-subtle br-xl p-m">
+    <h3 class="fs-l fw-bold">Free</h3>
+    <p class="ink-subtle">For personal projects.</p>
+    <button class="v-button" data-variant="outlined">Start free</button>
+  </div>
+</color-mode>
+
+<color-mode inverted palette="periwinkle">
+  <div class="surface-dyed b-all bc-subtle br-xl p-m shadow-high">
+    <h3 class="fs-l fw-bold">Pro</h3>
+    <p class="ink-subtle">For growing teams.</p>
+    <button class="v-button">Start free trial</button>
+  </div>
+</color-mode>
+```
+
+`inverted` flips the palette's light and dark ends — a per-block choice, not dark mode. The featured card adds `surface-dyed` and a shadow to finish the lift.
+
+## Tie color to state
 
 Selected and unselected are the same markup, lit differently. Change one attribute.
 
 ```html
 <div class="stack-h gap-xs" data-palette-group>
-  <!-- selected -->
-  <color-mode palette="blue" class="d-block flex-1 br-m surface-tinted">
+  <color-mode palette="blue" class="d-block flex-1 br-m surface-dyed">
     <label
       class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
@@ -118,8 +107,7 @@ Selected and unselected are the same markup, lit differently. Change one attribu
     </label>
   </color-mode>
 
-  <!-- not selected — identical classes -->
-  <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
+  <color-mode palette="grey" class="d-block flex-1 br-m surface-dyed">
     <label
       class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
@@ -131,43 +119,28 @@ Selected and unselected are the same markup, lit differently. Change one attribu
     </label>
   </color-mode>
 </div>
+
+<script>
+  document.querySelectorAll("[data-palette-group]").forEach((group) => {
+    group.addEventListener("change", () => {
+      group.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio
+          .closest("color-mode")
+          .setAttribute("palette", radio.checked ? "blue" : "grey");
+      });
+    });
+  });
+</script>
 ```
 
 ```js
-document.querySelectorAll("[data-palette-group]").forEach((group) => {
-  group.addEventListener("change", () => {
-    group.querySelectorAll('input[type="radio"]').forEach((radio) => {
-      radio
-        .closest("color-mode")
-        .setAttribute("palette", radio.checked ? "blue" : "grey");
-    });
-  });
-});
+
 ```
 
 Toggling is your job. Varde only reacts to the attribute.
 
-## Restyle without touching markup
+## Where next
 
-Change `palette` on the outermost mode. Everything below re-lights: hue moves, layout doesn't.
-
-## Troubleshooting
-
-| Symptom                           | Cause                                                                                       |
-| --------------------------------- | ------------------------------------------------------------------------------------------- |
-| Background isn't showing          | Missing display class. Add `d-block` or `d-inline-block`.                                   |
-| Nesting a palette changed nothing | Same palette twice is a no-op. Step the surface instead: `surface-tinted` → `surface-dyed`. |
-| `inverted` stopped part-way down  | Setting `palette` on a child resets direction. Repeat `inverted` on the child.              |
-| A button is the wrong colour      | Don't colour the button. Colour its container.                                              |
-| Focus ring didn't change          | Correct. Focus rings, text selection and error states never follow the palette.             |
-
-## Quick reference
-
-| Want to             | Do this                                   |
-| ------------------- | ----------------------------------------- |
-| Colour anything     | Wrap it in `<color-mode palette="…">`     |
-| Make it visible     | Add `d-block` or `d-inline-block`         |
-| Add contrast        | Add `inverted`                            |
-| Go a shade stronger | `surface-tinted` → `surface-dyed`         |
-| Colour a button     | Nothing — colour its container            |
-| Support dark mode   | Nothing — set `data-color-scheme` at root |
+- [Build a card](/docs/tutorial/build-a-card) — your first `<color-mode>`, from wrapper to finished card.
+- [Color modes](/docs/explanation/color-modes) — why color lives on containers, and why `inverted` isn't dark mode.
+- [Color reference](/docs/reference/color) — the troubleshooting table and cheat sheet.

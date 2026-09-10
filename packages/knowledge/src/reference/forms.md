@@ -3,7 +3,7 @@ title: Form controls
 description: Inputs, selects, textareas, checkboxes, radios, and labels.
 ---
 
-Apply `.v-input`, `.v-select`, `.v-textarea`, `.v-checkbox`, or `.v-radio` to their respective native HTML elements. Pair with `.v-form-label` for labels. Size with `data-size` and mark errors with `aria-invalid`.
+`.v-input`, `.v-select`, `.v-textarea`, `.v-checkbox`, and `.v-radio` style their respective native elements. `.v-form-label` styles labels; `data-size` scales size; `aria-invalid` marks errors.
 
 ## .v-input / .v-textarea / .v-select
 
@@ -18,7 +18,12 @@ Text-like inputs on `<input>` elements:
 ```html
 <div class="stack-v gap-2xs">
   <label class="v-form-label" for="name">Full name</label>
-  <input class="v-input" type="text" id="name" placeholder="e.g. Ola Nordmann" />
+  <input
+    class="v-input"
+    type="text"
+    id="name"
+    placeholder="e.g. Ola Nordmann"
+  />
 </div>
 ```
 
@@ -156,7 +161,7 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 </select>
 ```
 
-## range input
+## Range input
 
 ```html
 <input class="v-range" type="range" min="0" max="100" step="5" />
@@ -164,7 +169,7 @@ With optgroups and separators. In Chromium-based browsers, the dropdown is fully
 
 ## .v-radio / .v-checkbox
 
-`.v-checkbox` and `.v-radio` replace the native appearance with a styled check or dot mark. Checked state fills the mark automatically — no extra classes needed. Always pair with a `<label>`.
+`.v-checkbox` and `.v-radio` replace the native appearance with a styled check or dot mark. The checked state fills the mark automatically — no extra classes needed. A paired `<label>` is required.
 
 | Attribute   | Values                           |
 | ----------- | -------------------------------- |
@@ -210,7 +215,13 @@ Both controls share the same sizing scale:
   </div>
   <div class="stack-h items-center gap-m">
     <div class="stack-h gap-2xs">
-      <input class="v-radio" type="radio" name="size" data-size="small" checked />
+      <input
+        class="v-radio"
+        type="radio"
+        name="size"
+        data-size="small"
+        checked
+      />
       <label>Small</label>
     </div>
     <div class="stack-h gap-2xs">
@@ -238,7 +249,7 @@ Both controls share the same sizing scale:
 
 ## Error state
 
-Set `aria-invalid="true"` on the control. The border and text turn red automatically — no custom error classes needed. Wrap the error message in `<color-mode palette="coral">` to match the color:
+`aria-invalid="true"` turns the border and text red automatically — no custom error class needed. The error message color is set by a `<color-mode palette="coral">` wrapper:
 
 ```html
 <div class="stack-v">
@@ -258,7 +269,7 @@ Set `aria-invalid="true"` on the control. The border and text turn red automatic
 
 ## Disabled state
 
-Disabled controls get `cursor: not-allowed`, but no visual graying out — consistent with the button component. If you need to communicate that an action is unavailable, consider showing an explanation instead of relying on a dimmed appearance.
+Disabled controls get `cursor: not-allowed` and no visual greying out, consistent with the button component. Unavailability is communicated with an explanation rather than a dimmed appearance.
 
 ## Putting it together
 

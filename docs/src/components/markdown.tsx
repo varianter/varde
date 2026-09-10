@@ -14,6 +14,11 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
   const flags = meta?.split(/\s+/) ?? [];
   const open = flags.includes("open") ? " open" : "";
   const resize = flags.includes("resize");
+  const noPreview = flags.includes("no-preview");
+
+  const codeBlock = `<pre class="microjar fs-s px-m py-m v-untypeset"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`;
+  if (noPreview) return codeBlock;
+
   const previewClass = `d-block code-example__preview p-s surface-base v-untypeset${resize ? " of-scroll" : ""}`;
   const previewStyle = resize ? ' style="resize: horizontal;"' : "";
   const preview =
@@ -22,12 +27,12 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
       : "";
 
   return [
-    `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block">`,
+    `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block v-untypeset">`,
     preview,
     `<details class="b-t bc-subtle surface-tinted"${open}>`,
     `<summary class="px-s py-2xs my-xs mx-xs v-button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
-    `<div class="px-s">`,
-    `<pre class="microjar px-m py-m -mx-s"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
+    `<div class="px-s of-scroll">`,
+    `<pre class="microjar fs-s px-m py-m -mx-s w-max-content"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
     `</div>`,
     `</details>`,
     `</code-example>`,
@@ -60,7 +65,7 @@ export function Markdown({ html }: { html: string }) {
   return (
     <div
       class="v-typeset"
-      style={{ maxWidth: "100%" }}
+      // style={{ maxWidth: "100%" }}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

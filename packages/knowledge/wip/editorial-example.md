@@ -5,11 +5,11 @@ description: Typography-driven compositions — display type, hero sections, pul
 
 Editorial layouts live or die on type. The content is words, so the hierarchy has to do the heavy lifting: one very large statement, a few quieter supporting lines, and a lot of deliberate space in between.
 
-Varde's type scale is fluid — `fs-4xl` stays readable on a phone and still feels big on a wide monitor. Pair the large steps with `lh-normal` or `lh-relaxed` for air, `tt-uppercase` and `ink-subtle` for kickers, and `t-tabular` where numbers need to line up. Colour comes from `<color-mode>`, not from the text.
+Varde's type scale is fluid — `fs-4xl` stays readable on a phone and still feels big on a wide monitor. Pair the large steps with `lh-normal` or `lh-relaxed` for air, `tt-uppercase` and `ink-subtle` for kickers, and `t-tabular` where numbers need to line up. Color comes from `<color-mode>`, not from the text.
 
 ## Hero
 
-One statement, one supporting line, one byline. The whole block is lit by a `color-mode`, so the text and background stay in the same hue without a single colour class on the type.
+One statement, one supporting line, one byline. The whole block is lit by a `color-mode`, so the text and background stay in the same hue without a single color class on the type.
 
 ```html
 <color-mode palette="periwinkle" class="d-block surface-tinted br-l p-xl">

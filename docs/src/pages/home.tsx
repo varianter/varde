@@ -8,8 +8,8 @@ export default function HomePage() {
           <div class="stack-v gap-m">
             <h1 class="fs-4xl fw-bold lh-tight">Varde</h1>
             <p class="fs-xl ink-subtle" style="max-width: 640px;">
-              A utility-first CSS framework and design token system. Semantic classes for layout,
-              spacing, color, typography, and components — no build step.
+              A shared vocabulary for the UI fundamentals every product team rebuilds — spacing,
+              layout, color, type, and a few components. One stylesheet, no build step.
             </p>
           </div>
         </div>
@@ -20,14 +20,14 @@ export default function HomePage() {
           <div class="stack-v gap-s">
             <h2 class="fs-l fw-bold">Why it exists</h2>
             <p class="ink-subtle">
-              Spacing, layout, color, typography, buttons, form fields — every product team handles
-              these same fundamentals. When we all share a common vocabulary for them, the UI stays
-              cohesive without anyone needing to think twice.
+              Spacing, layout, color, typography, buttons, form fields — every product team rebuilds
+              these same fundamentals. When they share one vocabulary for them, the UI stays
+              cohesive without anyone thinking twice.
             </p>
             <p class="ink-subtle">
-              Varde is that shared language. A friendly set of building blocks — named scales,
-              semantic color, and a handful of components — so the team always picks from the same
-              menu and things just feel consistent.
+              Varde is that vocabulary. Named scales for space, semantic color that lives on
+              containers, and a small set of components — so the team always picks from the same
+              menu.
             </p>
           </div>
         </div>

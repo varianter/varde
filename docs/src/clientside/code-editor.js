@@ -388,3 +388,9 @@ if (!("highlights" in CSS)) {
 }
 
 customElements.define("code-example", CodeExample);
+
+// Plain code blocks (`no-preview`) have no editor to trigger a scan, so make
+// sure the document is highlighted once on load.
+void highlightAll({ root: document }).catch((error) =>
+  console.error("microjar: highlighting failed", error),
+);
