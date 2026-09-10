@@ -30,6 +30,7 @@ const light = {
     prominent: { palette: "inherit", default: 700, inverted: 50 },
     subtle: { palette: "inherit", default: 550, inverted: 200 },
     marker: { palette: "inherit", default: 600, inverted: 200 },
+    code: { palette: "inherit", default: 650, inverted: 200 },
     link: {
       default: { palette: "inherit", default: 600, inverted: 100 },
       hover: { palette: "inherit", default: 700, inverted: 50 },
@@ -49,6 +50,7 @@ const light = {
     },
   },
   background: {
+    code: { palette: "inherit", default: 100, inverted: 700 },
     control: {
       default: { palette: "inherit", default: 50, inverted: 750 },
       hover: { palette: "inherit", default: 100, inverted: 700 },
@@ -92,6 +94,7 @@ const dark = {
     prominent: { palette: "inherit", default: 100, inverted: 900 },
     subtle: { palette: "inherit", default: 350, inverted: 750 },
     marker: { palette: "inherit", default: 400, inverted: 600 },
+    code: { palette: "inherit", default: 300, inverted: 650 },
     link: {
       default: { palette: "inherit", default: 350, inverted: 800 },
       hover: { palette: "inherit", default: 300, inverted: 900 },
@@ -111,6 +114,7 @@ const dark = {
     },
   },
   background: {
+    code: { palette: "inherit", default: 800, inverted: 250 },
     control: {
       default: { palette: "inherit", default: 750, inverted: 150 },
       hover: { palette: "inherit", default: 700, inverted: 200 },
