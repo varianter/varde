@@ -1,6 +1,9 @@
 import { DocsPage, Section } from "../components/docs";
 
 export const path = "/utilities/colors";
+export const title = "Colors";
+export const description =
+  "Semantic color utilities for backgrounds, text, and borders. Structural tokens come first — they're the everyday workhorses. Intent tokens communicate meaning.";
 
 const PALETTES = [
   "grey",
@@ -28,10 +31,7 @@ const BORDERS = [
 
 export default function ColorsPage() {
   return (
-    <DocsPage
-      title="Colors"
-      description="Semantic color utilities for backgrounds, text, and borders. Structural tokens come first — they're the everyday workhorses. Intent tokens communicate meaning."
-    >
+    <DocsPage title={title} description={description}>
       <Section
         title="Palette overview"
         description="Border alpha derives from a single --border-base token — the same ratio works across every palette, surface, and mode. Surface lift derives from the per-mode --surface-tint-target token. Hover any box to see both augmentations."

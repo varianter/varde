@@ -10,11 +10,11 @@ export function DocsPage({
   children: Child;
 }) {
   return (
-    <article class="stack-v gap-2xl mx-auto py-xl px-m-l" style="max-width: 1200px;">
-      <header class="pt-2xl pb-2xl">
-        <div class="stack-v gap-xs">
+    <article class="content-grid gap-row-2xl pb-3xl">
+      <header class="content-grid-pass surface-tinted pt-2xl pb-2xl" data-bleed="full">
+        <div class="v-typeset">
           <h2 class="fs-3xl fw-bold">{title}</h2>
-          <p class="fs-l ink-subtle w-max-7">{description}</p>
+          <p class="fs-l ink-subtle">{description}</p>
         </div>
       </header>
 

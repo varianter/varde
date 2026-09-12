@@ -1,6 +1,9 @@
 import { DemoBox, DocsPage, Example, Section } from "../components/docs";
 
 export const path = "/utilities/stagger-reveal";
+export const title = "Stagger Reveal";
+export const description =
+  "Add stagger-reveal to any container and its direct children fade and lift into place one after another. Where sibling-index() isn't supported they all reveal together, with no delay.";
 
 const items = Array.from({ length: 9 }, (_, i) => i + 1);
 
@@ -34,10 +37,7 @@ function StaggerDemo({
 
 export function StaggerRevealPage() {
   return (
-    <DocsPage
-      title="Stagger Reveal"
-      description="Add stagger-reveal to any container and its direct children fade and lift into place one after another. Where sibling-index() isn't supported they all reveal together, with no delay."
-    >
+    <DocsPage title={title} description={description}>
       <Section title="How it works" description="">
         <Example label="<div stagger-reveal>" description="">
           {/* <css-var-bind variable="--scale" unit="px" target=":root" strategy="global">

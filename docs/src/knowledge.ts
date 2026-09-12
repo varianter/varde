@@ -33,7 +33,16 @@ export const knowledgeDocs: KnowledgeDoc[] = (
 
       const match = raw.match(FRONTMATTER);
       const yaml = match?.[1];
-      const frontmatter = (yaml ? (Bun.YAML.parse(yaml) as Frontmatter | null) : null) ?? {};
+      let frontmatter: Frontmatter = {};
+      if (yaml) {
+        try {
+          frontmatter = (Bun.YAML.parse(yaml) as Frontmatter | null) ?? {};
+        } catch (error) {
+          throw new Error(`Invalid YAML frontmatter in ${knowledgeDir}/${fileName}`, {
+            cause: error,
+          });
+        }
+      }
       const content = match ? raw.slice(match[0].length) : raw;
 
       return {

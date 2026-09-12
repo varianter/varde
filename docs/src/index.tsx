@@ -8,8 +8,10 @@ import { html } from "hono/html";
 import type { FC } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { DocsPage } from "./components/docs";
+import { Header } from "./components/header";
 import { Markdown, processMarkdown } from "./components/markdown";
 import { NavLinks } from "./components/nav";
+import { SearchDialog } from "./components/search";
 import { knowledgeDocs } from "./knowledge";
 import { staticApp } from "./static";
 
@@ -34,15 +36,77 @@ app.get("/clientside/:file", async (c) => {
   return new Response(file, { headers: { "Content-Type": "text/javascript" } });
 });
 
+// In dev, serve pagefind's build output straight off disk so search also
+// works locally after `bun run build` — matching the deployed `/docs/pagefind/*`
+// shape without needing a rebuild-and-restart cycle. 404s (search no-ops) until
+// that first build has run.
+const pagefindDir = join(import.meta.dir, "../dist/docs/pagefind");
+
+app.get("/pagefind/:path{.*}", async (c) => {
+  const file = Bun.file(join(pagefindDir, c.req.param("path")));
+  if (!(await file.exists())) {
+    return c.notFound();
+  }
+  return new Response(file);
+});
+
+const DEFAULT_TITLE = "Varde – Variant design system documentation";
+
 app.use(
   "*",
   jsxRenderer(
-    ({ children }) => {
+    ({ children, title }) => {
       return (
         <html lang="en" class="ink-default surface-base">
           <head>
             {html`<script>
-              (function(){var m=document.cookie.match(/(?:^|;\\s*)theme=([^;]+)/);if(m)document.documentElement.setAttribute("data-color-scheme",m[1])})();
+              const MQL = matchMedia("(prefers-color-scheme: dark)");
+
+              const theme = {
+                cookie: "theme",
+                pattern: /(?:^|;\\s*)theme=(dark|light)\\b/,
+                maxAge: 31536000,
+
+                normalize: (v) => (v === "dark" || v === "light" ? v : undefined),
+
+                resolve: (saved, system) => theme.normalize(saved) ?? system,
+
+                parse: (cookies) => cookies.match(theme.pattern)?.[1],
+
+                // Shell
+                get saved()   { return theme.parse(document.cookie); },
+                get system()  { return MQL.matches ? "dark" : "light"; },
+                get current() { return theme.resolve(theme.saved, theme.system); },
+
+                apply(value) {
+                  document.documentElement.dataset.colorScheme = value;
+                  cookieStore
+                    .set({ name: theme.cookie, value, maxAge: theme.maxAge, sameSite: "lax" })
+                    .catch(() => {});
+                },
+
+                toggle() {
+                  theme.apply(theme.current === "dark" ? "light" : "dark");
+                },
+
+                init() {
+                  document.documentElement.dataset.colorScheme = theme.current;
+
+                  cookieStore?.addEventListener?.("change", (e) => {
+                    const found = e.changed.find((c) => c.name === theme.cookie);
+                    if (found) document.documentElement.dataset.colorScheme = found.value;
+                  });
+                },
+              };
+
+              theme.init();
+              globalThis.theme = theme;
+
+              document.addEventListener("click", (event) => {
+                if (event.target instanceof Element && event.target.closest("#theme-toggle")) {
+                  theme.toggle();
+                }
+              });
             </script>`}
             <Style>
               {css`
@@ -81,6 +145,11 @@ app.use(
                       "header header"
                       "nav    main";
                   }
+                  @media (min-width: 1600px) {
+                    max-width: 1600px;
+                    margin-inline: auto;
+                    border-inline: 1px solid var(--border-subtle);
+                  }
                 }
 
                 .site-header {
@@ -106,12 +175,43 @@ app.use(
                 .site-main {
                   grid-area: main;
                   max-width: 100vw;
+                  min-width: 0;
+                }
+
+                .content-grid,
+                .content-grid-pass {
+                  display: grid;
+                  grid-template-columns: subgrid;
+                  column-gap: 0;
+                }
+
+                .content-grid {
+                  --content-gutter: var(--spacing-s);
+                  --content-max-width: 1400px;
+                  grid-template-columns:
+                    [full-start] minmax(var(--content-gutter), 1fr)
+                    [content-start] min(100% - var(--content-gutter) * 2, var(--content-max-width))
+                    [content-end] minmax(var(--content-gutter), 1fr)
+                    [full-end];
+
+                  @media (min-width: 768px) {
+                    --content-gutter: var(--spacing-m-3xl);
+                  }
+                }
+
+                :is(.content-grid, .content-grid-pass) > * {
+                  grid-column: content;
+                }
+
+                :is(.content-grid, .content-grid-pass) > [data-bleed="full"] {
+                  grid-column: full;
                 }
 
 
                 @media (max-width: 767px) {
                   .site-nav-list {
                     max-height: 100svh;
+                    height: 100%;
                     overflow-y: scroll;
                   }
                 }
@@ -119,6 +219,11 @@ app.use(
                 @media (min-width: 768px) {
                   .site-nav-list {
                     grid-row: nav;
+                    position: sticky;
+                    top: var(--header-height);
+                    align-self: start;
+                    max-height: calc(100svh - var(--header-height));
+                    overflow-y: auto;
                   }
 
                   .site-logo {
@@ -304,7 +409,7 @@ app.use(
               type="image/svg+xml"
               href="https://varde.variant.dev/static/logos/variant-favicon.svg"
             />
-            <title>Varde – Variant design system documentation</title>
+            <title>{title ? `${title} – Varde` : DEFAULT_TITLE}</title>
             <link rel="stylesheet" href="/docs/styles.css" />
             {html`<script type="module">
               import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
@@ -321,81 +426,10 @@ app.use(
               }}
             />
             <script type="module" src="/docs/clientside/code-editor.js"></script>
+            <script type="module" src="/docs/clientside/search.js"></script>
           </head>
           <body class="fs-m">
-            <header class="site-header stack-v b-b bc-subtle px-s-m ">
-              <a
-                href="/docs"
-                class="site-logo py-xs fw-bold gap-xs stack-h d-inline-flex self-stretch"
-              >
-                <img
-                  src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"
-                  alt="Varde"
-                  width="24"
-                  height="24"
-                />{" "}
-                <span class="ink-default lh-tight">Varde</span>
-              </a>
-              <div class="w-full stack-h gap-xs">
-                <div class="ml-auto gap-2xs stack-h">
-                  <button
-                    id="theme-toggle"
-                    class="v-button pile ml-auto"
-                    data-variant="plain"
-                    data-size="small"
-                    type="button"
-                    aria-label="Toggle between light and dark color scheme"
-                  >
-                    <svg
-                      role="presentation"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-moon-icon lucide-moon"
-                    >
-                      <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
-                    </svg>
-
-                    <svg
-                      role="presentation"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-sun-icon lucide-sun"
-                    >
-                      <circle cx="12" cy="12" r="4" />
-                      <path d="M12 2v2" />
-                      <path d="M12 20v2" />
-                      <path d="m4.93 4.93 1.41 1.41" />
-                      <path d="m17.66 17.66 1.41 1.41" />
-                      <path d="M2 12h2" />
-                      <path d="M20 12h2" />
-                      <path d="m6.34 17.66-1.41 1.41" />
-                      <path d="m19.07 4.93-1.41 1.41" />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    data-size="small"
-                    popovertarget="nav-popover"
-                    class="v-button menu-toggle"
-                    aria-label="Toggle navigation menu"
-                  >
-                    <span aria-hidden="true">☰</span> Menu
-                  </button>
-                </div>
-              </div>
-            </header>
+            <Header />
             <nav class="site-nav">
               <div
                 id="nav-popover"
@@ -429,10 +463,10 @@ app.use(
                 </div>
               </div>
             </nav>
-            <main class="site-main block">{children}</main>
-            {html`<script>
-              (function(){function e(){var t=document.documentElement.getAttribute("data-color-scheme");if(t==="dark"||t==="light")return t;return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function n(t){document.documentElement.setAttribute("data-color-scheme",t);document.cookie="theme="+t+";max-age=31536000;path=/;SameSite=Lax"}document.getElementById("theme-toggle").addEventListener("click",function(){var t=e();n(t==="dark"?"light":"dark")})})();
-            </script>`}
+            <main class="site-main d-block" data-pagefind-body>
+              {children}
+            </main>
+            <SearchDialog />
           </body>
         </html>
       );
@@ -456,6 +490,7 @@ for (const { category, slug, title, description, content } of pages) {
       <DocsPage title={title} description={description}>
         <Markdown html={content} />
       </DocsPage>,
+      { title },
     );
   });
 }

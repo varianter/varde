@@ -3,40 +3,80 @@ title: Dark mode
 description: Force light or dark, or wire up a toggle.
 ---
 
-## Do nothing
+## In order to set up dark mode: do nothing
 
-Dark mode works "out-of-the-box". Varde follows the user's system preference and switches automatically. No class, no attribute, nothing to set up.
+Varde follows the user's system preference and switches automatically. In other words: Dark mode works "out-of-the-box". No class, no attribute, nothing to set up.
 
-## Force one scheme
+## Force light or dark mode/theme/
 
-If your product is dark-only or light-only, set `data-color-scheme` once on the `<html>` element:
+If you only want one more, set `data-color-scheme` as either `dark` or `light` once on the `<html>` element:
 
 ```html open no-preview
-<html
-  lang="en"
-  class="ink-default surface-base"
-  data-color-scheme="dark"
-></html>
+<html lang="en" class="ink-default surface-base" data-color-scheme="dark" />
 ```
 
-Use `dark` or `light`. Leave the attribute off to follow the system.
+You can also use `color-scheme: dark` or `color-scheme: light` directly at `:root`.
 
-The override wins everywhere: `<color-mode>` blocks inside inherit it and can't opt out.
+## Toggling between light/dark
 
-## Give users a toggle
+Lets strive to be kind and thoughful. Consider adding a mode switch and allow users to override their system preference.
 
-Set the attribute yourself and the page follows. Flip it to switch:
+Here's some clientside JS to allow for overriding the color scheme. It sets `data-color-scheme` based on a cookie.
 
 ```js open no-preview
-const root = document.documentElement;
-const current =
-  root.getAttribute("data-color-scheme") ??
-  (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+// Needs to go in <head>, otherwise users might get a flash when theme changes.
+const MQL = matchMedia("(prefers-color-scheme: dark)");
 
-root.setAttribute("data-color-scheme", current === "dark" ? "light" : "dark");
+const theme = {
+  cookie: "theme",
+  pattern: /(?:^|;\\s*)theme=(dark|light)\\b/,
+  maxAge: 31536000,
+
+  normalize: (v) => (v === "dark" || v === "light" ? v : undefined),
+
+  resolve: (saved, system) => theme.normalize(saved) ?? system,
+
+  parse: (cookies) => cookies.match(theme.pattern)?.[1],
+
+  // Shell
+  get saved() {
+    return theme.parse(document.cookie);
+  },
+  get system() {
+    return MQL.matches ? "dark" : "light";
+  },
+  get current() {
+    return theme.resolve(theme.saved, theme.system);
+  },
+
+  apply(value) {
+    document.documentElement.dataset.colorScheme = value;
+    cookieStore
+      .set({ name: theme.cookie, value, maxAge: theme.maxAge, sameSite: "lax" })
+      .catch(() => {});
+  },
+
+  toggle() {
+    theme.apply(theme.current === "dark" ? "light" : "dark");
+  },
+
+  init() {
+    document.documentElement.dataset.colorScheme = theme.current;
+
+    cookieStore?.addEventListener?.("change", (e) => {
+      const found = e.changed.find((c) => c.name === theme.cookie);
+      if (found) document.documentElement.dataset.colorScheme = found.value;
+    });
+  },
+};
+
+theme.init();
+globalThis.theme = theme;
 ```
 
-Persist the choice however you already store preferences — a cookie, `localStorage`, your server.
+Do note that in this example, you'll still have to call `window.theme.toggle()` to actually toggle. Use `window.theme.current` if you need to read what the user currently has.
+
+Bottom line: As long as you just use the `data-color-scheme` on `html`, you're good. Use React Hooks instead of the code above if you want – the result is the same. How you decide to persist the choice is up to you — a cookie, `localStorage`, your server.
 
 ## Where next
 

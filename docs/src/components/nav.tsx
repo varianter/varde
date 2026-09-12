@@ -1,7 +1,5 @@
 import { knowledgeDocs, slugToTitle } from "../knowledge";
-import { path as colorModesPath } from "../pages/color-modes";
-import { path as colorsPath } from "../pages/colors";
-import { path as staggerRevealPath } from "../pages/stagger-reveal";
+import { path as examplesPath } from "../pages/examples";
 
 const base = "/docs";
 
@@ -12,12 +10,6 @@ type NavSection = {
 
 const categoryOrder = ["tutorial", "how-to", "explanation", "reference", "examples"];
 
-const exampleItems = [
-  { label: "Colors", path: colorsPath },
-  { label: "Stagger items", path: staggerRevealPath },
-  { label: "Color Modes Demo", path: colorModesPath },
-];
-
 const sections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => doc.category))]
   .sort((a, b) => {
     const ia = categoryOrder.indexOf(a);
@@ -27,12 +19,12 @@ const sections: NavSection[] = [...new Set(knowledgeDocs.map((doc) => doc.catego
   })
   .map((category) => ({
     label: slugToTitle(category),
-    items: [
-      ...(category === "examples" ? exampleItems : []),
-      ...knowledgeDocs
-        .filter((doc) => doc.category === category)
-        .map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
-    ],
+    items:
+      category === "examples"
+        ? [{ label: "All examples", path: examplesPath }]
+        : knowledgeDocs
+            .filter((doc) => doc.category === category)
+            .map((doc) => ({ label: doc.title, path: `/${doc.category}/${doc.slug}` })),
   }));
 
 export function NavLinks() {

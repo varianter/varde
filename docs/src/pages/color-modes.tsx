@@ -1,4 +1,7 @@
 export const path = "/tokens/color-modes";
+export const title = "Color Modes";
+export const description =
+  "Every palette shown simultaneously, each panel scoped with color-mode so semantic tokens — surfaces, ink, borders, and control states — resolve against that mode's color variables.";
 
 const modes = [
   "grey",
@@ -101,12 +104,8 @@ export default function ColorModesPage() {
   return (
     <article class="stack-v gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
-        <h2 class="fs-3xl fw-bold">Color Modes</h2>
-        <p class="fs-l ink-subtle w-max-7">
-          Every palette shown simultaneously. Each panel is scoped with{" "}
-          <code>&lt;color-mode&gt;</code> so semantic tokens — surfaces, ink, borders, and control
-          states — resolve against that mode's <code>--color-N</code> variables.
-        </p>
+        <h2 class="fs-3xl fw-bold">{title}</h2>
+        <p class="fs-l ink-subtle w-max-7">{description}</p>
       </header>
 
       <div
@@ -115,10 +114,10 @@ export default function ColorModesPage() {
       >
         {modes.map((mode) => (
           <div class="stack-h gap-m">
-            <color-mode class="block" palette={mode}>
+            <color-mode class="d-block" palette={mode}>
               <WorkspacePanel mode={mode} />
             </color-mode>
-            <color-mode inverted class="block" palette={mode}>
+            <color-mode inverted class="d-block" palette={mode}>
               <WorkspacePanel mode={mode} />
             </color-mode>
           </div>

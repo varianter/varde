@@ -14,6 +14,7 @@
     "satteri": "^0.9.5"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "pagefind": "^1.5.2"
   }
 }

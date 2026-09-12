@@ -1,9 +1,11 @@
 ---
-title: How to color something
+title: How to add color
 description: Recipes for applying color with <color-mode>.
 ---
 
-Color lives on a wrapper, not on components. Point a `<color-mode>` at a `palette`, and everything inside follows — you never name a color. Two knobs do the work: `palette` sets the hue, `inverted` flips to the other end of it.
+Not gonna lie, this will, initially, feel a bit odd. Bear with me!
+
+In Varde, colors are **inherited** from a `<color-mode>`. Kind of how Figma also does modes, if you're familiar. Every `<color-mode>` takes a `palette`, and everything inside inherits from that palette. Two knobs do the work: `palette` sets the hue, `inverted` flips to the other end of it.
 
 For the reasoning behind any of it, see [Color modes](/docs/explanation/color-modes).
 

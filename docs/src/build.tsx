@@ -1,5 +1,6 @@
 import { cp, mkdir, readdir, rename } from "node:fs/promises";
 import { join } from "node:path";
+import { $ } from "bun";
 import { toSSG } from "hono/bun";
 import { app } from "./index";
 import { rootApp } from "./root";
@@ -34,3 +35,7 @@ await toDirectoryStyle("./dist");
 
 await cp(STATIC_SRC, STATIC_DEST, { recursive: true });
 await cp(CLIENTSIDE_SRC, CLIENTSIDE_DEST, { recursive: true });
+
+// Crawls the final docs HTML and writes a search index + JS bundle into
+// dist/docs/pagefind/. Must run last, after the HTML has taken its final shape.
+await $`bunx pagefind --site dist/docs`;
