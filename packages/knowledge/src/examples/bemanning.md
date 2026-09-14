@@ -1,6 +1,7 @@
 ---
 title: Bemanning
 description: A staffing grid with a week view and a filter drawer.
+group: Scheduling & booking
 ---
 
 ```html

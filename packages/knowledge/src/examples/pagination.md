@@ -1,6 +1,7 @@
 ---
 title: Pagination
 description: A row of outlined page buttons with one active, plus prev/next.
+group: Navigation
 ---
 
 ```html

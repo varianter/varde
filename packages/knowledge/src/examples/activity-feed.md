@@ -1,6 +1,7 @@
 ---
 title: Activity feed
 description: A vertical timeline a faint rail down the left with an inverted `color-mode` dot marking each event.
+group: Data display
 ---
 
 ```html

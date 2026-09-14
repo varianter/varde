@@ -1,6 +1,7 @@
 ---
 title: Set up Varde
 description: Link the stylesheet and set the page's root classes.
+order: 1
 ---
 
 ## Create a page

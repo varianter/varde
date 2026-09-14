@@ -1,5 +1,6 @@
 import { knowledgeDocs, slugToTitle } from "../knowledge";
 import { path as examplesPath } from "../pages/examples";
+import { withTrailingSlash } from "../url";
 
 const base = "/docs";
 
@@ -37,7 +38,7 @@ export function NavLinks() {
             {section.items.map((item) => (
               <a
                 class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"
-                href={`${base}${item.path}`}
+                href={withTrailingSlash(`${base}${item.path}`)}
                 key={item.label}
               >
                 {item.label}

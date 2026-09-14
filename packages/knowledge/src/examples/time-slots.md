@@ -1,6 +1,7 @@
 ---
 title: Time slots
 description: A schedule for an event day, from morning coffee to quiz.
+group: Scheduling & booking
 ---
 
 ```html

@@ -14,6 +14,7 @@ import { NavLinks } from "./components/nav";
 import { SearchDialog } from "./components/search";
 import { knowledgeDocs } from "./knowledge";
 import { staticApp } from "./static";
+import { SITE_ORIGIN, withTrailingSlash } from "./url";
 
 const app = new Hono({ strict: false }).basePath("/docs");
 
@@ -55,7 +56,7 @@ const DEFAULT_TITLE = "Varde – Variant design system documentation";
 app.use(
   "*",
   jsxRenderer(
-    ({ children, title }) => {
+    ({ children, title }, c) => {
       return (
         <html lang="en" class="ink-default surface-base">
           <head>
@@ -409,7 +410,8 @@ app.use(
               type="image/svg+xml"
               href="https://varde.variant.dev/static/logos/variant-favicon.svg"
             />
-            <title>{title ? `${title} – Varde` : DEFAULT_TITLE}</title>
+            <title>{title ? `${title}` : DEFAULT_TITLE}</title>
+            <link rel="canonical" href={`${SITE_ORIGIN}${withTrailingSlash(c.req.path)}`} />
             <link rel="stylesheet" href="/docs/styles.css" />
             {html`<script type="module">
               import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
@@ -427,6 +429,7 @@ app.use(
             />
             <script type="module" src="/docs/clientside/code-editor.js"></script>
             <script type="module" src="/docs/clientside/search.js"></script>
+            <script type="module" src="/docs/clientside/color-mode-interact.js"></script>
           </head>
           <body class="fs-m">
             <Header />
@@ -517,7 +520,7 @@ for (const mod of modules) {
   }
 }
 
-const root = new Hono();
+const root = new Hono({ strict: false });
 root.route("/", app);
 root.route("/", staticApp);
 

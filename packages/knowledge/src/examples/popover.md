@@ -1,6 +1,7 @@
 ---
-title: Nice popovers
+title: Popover
 description: A large popover that combines a form and a details list.
+group: Overlays
 ---
 
 This one leverages a popover, a details list, and a form

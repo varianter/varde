@@ -1,6 +1,7 @@
 ---
 title: Choicebox
 description: A selectable card pair that swaps its palette on selection.
+group: Forms & inputs
 ---
 
 Inspiration:
@@ -9,27 +10,39 @@ https://vercel.com/geist/choicebox
 This is where JS would come in hand to switch between `palette="blue|grey"` when the radio is selected.
 
 ```html
-<div class="stack-h gap-s">
-  <color-mode palette="blue" class="d-block flex-1  br-m  surface-dyed">
+<div class="stack-h gap-xs" data-palette-group>
+  <color-mode palette="blue" class="d-block flex-1 br-m surface-tinted">
     <label
-      class="stack-h gap-m p-xs bg-wash:hover bc-prominent b-all   br-inherit"
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
     >
       <div class="mr-auto">
-        <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
-        <p class="ink-subtle">Free for two weeks</p>
+        <h5 class="t-medium fs-m">Utvikler</h5>
+        <p class="ink-subtle">Jepp, utvikler, ja!</p>
       </div>
       <input type="radio" class="v-radio" name="trial" checked />
     </label>
   </color-mode>
 
-  <color-mode
-    palette="grey"
-    class="d-block flex-1 b-all bc-prominent br-m  surface-dyed "
-  >
-    <label class="stack-h gap-m p-xs bg-wash:hover">
+  <!-- not selected — note the classes are identical -->
+  <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
+    <label
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
+    >
       <div class="mr-auto">
-        <h5 class="ink-subtle fw-medium fs-m">Pro trial</h5>
-        <p class="ink-subtle">Free for two weeks</p>
+        <h5 class="t-medium fs-m">Designer</h5>
+        <p class="ink-subtle">Nice. Very nice.</p>
+      </div>
+      <input type="radio" class="v-radio" name="trial" />
+    </label>
+  </color-mode>
+
+  <color-mode palette="grey" class="d-block flex-1 br-m surface-tinted">
+    <label
+      class="stack-h gap-m p-xs bg-wash:hover b-all bc-prominent br-inherit"
+    >
+      <div class="mr-auto">
+        <h5 class="t-medium fs-m">No thanks</h5>
+        <p class="ink-subtle">I'm good</p>
       </div>
       <input type="radio" class="v-radio" name="trial" />
     </label>

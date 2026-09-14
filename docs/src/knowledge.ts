@@ -7,12 +7,16 @@ export type KnowledgeDoc = {
   slug: string;
   title: string;
   description: string;
+  order?: number;
+  group?: string;
   content: string;
 };
 
 type Frontmatter = {
   title?: string;
   description?: string;
+  order?: number;
+  group?: string;
 };
 
 const FRONTMATTER = /^---\n([\s\S]*?)\n---\n?/;
@@ -50,8 +54,15 @@ export const knowledgeDocs: KnowledgeDoc[] = (
         slug,
         title: frontmatter.title ?? slugToTitle(slug),
         description: frontmatter.description ?? "",
+        order: frontmatter.order,
+        group: frontmatter.group,
         content,
       };
     }),
   )
-).sort((a, b) => a.title.localeCompare(b.title));
+).sort((a, b) => {
+  if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
+  if (a.order !== undefined) return -1;
+  if (b.order !== undefined) return 1;
+  return a.title.localeCompare(b.title);
+});

@@ -31,6 +31,8 @@ Run biome to lint/check/format
 bun run check
 ```
 
+Dev server: run `bun run dev:agent`, not `bun run dev` — `dev` blocks in the foreground and will hang a tool call. `dev:agent` starts the docs server (port 1234) and the css watcher detached, and reuses them if already running. Stop both with `bun run dev:stop`. Logs land in `.dev/`.
+
 # Comments
 
 If you're gonna write comments, here's a few rules:

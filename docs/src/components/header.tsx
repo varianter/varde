@@ -8,7 +8,7 @@ export function Header() {
       background: oklch(from var(--surface-base) l c h / 0.9);
 "
     >
-      <a href="/docs" class="site-logo py-xs fw-bold gap-xs stack-h d-inline-flex self-stretch">
+      <a href="/docs/" class="site-logo py-xs fw-bold gap-xs stack-h d-inline-flex self-stretch">
         <img
           src="https://varde.variant.dev/static/logos/variant-circle-filled.svg"
           alt="Varde"

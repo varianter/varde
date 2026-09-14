@@ -1,6 +1,7 @@
 ---
-title: A table
+title: Table
 description: An orders table with status badges and a show-more action.
+group: Data display
 ---
 
 ```html

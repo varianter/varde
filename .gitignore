@@ -10,3 +10,4 @@ cdn/dist/
 .vercel
 .DS_Store
 todo.md
+.dev/
