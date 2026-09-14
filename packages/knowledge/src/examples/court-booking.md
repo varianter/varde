@@ -156,7 +156,7 @@ group: Scheduling & booking
       style="grid-template-columns: 1fr 1fr;"
     >
       <div class="stack-v gap-m">
-        <h2 class="fs-l fw-bold ta-center">3T-Rosten</h2>
+        <h2 class="fs-l fw-bold ta-center">Center #2</h2>
 
         <div
           class="d-grid gap-row-2xs gap-column-xs"
@@ -269,7 +269,7 @@ group: Scheduling & booking
       </div>
 
       <div class="stack-v gap-m">
-        <h2 class="fs-l fw-bold ta-center">3T-Leangen</h2>
+        <h2 class="fs-l fw-bold ta-center">Center #1</h2>
 
         <div
           class="d-grid gap-row-2xs gap-column-xs"
