@@ -57,7 +57,7 @@ color-mode {
 }
 
 /* ── Inverted ────────────────────────────────────── */
-color-mode[inverted]:not([inverted='false' i]) {
+color-mode[inverted]:not([inverted='false']) {
   --surface-base: light-dark(var(--palette-inherit-750), var(--palette-inherit-200));
   --surface-tinted: light-dark(var(--palette-inherit-700), var(--palette-inherit-250));
   --surface-dyed: light-dark(var(--palette-inherit-600), var(--palette-inherit-300));

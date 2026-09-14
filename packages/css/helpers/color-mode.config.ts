@@ -245,7 +245,7 @@ ${indent(defaultBlock, 2)}
 }
 
 /* ── Inverted ────────────────────────────────────── */
-color-mode[inverted]:not([inverted="false" i]) {
+color-mode[inverted]:not([inverted="false"]) {
 ${indent(invertedBlock, 2)}
 }
 
