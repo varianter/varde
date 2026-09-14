@@ -19,26 +19,26 @@
 
 /** Canonical cycle order, matching docs/src/pages/color-modes.tsx. */
 const PALETTES = [
-	"grey",
-	"coral",
-	"blue",
-	"yellow",
-	"green",
-	"orange",
-	"purple",
-	"teal",
-	"periwinkle",
+  "grey",
+  "coral",
+  "blue",
+  "yellow",
+  "green",
+  "orange",
+  "purple",
+  "teal",
+  "periwinkle",
 ];
 
 /**
  * @param {Element} mode
  */
 function cyclePalette(mode) {
-	const current = mode.getAttribute("palette");
-	const index = PALETTES.indexOf(current ?? "");
-	// Missing, "inherit", or unrecognized: start of cycle.
-	const next = PALETTES[index === -1 ? 0 : (index + 1) % PALETTES.length];
-	mode.setAttribute("palette", next);
+  const current = mode.getAttribute("palette");
+  const index = PALETTES.indexOf(current ?? "");
+  // Missing, "inherit", or unrecognized: start of cycle.
+  const next = PALETTES[index === -1 ? 0 : (index + 1) % PALETTES.length];
+  mode.setAttribute("palette", next);
 }
 
 /**
@@ -48,38 +48,35 @@ function cyclePalette(mode) {
  * @returns {boolean}
  */
 function isInverted(mode) {
-	return (
-		mode.hasAttribute("inverted") &&
-		mode.getAttribute("inverted")?.toLowerCase() !== "false"
-	);
+  return mode.hasAttribute("inverted") && mode.getAttribute("inverted")?.toLowerCase() !== "false";
 }
 
 /**
  * @param {Element} mode
  */
 function toggleInverted(mode) {
-	if (isInverted(mode)) {
-		mode.removeAttribute("inverted");
-	} else {
-		mode.setAttribute("inverted", "");
-	}
+  if (isInverted(mode)) {
+    mode.removeAttribute("inverted");
+  } else {
+    mode.setAttribute("inverted", "");
+  }
 }
 
 document.addEventListener("click", (event) => {
-	if (!event.altKey && !event.metaKey) return;
+  if (!event.altKey && !event.metaKey) return;
 
-	const target = event.target;
-	if (!(target instanceof Element)) return;
+  const target = event.target;
+  if (!(target instanceof Element)) return;
 
-	const mode = target.closest("color-mode");
-	if (!mode) return;
+  const mode = target.closest("color-mode");
+  if (!mode) return;
 
-	event.preventDefault();
+  event.preventDefault();
 
-	if (event.altKey) {
-		cyclePalette(mode);
-	}
-	if (event.metaKey) {
-		toggleInverted(mode);
-	}
+  if (event.altKey) {
+    cyclePalette(mode);
+  }
+  if (event.metaKey) {
+    toggleInverted(mode);
+  }
 });
