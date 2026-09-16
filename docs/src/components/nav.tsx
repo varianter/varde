@@ -34,7 +34,7 @@ export function NavLinks() {
       {sections.map((section) => (
         <div key={section.label}>
           <h5 class="fs-xs ink-subtle fw-bold mb-2xs tt-uppercase">{section.label}</h5>
-          <ul class="stack-v gap-4xs">
+          <ul class="stack-v">
             {section.items.map((item) => (
               <a
                 class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-2xs"

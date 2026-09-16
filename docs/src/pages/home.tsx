@@ -33,6 +33,22 @@ export default function HomePage() {
       <section class="stack-v gap-xl b-t bc-subtle pt-3xl">
         <div class="stack-v gap-l" style="max-width: 720px;">
           <div class="stack-v gap-s">
+            <h2 class="fs-l fw-bold">Usage</h2>
+            <p class="ink-subtle">
+              Add the stylesheet to your HTML, pinned to the current release.
+            </p>
+          </div>
+          <pre class="microjar fs-s px-m py-m v-untypeset" data-pagefind-ignore>
+            <code data-language="html">
+              {`<link rel="stylesheet" href="https://varde.variant.dev/v/${currentVersion}/styles.css" />`}
+            </code>
+          </pre>
+        </div>
+      </section>
+
+      <section class="stack-v gap-xl b-t bc-subtle pt-3xl">
+        <div class="stack-v gap-l" style="max-width: 720px;">
+          <div class="stack-v gap-s">
             <h2 class="fs-l fw-bold">Why it exists</h2>
             <p class="ink-subtle">
               Spacing, layout, color, typography, buttons, form fields — every product team rebuilds
