@@ -9,6 +9,7 @@
 
   .of-scroll {
     overflow: scroll;
+    scroll-behavior: smooth;
   }
 
   .aspect-square {
@@ -45,6 +46,12 @@
     grid-column: 1 / -1;
   }
 
+  .isolatation {
+    isolation: isolate;
+  }
+  .pos-relative {
+    position: sticky;
+  }
   .pos-sticky {
     position: sticky;
   }
