@@ -225,13 +225,6 @@
     }
   }
 
-  /*
-   * Not hover-gated: touch users get press feedback too.
-   */
-  :where(.v-button):active {
-    transform: scale(0.97);
-  }
-
   @media (prefers-reduced-motion: reduce) {
     :where(.v-button):active {
       transform: none;
