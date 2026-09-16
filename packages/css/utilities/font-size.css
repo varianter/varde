@@ -32,7 +32,7 @@
   }
 
   :where(.fs-xl) {
-    line-height: var(--line-height-snug);
+    line-height: var(--line-height-normal);
   }
   :where(.fs-2xl) {
     line-height: var(--line-height-snug);
