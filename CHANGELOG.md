@@ -5,13 +5,126 @@
 
 ### ⚠ BREAKING CHANGES
 
-* width utility classes renamed
-* all component and helper class names are renamed. Existing markup using the unprefixed names must be updated to the `v-`
-* rename `stack` to `stack-v` and `stack-horizontal` to `stack-h`
-* Renamed `d-iblock` to `d-inline-block`, `inline-flex` to
-* Renamed `.shadow-medium` to `.shadow-mid`. `.shadow-high` and
-* Re-worked naming conventions for colors.
-* border utilities are reorganized into bc-/bw-/br- namespaces — b-faint/b-default/b-prominent → bc-faint/bc-default/bc-prominent; b-hairline/b-thick → bw-hairline/bw-thick; b-last-none/b-first-none → b-none:last-child/b-none:first-child; brtl-none/brtr-none/brbl-none/brbr-none → br-tl-none/br-tr-none/br-bl-none/br-br-none
+All class names below have been renamed. Existing markup must be updated.
+
+**Components & helpers — namespaced with `v-`**
+
+| Old | New |
+| --- | --- |
+| `.button` | `.v-button` |
+| `.checkbox` | `.v-checkbox` |
+| `.form-label` | `.v-form-label` |
+| `.icon` (`[data-icon]`) | `.v-icon` (`[data-v-icon]`) |
+| `.input` | `.v-input` |
+| `.link` | `.v-link` |
+| `.popover` | `.v-popover` |
+| `.radio` | `.v-radio` |
+| `.range` | `.v-range` |
+| `.select` | `.v-select` |
+| `.spinner` | `.v-spinner` |
+| `.table` | `.v-table` |
+| `.textarea` | `.v-textarea` |
+| `.typeset` | `.v-typeset` |
+| `.untypeset` | `.v-untypeset` |
+
+**Stack utilities**
+
+| Old | New |
+| --- | --- |
+| `.stack` | `.stack-v` |
+| `.stack-horizontal` | `.stack-h` |
+
+**Negative margins — sign moved to the front**
+
+| Old | New |
+| --- | --- |
+| `.m--{size}` | `.-m-{size}` |
+| `.mb--{size}` | `.-mb-{size}` |
+| `.ml--{size}` | `.-ml-{size}` |
+| `.mr--{size}` | `.-mr-{size}` |
+| `.mt--{size}` | `.-mt-{size}` |
+| `.mx--{size}` | `.-mx-{size}` |
+| `.my--{size}` | `.-my-{size}` |
+
+`{size}` is any spacing step or pair, e.g. `4xs`, `s`, `xl`, `2xl-3xl`.
+
+**Text / typography utilities**
+
+| Old | New |
+| --- | --- |
+| `.t-regular` | `.fw-regular` |
+| `.t-medium` | `.fw-medium` |
+| `.t-bold` | `.fw-bold` |
+| `.t-center` | `.ta-center` |
+| `.t-left` | `.ta-left` |
+| `.t-right` | `.ta-right` |
+| `.t-uppercase` | `.tt-uppercase` |
+
+`.t-tabular` is unchanged.
+
+**Border utilities — split into `bc-`/`bw-`/`br-` namespaces**
+
+| Old | New |
+| --- | --- |
+| `.b-faint` | `.bc-subtle` |
+| `.b-default` | `.bc-default` |
+| `.b-prominent` | `.bc-prominent` |
+| `.b-hairline` | `.bw-hairline` |
+| `.b-thick` | `.bw-thick` |
+| `.b-last-none` | `.b-none:last-child` |
+| `.b-first-none` | `.b-none:first-child` |
+| `.brtl-none` | `.br-tl-none` |
+| `.brtr-none` | `.br-tr-none` |
+| `.brbl-none` | `.br-bl-none` |
+| `.brbr-none` | `.br-br-none` |
+
+**Color / surface utilities**
+
+| Old | New |
+| --- | --- |
+| `.bg-surface-base` | `.surface-base` |
+| `.bg-surface-tinted` | `.surface-tinted` |
+| `.bg-surface-dyed` | `.surface-dyed` |
+| `.fg-default` | `.ink-default` |
+| `.fg-muted` | `.ink-subtle` |
+| `.fg-emphasis` | `.ink-prominent` |
+
+**Width utilities — moved to `w-` namespace**
+
+| Old | New |
+| --- | --- |
+| `.mw-*` | `.w-max-*` |
+| `.minw-0` | `.w-min-0` |
+| `.w-min` | `.w-min-content` |
+
+**Position utilities**
+
+| Old | New |
+| --- | --- |
+| `.position-absolute` | `.pos-absolute` |
+| `.position-fixed` | `.pos-fixed` |
+| `.position-sticky` | `.pos-sticky` |
+
+**Display utilities**
+
+| Old | New |
+| --- | --- |
+| `.d-iblock` | `.d-inline-block` |
+| `.inline-flex` | `.d-inline-flex` |
+
+**Aspect ratio**
+
+| Old | New |
+| --- | --- |
+| `.aspect-ratio-1-1` | `.aspect-square` |
+
+**Shadows**
+
+| Old | New |
+| --- | --- |
+| `.shadow-medium` | `.shadow-mid` |
+
+`.shadow-high` and `.shadow-low` are unchanged.
 
 ### Features
 
@@ -19,33 +132,35 @@
 * Added `scroll-behaviour: smooth` to `.of-scroll` ([1b01b1c](https://github.com/varianter/varde/commit/1b01b1c81386fe9d0ca57ef63237ac6e48194f7e))
 * added `w-max-content`. ([5d5f383](https://github.com/varianter/varde/commit/5d5f3834835cb700c9b28130873e36d1e3fd2f78))
 * changed `aspect-ratio-1-1` to `aspect-square` ([836aa3b](https://github.com/varianter/varde/commit/836aa3ba609d695d920807f4ca200ddb2263df10))
+* changed the negative margin from `m--*` to `-m-*`. ([ea93204](https://github.com/varianter/varde/commit/ea932042935bd542f47587b92cba916c5761b299))
 * code examples are now editable. ([64df82a](https://github.com/varianter/varde/commit/64df82ab54b3b5aea2c4c1e9517fb76b19c77371))
 * prefix component and helper classes with `v-` ([d252477](https://github.com/varianter/varde/commit/d252477746efaa57e95001f005cbd749cc0d2bd8))
 * Re-worked naming conventions for colors. ([3bf53e8](https://github.com/varianter/varde/commit/3bf53e8d56c596eed7c8177184efb912b60440ea))
 * rename and split border utilities ([fc56c84](https://github.com/varianter/varde/commit/fc56c84309c3a42230477e0d22fb47c881b447a3))
 * rename width utilities to `w-` prefixed namespaces ([77022f5](https://github.com/varianter/varde/commit/77022f5f3cd02b08ff6a5deecb140c386b9e5eb8))
-* Updated the heading sizes of .v-typeset. Placed max-width unto ([e7f789e](https://github.com/varianter/varde/commit/e7f789e954aeed39527457b931d45a02a961efa4))
+* renamed text utilities to property-based prefixes ([7a3f133](https://github.com/varianter/varde/commit/7a3f133d087d2153d9d1750c03e3f3b563b7720c))
+* Updated the heading sizes of `.v-typeset`. Placed max-width unto children. Added `<code>` colors. ([e7f789e](https://github.com/varianter/varde/commit/e7f789e954aeed39527457b931d45a02a961efa4))
 
 
 ### Bug Fixes
 
-* `foreground.marker` is now correct. It was previously unmapped ([4361924](https://github.com/varianter/varde/commit/4361924cf28cfca9b82080f74b9f4d23053c9de4))
-* Added a masked chevron to .select ([69f6d24](https://github.com/varianter/varde/commit/69f6d24552f20500dab3a50b06ace1be83a4b5f1))
+* `foreground.marker` is now correct. It was previously unmapped because of prior change. ([4361924](https://github.com/varianter/varde/commit/4361924cf28cfca9b82080f74b9f4d23053c9de4))
+* Added a masked chevron to `.select` ([69f6d24](https://github.com/varianter/varde/commit/69f6d24552f20500dab3a50b06ace1be83a4b5f1))
 * Added scripts to allow agents more reliably use headless browsing. ([7b5b79b](https://github.com/varianter/varde/commit/7b5b79be3ca8be6ff04db72648868f908bcbde7e))
 * changed `code-*` tokens to inherit palette. ([7c72062](https://github.com/varianter/varde/commit/7c7206277edf12d51405f787bf6dd39145084716))
-* consolidated line-heights. A few more classes were added. Adjust ([14254df](https://github.com/varianter/varde/commit/14254dfea0a95cefa0ccb95376096f5da4f3d1d2))
-* disabled -webkit-tap-highlight-color ([b388def](https://github.com/varianter/varde/commit/b388defdf8dd512fda2f37d9d4760c63eef04ea8))
-* fixed bug where `b-b-none` was incorrecly setting right instead of ([423bfe6](https://github.com/varianter/varde/commit/423bfe6f9d67c6d1c58539e4928d2d2c36631b06))
-* Gitignored todo.md ([3560394](https://github.com/varianter/varde/commit/356039428a60e0d1309a46e2e00879251de9ced1))
+* consolidated line-heights. A few more classes were added. Adjust `.fs-*` classes accordingly. ([14254df](https://github.com/varianter/varde/commit/14254dfea0a95cefa0ccb95376096f5da4f3d1d2))
+* disabled `-webkit-tap-highlight-color` ([b388def](https://github.com/varianter/varde/commit/b388defdf8dd512fda2f37d9d4760c63eef04ea8))
+* fixed bug where `b-b-none` was incorrecly setting right instead of bottom. ([423bfe6](https://github.com/varianter/varde/commit/423bfe6f9d67c6d1c58539e4928d2d2c36631b06))
+* Gitignored `todo.md` ([3560394](https://github.com/varianter/varde/commit/356039428a60e0d1309a46e2e00879251de9ced1))
 * Improved line-height namings ([5d39288](https://github.com/varianter/varde/commit/5d392884a023e07bfb8229ae581112ef585db004))
-* no longer need to set `fs-m` to body. Added `font-family: ([2c18fb0](https://github.com/varianter/varde/commit/2c18fb0d05bad523a9334f70d37d6e667410cc4c))
-* now possible to use .ink-subtle/ink-emphasis on a color-mode. ([a591bdc](https://github.com/varianter/varde/commit/a591bdca36359b973f38b6b97dd7c84195ea9810))
+* no longer need to set `fs-m` to body. Added `font-family: monospace` to `<code>` elements ([2c18fb0](https://github.com/varianter/varde/commit/2c18fb0d05bad523a9334f70d37d6e667410cc4c))
+* now possible to use `.ink-subtle/ink-emphasis` on a `color-mode`. ([a591bdc](https://github.com/varianter/varde/commit/a591bdca36359b973f38b6b97dd7c84195ea9810))
 * Removed `scale(0.97)` from button because it makes tightly grouped ([89f41e2](https://github.com/varianter/varde/commit/89f41e2e86caa4bd9dcab7dd969f877b4bdda4af))
-* Removed an i that had snuck in on the color-mode inverted selector. ([7498fe6](https://github.com/varianter/varde/commit/7498fe6d5c28392f551fdd6203b73b7f3c5f7f5d))
+* Removed an i that had snuck in on the `color-mode` inverted selector. ([7498fe6](https://github.com/varianter/varde/commit/7498fe6d5c28392f551fdd6203b73b7f3c5f7f5d))
 * rename `stack` to `stack-v` and `stack-horizontal` to `stack-h` ([6dc7f0f](https://github.com/varianter/varde/commit/6dc7f0f33c9a2b93057acbbad814b5b15a14972b))
-* Renamed `.shadow-medium` to `.shadow-mid`. `.shadow-high` and ([2710e59](https://github.com/varianter/varde/commit/2710e59337496a3d487c4abeaffd068a96e8a9c8))
-* Renamed `d-iblock` to `d-inline-block`, `inline-flex` to ([73d244b](https://github.com/varianter/varde/commit/73d244b7b3df7436669dee6bd7c1e9757e419b54))
-* some layout utilities (prevously misc.css) were not in a cascade ([9af05c0](https://github.com/varianter/varde/commit/9af05c018dfcf92db82c1dfa238adb2ec347f909))
+* Renamed `.shadow-medium` to `.shadow-mid`. `.shadow-high` and `.shadow-low` remains untouched. ([2710e59](https://github.com/varianter/varde/commit/2710e59337496a3d487c4abeaffd068a96e8a9c8))
+* Renamed `d-iblock` to `d-inline-block`, `inline-flex` to `d-inline-flex`, `position-*` to `pos-*`. ([73d244b](https://github.com/varianter/varde/commit/73d244b7b3df7436669dee6bd7c1e9757e419b54))
+* some layout utilities (prevously `misc.css`) were not in a cascade layer. This would have caused issues. ([9af05c0](https://github.com/varianter/varde/commit/9af05c018dfcf92db82c1dfa238adb2ec347f909))
 * tweaked `fs-xl` to use `--line-height-normal`. ([202fd69](https://github.com/varianter/varde/commit/202fd69247cd7fe019e018815227a4ff69dbdd82))
 
 
