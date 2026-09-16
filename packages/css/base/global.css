@@ -22,6 +22,11 @@
     font-weight: var(--font-weight-default);
   }
 
+  :where(body) {
+    min-block-size: 100svh;
+    font-size: var(--font-size-m);
+  }
+
   /*
    * Manual color-scheme override.
    * Absence of the attribute means "respect the system" (color-scheme: light dark above).
@@ -42,10 +47,6 @@
     outline-width: 2px;
     outline-offset: 4px;
     border-radius: var(--border-radius-s);
-  }
-
-  :where(body) {
-    min-block-size: 100svh;
   }
 
   /* TODO: Perhaps move this to it's own helper instead. */
@@ -104,6 +105,10 @@
     padding: 2px;
     border-radius: 3px;
     font-size: 0.9em;
+  }
+
+  :where(code) {
+    font-family: 'Paper Mono', monospace;
   }
 
   [hidden] {
