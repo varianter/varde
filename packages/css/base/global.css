@@ -108,7 +108,7 @@
   }
 
   :where(code) {
-    font-family: 'Paper Mono', monospace;
+    font-family: monospace;
   }
 
   [hidden] {
