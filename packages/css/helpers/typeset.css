@@ -115,7 +115,6 @@
 
     /* Inline code, but not code blocks, which is often wrapped in a pre */
     code:not(pre code) {
-      font-family: monospace;
       font-size: 0.75em;
       padding: 0.25em 0.35em;
       border-radius: var(--border-radius-s);
@@ -123,6 +122,8 @@
       background-color: var(--background-code);
       box-decoration-break: clone;
       font-weight: var(--font-weight-medium);
+      /* border: 0.5px solid var(--border-default); */
+      box-shadow: 0 0 0px 0.5px var(--border-default);
     }
   }
 }
