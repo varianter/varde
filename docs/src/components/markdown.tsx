@@ -27,7 +27,7 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
       : "";
 
   return [
-    `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block v-untypeset"  data-pagefind-ignore>`,
+    `<code-example class="b-all bc-subtle br-m mt-m mb-xl of-clip d-block v-untypeset"  data-pagefind-ignore="all">`,
     preview,
     `<details class="b-t bc-subtle surface-tinted"${open}>`,
     `<summary class="px-s py-2xs my-xs mx-xs v-button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,

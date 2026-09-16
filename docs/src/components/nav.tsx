@@ -37,7 +37,7 @@ export function NavLinks() {
           <ul class="stack-v gap-4xs">
             {section.items.map((item) => (
               <a
-                class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-3xs"
+                class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-2xs"
                 href={withTrailingSlash(`${base}${item.path}`)}
                 key={item.label}
               >

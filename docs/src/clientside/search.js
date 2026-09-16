@@ -75,7 +75,7 @@ function init() {
     );
 
     if (entries.length === 0) {
-      results.innerHTML = `<p class="fs-s ink-subtle px-xs py-s">No results for "${escapeHtml(term)}".</p>`;
+      results.innerHTML = `<p class="fs-s ink-subtle px-xs py-s ta-center">AAaah, bugger! No results for <strong>"${escapeHtml(term)}"</strong>.</p>`;
       return;
     }
 
@@ -119,3 +119,115 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+// <combo-keys> — layers arrow-key navigation over an input and a list.
+// No shadow DOM. Knows nothing about the search. Only looks at the DOM.
+//
+// <combo-keys>
+//   <input />
+//   <div class="results"><a href="…">…</a></div>
+// </combo-keys>
+//
+// Optional: <combo-keys items="li > a"> to override what counts as an item.
+
+class ComboKeys extends HTMLElement {
+  #last = null; // last focused element inside, for the removal check
+  #observer = null;
+
+  connectedCallback() {
+    this.addEventListener("keydown", this);
+    this.addEventListener("focusin", this);
+
+    // Focused item removed (e.g. async results replaced the list).
+    // Browsers don't fire blur/focusout on removal, so we watch the DOM.
+    this.#observer = new MutationObserver(() => {
+      if (this.#last && !this.#last.isConnected) this.#focusInput();
+    });
+    this.#observer.observe(this, { childList: true, subtree: true });
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener("keydown", this);
+    this.removeEventListener("focusin", this);
+    this.#observer?.disconnect();
+  }
+
+  handleEvent(e) {
+    if (e.type === "focusin") {
+      this.#last = e.target;
+      return;
+    }
+
+    const input = this.#input;
+    if (!input) return;
+
+    const items = this.#items;
+    const t = e.target;
+    const i = items.indexOf(t);
+    const onItem = i !== -1;
+
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        if (t === input) this.#focusItem(items[0]);
+        else if (onItem) this.#focusItem(items[i + 1]); // last item: does nothing
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        if (i === 0) this.#focusInput();
+        else if (onItem) this.#focusItem(items[i - 1]);
+        break;
+      case "Home":
+        if (onItem) {
+          e.preventDefault();
+          this.#focusItem(items[0]);
+        }
+        break;
+      case "End":
+        if (onItem) {
+          e.preventDefault();
+          this.#focusItem(items.at(-1));
+        }
+        break;
+      default:
+        // Typing while on an item: hand the keystroke back to the input.
+        // Focusing during keydown means the character still lands there.
+        if (onItem && this.#isTyping(e)) this.#focusInput();
+    }
+  }
+
+  get #input() {
+    return this.querySelector("input, textarea");
+  }
+
+  get #items() {
+    const sel = this.getAttribute("items") ?? "a, button, [role=option]";
+    // Drop items that can't take focus. el.focus() fails silently on
+    // hidden, disabled, or inert elements, so without this filter an
+    // arrow press would appear to do nothing and the user would get stuck.
+    return [...this.querySelectorAll(sel)].filter(
+      (el) => el.checkVisibility() && !el.disabled && !el.closest("[inert]"),
+    );
+  }
+
+  #isTyping(e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return false;
+    return e.key.length === 1 || e.key === "Backspace";
+  }
+
+  #focusItem(el) {
+    if (!el) return;
+    el.focus();
+    el.scrollIntoView({ block: "center" });
+  }
+
+  #focusInput() {
+    const input = this.#input;
+    if (!input) return;
+    input.focus();
+    const end = input.value.length;
+    input.setSelectionRange?.(end, end);
+  }
+}
+
+customElements.define("combo-keys", ComboKeys);

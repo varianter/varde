@@ -13,6 +13,7 @@ import { Markdown, processMarkdown } from "./components/markdown";
 import { NavLinks } from "./components/nav";
 import { SearchDialog } from "./components/search";
 import { knowledgeDocs } from "./knowledge";
+import { rootApp } from "./root";
 import { staticApp } from "./static";
 import { SITE_ORIGIN, withTrailingSlash } from "./url";
 
@@ -58,7 +59,7 @@ app.use(
   jsxRenderer(
     ({ children, title }, c) => {
       return (
-        <html lang="en" class="ink-default surface-base">
+        <html lang="en">
           <head>
             {html`<script>
               const MQL = matchMedia("(prefers-color-scheme: dark)");
@@ -431,7 +432,7 @@ app.use(
             <script type="module" src="/docs/clientside/search.js"></script>
             <script type="module" src="/docs/clientside/color-mode-interact.js"></script>
           </head>
-          <body class="fs-m">
+          <body>
             <Header />
             <nav class="site-nav">
               <div
@@ -444,7 +445,13 @@ app.use(
                 <div class="px-s-m surface-base site-nav-list">
                   <NavLinks />
 
-                  <div class="site-external-links py-s">
+                  <div class="site-external-links py-s stack-v gap-4xs">
+                    <a
+                      class="ink-default pl-xs -ml-xs br-m bg-wash:hover lh-tight py-2xs"
+                      href="/docs/changelog/"
+                    >
+                      Changelog
+                    </a>
                     <a
                       href="https://github.com/varianter/varde"
                       target="_blank"
@@ -521,6 +528,7 @@ for (const mod of modules) {
 }
 
 const root = new Hono({ strict: false });
+root.route("/", rootApp);
 root.route("/", app);
 root.route("/", staticApp);
 

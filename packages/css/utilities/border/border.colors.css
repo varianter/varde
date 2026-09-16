@@ -12,6 +12,10 @@
     );
   }
 
+  .bc-transparent {
+    border-color: oklch(from var(--border-base) l c h / calc(0 + var(--border-hover)));
+  }
+
   .bc-default {
     border-color: oklch(
       from var(--border-base) l c h /
