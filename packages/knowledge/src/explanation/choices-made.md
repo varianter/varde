@@ -1,76 +1,51 @@
 ---
-title: The choice that went into Varde
-description: The nitty gritty detail
+title: The choices that went into Varde
+description: The bird's eye view. The decisions, not the details.
 ---
 
-I don't need to explain everything in this document though. This is going to be the highest level, the birds eye view. The things that are not mentioned at all in the other markdown files. The decisions made.
+Varde is built on a bet: a design system can be finite.
 
-CDN, versioned, will outline us all because it's "just CSS/HTML". It matters because of it is low powered, but build with the grain. Fonts are included for free.
+Most of what ends up on a screen comes down to typography, spacing and color. HTML already provides buttons, inputs, selects, popovers and details. Utilities give you a small vocabulary, and composition puts the pieces together. Varde doesn't ship a datepicker or tabs or a sidebar, because in practice those turn out to be the same ingredients in a different arrangement.
 
-Tailwind goes against the grain of CSS by mostly trying to go around cascading/inheritance. And in these days it requires a build step to not ship MEGABYTES of CSS. This, on the other hand is a finite amount of styles that gets you A LONG way. And not to mention all the niceities built-in. That is the opinionated part. But, what Tailwind did get right is that some things are better to made as "pure functions" for CSS (aka. utilities).
+This is a reaction to component-first systems. They grow by adding components, and each one brings its own surface, docs, tests and tokens. Varde grows by adding a utility, which then works with every primitive that already exists. When deciding whether something belongs, that's the question we ask: does it multiply, or does it only add?
 
-It has all the ingredients of a design system, but the "components" are not locked into CSS-in-JS/CSS modules/React/npm. It isn't even components, its just primitives and tokens-as-css. Like, A datepicker is two things: the way it looks and the way it should behave. Here, we can make a datepicker, or tabs, or a sidebar, but you can also use the exact same tools to make whatever. We didn't name it datepicker or tabs though, because it's just composition. Composition to create layouts (spacing, stack, gap etc), or composition through zero specificity (like a rounded icon button).
+## Where the finiteness comes from
 
-All at the very low cost of a CSS file, cached and served via a CDN.
+Varde is CSS first rather than Figma first.
 
-Zero specificity is perhaps better done as show-dont-tell example page.
+When tokens come from a design file, they tend to be collected by observation: a value someone drew becomes a token, and the set grows with the design. Varde builds its tokens from a base, a ratio and a scale, and the design is drawn from what the scale gives you. One approach records exceptions, the other generates values. We chose the second because it stays small.
 
-- It's an opinionated CSS framework.
-- It _must_ be available as a CSS file, versioned, on a CDN.
-- It's design tokens in CSS
-- It plays to CSS strenghts; the cascade and inheritance. Instead of fighting against it, we embrace it.
-- Progressively enhanced.
-- We borrow good patterns, like Tailwinds naming.
+Spacing and type have been scales for a long time. Color mostly hasn't. Colors were the last magic numbers. Varde handles them through inheritance instead of assignment: semantic tokens for surface, ink and border sit on a palette, and a `<color-mode>` element swaps that palette for everything beneath it. There are no color utilities for buttons or text, and so far we haven't needed them.
 
-Authors node: Star date 5112. Just kidding. I believe that _everything_ can boild down to typography, spacing and colors. Varde is the antidote to component-first design systems.
+## What holds it together
 
-## Core philosophies
+**Names stay, values move.** `xl` says where something sits on the scale, not how many pixels it is. Class names and public custom properties are the stable part. What they resolve to can change. That's how the system can improve over time without breaking the sites using it, and it's also what a redesign looks like: changed values, same names.
 
-Tokens begs to be utilities: text sizes, spacing and colors.
+**Contrast is structure, color is intent.** You can design in grey. The relationship between background, border and text carries the hierarchy. Color goes on top, where it adds meaning.
 
-"Component Primitives" (naming?) aka buttons and inputs are included. I believe they're safe to include because they're A. leaf nodes and B. consumes A LOT of Design Tokens. They also benefit greatly from having zero specificity, so that we might be re-composed into other patterns.
+**The browser owns behaviour.** Varde styles native elements and the states they expose. JavaScript can change those states, but it isn't needed for anything to look right.
 
-"Reset" with purpose. Lets not be afraid of global CSS.
+**Compose instead of override.** Primitives are written at zero specificity and live in cascade layers, so utilities always win. Start with `.v-button`, add utilities, and you have something new. You should rarely need to write custom CSS against a primitive.
 
-And you shouldn't have to think too much. Oh, and agent friendly.
+## What it does for you
 
-I believe in a finite number of classes in a globally scoped CSS file can accomplish wonders. Design tokens methodology and CSS in tandem.
+It raises the floor. The system makes a lot of small decisions once, so fewer are left to make. It doesn't guarantee that a page looks cohesive. That's still design work. It just removes many of the ways to get it wrong by accident.
 
-We allow ourselves to use modern CSS features if they can degrade gracefully. As long as all browser vendors have agreed that a certain feature will be implemented, we can use it. Examples such as `::base-select` and `sibling-count()/sibling-index()`, they can be used and if implemented correctly, nothing would break if they're not supported. Features such as `round()` can be used inside an `@supports`.
+## What it leaves out
 
-Colors are built-in.
+These follow from the choices above.
 
-### CUBE CSS
+- Breakpoints. Fluid tokens cover most of what breakpoints used to, and breakpoints multiply everything else.
+- High-level layouts and pre-made grids. This is where breakpoints would come back in.
+- Components that depend on JavaScript. Behaviour isn't one of the ingredients.
+- Color utilities for arbitrary use. They would reintroduce the magic numbers.
 
-### The contract
+We use modern CSS where it degrades gracefully: if all vendors have agreed to ship a feature, and nothing breaks without it, it's fine to use.
 
-- Class names should not change. And if it does, it's a really really breaking change.
-- While variable (CSS custom properties) may change.
-- Why? Because the system can evolve while staying true to the naming conventions. `xl` means might be `20px` today and `22px` tomorrow, but the naming does not change. Trust the system.
-- This is important, because we want to be able to improve the whole system over time. Even if we changed the fonts and colors, we'd still be able to use the same naming.
-- Mostly utilities, but some abstractions. `stack-h`/`stack-v` because they help with zooming. color-mode because it helps with color. popover, stagger, typeset, and so on.
+## Why one CSS file on a CDN
 
-In short:
+A finite set doesn't need a build step. Tailwind generates classes on demand because its set is open-ended; Varde's set is small enough to ship as is. One versioned, cached file, fonts included. It also means Varde isn't tied to any framework or toolchain.
 
-- Varde will not change from t-shirt sizing.
-- Varde is expressive enough to
+## Borrowed
 
-### Overriding should be easy (aka zero specificity)
-
-### Progressive first
-
-CSS
-
-### What it doesn't do
-
-Varde should cover 97.32% of your CSS needs, but there are thing intentionally left out:
-
-- Media queries, because they create too many moving parts.
-- High level layouts, same as above. Which is coincidentally where you'd use media queries.
-- Pre-made grids.
-
-In simpler terms: anything which can create more testing and add foot guns is left off the table. Not saying you shouldn't use them, just that it is beyond the scope of Varde.
-
-Then "overriding" is the wrong word. What you're describing is composition. A primitive is a starting point, utilities are the vocabulary, and the two combine because the primitive gets out of the way. Zero specificity isn't the feature, it's the mechanism that makes composition work. The section should probably be called "Compose, don't override" and the point is: you never leave Varde to get what you want.
-
-The claim underneath it is bigger than button. Every primitive has a "shape" (what the browser does) and every utility has a "property" (one thing, one value). Varde is the belief that those two sets combine into more than either. That's why you didn't name tabs or datepicker: they're compositions, not things.
+From CUBE CSS: composition, and working with the cascade rather than around it. From ITCSS: layering. From Tailwind: utilities as pure functions. None implemented quite as their authors intended.

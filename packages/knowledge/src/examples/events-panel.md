@@ -6,22 +6,22 @@ group: Data display
 
 ```html
 <color-mode
-  inverted
+  inverted=""
   palette="periwinkle"
-  class="surface-dyed br-2xl of-hidden"
-  style="display: flex; flex-wrap: wrap;"
+  class="br-2xl items-start of-hidden stack-h surface-dyed"
+  style=""
 >
-  <div class="stack-v gap-s p-l w-min-0" style="flex: 1 1 260px;">
-    <h2 class="fs-4xl fw-bold lh-tight " style="overflow-wrap: break-word;">
+  <div class="gap-s p-s self-stretch stack-v w-max-6 w-min-0" style="">
+    <h2 class="fs-4xl fw-bold lh-tight mt-xl" style="overflow-wrap: anywhere;">
       Arrangementer
     </h2>
-    <p class="ink-subtle fs-m lh-relaxed mt-s">
+    <p class="ink-subtle fs-m lh-relaxed">
       Bli med der det skjer! Vi deltar på konferanser, arrangerer fagmøter og
       andre nerdete samlinger. Stikk innom og si hei – vi digger å bli kjent med
       nye folk!
     </p>
 
-    <div class="stack-v gap-2xs mt-auto">
+    <div class="gap-2xs mt-auto stack-v">
       <p class="fs-s ink-subtle fw-medium">Lokasjon</p>
       <div class="stack-h gap-2xs">
         <button class="v-button br-pill" data-size="small">Alle (2)</button>
@@ -38,7 +38,7 @@ group: Data display
     <button class="v-button">Se alle arrangementer</button>
   </div>
 
-  <div class="stack-v gap-s p-s w-min-0" style="flex: 1.6 1 380px;">
+  <div class="flex-1 gap-s p-s stack-v" style="">
     <color-mode palette="inherit" class="d-block surface-base br-2xl p-m">
       <p class="fs-xs ink-subtle mb-3xs">24.09.2026 · Trondheim</p>
       <h3 class="fs-2xl fw-medium ink-prominent mb-2xs">

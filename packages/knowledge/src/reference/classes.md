@@ -299,9 +299,10 @@ Customizable via CSS custom properties on the element:
 ```html
 <span class="v-icon" data-v-icon="plus"></span>
 <span class="v-icon" data-v-icon="pencil"></span>
+<span class="v-icon" data-v-icon="chevron-down"></span>
 ```
 
-Built-in icons: `plus`, `pencil`. Icons inherit color from their parent. For a custom icon, set `--icon-src` to an SVG data URI.
+Built-in icons: `plus`, `pencil`, `chevron-down`, `chevron-up`, `chevron-left`, `chevron-right`. Icons inherit color from their parent. For a custom icon, set `--icon-src` to an SVG data URI.
 
 ### Link
 

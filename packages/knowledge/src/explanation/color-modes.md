@@ -5,9 +5,9 @@ description: Why color lives on containers instead of components.
 
 Color modes put color on a container and everything inside it, for anyone who wants to change a palette in one place.
 
-Varde has no classes named after a color. Color comes from `<color-mode>`, and everything inside it follows.
+Varde names no class after a color. `<color-mode>` sets the color for everything inside it.
 
-This page explains why. For recipes, see [How to color something](/docs/how-to/color).
+This page explains why. For steps, see [How to color something](/docs/how-to/color).
 
 ## Naming colors
 
@@ -27,13 +27,13 @@ None of these names a color. Each one names a job, and `<color-mode>` decides wh
 
 ## Palettes
 
-A `<color-mode>` lights everything inside it in one hue — backgrounds, text, borders, buttons. The relationships between them are fixed, so contrast holds wherever you put it. Only the hue moves.
+A `<color-mode>` colors everything inside it in one hue — backgrounds, text, borders, buttons. The relationships stay fixed, so contrast holds wherever you put it. Only the hue moves.
 
 Nine palettes: `grey` `blue` `green` `yellow` `orange` `coral` `purple` `teal` `periwinkle`.
 
 ## Surfaces and ink
 
-Each `surface-*` sets its own background. `surface-base` is the page itself, furthest back; `tinted` and `dyed` add pigment in steps, pulling the surface closer to the ink.
+Each `surface-*` sets its own background. `surface-base` is the page itself, furthest back; `tinted` and `dyed` add color in steps, moving the surface toward the ink.
 
 ```html
 <main class="surface-base p-xs b-all">
@@ -45,23 +45,23 @@ Each `surface-*` sets its own background. `surface-base` is the page itself, fur
 </main>
 ```
 
-Ink is inherited. You start at `ink-default` and move from there, toward `ink-subtle` or `ink-prominent`. Borders work the same way with `bc-*`.
+`ink-default` sets the text color for everything inside it. Move toward `ink-subtle` or `ink-prominent` from there. Borders work the same way with `bc-*`.
 
-This is why nesting the same palette twice has no visible effect — the hue doesn't change. To create a step, change the surface instead: `surface-tinted` to `surface-dyed`.
+Nesting the same palette twice changes nothing — the hue stays the same. To create a step, change the surface instead: `surface-tinted` to `surface-dyed`.
 
 ## Nesting modes
 
-A green card can hold an orange row that holds a blue chip. Each level reads from the same set of jobs, so all three stay legible. Depth is not a problem.
+A green card can contain an orange row that contains a blue chip. Each level uses the same set of jobs, so all three stay legible.
 
-A `<color-mode>` with no `palette` inherits the one above it. That is how `inverted` on its own works.
+A `<color-mode>` with no `palette` uses the one above it. `inverted` on its own works this way.
 
 ## Where color lives
 
-A button inside a periwinkle mode is periwinkle. Nobody told it to be.
+A button inside a periwinkle mode renders periwinkle on its own.
 
-This is what keeps the system small: variants never multiply by palettes. Nine palettes and four button variants stay four button variants.
+This keeps the system small: variants never multiply by palettes. Nine palettes and four button variants stay four button variants.
 
-It also moves a product decision into your own markup. "Paid is green" is a choice your application makes, visible where you write it, changeable by whoever owns it. Varde has no opinion about your statuses, and there's no request to file to add one.
+It also moves a product decision into your own markup. "Paid is green" is a choice your application makes, visible where you write it, changeable by whoever owns it. Varde does not define your statuses, and you don't ask it to add one.
 
 ## What stays fixed
 
@@ -71,7 +71,7 @@ A few things stay fixed, on purpose:
 - Text selection
 - Error and `aria-invalid` states, which stay red
 
-The contrast of a focus ring is set once, in the system, so there's nothing to reason about.
+The system sets focus-ring contrast once, so you don't reason about it.
 
 ## Flipping a block
 
@@ -91,10 +91,10 @@ The contrast of a focus ring is set once, in the system, so there's nothing to r
 </color-mode>
 ```
 
-Dark mode lives at the root, in `data-color-scheme` — see [Dark mode](/docs/how-to/dark-mode). The two are unrelated, and inverting does not opt a block out of dark mode.
+`data-color-scheme` at the root sets dark mode — see [Dark mode](/docs/how-to/dark-mode). The two are unrelated, and inverting does not opt a block out of dark mode.
 
 ## The trade-off
 
-Color lives on the wrapper, so you need a wrapper. That is one extra element around a badge, and a `d-block` on it if you want the background to show. In return, there are no color names to maintain, and dark mode comes with it.
+Color lives on the wrapper, so you need a wrapper. You add one extra element around a badge, and a `d-block` on it if you want the background to show. In return, you maintain no color names, and dark mode comes with it.
 
-We think that's a good trade. If you find a case where it isn't, tell us.
+The trade is worth it. If you find a case where it isn't, tell us.

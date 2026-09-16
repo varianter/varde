@@ -3,21 +3,14 @@ title: Buttons
 description: Style buttons and links with variants and sizes.
 ---
 
-`.v-button` styles a `<button>` or `<a>`. Two attributes change the look:
-
-- `data-variant` changes how color is applied
-- `data-size` changes how big the button is
-
-Without them you get a medium filled button. Color comes from the surrounding `<color-mode palette="...">`. Buttons outside a `<color-mode>` use the default grey palette.
-
 ## Variants and sizes
 
 `data-variant` picks the visual style, `data-size` the size. Any variant combines with any size.
 
-| Attribute      | Values                                          |
-| -------------- | ----------------------------------------------- |
-| `data-variant` | `"filled"`, `"tinted"`, `"outlined"`, `"plain"` |
-| `data-size`    | `"small"`, `"medium"`, `"large"`                |
+| Attribute      | Values                                                    |
+| -------------- | --------------------------------------------------------- |
+| `data-variant` | `"filled"` (default), `"tinted"`, `"outlined"`, `"plain"` |
+| `data-size`    | `"small"`, `"medium"` (default), `"large"`                |
 
 ### Button variants
 
@@ -42,7 +35,7 @@ Without them you get a medium filled button. Color comes from the surrounding `<
 
 ## Color
 
-Buttons get their color from the surrounding `<color-mode palette="...">`. Color is inherited — no class is set on the button itself.
+In Varde, buttons get their color from a `<color-mode palette="...">`. Because color is inherited, there's no special attribute for coloring buttons.
 
 ```html
 <div class="stack-v gap-xs">
@@ -104,6 +97,73 @@ For inverted palettes, add `inverted` to `<color-mode>` and place the buttons on
 </color-mode>
 ```
 
+## Shapes
+
+Utility classes combine with `.v-button` to adjust shape, padding, and other details.
+
+And remember, friends don't let friends make icon buttons without `aria-label`.
+
+```html
+<div class="stack-h items-start gap-xs">
+  <button class="v-button p-0 aspect-square" data-size="small" aria-label="Add">
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button class="v-button p-0 aspect-square" aria-label="Add">
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button class="v-button p-0 aspect-square" data-size="large" aria-label="Add">
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+
+  <button
+    class="v-button p-0 aspect-square br-circle"
+    data-size="small"
+    aria-label="Add"
+  >
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button class="v-button p-0 aspect-square br-circle" aria-label="Add">
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+  <button
+    class="v-button p-0 aspect-square br-circle"
+    data-size="large"
+    aria-label="Add"
+  >
+    <span class="v-icon" data-v-icon="plus"></span>
+  </button>
+</div>
+```
+
+## Icons first or last
+
+```html
+<div class="stack-h gap-xs">
+  <button class="v-button" data-variant="outlined">
+    <span class="v-icon" data-v-icon="chevron-left"></span> Filter
+  </button>
+  <button class="v-button" data-variant="outlined">
+    Filter <span class="v-icon" data-v-icon="chevron-down"></span>
+  </button>
+  <button class="v-button" data-variant="outlined">
+    <span class="v-icon" data-v-icon="chevron-left"></span> Filter
+    <span class="v-icon" data-v-icon="chevron-right"></span>
+  </button>
+</div>
+```
+
+**Do note**: Icons inside buttons _MUST_ inherits color. If you're using inline SVGS, then use `currentColor`.
+
+## Pill shaped button
+
+Just add `br-pill` to `v-button` and you're done.
+
+```html
+<button class="v-button br-pill" data-variant="filled">Smaller pill</button>
+<button class="v-button br-pill" data-variant="tinted">Smaller pill</button>
+<button class="v-button br-pill" data-variant="outlined">Smaller pill</button>
+```
+
 ### Loading states
 
 A `.v-spinner` inside a button renders a loading state. It inherits the button's color and size.
@@ -139,72 +199,9 @@ A `.v-spinner` inside a button renders a loading state. It inherits the button's
 </color-mode>
 ```
 
-## Icons
+## Niceness
 
-A `.v-icon` inside a button inherits the button's color and scales with the font size.
-
-```html
-<div class="stack-h gap-m">
-  <button class="v-button">
-    <span class="v-icon" data-v-icon="plus"></span> Add item
-  </button>
-  <button class="v-button" data-variant="outlined">
-    <span class="v-icon" data-v-icon="pencil"></span> Edit
-  </button>
-</div>
-```
-
-Trailing icons work the same way:
-
-```html
-<div class="stack-h gap-m">
-  <button class="v-button">
-    Continue <span class="v-icon" data-v-icon="plus"></span>
-  </button>
-  <button class="v-button">
-    Settings <span class="v-icon" data-v-icon="pencil"></span>
-  </button>
-</div>
-```
-
-An icon-only button requires an `aria-label` because it has no visible text:
-
-```html
-<div class="stack-h gap-m">
-  <button class="v-button" aria-label="Add">
-    <span class="v-icon" data-v-icon="plus"></span>
-  </button>
-  <button class="v-button" data-variant="outlined" aria-label="Edit">
-    <span class="v-icon" data-v-icon="pencil"></span>
-  </button>
-</div>
-```
-
-## Combining with other classes
-
-Utility classes combine with `.v-button` to adjust shape, padding, and other details.
-
-A circular icon-only button:
-
-```html
-<button class="v-button br-circle p-0 aspect-square" aria-label="Add">
-  <span class="v-icon" data-v-icon="plus" />
-</button>
-```
-
-A pill shape:
-
-```html
-<button class="v-button br-pill" data-variant="outlined">Filter</button>
-<button class="v-button br-pill" data-size="small" data-variant="outlined">
-  Smaller pill
-</button>
-<button class="v-button br-pill" data-size="small" data-variant="filled">
-  Smaller pill
-</button>
-```
-
-Wider padding and a `color-mode` wrapper mark a primary action. The others stay subdued:
+To get some more visual hierarachy, make the primary action mroe prominent by add some padding and a `color-mode`.
 
 ```html
 <div class="stack-h gap-xs">
@@ -213,10 +210,4 @@ Wider padding and a `color-mode` wrapper mark a primary action. The others stay 
   </color-mode>
   <button class="v-button" data-variant="tinted">Cancel</button>
 </div>
-```
-
-`.v-button` also works on `<a>` elements, with the same attributes:
-
-```html
-<a href="/settings" class="v-button" data-variant="outlined">Settings</a>
 ```
