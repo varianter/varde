@@ -1,102 +1,71 @@
-/*
-  Alpha is derived per layer:  --_alpha-base * pow(--_alpha-falloff, i)
-  Offset / blur / spread stay as the original tuned values.
-*/
-
-@property --_alpha-falloff {
-  syntax: '<number>';
-  inherits: false;
-  initial-value: 0.9;
-}
-
 .shadow-low,
 .shadow-mid,
 .shadow-high {
-  --_shadow-base: var(--shadow, var(--palette-grey-800));
+  /* --- knobs → private copies, with defaults --- */
+  --_contact: var(--shadow-contact, 0.5); /* px. y-offset of layer 0 */
+  --_blur-ratio: var(--shadow-blur-ratio, 0.92); /* blur = y-offset * ratio */
+  --_spread-max: var(--shadow-spread-max, -3.9); /* px. spread of last layer, linear from 0 */
+  --_strength: var(--shadow-strength, 0.6); /* total alpha across all layers */
+  --_falloff: var(--shadow-falloff, 0.75); /* alpha_i = base * falloff^i */
+  --_dark-scale: var(--shadow-dark-scale, 0); /* strength multiplier in dark mode */
+  --_color: var(--shadow, var(--palette-grey-800));
+  --_theme-scale: 1;
+
+  /* ratio between layers, like a type scale: r = (distance/contact)^(1/(n-1)) */
+  --_r: pow(var(--_distance) / var(--_contact), 1 / (var(--_n) - 1));
+
+  /* base alpha so the alphas sum to strength regardless of n */
+  --_alpha-base: calc(
+    var(--_strength) *
+    var(--_theme-scale) *
+    (1 - var(--_falloff)) /
+    (1 - pow(var(--_falloff), var(--_n)))
+  );
+  --_sp: calc(var(--_spread-max) / (var(--_n) - 1) * 1px);
+
+  --_y0: calc(var(--_contact) * pow(var(--_r), 0) * 1px);
+  --_y1: calc(var(--_contact) * pow(var(--_r), 1) * 1px);
+  --_y2: calc(var(--_contact) * pow(var(--_r), 2) * 1px);
+  --_y3: calc(var(--_contact) * pow(var(--_r), 3) * 1px);
+  --_y4: calc(var(--_contact) * pow(var(--_r), 4) * 1px);
+  --_y5: calc(var(--_contact) * pow(var(--_r), 5) * 1px);
+  --_y6: calc(var(--_contact) * pow(var(--_r), 6) * 1px);
+  --_y7: calc(var(--_contact) * pow(var(--_r), 7) * 1px);
+
+  /* one layer per index; each elevation picks the first n */
+  --_layer-0: 0 var(--_y0) calc(var(--_y0) * var(--_blur-ratio)) calc(var(--_sp) * 0)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 0)));
+  --_layer-1: 0 var(--_y1) calc(var(--_y1) * var(--_blur-ratio)) calc(var(--_sp) * 1)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 1)));
+  --_layer-2: 0 var(--_y2) calc(var(--_y2) * var(--_blur-ratio)) calc(var(--_sp) * 2)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 2)));
+  --_layer-3: 0 var(--_y3) calc(var(--_y3) * var(--_blur-ratio)) calc(var(--_sp) * 3)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 3)));
+  --_layer-4: 0 var(--_y4) calc(var(--_y4) * var(--_blur-ratio)) calc(var(--_sp) * 4)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 4)));
+  --_layer-5: 0 var(--_y5) calc(var(--_y5) * var(--_blur-ratio)) calc(var(--_sp) * 5)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 5)));
+  --_layer-6: 0 var(--_y6) calc(var(--_y6) * var(--_blur-ratio)) calc(var(--_sp) * 6)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 6)));
+  --_layer-7: 0 var(--_y7) calc(var(--_y7) * var(--_blur-ratio)) calc(var(--_sp) * 7)
+    oklch(from var(--_color) l c h / calc(var(--_alpha-base) * pow(var(--_falloff), 7)));
 }
 
+/* --- elevations: how far, how many layers --- */
 .shadow-low {
-  --_alpha-falloff: 0.72;
-  --_shadow-color: light-dark(
-    oklch(from var(--_shadow-base) l c h / 0.54),
-    oklch(from var(--_shadow-base) l c h / 0)
-  );
-
-  box-shadow:
-    0px 0.5px 0.5px
-    oklch(from var(--_shadow-color) l c h / calc(alpha * pow(var(--_alpha-falloff), 0))),
-    0px 0.8px 0.7px -1.9px
-    oklch(from var(--_shadow-color) l c h / calc(alpha * pow(var(--_alpha-falloff), 1))),
-    0px 2.2px 2px -3.9px
-    oklch(from var(--_shadow-color) l c h / calc(alpha * pow(var(--_alpha-falloff), 2)));
+  --_n: 3;
+  --_distance: var(--shadow-distance, 2.2);
+  box-shadow: var(--_layer-0), var(--_layer-1), var(--_layer-2);
 }
-
 .shadow-mid {
-  --_alpha-falloff: 0.7;
-  --_shadow-color: light-dark(
-    oklch(from var(--_shadow-base) l c h / 0.24),
-    oklch(from var(--_shadow-base) l c h / 0)
-  );
-
-  --_shadow-elevation-medium:
-    0px 0.5px 0.5px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 0))
-    ),
-    0px 1.3px 1.2px -1.3px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 1))
-    ),
-    0px 4px 3.7px -2.6px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 2))
-    ),
-    0px 10.8px 9.9px -3.9px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 3))
-    );
-  box-shadow: var(--_shadow-elevation-medium);
+  --_n: 4;
+  --_distance: var(--shadow-distance, 10.8);
+  box-shadow: var(--_layer-0), var(--_layer-1), var(--_layer-2), var(--_layer-3);
 }
-
 .shadow-high {
-  --_alpha-falloff: 0.82;
-  --_shadow-color: light-dark(
-    oklch(from var(--_shadow-base) l c h / 0.1),
-    oklch(from var(--_shadow-base) l c h / 0)
-  );
-
-  --_shadow-elevation-high:
-    0px 0.5px 0.5px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 0))
-    ),
-    0px 1.8px 1.6px -0.6px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 1))
-    ),
-    0px 3.6px 3.3px -1.1px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 2))
-    ),
-    0px 6.9px 6.3px -1.7px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 3))
-    ),
-    0px 12.7px 11.6px -2.2px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 4))
-    ),
-    -0.1px 21.9px 20px -2.8px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 5))
-    ),
-    -0.1px 35.4px 32.4px -3.3px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 6))
-    ),
-    -0.2px 54.2px 49.6px -3.9px oklch(
-      from var(--_shadow-color) l c h /
-      calc(alpha * pow(var(--_alpha-falloff), 7))
-    );
-  box-shadow: var(--_shadow-elevation-high);
+  --_n: 8;
+  --_distance: var(--shadow-distance, 54);
+  box-shadow:
+    var(--_layer-0), var(--_layer-1), var(--_layer-2), var(--_layer-3), var(--_layer-4),
+    var(--_layer-5), var(--_layer-6), var(--_layer-7);
 }
