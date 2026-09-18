@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/varianter/varde/compare/varde-v1.0.0...varde-v1.1.0) (2026-09-18)
+
+
+### Features
+
+* Reworked shadows, again. A few more knobs to tune. ([1b4055f](https://github.com/varianter/varde/commit/1b4055f2afc55a416b6f7bc354d0050e9074d843))
+
+
+### Bug Fixes
+
+* tweaked ::backdrop and shadows ([20d7812](https://github.com/varianter/varde/commit/20d78127218e0f3d7cf8b9fda4415d0364f3d0df))
+
 ## [1.0.0](https://github.com/varianter/varde/compare/varde-v0.8.0...varde-v1.0.0) (2026-09-16)
 
 
