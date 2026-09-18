@@ -49,7 +49,7 @@ color-mode {
   );
   --border-control-error: light-dark(var(--palette-coral-400), var(--palette-coral-450));
   --shadow: light-dark(var(--palette-inherit-700), var(--palette-inherit-950));
-  --backdrop: light-dark(var(--palette-inherit-500), var(--palette-inherit-900));
+  --backdrop: light-dark(var(--palette-inherit-50), var(--palette-inherit-900));
   --button-on-tint-ink: light-dark(var(--palette-inherit-800), var(--palette-inherit-50));
   --button-tint-target: light-dark(var(--palette-inherit-150), var(--palette-inherit-850));
   --button-base: light-dark(var(--palette-inherit-600), var(--palette-inherit-350));

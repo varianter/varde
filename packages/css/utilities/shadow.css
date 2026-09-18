@@ -59,7 +59,7 @@
 }
 
 .shadow-high {
-  --_alpha-falloff: 0.9;
+  --_alpha-falloff: 0.82;
   --_shadow-color: light-dark(
     oklch(from var(--_shadow-base) l c h / 0.1),
     oklch(from var(--_shadow-base) l c h / 0)

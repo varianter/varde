@@ -71,7 +71,7 @@ const light = {
     },
   },
   shadow: { palette: "inherit", default: 700, inverted: 700 },
-  backdrop: { palette: "inherit", default: 500, inverted: 500 },
+  backdrop: { palette: "inherit", default: 50, inverted: 500 },
   button: {
     "on-tint-ink": { palette: "inherit", default: 800, inverted: 100 },
     "tint-target": { palette: "inherit", default: 150, inverted: 700 },

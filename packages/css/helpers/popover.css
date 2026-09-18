@@ -67,7 +67,7 @@
   /* --- Backdrop --- */
 
   :where(.v-popover[data-backdrop])::backdrop {
-    background: oklch(from var(--backdrop) l c h / 0.2);
+    background: oklch(from var(--backdrop) l c h / 0.4);
     filter: blur(15px);
   }
 }
