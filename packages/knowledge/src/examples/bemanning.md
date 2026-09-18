@@ -5,7 +5,9 @@ group: data
 tags: [app, table, popover]
 ---
 
-Tip: Use the **"Filter"-button** to show filters
+This example shows how color-mode can be used to add colors with intention. Both to the cell itself, but also the "supplementing hours"-thingie.
+
+Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML, so nothings gonna happend when you change the filtering.
 
 ```html
 <div class="stack-h gap-m mb-l">
@@ -74,7 +76,7 @@ Tip: Use the **"Filter"-button** to show filters
 </div>
 <div
   class="d-grid surface-base gap-3xs of-scroll"
-  style="grid-template-columns: 250px repeat(8, 100px);"
+  style="grid-template-columns: 250px repeat(8, 12ch);"
 >
   <div class="row grid-subgrid grid-all-columns pb-s" style="">
     <div class="head-column stack-h gap-2xs ">
@@ -133,7 +135,7 @@ Tip: Use the **"Filter"-button** to show filters
         class="surface-dyed aspect-square br-s w-max-2"
       ></div>
       <div class="name pr-2xs">
-        <p class="fs-s fw-medium">Jacob Berglund</p>
+        <p class="fs-s fw-medium">Bacob Jerglund</p>
         <p class="fs-xs ink-subtle">12 års erfaring</p>
       </div>
     </div>
@@ -220,14 +222,14 @@ Tip: Use the **"Filter"-button** to show filters
   </div>
 
   <div class="row grid-subgrid grid-all-columns" style="">
-    <div class="head-column stack-h gap-xs pos-sticky left-0">
+    <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
         class="surface-dyed aspect-square br-s w-max-2"
       ></div>
       <div class="name pr-2xs">
-        <p class="fs-s fw-medium">Jacob Berglund</p>
-        <p class="fs-xs ink-subtle">12 års erfaring</p>
+        <p class="fs-s fw-medium">Emma Sundby</p>
+        <p class="fs-xs ink-subtle">8 års erfaring</p>
       </div>
     </div>
     <div
@@ -300,6 +302,407 @@ Tip: Use the **"Filter"-button** to show filters
       </div>
     </div>
   </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Olav Haugen</p>
+        <p class="fs-xs ink-subtle">15 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Maja Solberg</p>
+        <p class="fs-xs ink-subtle">5 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <color-mode
+          palette="blue"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+        >
+          <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
+          <div class="lh-tight">7.5</div>
+        </color-mode>
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Henrik Dahl</p>
+        <p class="fs-xs ink-subtle">9 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Ingrid Moe</p>
+        <p class="fs-xs ink-subtle">4 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <color-mode
+        palette="coral"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="stack-h justify-end gap-3xs">
+          <color-mode
+            palette="purple"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+          >
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
+            <div class="lh-tight ink-subtle">7.5</div>
+          </color-mode>
+        </div>
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
+      </color-mode>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Sander Vik</p>
+        <p class="fs-xs ink-subtle">7 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row grid-subgrid grid-all-columns" style="">
+    <div class="head-column stack-h gap-xs">
+      <div
+        style="height: 2lh; width: 2lh;"
+        class="surface-dyed aspect-square br-s w-max-2"
+      ></div>
+      <div class="name pr-2xs">
+        <p class="fs-s fw-medium">Nora Eriksen</p>
+        <p class="fs-xs ink-subtle">11 års erfaring</p>
+      </div>
+    </div>
+    <div
+      class="grid-subgrid"
+      style="
+      grid-auto-flow: column;
+      grid-column: 2 / -1;
+  "
+    >
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <color-mode
+        palette="yellow"
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="stack-h justify-end gap-3xs">
+          <color-mode
+            palette="purple"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+          >
+            <div
+              class="v-icon"
+              style="font-size: 8px;"
+              data-v-icon="plus"
+            ></div>
+            <div class="lh-tight ink-subtle">7.5</div>
+          </color-mode>
+        </div>
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
+      </color-mode>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div
@@ -327,6 +730,8 @@ Tip: Use the **"Filter"-button** to show filters
         data-variant="plain"
         data-size="small"
         aria-label="Lukk"
+        popovertarget="filter-drawer"
+        popovertargetaction="hide"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

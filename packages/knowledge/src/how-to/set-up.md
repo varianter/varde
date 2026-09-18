@@ -40,6 +40,3 @@ If your product is dark-only or light-only, override the color scheme once on th
 
 For a user-facing toggle, see [How to control dark mode](/docs/how-to/dark-mode).
 
-## Go further
-
-- [Build a card](/docs/tutorial/build-a-card) — your first `<color-mode>`, from wrapper to finished card.

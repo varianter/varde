@@ -110,10 +110,57 @@ app.use(
                 }
               });
             </script>`}
+            <link
+              rel="preload"
+              as="font"
+              crossorigin="anonymous"
+              type="font/ttf"
+              href="https://varde.variant.dev/static/font/varde-bs-variable.ttf"
+            />
+            <link rel="preload" href="/docs/styles.css" as="style" />
+            <link rel="stylesheet" href="/docs/styles.css" />
             <Style>
               {css`
                 @view-transition {
                   navigation: auto;
+                }
+
+
+                [data-transition="content"]{
+                  view-transition-name: article-content;
+                }
+
+                ::view-transition-old(root),
+                ::view-transition-new(root) {
+                  animation: none;
+                  mix-blend-mode: normal;
+                }
+
+                ::view-transition-old(article-content) {
+                  animation: none;
+                  opacity: 0;
+                }
+
+                ::view-transition-group(article-content) {
+                  animation-duration: 0s;
+                }
+
+                ::view-transition-new(article-content) {
+                  animation: article-content-enter 0.6s cubic-bezier(.32, .58, .2, 1) both;
+                  mix-blend-mode: normal;
+                }
+
+                @keyframes article-content-enter {
+                  from {
+                    opacity: 0;
+                    translate: 0 40px;
+                  }
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                  ::view-transition-new(main) {
+                    animation: none;
+                  }
                 }
 
                 .demo-box {
@@ -159,6 +206,7 @@ app.use(
                   display: grid;
                   align-items: center;
                   grid-template-columns: auto 1fr;
+                  z-index: 999;
                   @media (min-width: 768px) {
                     grid-template-columns: subgrid;
                     grid-template-rows: subgrid;
@@ -175,6 +223,7 @@ app.use(
                 }
 
                 .site-main {
+                  isolation: isolate;
                   grid-area: main;
                   max-width: 100vw;
                   min-width: 0;
@@ -274,6 +323,7 @@ app.use(
                   background-color: var(--syntax-bg);
                   color: var(--syntax-ink);
                   overflow-x: auto;
+                  max-width: 100%;
                 }
 
                 ::highlight(comment) {
@@ -413,7 +463,7 @@ app.use(
             />
             <title>{title ? `${title}` : DEFAULT_TITLE}</title>
             <link rel="canonical" href={`${SITE_ORIGIN}${withTrailingSlash(c.req.path)}`} />
-            <link rel="stylesheet" href="/docs/styles.css" />
+
             {html`<script type="module">
               import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
             </script>`}
@@ -423,7 +473,7 @@ app.use(
               dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                   imports: {
-                    microlighter: "https://cdn.jsdelivr.net/npm/microlighter@2.1.0/dist/index.js",
+                    microlighter: "https://cdn.jsdelivr.net/npm/microlighter@2.2.0/dist/index.js",
                   },
                 }),
               }}
@@ -443,7 +493,7 @@ app.use(
                 class="v-popover"
               >
                 <div class="px-s-m surface-base site-nav-list">
-                  <NavLinks />
+                  <NavLinks currentPath={c.req.path} />
 
                   <div class="site-external-links py-s stack-v gap-4xs">
                     <a
@@ -494,10 +544,10 @@ const pages = await Promise.all(
   }),
 );
 
-for (const { category, slug, title, description, content } of pages) {
+for (const { category, slug, title, description, tags, content } of pages) {
   app.get(`/${category}/${slug}`, (c) => {
     return c.render(
-      <DocsPage title={title} description={description}>
+      <DocsPage title={title} description={description} tags={tags}>
         <Markdown html={content} />
       </DocsPage>,
       { title },

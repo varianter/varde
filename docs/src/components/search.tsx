@@ -33,15 +33,21 @@ export function SearchTrigger() {
 
 export function SearchDialog() {
   return (
-    <div id="search-dialog" class="v-popover" popover="auto" data-type="dialog" data-backdrop>
+    <div
+      id="search-dialog"
+      class="v-popover mt-2xl"
+      popover="auto"
+      data-type="dialog"
+      data-backdrop
+    >
       <div class="stack-v of-clip br-m shadow-high" style="width: min(90vw, 560px);">
         <color-mode palette="grey" class="d-block surface-tinted">
           <combo-keys>
             <div class="pos-sticky top-0 w-full b-b bc-subtle">
               <div class="pile">
                 <svg
-                  class="justify-self-start ml-xs"
-                  style="z-index: 1;"
+                  class="justify-self-start ml-m aspect-square"
+                  style="z-index: 1; width: 1em; height: 1em;"
                   role="presentation"
                   width="16"
                   height="16"
@@ -58,7 +64,7 @@ export function SearchDialog() {
                 <input
                   id="search-input"
                   type="text"
-                  class="b-none br-none pl-l py-s v-input w-full"
+                  class="b-none br-none pl-xl py-s v-input w-full"
                   style="border: none; outline: none;"
                   placeholder="Search the docs…"
                   autocomplete="off"
@@ -67,12 +73,17 @@ export function SearchDialog() {
                 />
               </div>
             </div>
-            <div class="of-scroll pt-xs" style="height: min(70svh, 640px);">
+            <div class="of-scroll pt-xs" style="max-height: min(70svh, 640px);">
               <div
                 id="search-results"
                 class="w-full stack-v gap-3xs px-xs pb-m"
                 style="min-height: 0;"
-              ></div>
+              >
+                <div id="search-empty" class="stack-v gap-3xs px-xs py-m ta-center">
+                  <p class="fs-s fw-medium">Search the docs</p>
+                  <p class="fs-xs ink-subtle">Type to search · ↑ ↓ to navigate · Esc to close</p>
+                </div>
+              </div>
             </div>
           </combo-keys>
         </color-mode>

@@ -53,9 +53,16 @@ function init() {
   const results = document.getElementById("search-results");
   if (!(dialog instanceof HTMLElement) || !(input instanceof HTMLInputElement) || !results) return;
 
+  const emptyState = results.querySelector("#search-empty");
+
+  function clearResults() {
+    results.innerHTML = "";
+    if (emptyState) results.append(emptyState);
+  }
+
   async function runSearch(term) {
     if (!term.trim()) {
-      results.innerHTML = "";
+      clearResults();
       return;
     }
 
@@ -98,7 +105,7 @@ function init() {
   dialog.addEventListener("toggle", (event) => {
     if (/** @type {ToggleEvent} */ (event).newState === "open") {
       input.value = "";
-      results.innerHTML = "";
+      clearResults();
       input.focus();
       void loadPagefind();
     }

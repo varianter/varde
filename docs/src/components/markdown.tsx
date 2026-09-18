@@ -31,7 +31,7 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
     preview,
     `<details class="b-t bc-subtle surface-tinted"${open}>`,
     `<summary class="px-s py-2xs my-xs mx-xs v-button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
-    `<div class="px-s of-scroll">`,
+    `<div class="px-s of-scroll" style="background-color: var(--syntax-bg);">`,
     `<pre class="microjar fs-s px-m py-m -mx-s w-max-content"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
     `</div>`,
     `</details>`,
@@ -65,6 +65,7 @@ export function Markdown({ html }: { html: string }) {
   return (
     <div
       class="v-typeset content-grid-pass"
+      data-transition="content"
       data-bleed="full"
       dangerouslySetInnerHTML={{ __html: html }}
     />

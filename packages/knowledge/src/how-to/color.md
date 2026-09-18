@@ -143,6 +143,5 @@ Toggling is your job. Varde only reacts to the attribute.
 
 ## Where next
 
-- [Build a card](/docs/tutorial/build-a-card) — your first `<color-mode>`, from wrapper to finished card.
 - [Color modes](/docs/explanation/color-modes) — why color lives on containers, and why `inverted` isn't dark mode.
 - [Color reference](/docs/reference/color) — the troubleshooting table and cheat sheet.

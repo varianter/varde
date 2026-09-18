@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { withTrailingSlash } from "../url";
 import { path as changelogPath } from "./changelog";
+import { path as examplesPath } from "./examples";
 
 export const path = "/";
 
@@ -9,60 +10,62 @@ const currentVersion: string = JSON.parse(readFileSync(packageJsonPath, "utf-8")
 
 export default function HomePage() {
   return (
-    <article class="stack-v gap-2xl mx-auto py-3xl px-xl" style="max-width: 1200px;">
-      <header>
-        <div class="stack-v gap-l">
-          <div class="stack-v gap-m">
-            <div class="stack-h items-center gap-s">
-              <h1 class="fs-4xl fw-bold lh-tight">Varde</h1>
-              <a
-                class="surface-tinted br-m px-xs py-3xs ink-subtle fs-s fw-medium bg-wash:hover"
-                href={withTrailingSlash(`/docs${changelogPath}`)}
-              >
-                v{currentVersion}
-              </a>
+    <div class="content-grid">
+      <article class="v-typeset content-grid-pass pt-3xl pb-xl" data-bleed="full">
+        <header class="pb-xl">
+          <div class="stack-v gap-l">
+            <div class="stack-v gap-m">
+              <div class="stack-h items-center gap-s">
+                <h1 class="fs-4xl fw-bold lh-tight">Varde</h1>
+                <a
+                  class="surface-tinted br-m px-xs py-3xs ink-subtle fs-s fw-medium bg-wash:hover"
+                  href={withTrailingSlash(`/docs${changelogPath}`)}
+                >
+                  v{currentVersion}
+                </a>
+              </div>
+              <p class="fs-l ink-subtle">
+                The idea is simple: Varde is stylesheet. It contains 96.21% (not scientifically
+                tested) of you need to build web things.
+              </p>
             </div>
-            <p class="fs-xl ink-subtle" style="max-width: 640px;">
-              A shared vocabulary for the UI fundamentals every product team rebuilds — spacing,
-              layout, color, type, and a few components. One stylesheet, no build step.
-            </p>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <section class="stack-v gap-xl b-t bc-subtle pt-3xl">
-        <div class="stack-v gap-l" style="max-width: 720px;">
-          <div class="stack-v gap-s">
-            <h2 class="fs-l fw-bold">Usage</h2>
-            <p class="ink-subtle">
-              Add the stylesheet to your HTML, pinned to the current release.
-            </p>
-          </div>
-          <pre class="microjar fs-s px-m py-m v-untypeset" data-pagefind-ignore>
-            <code data-language="html">
-              {`<link rel="stylesheet" href="https://varde.variant.dev/v/${currentVersion}/styles.css" />`}
-            </code>
-          </pre>
-        </div>
-      </section>
+        <h2 class="fs-l">tl;dr</h2>
+        <pre class="microjar fs-s px-m py-m v-untypeset mt-xs" data-pagefind-ignore>
+          <code data-language="html">
+            {`<link rel="stylesheet" href="https://varde.variant.dev/v/${currentVersion}/styles.css" />`}
+          </code>
+        </pre>
+        <p class="ink-subtle">Add the stylesheet to your HTML and you're good to go.</p>
 
-      <section class="stack-v gap-xl b-t bc-subtle pt-3xl">
-        <div class="stack-v gap-l" style="max-width: 720px;">
-          <div class="stack-v gap-s">
-            <h2 class="fs-l fw-bold">Why it exists</h2>
-            <p class="ink-subtle">
-              Spacing, layout, color, typography, buttons, form fields — every product team rebuilds
-              these same fundamentals. When they share one vocabulary for them, the UI stays
-              cohesive without anyone thinking twice.
-            </p>
-            <p class="ink-subtle">
-              Varde is that vocabulary. Named scales for space, semantic color that lives on
-              containers, and a small set of components — so the team always picks from the same
-              menu.
-            </p>
-          </div>
-        </div>
-      </section>
-    </article>
+        <p>
+          Varde ain't shipping via registry. It's designed to be referenced as a link in HTML. And
+          as such, you get an absolute truckload of value:
+        </p>
+        <ul>
+          <li>Fonts are included and loaded.</li>
+          <li>Dark/light mode, built in.</li>
+          <li>Native elements — buttons, inputs, tables, spinners — styled, not just reset.</li>
+          <li>Utilities for spacing, layout, typography, and color.</li>
+          <li>Popovers and a handful of other helpers, so you're not reaching for JS.</li>
+        </ul>
+        <p>It's all in the one file you already linked. No config, no separate installs.</p>
+        <p>And let's be honest about what it's not:</p>
+        <ul>
+          <li>
+            There's no shipped JS in here and there's no framework components. You build those.
+          </li>
+          <li>No npm package to manage, either — it's a link tag, not a dependency.</li>
+        </ul>
+
+        <p>
+          Ready to use it? Start with{" "}
+          <a href={withTrailingSlash("/docs/how-to/set-up")}>setting it up</a>, or see it in
+          action in the <a href={withTrailingSlash(`/docs${examplesPath}`)}>examples</a>.
+        </p>
+      </article>
+    </div>
   );
 }

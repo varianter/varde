@@ -1,5 +1,5 @@
 import { DocsPage } from "../components/docs";
-import { knowledgeDocs } from "../knowledge";
+import { type Group, groups, knowledgeDocs } from "../knowledge";
 import { withTrailingSlash } from "../url";
 import {
   description as colorModesDescription,
@@ -25,6 +25,7 @@ type ExampleLink = {
   path: string;
   order?: number;
   group: string;
+  tags: string[];
 };
 
 const pageExamples: ExampleLink[] = [
@@ -32,36 +33,31 @@ const pageExamples: ExampleLink[] = [
     title: colorsTitle,
     description: colorsDescription,
     path: colorsPath,
-    group: "Foundations",
+    group: "foundations",
+    tags: [],
   },
   {
     title: colorModesTitle,
     description: colorModesDescription,
     path: colorModesPath,
-    group: "Foundations",
+    group: "foundations",
+    tags: [],
   },
   {
     title: staggerRevealTitle,
     description: staggerRevealDescription,
     path: staggerRevealPath,
-    group: "Motion",
+    group: "motion",
+    tags: [],
   },
 ];
 
 const UNGROUPED = "More";
 
-// Groups appear in this order; any group not listed here is sorted alphabetically after it.
-const groupOrder = [
-  "Foundations",
-  "Motion",
-  "Data display",
-  "Navigation",
-  "Forms & inputs",
-  "Overlays",
-  "Feedback & status",
-  "Scheduling & booking",
-  "Commerce",
-];
+const groupRank = (group: string) =>
+  group in groups ? groups[group as Group].order : Number.MAX_SAFE_INTEGER;
+
+const groupLabel = (group: string) => (group in groups ? groups[group as Group].label : group);
 
 const examples: ExampleLink[] = [
   ...knowledgeDocs
@@ -72,6 +68,7 @@ const examples: ExampleLink[] = [
       path: `/${doc.category}/${doc.slug}`,
       order: doc.order,
       group: doc.group ?? UNGROUPED,
+      tags: doc.tags,
     })),
   ...pageExamples,
 ].sort((a, b) => {
@@ -81,15 +78,12 @@ const examples: ExampleLink[] = [
   return a.title.localeCompare(b.title);
 });
 
-const groups: { label: string; items: ExampleLink[] }[] = [...new Set(examples.map((e) => e.group))]
-  .sort((a, b) => {
-    const ia = groupOrder.indexOf(a);
-    const ib = groupOrder.indexOf(b);
-    const rank = (i: number) => (i === -1 ? groupOrder.length : i);
-    return rank(ia) - rank(ib) || a.localeCompare(b);
-  })
+const groupsList: { label: string; items: ExampleLink[] }[] = [
+  ...new Set(examples.map((e) => e.group)),
+]
+  .sort((a, b) => groupRank(a) - groupRank(b) || a.localeCompare(b))
   .map((group) => ({
-    label: group,
+    label: groupLabel(group),
     items: examples.filter((e) => e.group === group),
   }));
 
@@ -99,19 +93,34 @@ export default function ExamplesPage() {
       title="Examples"
       description="Realistic compositions built from Varde utilities and components — from pricing tables to court booking. Open one to see the markup behind it."
     >
-      <div class="stack-v gap-l">
-        {groups.map((group) => (
+      <div class="stack-v gap-l" data-transition="content">
+        {groupsList.map((group) => (
           <div key={group.label}>
             <h2 class="fs-l fw-bold mb-s">{group.label}</h2>
             <div class="stack-v gap-s">
               {group.items.map((example) => (
                 <a
-                  class="surface-tinted br-m p-m stack-v gap-3xs bg-wash:hover"
+                  class="surface-tinted br-m p-m stack-h gap-3xs bg-wash:hover"
                   href={withTrailingSlash(`/docs${example.path}`)}
                   key={example.path}
                 >
-                  <span class="fw-bold lh-tight">{example.title}</span>
-                  <span class="ink-subtle fs-s lh-snug">{example.description}</span>
+                  <div class="stack-v gap-2xs">
+                    <span class="fw-bold lh-tight">{example.title}</span>
+                    <span class="ink-subtle fs-s lh-snug">{example.description}</span>
+                  </div>
+                  {example.tags.length > 0 && (
+                    <span class="pt-xs stack-h ml-auto gap-2xs fs-xs ink-subtle">
+                      {example.tags.map((tag) => (
+                        <span
+                          class="br-pill bg-wash px-2xs py-3xs surface-dyed"
+                          style="text-transform: capitalize;"
+                          key={tag}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </span>
+                  )}
                 </a>
               ))}
             </div>

@@ -3,10 +3,12 @@ import type { Child } from "hono/jsx";
 export function DocsPage({
   title,
   description,
+  tags,
   children,
 }: {
   title: string;
   description: string;
+  tags?: string[];
   children: Child;
 }) {
   return (
@@ -15,6 +17,15 @@ export function DocsPage({
         <div class="v-typeset">
           <h2 class="fs-3xl fw-bold">{title}</h2>
           <p class="fs-l ink-subtle">{description}</p>
+          {tags && tags.length > 0 && (
+            <span class="pt-xs stack-h gap-2xs fs-xs ink-subtle">
+              {tags.map((tag) => (
+                <span class="br-pill bg-wash px-2xs py-3xs" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </span>
+          )}
         </div>
       </header>
 

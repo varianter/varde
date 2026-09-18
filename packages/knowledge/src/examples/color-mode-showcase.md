@@ -1,6 +1,6 @@
 ---
 title: Color mode showcase
-description: Nested and inverted `color-mode` usage, from a refill card to a full illustrated panel.
+description: Nested and inverted color-mode usage, from a refill card to a full illustrated panel.
 group: foundations
 ---
 
