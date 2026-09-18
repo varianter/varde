@@ -1,15 +1,15 @@
 ---
 title: Choices made
-description: The bird's eye view. The decisions, not the details.
+description: "Or, perhaps, the explanation to why this isn't XYZ"
 ---
 
 Varde is built the idea that a design system can be finite.
 
 Most of what ends up on an interfaces comes down to typography, spacing and color. HTML (and CSS) already provides buttons, inputs, selects, popovers and details. Varde builds *with* the cascade instead of against it, and as such appearance is a suggestion rather than enforcement.
 
-Varde is not shipping readymade CSS classes to create complex components such as [datepickers](/docs/examples/datepicker) or [tabs](/docs/examples/tabs). Instead Varde is a good starting point to compose them instead. Because what is a tab list if not a series of buttons with one implying it's active?
+Varde is not shipping readymade CSS classes for complex components such as `.datepicker` or `.tabs`. They are not browser native elements, instead Varde aims to be a good starting point which helps you compose them. I've made some example re-creating [datepickers](/docs/examples/datepicker) and [tabs](/docs/examples/tabs) to better illustrate.
 
-This is a reaction to component-first systems. They grow by adding components, and each one brings its own surface, docs, tests and tokens. As such, Varde grows by composition.
+Varde is a reaction to component-first systems. Those systems grow by adding bespoke components (and often with specific tokens), and each one brings its own surface, docs, tests and tokens. In contrast, Varde grows by composition. You could still ship components, but the amount of tokens stays the same.
 
 ## Where the finiteness comes from
 
