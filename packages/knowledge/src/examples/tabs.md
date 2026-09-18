@@ -2,6 +2,7 @@
 title: Tabs
 description: "A tab strip built three ways: with button variants, inverted color-modes, or plain links."
 group: navigation
+tags: [component]
 ---
 
 Using several `.v-button`, you can use different variants to toggle which one looks active. This would require JS, because you'd need to toggle from `data-variant="outlined` to `data-variant="filled`
@@ -34,7 +35,7 @@ Using several `.v-button`, you can use different variants to toggle which one lo
 </button>
 ```
 
-Or, we might do `<color-mode>` to inverted and the button from `data-variant="plain` to `data-variant="tinted`:
+Or, we might put the buttons inside of container using `of-clip br-pill b-all`. Then use `<color-mode>` and change to `palette="blue"` in addition to the button changing from `data-variant="plain` to `data-variant="filled`:
 
 ```html
 <div class="stack-h of-clip br-pill b-all" style="width: max-content;">
@@ -43,8 +44,8 @@ Or, we might do `<color-mode>` to inverted and the button from `data-variant="pl
       Not selected
     </div>
   </color-mode>
-  <color-mode inverted>
-    <div class="v-button  br-none" data-size="small" data-variant="tinted">
+  <color-mode palette="blue">
+    <div class="v-button  br-none" data-size="small" data-variant="filled">
       Selected
     </div>
   </color-mode>
