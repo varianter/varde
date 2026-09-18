@@ -20,7 +20,11 @@ export function DocsPage({
           {tags && tags.length > 0 && (
             <span class="pt-xs stack-h gap-2xs fs-xs ink-subtle">
               {tags.map((tag) => (
-                <span class="br-pill bg-wash px-2xs py-3xs" key={tag}>
+                <span
+                  class="br-pill bg-wash px-2xs py-3xs surface-dyed"
+                  style="text-transform: capitalize;"
+                  key={tag}
+                >
                   {tag}
                 </span>
               ))}
