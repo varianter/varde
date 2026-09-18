@@ -1,21 +1,23 @@
 ---
-title: The choices that went into Varde
+title: Choices made
 description: The bird's eye view. The decisions, not the details.
 ---
 
-Varde is built on a bet: a design system can be finite.
+Varde is built the idea that a design system can be finite.
 
-Most of what ends up on a screen comes down to typography, spacing and color. HTML already provides buttons, inputs, selects, popovers and details. Utilities give you a small vocabulary, and composition puts the pieces together. Varde doesn't ship a datepicker or tabs or a sidebar, because in practice those turn out to be the same ingredients in a different arrangement.
+Most of what ends up on an interfaces comes down to typography, spacing and color. HTML (and CSS) already provides buttons, inputs, selects, popovers and details. Varde builds *with* the cascade instead of against it, and as such appearance is a suggestion rather than enforcement.
 
-This is a reaction to component-first systems. They grow by adding components, and each one brings its own surface, docs, tests and tokens. Varde grows by adding a utility, which then works with every primitive that already exists. When deciding whether something belongs, that's the question we ask: does it multiply, or does it only add?
+Varde is not shipping readymade CSS classes to create complex components such as [datepickers](/docs/examples/datepicker) or [tabs](/docs/examples/tabs). Instead Varde is a good starting point to compose them instead. Because what is a tab list if not a series of buttons with one implying it's active?
+
+This is a reaction to component-first systems. They grow by adding components, and each one brings its own surface, docs, tests and tokens. As such, Varde grows by composition.
 
 ## Where the finiteness comes from
 
 Varde is CSS first rather than Figma first.
 
-When tokens come from a design file, they tend to be collected by observation: a value someone drew becomes a token, and the set grows with the design. Varde builds its tokens from a base, a ratio and a scale, and the design is drawn from what the scale gives you. One approach records exceptions, the other generates values. We chose the second because it stays small.
+When tokens come from a design file, they tend to be collected by observation: a value someone decided upon becomes a token, and the set grows with the design. Varde builds its tokens from a base, a ratio and a scale, and the design is drawn from what the scale gives you. One approach records exceptions, the other generates values. We chose the second because it stays small.
 
-Spacing and type have been scales for a long time. Color mostly hasn't. Colors were the last magic numbers. Varde handles them through inheritance instead of assignment: semantic tokens for surface, ink and border sit on a palette, and a `<color-mode>` element swaps that palette for everything beneath it. There are no color utilities for buttons or text, and so far we haven't needed them.
+Spacing and typography have been scales for a long time. Color mostly hasn't. Colors were the last magic numbers. Varde handles them through inheritance instead of assignment: semantic tokens for surface, ink and border sit on a palette, and a `<color-mode>` element swaps that palette for everything beneath it. There are no color utilities for buttons or text, and so far we haven't needed them.
 
 ## What holds it together
 
