@@ -1,5 +1,5 @@
 import { DocsPage } from "../components/docs";
-import { type Group, groups, knowledgeDocs } from "../knowledge";
+import { type Group, getKnowledgeDocs, groups } from "../knowledge";
 import { withTrailingSlash } from "../url";
 import {
   description as colorModesDescription,
@@ -18,6 +18,7 @@ import {
 } from "./stagger-reveal";
 
 export const path = "/examples";
+export const title = "Examples";
 
 type ExampleLink = {
   title: string;
@@ -59,38 +60,40 @@ const groupRank = (group: string) =>
 
 const groupLabel = (group: string) => (group in groups ? groups[group as Group].label : group);
 
-const examples: ExampleLink[] = [
-  ...knowledgeDocs
-    .filter((doc) => doc.category === "examples")
-    .map((doc) => ({
-      title: doc.title,
-      description: doc.description,
-      path: `/${doc.category}/${doc.slug}`,
-      order: doc.order,
-      group: doc.group ?? UNGROUPED,
-      tags: doc.tags,
-    })),
-  ...pageExamples,
-].sort((a, b) => {
-  if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
-  if (a.order !== undefined) return -1;
-  if (b.order !== undefined) return 1;
-  return a.title.localeCompare(b.title);
-});
+function buildGroupsList(): { label: string; items: ExampleLink[] }[] {
+  const examples: ExampleLink[] = [
+    ...getKnowledgeDocs()
+      .filter((doc) => doc.category === "examples")
+      .map((doc) => ({
+        title: doc.title,
+        description: doc.description,
+        path: `/${doc.category}/${doc.slug}`,
+        order: doc.order,
+        group: doc.group ?? UNGROUPED,
+        tags: doc.tags,
+      })),
+    ...pageExamples,
+  ].sort((a, b) => {
+    if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
+    if (a.order !== undefined) return -1;
+    if (b.order !== undefined) return 1;
+    return a.title.localeCompare(b.title);
+  });
 
-const groupsList: { label: string; items: ExampleLink[] }[] = [
-  ...new Set(examples.map((e) => e.group)),
-]
-  .sort((a, b) => groupRank(a) - groupRank(b) || a.localeCompare(b))
-  .map((group) => ({
-    label: groupLabel(group),
-    items: examples.filter((e) => e.group === group),
-  }));
+  return [...new Set(examples.map((e) => e.group))]
+    .sort((a, b) => groupRank(a) - groupRank(b) || a.localeCompare(b))
+    .map((group) => ({
+      label: groupLabel(group),
+      items: examples.filter((e) => e.group === group),
+    }));
+}
 
 export default function ExamplesPage() {
+  const groupsList = buildGroupsList();
+
   return (
     <DocsPage
-      title="Examples"
+      title={title}
       description="Realistic compositions built from Varde utilities and components — from pricing tables to court booking. Open one to see the markup behind it."
     >
       <div class="stack-v gap-l" data-transition="content">

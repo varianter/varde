@@ -12,7 +12,7 @@ import { Header } from "./components/header";
 import { Markdown, processMarkdown } from "./components/markdown";
 import { NavLinks } from "./components/nav";
 import { SearchDialog } from "./components/search";
-import { knowledgeDocs } from "./knowledge";
+import { getKnowledgeDocs } from "./knowledge";
 import { rootApp } from "./root";
 import { staticApp } from "./static";
 import { SITE_ORIGIN, withTrailingSlash } from "./url";
@@ -535,22 +535,23 @@ app.use(
   ),
 );
 
-// Auto-register pages from packages/knowledge/src/**/*.md
+// Auto-register pages from packages/knowledge/src/**/*.md.
+// The set of routes is fixed at startup (a brand-new file still needs a
+// restart), but each handler re-reads its doc and re-renders the markdown
+// per request, so editing an existing file's content doesn't.
 
-const pages = await Promise.all(
-  knowledgeDocs.map(async (doc) => {
+for (const { category, slug } of getKnowledgeDocs()) {
+  app.get(`/${category}/${slug}`, async (c) => {
+    const doc = getKnowledgeDocs().find((d) => d.category === category && d.slug === slug);
+    if (!doc) {
+      return c.notFound();
+    }
     const content = await processMarkdown(doc.content);
-    return { ...doc, content };
-  }),
-);
-
-for (const { category, slug, title, description, tags, content } of pages) {
-  app.get(`/${category}/${slug}`, (c) => {
     return c.render(
-      <DocsPage title={title} description={description} tags={tags}>
+      <DocsPage title={doc.title} description={doc.description} tags={doc.tags}>
         <Markdown html={content} />
       </DocsPage>,
-      { title },
+      { title: doc.title },
     );
   });
 }
@@ -564,7 +565,7 @@ const files = await Array.fromAsync(glob.scan(pagesDir));
 const modules = await Promise.all(
   files.map(async (file) => {
     const module = await import(`${pagesDir}/${file}`);
-    return module as { path: string; default: FC };
+    return module as { path: string; title?: string; default: FC };
   }),
 );
 
@@ -572,7 +573,7 @@ for (const mod of modules) {
   if (mod.default && mod.path) {
     const Page = mod.default;
     app.get(mod.path, (c) => {
-      return c.render(<Page />);
+      return c.render(<Page />, { title: mod.title ?? DEFAULT_TITLE });
     });
   }
 }

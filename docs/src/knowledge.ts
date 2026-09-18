@@ -15,8 +15,6 @@ export const groups = {
 
 export type Group = keyof typeof groups;
 
-const fileNames = Array.from(new Bun.Glob("**/*.md").scanSync(knowledgeDir));
-
 export type KnowledgeDoc = {
   category: string;
   slug: string;
@@ -42,52 +40,59 @@ export function slugToTitle(slug: string): string {
   return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export const knowledgeDocs: KnowledgeDoc[] = fileNames
-  .map((fileName) => {
-    const segments = fileName.split("/");
-    const slug = (segments.pop() ?? fileName).replace(/\.md$/, "");
-    const category = segments.join("/");
+// Recomputed on every call (not cached) so editing a file under knowledgeDir
+// shows up without a dev-server restart — these markdown files are read via
+// fs, not `import`, so Bun's --hot module-graph watcher can't see them.
+export function getKnowledgeDocs(): KnowledgeDoc[] {
+  const fileNames = Array.from(new Bun.Glob("**/*.md").scanSync(knowledgeDir));
 
-    const raw = readFileSync(`${knowledgeDir}/${fileName}`, "utf-8");
+  return fileNames
+    .map((fileName) => {
+      const segments = fileName.split("/");
+      const slug = (segments.pop() ?? fileName).replace(/\.md$/, "");
+      const category = segments.join("/");
 
-    const match = raw.match(FRONTMATTER);
-    const yaml = match?.[1];
-    let frontmatter: Frontmatter = {};
-    if (yaml) {
-      try {
-        frontmatter = (Bun.YAML.parse(yaml) as Frontmatter | null) ?? {};
-      } catch (error) {
-        throw new Error(`Invalid YAML frontmatter in ${knowledgeDir}/${fileName}`, {
-          cause: error,
-        });
+      const raw = readFileSync(`${knowledgeDir}/${fileName}`, "utf-8");
+
+      const match = raw.match(FRONTMATTER);
+      const yaml = match?.[1];
+      let frontmatter: Frontmatter = {};
+      if (yaml) {
+        try {
+          frontmatter = (Bun.YAML.parse(yaml) as Frontmatter | null) ?? {};
+        } catch (error) {
+          throw new Error(`Invalid YAML frontmatter in ${knowledgeDir}/${fileName}`, {
+            cause: error,
+          });
+        }
       }
-    }
-    let group: Group | undefined;
-    if (frontmatter.group !== undefined) {
-      if (!(frontmatter.group in groups)) {
-        throw new Error(
-          `${fileName}: unknown group "${frontmatter.group}" — valid groups: ${Object.keys(groups).join(", ")}`,
-        );
+      let group: Group | undefined;
+      if (frontmatter.group !== undefined) {
+        if (!(frontmatter.group in groups)) {
+          throw new Error(
+            `${fileName}: unknown group "${frontmatter.group}" — valid groups: ${Object.keys(groups).join(", ")}`,
+          );
+        }
+        group = frontmatter.group as Group;
       }
-      group = frontmatter.group as Group;
-    }
 
-    const content = match ? raw.slice(match[0].length) : raw;
+      const content = match ? raw.slice(match[0].length) : raw;
 
-    return {
-      category,
-      slug,
-      title: frontmatter.title ?? slugToTitle(slug),
-      description: frontmatter.description ?? "",
-      order: frontmatter.order,
-      group,
-      tags: frontmatter.tags ?? [],
-      content,
-    };
-  })
-  .sort((a, b) => {
-    if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
-    if (a.order !== undefined) return -1;
-    if (b.order !== undefined) return 1;
-    return a.title.localeCompare(b.title);
-  });
+      return {
+        category,
+        slug,
+        title: frontmatter.title ?? slugToTitle(slug),
+        description: frontmatter.description ?? "",
+        order: frontmatter.order,
+        group,
+        tags: frontmatter.tags ?? [],
+        content,
+      };
+    })
+    .sort((a, b) => {
+      if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
+      if (a.order !== undefined) return -1;
+      if (b.order !== undefined) return 1;
+      return a.title.localeCompare(b.title);
+    });
+}

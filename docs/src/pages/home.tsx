@@ -4,6 +4,7 @@ import { path as changelogPath } from "./changelog";
 import { path as examplesPath } from "./examples";
 
 export const path = "/";
+export const title = "Varde";
 
 const packageJsonPath = `${import.meta.dir}/../../../package.json`;
 const currentVersion: string = JSON.parse(readFileSync(packageJsonPath, "utf-8")).version;
