@@ -62,8 +62,8 @@ export default function HomePage() {
 
         <p>
           Ready to use it? Start with{" "}
-          <a href={withTrailingSlash("/docs/how-to/set-up")}>setting it up</a>, or see it in
-          action in the <a href={withTrailingSlash(`/docs${examplesPath}`)}>examples</a>.
+          <a href={withTrailingSlash("/docs/how-to/set-up")}>setting it up</a>, or see it in action
+          in the <a href={withTrailingSlash(`/docs${examplesPath}`)}>examples</a>.
         </p>
       </article>
     </div>
