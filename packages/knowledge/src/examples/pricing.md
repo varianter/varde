@@ -1,7 +1,8 @@
 ---
 title: Pricing
 description: Three tiers, with the middle one featured by inverting its `color-mode`.
-group: Commerce
+group: data
+tags: [commerce, pricing]
 ---
 
 ```html

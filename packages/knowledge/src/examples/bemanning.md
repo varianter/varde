@@ -1,8 +1,11 @@
 ---
 title: Bemanning
 description: A staffing grid with a week view and a filter drawer.
-group: Scheduling & booking
+group: data
+tags: [app, table, popover]
 ---
+
+Tip: Use the **"Filter"-button** to show filters
 
 ```html
 <div class="stack-h gap-m mb-l">
@@ -20,6 +23,7 @@ group: Scheduling & booking
   <div class="ml-auto stack-h gap-3xs">
     <select data-size="small" class="v-select mr-s">
       <option>4 uker</option>
+      <option selected>8 uker</option>
       <option>12 uker</option>
       <option>26 uker</option>
     </select>
@@ -70,7 +74,7 @@ group: Scheduling & booking
 </div>
 <div
   class="d-grid surface-base gap-3xs of-scroll"
-  style="grid-template-columns: 250px repeat(4, 100px);"
+  style="grid-template-columns: 250px repeat(8, 100px);"
 >
   <div class="row grid-subgrid grid-all-columns pb-s" style="">
     <div class="head-column stack-h gap-2xs ">
@@ -93,16 +97,32 @@ group: Scheduling & booking
         <div class="ink-subtle">24.08 - 28.08</div>
       </div>
       <div class="column ta-right px-3xs fs-xs stack-v">
-        <div class="fw-medium">uke 35</div>
-        <div class="ink-subtle">24.08 - 28.08</div>
+        <div class="fw-medium">uke 36</div>
+        <div class="ink-subtle">31.08 - 04.09</div>
       </div>
       <div class="column ta-right px-3xs fs-xs stack-v">
-        <div class="fw-medium">uke 35</div>
-        <div class="ink-subtle">24.08 - 28.08</div>
+        <div class="fw-medium">uke 37</div>
+        <div class="ink-subtle">07.09 - 11.09</div>
       </div>
       <div class="column ta-right px-3xs fs-xs stack-v">
-        <div class="fw-medium">uke 35</div>
-        <div class="ink-subtle">24.08 - 28.08</div>
+        <div class="fw-medium">uke 38</div>
+        <div class="ink-subtle">14.09 - 18.09</div>
+      </div>
+      <div class="column ta-right px-3xs fs-xs stack-v">
+        <div class="fw-medium">uke 39</div>
+        <div class="ink-subtle">21.09 - 25.09</div>
+      </div>
+      <div class="column ta-right px-3xs fs-xs stack-v">
+        <div class="fw-medium">uke 40</div>
+        <div class="ink-subtle">28.09 - 02.10</div>
+      </div>
+      <div class="column ta-right px-3xs fs-xs stack-v">
+        <div class="fw-medium">uke 41</div>
+        <div class="ink-subtle">05.10 - 09.10</div>
+      </div>
+      <div class="column ta-right px-3xs fs-xs stack-v">
+        <div class="fw-medium">uke 42</div>
+        <div class="ink-subtle">12.10 - 16.10</div>
       </div>
     </div>
   </div>
@@ -135,6 +155,11 @@ group: Scheduling & booking
           <div class="lh-tight">7.5</div>
         </color-mode>
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
       <div
         class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
@@ -174,13 +199,28 @@ group: Scheduling & booking
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
         </div>
-        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">15.0</div>
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">22.5</div>
       </color-mode>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
     </div>
   </div>
 
   <div class="row grid-subgrid grid-all-columns" style="">
-    <div class="head-column stack-h gap-xs">
+    <div class="head-column stack-h gap-xs pos-sticky left-0">
       <div
         style="height: 2lh; width: 2lh;"
         class="surface-dyed aspect-square br-s w-max-2"
@@ -219,6 +259,11 @@ group: Scheduling & booking
       >
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
       </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
       <color-mode
         palette="yellow"
         class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
@@ -235,20 +280,24 @@ group: Scheduling & booking
             ></div>
             <div class="lh-tight ink-subtle">7.5</div>
           </color-mode>
-          <color-mode
-            palette="yellow"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
-          >
-            <div
-              class="v-icon"
-              style="font-size: 8px;"
-              data-v-icon="plus"
-            ></div>
-            <div class="lh-tight ink-subtle">7.5</div>
-          </color-mode>
         </div>
         <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">30.0</div>
       </color-mode>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
+      <div
+        class="column p-3xs px-2xs surface-tinted stack-v justify-end br-s gap-2xs"
+      >
+        <div class="ml-auto  ta-right fs-l lh-tight ink-subtle ">37.5</div>
+      </div>
     </div>
   </div>
 </div>
@@ -262,7 +311,7 @@ group: Scheduling & booking
   style="width: 420px;"
 >
   <div
-    class="stack-v nowrap gap-s p-m surface-tinted  of-scroll shadow-high m-s"
+    class="stack-v nowrap gap-s px-m pt-0 pb-m surface-tinted  of-scroll shadow-high m-s"
     style="
       min-height: 100svh;
       max-height: 100svh;
@@ -270,7 +319,7 @@ group: Scheduling & booking
   >
     <!-- Header -->
     <div
-      class="pos-sticky top-0 shadow-mid  br-m surface-dyed justify-between -mx-xs p-2xs px-xs stack-h"
+      class="-mx-m -mx-xs b-b bc-subtle br-m justify-between p-2xs pos-sticky px-l px-xs stack-h surface-base top-0"
     >
       <h1 class="fs-l fw-bold ink-prominent">Filter</h1>
       <button
@@ -297,7 +346,7 @@ group: Scheduling & booking
     </div>
 
     <!-- Søk -->
-    <div class="stack-v gap-2xs my-l">
+    <div class="stack-v gap-2xs my-xs">
       <label class="v-form-label" for="consultantSearch">Søk etter navn</label>
       <input
         class="v-input"
@@ -311,7 +360,7 @@ group: Scheduling & booking
     <div class="b-all bc-subtle surface-base br-l gap-2xs px-xs py-2xs stack-v">
       <div class="stack-v gap-2xs">
         <div class="stack-h gap-2xs">
-          <label for="Ledig-tid" class="fs-s fw-medium flex-1">Ledig tid</label>
+          <label for="Ledig-tid" class="fs-s fw-medium flex-1">Har ledig tid</label>
           <input
             class="v-checkbox fs-s "
             data-size="large"
@@ -324,7 +373,7 @@ group: Scheduling & booking
 
     <!-- Avdeling -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="v-form-label">Avdeling</p>
+      <p class="v-form-label mb-2xs">Avdeling</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "
@@ -376,7 +425,7 @@ group: Scheduling & booking
 
     <!-- Rå-år -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="v-form-label">Rå-år / Antall år erfaring</p>
+      <p class="v-form-label mb-2xs">Rå-år / Antall år erfaring</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m"
@@ -458,14 +507,9 @@ group: Scheduling & booking
       </div>
     </div>
 
-    <!-- Antall år erfaring -->
-    <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="v-form-label">Antall år erfaring</p>
-    </div>
-
     <!-- Kompetanse -->
     <div class="stack-v gap-2xs p-xs surface-base b-all bc-subtle br-l">
-      <p class="v-form-label">Kompetanse</p>
+      <p class="v-form-label mb-2xs">Kompetanse</p>
       <div class="stack-v gap-2xs">
         <div
           class="stack-h gap-2xs py-3xs pr-2xs -mr-2xs pl-3xs -ml-3xs  -my-3xs bg-wash:hover br-m "

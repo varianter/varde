@@ -1,7 +1,8 @@
 ---
-title: Events panel
+title: Upcoming events
 description: An inverted color-mode panel listing upcoming events, each row resetting to its own nested color-mode.
-group: Data display
+group: data
+tags: [color-mode, composition]
 ---
 
 ```html

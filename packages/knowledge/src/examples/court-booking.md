@@ -1,7 +1,8 @@
 ---
 title: Court booking
 description: A day picker and venue columns for booking a squash court.
-group: Scheduling & booking
+group: forms
+tags: [scheduling, booking]
 ---
 
 ```html

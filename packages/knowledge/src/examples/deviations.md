@@ -1,7 +1,8 @@
 ---
 title: Deviations
 description: A route-package deviation list with tabs, filters, and a subgrid table.
-group: Data display
+group: data
+tags: [table, dashboard, composition]
 ---
 
 ```html

@@ -1,15 +1,13 @@
 ---
 title: Navigation menu
 description: Three menu patterns — a top navbar, a sidebar with an active item, and a breadcrumb trail.
-group: Navigation
+group: navigation
 ---
 
 A horizontal top bar with a logotype, plain-text links, an active state picked out with `ink-prominent`, and a primary action pinned to the end with `ml-auto`.
 
 ```html
-<div
-  class="stack-h items-center gap-l surface-base b-b bc-subtle px-m py-2xs"
->
+<div class="stack-h items-center gap-l surface-base b-b bc-subtle px-m py-2xs">
   <span class="fs-l fw-bold">Varde</span>
   <nav class="stack-h gap-m">
     <a href="#" class="fs-s fw-medium ink-prominent">Dashboard</a>
@@ -61,10 +59,14 @@ A sidebar with a search field, grouped section labels, an active row lifted with
           class="d-block px-xs py-3xs br-m fs-s fw-medium surface-tinted"
           >Aktive</a
         >
-        <a href="#" class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
+        <a
+          href="#"
+          class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
           >Maler</a
         >
-        <a href="#" class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
+        <a
+          href="#"
+          class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
           >Arkiverte</a
         >
       </div>
@@ -81,10 +83,14 @@ A sidebar with a search field, grouped section labels, an active row lifted with
         </span>
       </summary>
       <div class="stack-v gap-3xs pl-m pt-3xs">
-        <a href="#" class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
+        <a
+          href="#"
+          class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
           >Alle konsulenter</a
         >
-        <a href="#" class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
+        <a
+          href="#"
+          class="d-block px-xs py-3xs br-m fs-s ink-subtle bg-wash:hover"
           >Ledige nå</a
         >
       </div>

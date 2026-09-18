@@ -1,7 +1,7 @@
 ---
 title: Empty state
 description: A centered card that pairs an icon, a heading, and a single primary action.
-group: Feedback & status
+group: feedback
 ---
 
 ```html

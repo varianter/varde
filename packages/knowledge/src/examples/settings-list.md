@@ -1,7 +1,7 @@
 ---
 title: Settings list
 description: Rows separated by faint bottom borders, each with an icon, a label, and a trailing control.
-group: Data display
+group: data
 ---
 
 ```html

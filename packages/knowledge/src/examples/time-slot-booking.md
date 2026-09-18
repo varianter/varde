@@ -1,7 +1,8 @@
 ---
 title: Time slot booking
 description: A seven-day picker with a pair of bookable time slots.
-group: Scheduling & booking
+group: forms
+tags: [scheduling, booking]
 ---
 
 ```html

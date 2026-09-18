@@ -1,7 +1,7 @@
 ---
 title: Split buttons
 description: A button with a dropdown trigger, in three variants.
-group: Forms & inputs
+group: forms
 ---
 
 Not sure if it is possible, but here we go!

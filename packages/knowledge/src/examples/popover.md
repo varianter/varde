@@ -1,7 +1,7 @@
 ---
 title: Popover
 description: A large popover that combines a form and a details list.
-group: Overlays
+group: overlays
 ---
 
 This one leverages a popover, a details list, and a form

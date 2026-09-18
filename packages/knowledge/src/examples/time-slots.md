@@ -1,7 +1,8 @@
 ---
-title: Time slots
+title: Variantdag schedule
 description: A schedule for an event day, from morning coffee to quiz.
-group: Scheduling & booking
+group: forms
+tags: [scheduling]
 ---
 
 ```html

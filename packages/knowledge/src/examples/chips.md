@@ -1,7 +1,7 @@
 ---
 title: Chips
 description: Filter chips from pill buttons and an inverted color-mode.
-group: Forms & inputs
+group: forms
 ---
 
 This one utilizes an escape hatch

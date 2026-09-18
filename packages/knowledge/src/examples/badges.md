@@ -1,7 +1,7 @@
 ---
 title: Badges
 description: Pill badges in every palette, plus their inverted versions.
-group: Feedback & status
+group: feedback
 ---
 
 ```html

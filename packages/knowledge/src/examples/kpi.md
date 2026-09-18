@@ -1,7 +1,7 @@
 ---
 title: KPI
 description: A KPI dashboard with tinted cards and trend pills.
-group: Data display
+group: data
 ---
 
 ```html
@@ -64,12 +64,12 @@ group: Data display
     style="grid-template-columns: repeat(3, 1fr)"
   >
     <!-- MRR -->
-    <color-mode palette="blue" class="d-block">
+    <color-mode palette="grey" class="d-block">
       <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-xs ink-subtle fw-bold">MRR</span>
-        <color-mode palette="blue">
+        <color-mode palette="periwinkle">
           <span
-            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-base"
+            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-dyed"
           >
             <svg
               width="12"
@@ -90,16 +90,16 @@ group: Data display
           </span>
         </color-mode>
       </div>
-      <div class="fs-4xl fw-bold mb-2xs">350K</div>
+      <div class="fs-4xl fw-bold mb-2xs">350<span class="fs-m">K</span></div>
     </color-mode>
 
     <!-- OpEx -->
-    <color-mode palette="coral" class="d-block">
+    <color-mode palette="grey" class="d-block">
       <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-xs ink-subtle fw-bold">OpEx</span>
         <color-mode palette="coral">
           <span
-            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-base"
+            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-dyed"
           >
             <svg
               width="12"
@@ -120,16 +120,16 @@ group: Data display
           </span>
         </color-mode>
       </div>
-      <div class="fs-4xl fw-bold mb-2xs">211K</div>
+      <div class="fs-4xl fw-bold mb-2xs">211<span class="fs-m">K</span></div>
     </color-mode>
 
     <!-- CapEx -->
-    <color-mode palette="periwinkle" class="d-block">
+    <color-mode palette="grey" class="d-block">
       <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-xs ink-subtle fw-bold">CapEx</span>
-        <color-mode palette="periwinkle">
+        <color-mode palette="yellow">
           <span
-            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-base"
+            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-dyed"
           >
             <svg
               width="12"
@@ -150,16 +150,16 @@ group: Data display
           </span>
         </color-mode>
       </div>
-      <div class="fs-4xl fw-bold mb-2xs">94K</div>
+      <div class="fs-4xl fw-bold mb-2xs">94<span class="fs-m">K</span></div>
     </color-mode>
 
     <!-- GPM -->
-    <color-mode palette="coral" class="d-block">
+    <color-mode palette="grey" class="d-block">
       <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-xs ink-subtle fw-bold">GPM</span>
-        <color-mode palette="coral">
+        <color-mode palette="yellow">
           <span
-            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-base"
+            class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-dyed"
           >
             <svg
               width="12"
@@ -180,19 +180,19 @@ group: Data display
           </span>
         </color-mode>
       </div>
-      <div class="fs-4xl fw-bold mb-2xs">44.6%</div>
+      <div class="fs-4xl fw-bold mb-2xs">44.6<span class="fs-m">%</span></div>
     </color-mode>
 
     <!-- NPM -->
-    <color-mode palette="blue" class="d-block">
+    <color-mode palette="grey" class="d-block">
       <div class="stack-h items-center gap-2xs mb-2xs">
         <span class="fs-xs ink-subtle fw-bold">NPM</span>
         <span
-          class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-base"
+          class="b-all bc-subtle br-pill fs-xs fw-medium gap-3xs ink-prominent lh-snug px-2xs py-4xs stack-h surface-dyed"
           >0.0%</span
         >
       </div>
-      <div class="fs-4xl fw-bold mb-2xs">9.1%</div>
+      <div class="fs-4xl fw-bold mb-2xs">9.1<span class="fs-m">%</span></div>
     </color-mode>
   </div>
 </div>

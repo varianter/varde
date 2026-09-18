@@ -1,7 +1,7 @@
 ---
 title: Banner
 description: An undo banner in all four palettes.
-group: Feedback & status
+group: feedback
 ---
 
 ```html
