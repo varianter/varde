@@ -19,7 +19,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  STORAGE_ACCOUNT: vardecdn
   SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
 jobs:
@@ -54,121 +53,8 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ env.SUBSCRIPTION_ID }}
 
-      # Syncs only the docs/ subdirectory of the build output to the $web/docs/
-      # prefix, keeping /v/* and /static/* managed by other workflows untouched.
-      - name: Sync docs to Azure Storage
-        run: |
-          az storage blob sync \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container '$web' \
-            --source docs/dist/docs/ \
-            --destination docs \
-            --delete-destination true \
-            --auth-mode login \
-            --only-show-errors
-
-      # az storage blob sync doesn't support setting cache-control directly,
-      # so we apply it in a follow-up pass. 300 seconds = 5 minutes.
-      - name: Set cache-control on docs pages
-        run: |
-          az storage blob list \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --prefix docs/ \
-            --auth-mode login \
-            --query "[].name" \
-            --output tsv | \
-          xargs -I{} az storage blob update \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --name "{}" \
-            --content-cache-control "public, max-age=300" \
-            --auth-mode login \
-            --only-show-errors
-
-      # Markdown alternates (.md) need text/markdown; blob sync can't infer it
-      # from the extension, so set it explicitly.
-      - name: Set content-type on markdown pages
-        run: |
-          az storage blob list \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --prefix docs/ \
-            --auth-mode login \
-            --query "[?ends_with(name, '.md')].name" \
-            --output tsv | \
-          xargs -I{} az storage blob update \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --name "{}" \
-            --content-type "text/markdown; charset=utf-8" \
-            --auth-mode login \
-            --only-show-errors
-
-      # Uploads the root index page separately so it can't accidentally delete
-      # other root-level blobs (/v/, /static/).
-      - name: Upload root index page
-        run: |
-          az storage blob upload \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --file docs/dist/index.html \
-            --name index.html \
-            --content-type "text/html" \
-            --content-cache-control "public, max-age=300" \
-            --overwrite true \
-            --auth-mode login \
-            --only-show-errors
-
-      # robots.txt and llms.txt live at the site root, next to index.html, so
-      # they're uploaded individually rather than riding the docs/ sync.
-      - name: Upload root metadata files
-        run: |
-          az storage blob upload \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --file docs/dist/robots.txt \
-            --name robots.txt \
-            --content-type "text/plain; charset=utf-8" \
-            --content-cache-control "public, max-age=300" \
-            --overwrite true \
-            --auth-mode login \
-            --only-show-errors
-          az storage blob upload \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --file docs/dist/llms.txt \
-            --name llms.txt \
-            --content-type "text/plain; charset=utf-8" \
-            --content-cache-control "public, max-age=300" \
-            --overwrite true \
-            --auth-mode login \
-            --only-show-errors
-
-      # --- Purge Front Door cache (disabled until service principal has the right permissions) ---
-      # Purges the Front Door CDN cache so edge nodes pick up new content immediately.
-      # Requires CDN Profile Contributor on shared-rg for the varde-cdn-deploy service principal.
-      # To enable:
-      #   1. Have the shared-infrastructure owner grant the role:
-      #        APP_ID=$(az ad app list --display-name "varde-cdn-deploy" --query "[0].appId" -o tsv)
-      #        az role assignment create --assignee "$APP_ID" --role "CDN Profile Contributor" \
-      #          --scope "/subscriptions/<shared-subscription-id>/resourceGroups/shared-rg"
-      #   2. Uncomment the step below.
-      # - name: Purge Front Door cache
-      #   env:
-      #     SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      #   run: |
-      #     az config set extension.dynamic_install_allow_preview=true
-      #     az extension add --name cdn --allow-preview true --only-show-errors 2>/dev/null || true
-      #     az afd endpoint purge \
-      #       --subscription "$SUBSCRIPTION_ID" \
-      #       --resource-group shared-rg \
-      #       --profile-name fd-shared-cdn \
-      #       --endpoint-name shared-endpoint \
-      #       --domains varde.variant.dev \
-      #       --content-paths '/*' \
-      #       && echo "::notice::Front Door cache purged" \
-      #       || echo "::warning::Front Door cache purge failed"
+      - name: Deploy docs
+        run: bash deploy-docs.sh
 
       - name: Summary
         run: |
