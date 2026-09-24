@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { css, Style } from "hono/css";
 import { jsxRenderer } from "hono/jsx-renderer";
+import { buildSections } from "./sections";
 
 const rootApp = new Hono();
 
@@ -248,85 +249,41 @@ rootApp.get("/", (c) =>
           </div>
         </color-mode>
       </div>
-
-      {/* <section class="stack-v gap-l b-t bc-subtle pt-2xl">
-        <h2 class="fs-l fw-bold">Usage</h2>
-        <p class="ink-subtle">
-          Add the stylesheet to your HTML. Use <code class="fs-s">/v/latest/</code> to always get
-          the newest release, or pin to a specific version.
-        </p>
-        <pre
-          class="fs-s"
-          style="background: var(--surface-dyed); padding: var(--space-m); border-radius: 4px; overflow-x: auto;"
-        >
-          <code>{`<link rel="stylesheet" href="https://varde.variant.dev/v/latest/styles.css" />`}</code>
-        </pre>
-      </section> */}
-
-      {/* <section class="stack-v gap-l b-t bc-subtle pt-2xl">
-        <h2 class="fs-l fw-bold">Versions</h2>
-        <ul class="stack-v gap-xs" id="versions">
-          <li>
-            <strong>latest</strong>
-            <span class="ink-subtle fs-s">
-              {" "}
-              —{" "}
-              <a class="ink-default" href="/v/latest/styles.css">
-                /v/latest/styles.css
-              </a>
-            </span>
-          </li>
-        </ul>
-        <noscript>
-          <p class="ink-subtle fs-s">
-            Enable JavaScript to see all pinned versions, or see{" "}
-            <a href="/v/index.json">/v/index.json</a>.
-          </p>
-        </noscript>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          fetch('/v/index.json')
-            .then(function(r) { return r.json(); })
-            .then(function(versions) {
-              var ul = document.getElementById('versions');
-              versions.forEach(function(v) {
-                var li = document.createElement('li');
-                li.innerHTML = '<span class="ink-default">' + v + '</span><span class="ink-subtle fs-s"> — <a class="ink-default" href="/v/' + v + '/styles.css">/v/' + v + '/styles.css</a></span>';
-                ul.appendChild(li);
-              });
-            })
-            .catch(function() {});
-        `,
-          }}
-        />
-      </section>
-
-      <section class="stack-v gap-l b-t bc-subtle pt-2xl">
-        <h2 class="fs-l fw-bold">Static assets</h2>
-        <p class="ink-subtle">
-          Fonts and logos served at <code class="fs-s">/static/</code>:
-        </p>
-        <ul class="stack-v gap-xs">
-          <li>
-            <a class="ink-default" href="/static/font/varde-bs-variable.ttf">
-              /static/font/varde-bs-variable.ttf
-            </a>
-          </li>
-          <li>
-            <a class="ink-default" href="/static/logos/variant-circle-filled.svg">
-              /static/logos/variant-circle-filled.svg
-            </a>
-          </li>
-          <li>
-            <a class="ink-default" href="/static/logos/variant-favicon.svg">
-              /static/logos/variant-favicon.svg
-            </a>
-          </li>
-        </ul>
-      </section> */}
     </main>,
   ),
 );
 
 export { rootApp };
+
+function llmsTxt(): string {
+  const lines = [
+    "# Varde",
+    "",
+    "> A utility-first CSS framework and design token system by Variant, shipped as a single stylesheet link.",
+    "",
+  ];
+
+  for (const section of buildSections()) {
+    if (section.items.length === 0) continue;
+    lines.push(`## ${section.label}`, "");
+    for (const item of section.items) {
+      const description = item.description ? `: ${item.description}` : "";
+      lines.push(`- [${item.label}](/docs${item.path})${description}`);
+    }
+    lines.push("");
+  }
+
+  lines.push("## Also", "", "- [Changelog](/docs/changelog)", "");
+
+  return lines.join("\n");
+}
+
+rootApp.get("/robots.txt", (c) => {
+  c.header("Content-Type", "text/plain; charset=utf-8");
+  return c.body("User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\n");
+});
+
+rootApp.get("/llms.txt", (c) => {
+  c.header("Content-Type", "text/plain; charset=utf-8");
+  return c.body(llmsTxt());
+});

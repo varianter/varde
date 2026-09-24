@@ -1,21 +1,6 @@
 import { DocsPage } from "../components/docs";
 import { type Group, getKnowledgeDocs, groups } from "../knowledge";
 import { withTrailingSlash } from "../url";
-import {
-  description as colorModesDescription,
-  path as colorModesPath,
-  title as colorModesTitle,
-} from "./color-modes";
-import {
-  description as colorsDescription,
-  path as colorsPath,
-  title as colorsTitle,
-} from "./colors";
-import {
-  description as staggerRevealDescription,
-  path as staggerRevealPath,
-  title as staggerRevealTitle,
-} from "./stagger-reveal";
 
 export const path = "/examples";
 export const title = "Examples";
@@ -29,30 +14,6 @@ type ExampleLink = {
   tags: string[];
 };
 
-const pageExamples: ExampleLink[] = [
-  {
-    title: colorsTitle,
-    description: colorsDescription,
-    path: colorsPath,
-    group: "foundations",
-    tags: [],
-  },
-  {
-    title: colorModesTitle,
-    description: colorModesDescription,
-    path: colorModesPath,
-    group: "foundations",
-    tags: [],
-  },
-  {
-    title: staggerRevealTitle,
-    description: staggerRevealDescription,
-    path: staggerRevealPath,
-    group: "motion",
-    tags: [],
-  },
-];
-
 const UNGROUPED = "More";
 
 const groupRank = (group: string) =>
@@ -61,24 +22,22 @@ const groupRank = (group: string) =>
 const groupLabel = (group: string) => (group in groups ? groups[group as Group].label : group);
 
 function buildGroupsList(): { label: string; items: ExampleLink[] }[] {
-  const examples: ExampleLink[] = [
-    ...getKnowledgeDocs()
-      .filter((doc) => doc.category === "examples")
-      .map((doc) => ({
-        title: doc.title,
-        description: doc.description,
-        path: `/${doc.category}/${doc.slug}`,
-        order: doc.order,
-        group: doc.group ?? UNGROUPED,
-        tags: doc.tags,
-      })),
-    ...pageExamples,
-  ].sort((a, b) => {
-    if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
-    if (a.order !== undefined) return -1;
-    if (b.order !== undefined) return 1;
-    return a.title.localeCompare(b.title);
-  });
+  const examples: ExampleLink[] = getKnowledgeDocs()
+    .filter((doc) => doc.category === "examples")
+    .map((doc) => ({
+      title: doc.title,
+      description: doc.description,
+      path: `/${doc.category}/${doc.slug}`,
+      order: doc.order,
+      group: doc.group ?? UNGROUPED,
+      tags: doc.tags,
+    }))
+    .sort((a, b) => {
+      if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
+      if (a.order !== undefined) return -1;
+      if (b.order !== undefined) return 1;
+      return a.title.localeCompare(b.title);
+    });
 
   return [...new Set(examples.map((e) => e.group))]
     .sort((a, b) => groupRank(a) - groupRank(b) || a.localeCompare(b))

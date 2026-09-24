@@ -8,6 +8,9 @@ declare module "*.md" {
 declare module "hono" {
   interface ContextRenderer {
     (content: string | Promise<string>): Response | Promise<Response>;
-    (content: string | Promise<string>, props: { title?: string }): Response | Promise<Response>;
+    (
+      content: string | Promise<string>,
+      props: { title?: string; markdownPath?: string },
+    ): Response | Promise<Response>;
   }
 }

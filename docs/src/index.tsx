@@ -12,7 +12,7 @@ import { Header } from "./components/header";
 import { Markdown, processMarkdown } from "./components/markdown";
 import { NavLinks } from "./components/nav";
 import { SearchDialog } from "./components/search";
-import { getKnowledgeDocs } from "./knowledge";
+import { getKnowledgeDocs, knowledgeDir } from "./knowledge";
 import { rootApp } from "./root";
 import { staticApp } from "./static";
 import { SITE_ORIGIN, withTrailingSlash } from "./url";
@@ -57,7 +57,7 @@ const DEFAULT_TITLE = "Varde – Variant design system documentation";
 app.use(
   "*",
   jsxRenderer(
-    ({ children, title }, c) => {
+    ({ children, title, markdownPath }, c) => {
       return (
         <html lang="en">
           <head>
@@ -463,6 +463,9 @@ app.use(
             />
             <title>{title ? `${title}` : DEFAULT_TITLE}</title>
             <link rel="canonical" href={`${SITE_ORIGIN}${withTrailingSlash(c.req.path)}`} />
+            {markdownPath ? (
+              <link rel="alternate" type="text/markdown" href={markdownPath} />
+            ) : null}
 
             {html`<script type="module">
               import cssVarBind from 'https://cdn.jsdelivr.net/npm/css-var-bind@0.0.1/+esm'
@@ -483,6 +486,15 @@ app.use(
             <script type="module" src="/docs/clientside/color-mode-interact.js"></script>
           </head>
           <body>
+            {markdownPath ? (
+              <div
+                aria-hidden="true"
+                data-pagefind-ignore
+                style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;"
+              >
+                {`A Markdown version of this page is available at ${SITE_ORIGIN}${markdownPath}.`}
+              </div>
+            ) : null}
             <Header />
             <nav class="site-nav">
               <div
@@ -541,6 +553,18 @@ app.use(
 // per request, so editing an existing file's content doesn't.
 
 for (const { category, slug } of getKnowledgeDocs()) {
+  const markdownPath = `/docs/${category}/${slug}.md`;
+
+  app.get(`/${category}/${slug}.md`, async (c) => {
+    const file = Bun.file(`${knowledgeDir}/${category}/${slug}.md`);
+    if (!(await file.exists())) {
+      return c.notFound();
+    }
+    return new Response(file, {
+      headers: { "Content-Type": "text/markdown; charset=utf-8" },
+    });
+  });
+
   app.get(`/${category}/${slug}`, async (c) => {
     const doc = getKnowledgeDocs().find((d) => d.category === category && d.slug === slug);
     if (!doc) {
@@ -551,7 +575,7 @@ for (const { category, slug } of getKnowledgeDocs()) {
       <DocsPage title={doc.title} description={doc.description} tags={doc.tags}>
         <Markdown html={content} />
       </DocsPage>,
-      { title: doc.title },
+      { title: doc.title, markdownPath },
     );
   });
 }

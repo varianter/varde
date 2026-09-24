@@ -2,6 +2,7 @@ import { cp, mkdir, readdir, rename } from "node:fs/promises";
 import { join } from "node:path";
 import { $ } from "bun";
 import { toSSG } from "hono/bun";
+import { defaultExtensionMap } from "hono/ssg";
 import { app } from "./index";
 import { rootApp } from "./root";
 
@@ -10,7 +11,12 @@ const STATIC_DEST = join("./dist", "static");
 const CLIENTSIDE_SRC = join(import.meta.dir, "clientside");
 const CLIENTSIDE_DEST = join("./dist", "docs", "clientside");
 
-await toSSG(app, { dir: "./dist" });
+// extensionMap replaces toSSG's default map, so keep the defaults and add
+// text/markdown rather than passing a map with only the new entry.
+await toSSG(app, {
+  dir: "./dist",
+  extensionMap: { ...defaultExtensionMap, "text/markdown": "md" },
+});
 await toSSG(rootApp, { dir: "./dist" });
 
 // Azure Blob Storage static websites serve /foo/index.html for requests to /foo/.
