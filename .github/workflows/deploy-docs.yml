@@ -86,6 +86,25 @@ jobs:
             --auth-mode login \
             --only-show-errors
 
+      # Markdown alternates (.md) need text/markdown; blob sync can't infer it
+      # from the extension, so set it explicitly.
+      - name: Set content-type on markdown pages
+        run: |
+          az storage blob list \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --prefix docs/ \
+            --auth-mode login \
+            --query "[?ends_with(name, '.md')].name" \
+            --output tsv | \
+          xargs -I{} az storage blob update \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --name "{}" \
+            --content-type "text/markdown; charset=utf-8" \
+            --auth-mode login \
+            --only-show-errors
+
       # Uploads the root index page separately so it can't accidentally delete
       # other root-level blobs (/v/, /static/).
       - name: Upload root index page
@@ -96,6 +115,31 @@ jobs:
             --file docs/dist/index.html \
             --name index.html \
             --content-type "text/html" \
+            --content-cache-control "public, max-age=300" \
+            --overwrite true \
+            --auth-mode login \
+            --only-show-errors
+
+      # robots.txt and llms.txt live at the site root, next to index.html, so
+      # they're uploaded individually rather than riding the docs/ sync.
+      - name: Upload root metadata files
+        run: |
+          az storage blob upload \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --file docs/dist/robots.txt \
+            --name robots.txt \
+            --content-type "text/plain; charset=utf-8" \
+            --content-cache-control "public, max-age=300" \
+            --overwrite true \
+            --auth-mode login \
+            --only-show-errors
+          az storage blob upload \
+            --account-name "$STORAGE_ACCOUNT" \
+            --container-name '$web' \
+            --file docs/dist/llms.txt \
+            --name llms.txt \
+            --content-type "text/plain; charset=utf-8" \
             --content-cache-control "public, max-age=300" \
             --overwrite true \
             --auth-mode login \
