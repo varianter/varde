@@ -26,8 +26,8 @@ export default function HomePage() {
                 </a>
               </div>
               <p class="fs-l ink-subtle">
-                The idea is simple: Varde is stylesheet. It contains 96.21% (not scientifically
-                tested) of you need to build web things.
+                The idea is simple: Varde is a stylesheet. It contains 96.21% (not scientifically
+                tested) of what you need to build web things.
               </p>
             </div>
           </div>
