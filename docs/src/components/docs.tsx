@@ -1,33 +1,52 @@
 import type { Child } from "hono/jsx";
+import { type Group, groups } from "../knowledge";
 
 export function DocsPage({
   title,
   description,
   tags,
+  group,
   children,
 }: {
   title: string;
   description: string;
   tags?: string[];
+  group?: Group;
   children: Child;
 }) {
+  const groupLabel = group ? groups[group].label : undefined;
+
   return (
     <article class="content-grid gap-row-2xl pb-3xl">
       <header class="content-grid-pass surface-tinted pt-2xl pb-2xl" data-bleed="full">
         <div class="v-typeset">
           <h2 class="fs-3xl fw-bold">{title}</h2>
-          <p class="fs-l ink-subtle">{description}</p>
-          {tags && tags.length > 0 && (
-            <span class="pt-xs stack-h gap-2xs fs-xs ink-subtle">
-              {tags.map((tag) => (
+          <p class="fs-l ink-subtle" data-pagefind-meta="description">
+            {description}
+          </p>
+          {(groupLabel || (tags && tags.length > 0)) && (
+            <span class="pt-xs stack-h gap-2xs fs-xs">
+              {groupLabel && (
                 <span
-                  class="br-pill bg-wash px-2xs py-3xs surface-dyed"
-                  style="text-transform: capitalize;"
-                  key={tag}
+                  class="br-pill surface-dyed px-2xs py-3xs fw-medium"
+                  data-pagefind-meta="group"
                 >
-                  {tag}
+                  {groupLabel}
                 </span>
-              ))}
+              )}
+              {tags && tags.length > 0 && (
+                <span class="stack-h gap-2xs" data-pagefind-meta={`tags:${tags.join(" ")}`}>
+                  {tags.map((tag) => (
+                    <span
+                      class="br-pill bg-wash px-2xs py-3xs surface-dyed ink-subtle"
+                      style="text-transform: capitalize;"
+                      key={tag}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </span>
+              )}
             </span>
           )}
         </div>

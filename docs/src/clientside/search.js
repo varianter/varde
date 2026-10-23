@@ -6,7 +6,7 @@
 
 const RESULT_LIMIT = 20;
 
-/** @typedef {{ url: string, meta: { title?: string }, excerpt: string }} PagefindResultData */
+/** @typedef {{ url: string, meta: { title?: string, description?: string, group?: string, tags?: string }, excerpt: string }} PagefindResultData */
 /** @typedef {{ init: () => Promise<void>, debouncedSearch: (term: string) => Promise<{ results: { data: () => Promise<PagefindResultData> }[] } | null> }} Pagefind */
 
 /** @type {Pagefind | null | undefined} undefined = not yet attempted */
@@ -87,14 +87,29 @@ function init() {
     }
 
     results.innerHTML = entries
-      .map(
-        (entry) => `
+      .map((entry) => {
+        const meta = entry.meta ?? {};
+        const tags = typeof meta.tags === "string" ? meta.tags.split(/\s+/).filter(Boolean) : [];
+        const badges = [];
+        if (meta.group) {
+          badges.push(
+            `<span class="br-pill surface-dyed px-2xs py-3xs fw-medium">${escapeHtml(meta.group)}</span>`,
+          );
+        }
+        for (const tag of tags) {
+          badges.push(
+            `<span class="br-pill bg-wash px-2xs py-3xs surface-dyed ink-subtle" style="text-transform: capitalize;">${escapeHtml(tag)}</span>`,
+          );
+        }
+
+        return `
           <a href="${entry.url}" class="d-block px-xs py-2xs br-m bg-wash:hover">
-            <div class="fs-s fw-medium">${escapeHtml(entry.meta?.title ?? entry.url)}</div>
+            <div class="fs-s fw-medium">${escapeHtml(meta.title ?? entry.url)}</div>
             <div class="fs-s ink-subtle lh-snug">${entry.excerpt}</div>
+            ${badges.length ? `<div class="pt-2xs stack-h gap-2xs fs-xs">${badges.join("")}</div>` : ""}
           </a>
-        `,
-      )
+        `;
+      })
       .join("");
   }
 
