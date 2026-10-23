@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/varianter/varde/compare/varde-v2.0.0...varde-v2.0.1) (2026-10-23)
+
+
+### Performance Improvements
+
+* serve font as woff2 ([977cac5](https://github.com/varianter/varde/commit/977cac54e90abcbec7d202f692f29fe1b951ae17))
+
 ## [2.0.0](https://github.com/varianter/varde/compare/varde-v1.0.0...varde-v2.0.0) (2026-10-23)
 
 
