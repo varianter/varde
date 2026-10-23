@@ -2,7 +2,7 @@
 title: Tabs
 description: "A tab strip built three ways: with button variants, inverted color-modes, or plain links."
 group: navigation
-tags: [component]
+tags: [color-mode, composition]
 ---
 
 Using several `.v-button`, you can use different variants to toggle which one looks active. This would require JS, because you'd need to toggle from `data-variant="outlined` to `data-variant="filled`

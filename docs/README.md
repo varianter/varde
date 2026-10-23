@@ -1,8 +1,8 @@
 # @varde/docs
 
-The documentation site for Varde. Built as a static site with [Hono](https://hono.dev) and Bun, deployed to GitHub Pages.
+The documentation site for Varde. Built as a static site with [Hono](https://hono.dev) and Bun.
 
-Live at: **https://varianter.github.io/varde/**
+Live at: **https://varde.variant.dev/docs**
 
 ## Stack
 
@@ -13,38 +13,28 @@ Live at: **https://varianter.github.io/varde/**
 ## Commands
 
 ```sh
-bun dev        # Dev server with hot reload at http://localhost:1234/varde/
+bun dev        # Dev server with hot reload at http://localhost:1234/docs/
 bun run build  # Build static site to dist/
-bun preview    # Build and serve locally at http://localhost:1337/varde/
+bun preview    # Build and serve locally at http://localhost:1337/docs/
 ```
 
 ## Adding a page
 
-Pages are glob-discovered from `src/pages/**/*.tsx`. Each file must export:
+Pages are glob-discovered from `src/pages/**/*.tsx`. Each file exports:
 
-- `path` — the route string (e.g. `"/utilities/layout"`)
+- `path` — the route, relative to `/docs/`
 - A default component that renders the page content
 
-```ts
-// src/pages/utilities/layout.tsx
-export const path = "/utilities/layout";
+```tsx
+export const path = "/utilities/example";
 
-export default function LayoutPage() {
+export default function ExamplePage() {
   return <main>...</main>;
 }
 ```
 
-The shell layout (header, nav, `<html>`) lives in `src/index.tsx` and is applied automatically via Hono's `jsxRenderer` middleware — pages only need to render their own content.
-
-## Build output
-
-`bun run build` generates static HTML into `dist/` via `toSSG`, then:
-
-1. Copies `dist/varde.html` → `dist/varde/index.html` so GitHub Pages serves it at `/varde/`
-2. Copies fonts from `packages/static/` into `dist/varde/static/`
-
-> **Important:** The GitHub Pages workflow (`github-pages.yml`) uploads `docs/dist/varde` — not `docs/dist` — as the artifact root. This means GitHub Pages serves that directory at `/`, so `/static/fonts/...` in the CSS resolves to `dist/varde/static/fonts/...` on disk. If you ever change the upload path in the workflow, update `STATIC_DEST` in `src/build.tsx` to match.
+The shell (header, nav, `<html>`) lives in `src/index.tsx` and is applied via Hono's `jsxRenderer` — pages only render their own content.
 
 ## Deployment
 
-Handled automatically by the `github-pages.yml` workflow on every push to `main`. Can also be triggered manually from the Actions tab.
+Handled automatically by the `deploy-docs.yml` workflow on every push to `main`.

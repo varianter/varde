@@ -2,7 +2,7 @@
 title: Timesheet
 description: A weekly time tracking grid with per-day inputs and totals.
 group: data
-tags: [app, table, forms]
+tags: [tables, forms, staffing]
 ---
 
 A week of hours per project. Today's column is highlighted with a `color-mode`, and days with a note get an icon inside the input.

@@ -2,183 +2,245 @@
 title: Court booking
 description: A day picker and venue columns for booking a squash court.
 group: forms
-tags: [scheduling, booking]
+tags: [booking]
 ---
 
 ```html
-<div class="stack-v gap-m w-full py-xl">
-  <div class="stack-h items-center justify-between">
-    <h1 class="fs-3xl fw-bold">Book squash</h1>
-    <button class="v-button br-pill" data-variant="tinted">
-      Skjul filtre
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+  rel="stylesheet"
+/>
+<div
+  class="stack-v gap-m w-full py-xl"
+  style="font-family: Mulish; --button-font-weight: 700; --font-weight-medium: 700; --font-weight-bold: 900;"
+>
+  <div class="stack-h items-center justify-between m">
+    <h1 class="fs-xl fw-bold">Book squash</h1>
+    <div class="stack-h gap-xs">
+      <button
+        class="v-button br-pill"
+        data-variant="outlined"
+        data-size="small"
+        popovertarget="senter-filter-popover"
       >
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    </button>
-  </div>
-
-  <div class="stack-h gap-xs">
-    <button class="v-button br-pill" data-variant="outlined">
-      Senter
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        Senter (2)
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <button
+        class="v-button br-pill"
+        data-variant="outlined"
+        data-size="small"
+        popovertarget="tid-filter-popover"
       >
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </button>
-    <button class="v-button br-pill" data-variant="outlined">
-      Tid på dag
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </button>
+        Tid på dag (2)
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div
-    class="stack-h b-all bc-subtle br-pill of-clip p-3xs grow"
+    id="senter-filter-popover"
+    class="v-popover"
+    popover="auto"
+    data-type="tooltip"
+    data-side="bottom"
+  >
+    <div
+      style="width: 20ch;"
+      class="p-3xs b-all bc-subtle surface-base stack-v gap-3xs br-m shadow-mid w-full of-clip m-2xs fs-s"
+    >
+      <div class="stack-h gap-2xs p-3xs">
+        <span class="fw-medium">Senter</span>
+        <span class="ink-subtle ml-auto">2 av 7</span>
+      </div>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" checked />
+        <span>Midtbyen</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" checked />
+        <span>Byåsen</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Lade</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Tempe</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Heimdal</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Nardo</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Moholt</span>
+      </label>
+    </div>
+  </div>
+
+  <div
+    id="tid-filter-popover"
+    class="v-popover"
+    popover="auto"
+    data-type="tooltip"
+    data-side="bottom"
+  >
+    <div
+      style="width: 26ch;"
+      class="p-3xs b-all bc-subtle surface-base stack-v gap-3xs br-m shadow-mid w-full of-clip m-2xs fs-s"
+    >
+      <div class="stack-h gap-2xs p-3xs">
+        <span class="fw-medium">Tid på dag</span>
+        <span class="ink-subtle ml-auto">2 av 3</span>
+      </div>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" />
+        <span>Formiddag</span>
+        <span class="ml-auto ink-subtle fs-xs">04:30 - 12:00</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" checked />
+        <span>Ettermiddag</span>
+        <span class="ml-auto ink-subtle fs-xs">12:00 - 18:00</span>
+      </label>
+      <label class="stack-h gap-2xs p-3xs bg-wash:hover br-m">
+        <input type="checkbox" class="v-checkbox" checked />
+        <span>Kveld</span>
+        <span class="ml-auto ink-subtle fs-xs">18:00 - 00:00</span>
+      </label>
+    </div>
+  </div>
+
+  <color-mode
+    palette="blue"
+    class="stack-h gap-3xs b-all bc-subtle br-l of-clip p-3xs grow"
     role="group"
     aria-label="Velg dag"
   >
-    <color-mode palette="blue">
-      <button
-        class="v-button br-pill flex-1"
-        data-size="small"
-        data-variant="filled"
-      >
-        <span class="stack-v items-center">
-          <span>11</span>
-          <span class="fs-xs">Fr</span>
-        </span>
-      </button>
-    </color-mode>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
+      data-size="small"
+      data-variant="tinted"
+    >
+      <span class="fs-m">11</span>
+      <span class="fs-xs">Fredag</span>
+    </button>
+    <button
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>12</span>
-        <span class="fs-xs">Lø</span>
-      </span>
+      <span class="fs-m">12</span>
+      <span class="fs-xs">Lørdag</span>
     </button>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>13</span>
-        <span class="fs-xs">Sø</span>
-      </span>
+      <span class="fs-m">13</span>
+      <span class="fs-xs">Søndag</span>
     </button>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>14</span>
-        <span class="fs-xs">Ma</span>
-      </span>
+      <span class="fs-m">14</span>
+      <span class="fs-xs">Mandag</span>
     </button>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>15</span>
-        <span class="fs-xs">Ti</span>
-      </span>
+      <span class="fs-m">15</span>
+      <span class="fs-xs">Tirsdag</span>
     </button>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>16</span>
-        <span class="fs-xs">On</span>
-      </span>
+      <span class="fs-m">16</span>
+      <span class="fs-xs">Onsdag</span>
     </button>
     <button
-      class="v-button br-pill flex-1"
+      class="v-button flex-1 px-3xs py-3xs stack-v items-"
       data-size="small"
       data-variant="plain"
     >
-      <span class="stack-v items-center">
-        <span>17</span>
-        <span class="fs-xs">To</span>
-      </span>
+      <span class="fs-m">17</span>
+      <span class="fs-xs">Torsdag</span>
     </button>
-    <button
-      class="v-button br-pill flex-1"
-      data-size="small"
-      data-variant="plain"
-    >
-      <span class="stack-v items-center">
-        <span>18</span>
-        <span class="fs-xs">Fr</span>
-      </span>
-    </button>
-  </div>
+  </color-mode>
 
-  <div style="position: relative;">
+  <div style="position: relative;" class="mt-m w-full of-scroll">
     <div
       class="d-grid gap-column-xl gap-row-l"
       style="grid-template-columns: 1fr 1fr;"
     >
       <div class="stack-v gap-m">
-        <h2 class="fs-l fw-bold ta-center">Center #2</h2>
-
         <div
           class="d-grid gap-row-2xs gap-column-xs"
           style="grid-template-columns: max-content repeat(4, 1fr);"
         >
-          <div class="grid-subgrid grid-all-columns items-center pb-2xs">
-            <span class="fs-s ink-subtle fw-medium"></span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 1</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 2</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 3</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 4</span>
+          <div class="grid-subgrid grid-all-columns  pb-2xs items-end">
+            <span class="fs-l px-s fw-medium lh-snug"> Sluppen </span>
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 1</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 2</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 3</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 4</span
+            >
           </div>
 
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>14:30</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>14:30 –</span>
               <span>15:00</span>
             </span>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -188,7 +250,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -198,7 +260,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -208,7 +270,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -222,34 +284,34 @@ tags: [scheduling, booking]
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>15:00</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>15:00 –</span>
               <span>15:30</span>
             </span>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
           </div>
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>15:30</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>15:30 –</span>
               <span>16:00</span>
             </span>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -259,40 +321,109 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+          </div>
+          <div
+            class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
+          >
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>16:00 –</span>
+              <span>16:30</span>
+            </span>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+          </div>
+          <div
+            class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
+          >
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>16:30 –</span>
+              <span>17:00</span>
+            </span>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
           </div>
         </div>
       </div>
 
       <div class="stack-v gap-m">
-        <h2 class="fs-l fw-bold ta-center">Center #1</h2>
-
         <div
           class="d-grid gap-row-2xs gap-column-xs"
           style="grid-template-columns: max-content repeat(5, 1fr);"
         >
-          <div class="grid-subgrid grid-all-columns items-center pb-2xs">
-            <span class="fs-s ink-subtle fw-medium"></span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 1</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 2</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 3</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 4</span>
-            <span class="fs-s ink-subtle fw-bold ta-center">Bane 5</span>
+          <div class="grid-subgrid grid-all-columns  pb-2xs items-end">
+            <span class="fs-l px-s fw-medium lh-snug"> Rosten </span>
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 1</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 2</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 3</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 4</span
+            >
+            <span class="fs-s ink-subtle fw-medium ta-center lh-tight pb-4xl"
+              >Bane 5</span
+            >
           </div>
 
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>14:30</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>14:30 –</span>
               <span>15:00</span>
             </span>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -302,7 +433,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -312,7 +443,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -322,7 +453,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -332,7 +463,7 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -346,11 +477,11 @@ tags: [scheduling, booking]
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>15:00</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>15:00 –</span>
               <span>15:30</span>
             </span>
-            <color-mode palette="coral">
+            <color-mode palette="grey">
               <button
                 class="v-button w-full"
                 data-size="small"
@@ -360,66 +491,112 @@ tags: [scheduling, booking]
                 Opptatt
               </button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
           </div>
           <div
             class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
           >
-            <span class="stack-v fs-s fw-medium px-xs lh-snug">
-              <span>15:30</span>
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>15:30 –</span>
               <span>16:00</span>
             </span>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
-            <color-mode palette="periwinkle">
-              <button class="v-button w-full" data-size="small">Book</button>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+          </div>
+          <div
+            class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
+          >
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>16:00 –</span>
+              <span>16:30</span>
+            </span>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+          </div>
+          <div
+            class="bc-subtle b-all br-l grid-all-columns grid-subgrid items-center p-3xs"
+          >
+            <span class="fs-s fw-medium px-xs lh-snug">
+              <span>16:30 –</span>
+              <span>17:00</span>
+            </span>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="grey">
+              <button
+                class="v-button w-full"
+                data-size="small"
+                data-variant="tinted"
+                disabled
+              >
+                Opptatt
+              </button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
+            </color-mode>
+            <color-mode palette="blue">
+              <button class="v-button w-full" data-size="small">Velg</button>
             </color-mode>
           </div>
         </div>
       </div>
     </div>
-
-    <button
-      class="v-button br-circle aspect-square p-0 pos-absolute top-0 right-0"
-      data-variant="outlined"
-      aria-label="Vis flere sentre"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </button>
   </div>
 </div>
 ```

@@ -2,6 +2,7 @@
 title: KPI
 description: A KPI dashboard with tinted cards and trend pills.
 group: data
+tags: [color-mode, analytics]
 ---
 
 ```html

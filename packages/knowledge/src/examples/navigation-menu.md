@@ -2,6 +2,7 @@
 title: Navigation menu
 description: Three menu patterns — a top navbar, a sidebar with an active item, and a breadcrumb trail.
 group: navigation
+tags: [composition]
 ---
 
 A horizontal top bar with a logotype, plain-text links, an active state picked out with `ink-prominent`, and a primary action pinned to the end with `ml-auto`.

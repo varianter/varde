@@ -2,6 +2,7 @@
 title: Table
 description: An orders table with status badges and a show-more action.
 group: data
+tags: [tables]
 ---
 
 ```html

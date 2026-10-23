@@ -2,6 +2,7 @@
 title: Choicebox
 description: A selectable card pair that swaps its palette on selection.
 group: forms
+tags: [forms, color-mode]
 ---
 
 Inspiration:

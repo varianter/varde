@@ -2,7 +2,7 @@
 title: Datepicker
 description: A static calendar panel with month navigation and a selected day.
 group: forms
-tags: [component, composition]
+tags: [forms, composition]
 ---
 
 ```html
@@ -82,57 +82,125 @@ tags: [component, composition]
       >
         31
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         1
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         2
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         3
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         4
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         5
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         6
       </button>
 
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         7
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         8
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         9
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         10
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         11
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         12
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         13
       </button>
 
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         14
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         15
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         16
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         17
       </button>
       <button
@@ -142,14 +210,26 @@ tags: [component, composition]
       >
         18
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         19
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         20
       </button>
 
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         21
       </button>
       <button
@@ -159,29 +239,61 @@ tags: [component, composition]
       >
         22
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         23
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         24
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         25
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         26
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         27
       </button>
 
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         28
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         29
       </button>
-      <button class="v-button  p-0 aspect-square" data-size="small" data-variant="plain">
+      <button
+        class="v-button  p-0 aspect-square"
+        data-size="small"
+        data-variant="plain"
+      >
         30
       </button>
       <button

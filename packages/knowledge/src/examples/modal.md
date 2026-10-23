@@ -2,6 +2,7 @@
 title: Modal
 description: A token creation dialog with copy and an action footer.
 group: overlays
+tags: [forms]
 ---
 
 ```html

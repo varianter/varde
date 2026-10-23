@@ -2,6 +2,7 @@
 title: Badges
 description: Pill badges in every palette, plus their inverted versions.
 group: feedback
+tags: [color-mode]
 ---
 
 ```html

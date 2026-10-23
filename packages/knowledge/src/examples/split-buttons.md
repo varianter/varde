@@ -2,6 +2,7 @@
 title: Split buttons
 description: A button with a dropdown trigger, in three variants.
 group: forms
+tags: [buttons]
 ---
 
 Not sure if it is possible, but here we go!
@@ -92,7 +93,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
   class="v-popover"
   popover="auto"
   data-type="tooltip"
-  data-position="bottom"
+  data-side="bottom"
 >
   <div
     class="p-3xs b-all surface-base stack-v br-l w-max-4 fs-s m-2xs"

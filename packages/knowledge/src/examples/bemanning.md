@@ -2,7 +2,7 @@
 title: Bemanning
 description: A staffing grid with a week view and a filter drawer.
 group: data
-tags: [app, table, popover]
+tags: [tables, popover, staffing]
 ---
 
 This example shows how color-mode can be used to add colors with intention. Both to the cell itself, but also the "supplementing hours"-thingie.
@@ -710,7 +710,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
   class="v-popover"
   popover="auto"
   data-type="drawer"
-  data-position="left"
+  data-side="left"
   style="width: 420px;"
 >
   <div
@@ -765,7 +765,9 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="b-all bc-subtle surface-base br-l gap-2xs px-xs py-2xs stack-v">
       <div class="stack-v gap-2xs">
         <div class="stack-h gap-2xs">
-          <label for="Ledig-tid" class="fs-s fw-medium flex-1">Har ledig tid</label>
+          <label for="Ledig-tid" class="fs-s fw-medium flex-1"
+            >Har ledig tid</label
+          >
           <input
             class="v-checkbox fs-s "
             data-size="large"

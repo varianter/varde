@@ -2,7 +2,7 @@
 title: Variantdag schedule
 description: A schedule for an event day, from morning coffee to quiz.
 group: forms
-tags: [scheduling]
+tags: [booking]
 ---
 
 ```html

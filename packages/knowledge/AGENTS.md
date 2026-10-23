@@ -55,3 +55,26 @@ A heading names what the reader gets or does. It's a label, not a sentence or a 
 - No h1; the frontmatter title is the h1. Don't skip heading levels.
 - Code blocks for examples. Skip the block if the example is trivial. Use `open` or `no-preview` for small ones.
 - Tables for matrices. Italics and bold where they help.
+
+# Tags
+
+`group` and `tags` answer different questions. `group` is a single bucket from the fixed list in `docs/src/knowledge.ts`; it drives the index order. `tags` are cross-cutting facets for search, free-form but following a small vocabulary so they stay findable.
+
+## Concept tags
+
+Closed set. Reuse a reference or explanation slug verbatim.
+
+`color-mode` `layout` `forms` `buttons` `tables` `popover` `spacing` `shadow` `typography` `motion` `composition`
+
+## Domain tags
+
+Open. Only when a real-world scenario is recognizable; omit otherwise, one max.
+
+`booking` `commerce` `staffing` `analytics` `developer-tools`
+
+## Rules
+
+- Lowercase, kebab-case, single token. Search splits tags on whitespace, so a tag can't contain spaces.
+- Concept tags point at an existing doc. Don't coin a synonym.
+- 1–3 tags per file. Don't repeat the group.
+- Don't restate the title.

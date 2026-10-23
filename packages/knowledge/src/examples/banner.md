@@ -2,6 +2,7 @@
 title: Banner
 description: An undo banner in all four palettes.
 group: feedback
+tags: [color-mode]
 ---
 
 ```html
