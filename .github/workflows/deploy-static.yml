@@ -65,8 +65,9 @@ jobs:
             --only-show-errors
 
       # 'az storage blob sync' doesn't support setting content headers directly,
-      # so we apply Cache-Control in a follow-up pass. 604800 seconds = 1 week.
-      - name: Set cache-control headers
+      # so we apply them in a follow-up pass. Fonts carry a version in their
+      # filename and are cached for a year; everything else for a week.
+      - name: Set content headers
         run: |
           az storage blob list \
             --account-name "$STORAGE_ACCOUNT" \
@@ -75,13 +76,23 @@ jobs:
             --auth-mode login \
             --query "[].name" \
             --output tsv | \
-          xargs -I{} az storage blob update \
-            --account-name "$STORAGE_ACCOUNT" \
-            --container-name '$web' \
-            --name "{}" \
-            --content-cache-control "public, max-age=604800" \
-            --auth-mode login \
-            --only-show-errors
+          while read -r name; do
+            args=(--content-cache-control "public, max-age=604800")
+            case "$name" in
+              static/font/*) args=(--content-cache-control "public, max-age=31536000, immutable") ;;
+            esac
+            case "$name" in
+              *.woff2) args+=(--content-type "font/woff2") ;;
+              *.ttf) args+=(--content-type "font/ttf") ;;
+            esac
+            az storage blob update \
+              --account-name "$STORAGE_ACCOUNT" \
+              --container-name '$web' \
+              --name "$name" \
+              "${args[@]}" \
+              --auth-mode login \
+              --only-show-errors
+          done
 
       # Print the deployed URLs to the job summary visible on the workflow run page.
       # Prefers the CDN_BASE_URL environment variable (set in the GitHub

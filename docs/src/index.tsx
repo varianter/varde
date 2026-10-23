@@ -114,8 +114,8 @@ app.use(
               rel="preload"
               as="font"
               crossorigin="anonymous"
-              type="font/ttf"
-              href="https://varde.variant.dev/static/font/varde-bs-variable.ttf"
+              type="font/woff2"
+              href="https://varde.variant.dev/static/font/varde-bs-variable.1.woff2"
             />
             <link rel="preload" href="/docs/styles.css" as="style" />
             <link rel="stylesheet" href="/docs/styles.css" />
