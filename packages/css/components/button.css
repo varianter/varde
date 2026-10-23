@@ -180,6 +180,8 @@
 
     cursor: pointer;
 
+    touch-action: manipulation;
+
     /*
      * Colours named exactly: the `outline` and `border` shorthands drag their
      * width along, which is a layout property.
