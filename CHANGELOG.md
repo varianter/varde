@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/varianter/varde/compare/varde-v1.0.0...varde-v2.0.0) (2026-10-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **css:** `data-position` on `.v-popover` is replaced by `data-side`. Tooltips no longer support left/right sides; use `data-align` instead.
+
+### Features
+
+* **css:** rename popover data-position to data-side, add tooltip data-align ([356e537](https://github.com/varianter/varde/commit/356e5370392a095347e035de2aec812cdd6227a3))
+* **docs:** show group and tag badges in search results ([4036988](https://github.com/varianter/varde/commit/40369881d98368fbc16beceb606e98d90cdf967a))
+* Reworked shadows, again. A few more knobs to tune. ([1b4055f](https://github.com/varianter/varde/commit/1b4055f2afc55a416b6f7bc354d0050e9074d843))
+
+
+### Bug Fixes
+
+* **css:** remove tap delay on buttons with touch-action: manipulation ([1ce21d8](https://github.com/varianter/varde/commit/1ce21d891acddf41dd3e816826a507a8afbb9e7a))
+* tweaked ::backdrop and shadows ([20d7812](https://github.com/varianter/varde/commit/20d78127218e0f3d7cf8b9fda4415d0364f3d0df))
+
 ## [1.0.0](https://github.com/varianter/varde/compare/varde-v0.8.0...varde-v1.0.0) (2026-09-16)
 
 
