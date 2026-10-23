@@ -19,56 +19,66 @@
   }
 
   /* Right (default): unstick the left edge, stretch height */
-  :where(.v-popover[data-type='drawer']:not([data-position])),
-  :where(.v-popover[data-type='drawer'][data-position='right']) {
+  :where(.v-popover[data-type='drawer']:not([data-side])),
+  :where(.v-popover[data-type='drawer'][data-side='right']) {
     left: auto;
     height: 100%;
   }
 
   /* Left: unstick the right edge */
-  :where(.v-popover[data-type='drawer'][data-position='left']) {
+  :where(.v-popover[data-type='drawer'][data-side='left']) {
     right: auto;
     height: 100%;
   }
 
   /* Top: unstick the bottom edge */
-  :where(.v-popover[data-type='drawer'][data-position='top']) {
+  :where(.v-popover[data-type='drawer'][data-side='top']) {
     bottom: auto;
     width: 100%;
   }
 
   /* Bottom: unstick the top edge */
-  :where(.v-popover[data-type='drawer'][data-position='bottom']) {
+  :where(.v-popover[data-type='drawer'][data-side='bottom']) {
     top: auto;
     width: 100%;
   }
 
   /* --- Tooltip: implicit anchor positioning --- */
   /* The popover's implicit anchor is its triggering element (popovertarget).
-     position-area positions relative to it automatically — no anchor-name needed. */
+     position-area positions relative to it automatically — no anchor-name needed.
+     data-side picks top/bottom; data-align picks which edges line up. */
 
-  :where(.v-popover[data-type='tooltip']:not([data-position])),
-  :where(.v-popover[data-type='tooltip'][data-position='top']) {
-    position-area: top;
+  :where(.v-popover[data-type='tooltip']) {
+    margin: 0;
+    inset: auto;
+    /* `center` matches the anchor's width, so size to content instead. */
+    width: max-content;
+    --_side: top;
+    --_align: center;
+    position-area: var(--_side) var(--_align);
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
   }
 
-  :where(.v-popover[data-type='tooltip'][data-position='bottom']) {
-    position-area: bottom;
+  :where(.v-popover[data-type='tooltip'][data-side='bottom']) {
+    --_side: bottom;
   }
 
-  :where(.v-popover[data-type='tooltip'][data-position='left']) {
-    position-area: left;
+  /* "Left edges line up" = the tooltip sticks out to the right. */
+  :where(.v-popover[data-type='tooltip'][data-align='left']) {
+    --_align: span-right;
   }
 
-  :where(.v-popover[data-type='tooltip'][data-position='right']) {
-    position-area: right;
+  /* "Right edges line up" = the tooltip sticks out to the left. */
+  :where(.v-popover[data-type='tooltip'][data-align='right']) {
+    --_align: span-left;
   }
-
-  /* --- Backdrop --- */
 
   :where(.v-popover[data-backdrop])::backdrop {
     background: oklch(from var(--backdrop) l c h / 0.4);
-    filter: blur(15px);
+    /* backdrop-filter: blur(15px); */
   }
 }
 
@@ -126,42 +136,39 @@
   }
 
   :where(.v-popover[data-type='dialog']) {
-    --_popover-enter-transform: translateY(-1rem) scale(0.97);
+    --_popover-duration-enter: 500ms;
+    --_popover-enter-transform: translateY(-3rem) scale(0.97);
   }
 
   /* --- Tooltip --- */
   /*
-   * A tooltip is anchored to its trigger, so it scales from the edge that
-   * touches the trigger and travels toward it: it reads as coming out of the
-   * trigger rather than arriving from nowhere. Small element, short travel,
-   * so it takes the quick duration.
+   * A tooltip is anchored to its trigger, so it scales from the corner nearest
+   * the trigger and travels toward it: it reads as coming out of the trigger
+   * rather than arriving from nowhere. Small element, short travel, so it takes
+   * the quick duration.
    */
   :where(.v-popover[data-type='tooltip']) {
     --_popover-duration-enter: var(
       --popover-duration-enter,
       var(--interaction-transition-duration-enter)
     );
+    --_origin-y: bottom;
+    --_origin-x: center;
+    transform-origin: var(--_origin-x) var(--_origin-y);
+    --_popover-enter-transform: translateY(0.25rem) scale(0.95);
   }
 
-  :where(.v-popover[data-type='tooltip']:not([data-position])),
-  :where(.v-popover[data-type='tooltip'][data-position='top']) {
-    --_popover-enter-transform: translateY(2.25rem) scale(0.95);
-    /* transform-origin: bottom center; */
+  :where(.v-popover[data-type='tooltip'][data-side='bottom']) {
+    --_origin-y: top;
+    --_popover-enter-transform: translateY(-0.25rem) scale(0.95);
   }
 
-  :where(.v-popover[data-type='tooltip'][data-position='bottom']) {
-    --_popover-enter-transform: translateY(-2.25rem) scale(0.95);
-    /* transform-origin: top center; */
+  :where(.v-popover[data-type='tooltip'][data-align='left']) {
+    --_origin-x: left;
   }
 
-  :where(.v-popover[data-type='tooltip'][data-position='left']) {
-    --_popover-enter-transform: translateX(2.25rem) scale(0.95);
-    /* transform-origin: right center; */
-  }
-
-  :where(.v-popover[data-type='tooltip'][data-position='right']) {
-    --_popover-enter-transform: translateX(-2.25rem) scale(0.95);
-    /* transform-origin: left center; */
+  :where(.v-popover[data-type='tooltip'][data-align='right']) {
+    --_origin-x: right;
   }
 
   /* --- Drawer --- */
@@ -184,26 +191,26 @@
     --_popover-exit-opacity: 1;
   }
 
-  :where(.v-popover[data-type='drawer']:not([data-position])),
-  :where(.v-popover[data-type='drawer'][data-position='right']) {
+  :where(.v-popover[data-type='drawer']:not([data-side])),
+  :where(.v-popover[data-type='drawer'][data-side='right']) {
     --_popover-enter-transform: translateX(100%);
     --_popover-exit-transform: translateX(100%);
   }
 
   /* Drawer: left */
-  :where(.v-popover[data-type='drawer'][data-position='left']) {
+  :where(.v-popover[data-type='drawer'][data-side='left']) {
     --_popover-enter-transform: translateX(-100%);
     --_popover-exit-transform: translateX(-100%);
   }
 
   /* Drawer: top */
-  :where(.v-popover[data-type='drawer'][data-position='top']) {
+  :where(.v-popover[data-type='drawer'][data-side='top']) {
     --_popover-enter-transform: translateY(-100%);
     --_popover-exit-transform: translateY(-100%);
   }
 
   /* Drawer: bottom */
-  :where(.v-popover[data-type='drawer'][data-position='bottom']) {
+  :where(.v-popover[data-type='drawer'][data-side='bottom']) {
     --_popover-enter-transform: translateY(100%);
     --_popover-exit-transform: translateY(100%);
   }

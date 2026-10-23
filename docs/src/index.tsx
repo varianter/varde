@@ -500,7 +500,7 @@ app.use(
               <div
                 id="nav-popover"
                 data-type="drawer"
-                data-position="left"
+                data-side="left"
                 popover="auto"
                 class="v-popover"
               >
@@ -572,7 +572,7 @@ for (const { category, slug } of getKnowledgeDocs()) {
     }
     const content = await processMarkdown(doc.content);
     return c.render(
-      <DocsPage title={doc.title} description={doc.description} tags={doc.tags}>
+      <DocsPage title={doc.title} description={doc.description} tags={doc.tags} group={doc.group}>
         <Markdown html={content} />
       </DocsPage>,
       { title: doc.title, markdownPath },
