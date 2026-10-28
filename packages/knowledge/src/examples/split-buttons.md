@@ -96,7 +96,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
   data-side="bottom"
 >
   <div
-    class="p-3xs b-all surface-base stack-v br-l w-max-4 fs-s m-2xs"
+    class="p-3xs b-all surface-base stack-v br-l w-max-2 fs-s m-2xs"
     stagger-items="from-above"
   >
     <div class="p-3xs bg-wash:hover br-m stack-v gap-3xs" href="#">

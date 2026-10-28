@@ -132,7 +132,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Bacob Jerglund</p>
@@ -225,7 +225,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Emma Sundby</p>
@@ -307,7 +307,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Olav Haugen</p>
@@ -368,7 +368,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Maja Solberg</p>
@@ -436,7 +436,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Henrik Dahl</p>
@@ -497,7 +497,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Ingrid Moe</p>
@@ -572,7 +572,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Sander Vik</p>
@@ -633,7 +633,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
     <div class="head-column stack-h gap-xs">
       <div
         style="height: 2lh; width: 2lh;"
-        class="surface-dyed aspect-square br-s w-max-2"
+        class="surface-dyed aspect-square br-s w-max-1"
       ></div>
       <div class="name pr-2xs">
         <p class="fs-s fw-medium">Nora Eriksen</p>
@@ -892,7 +892,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
             >Fra</label
           >
           <input
-            class="v-input w-max-2 ml-auto ta-right"
+            class="v-input w-max-1 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceFrom"
@@ -905,7 +905,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
             >Til</label
           >
           <input
-            class="v-input w-max-2 ml-auto ta-right"
+            class="v-input w-max-1 ml-auto ta-right"
             type="number"
             data-size="small"
             id="yearsExperienceTo"

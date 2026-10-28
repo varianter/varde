@@ -230,7 +230,7 @@ Reset a single corner with `.br-tl-none`, `.br-tr-none`, `.br-bl-none`, or `.br-
 | `.w-min-content`       | `width: min-content`                |
 | `.w-max-content`       | `width: max-content`                |
 | `.w-min-0`             | `min-width: 0`                      |
-| `.w-max-0`–`.w-max-10` | `max-width` against the width scale |
+| `.w-max-1`–`.w-max-10` | `max-width` in 8rem steps          |
 
 ## Components
 

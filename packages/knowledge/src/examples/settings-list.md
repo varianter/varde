@@ -6,7 +6,7 @@ tags: [forms]
 ---
 
 ```html
-<div class="surface-base b-all bc-subtle br-l of-clip w-max-7">
+<div class="surface-base b-all bc-subtle br-l of-clip w-max-6">
   <div class="stack-h gap-s px-s py-s b-b bc-subtle b-none:last-child">
     <span class="v-icon ink-subtle fs-xs" data-v-icon="pencil"></span>
     <div class="stack-v grow">

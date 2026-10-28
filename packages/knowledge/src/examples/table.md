@@ -6,7 +6,7 @@ tags: [tables]
 ---
 
 ```html
-<div class="surface-base br-m w-max-7 mx-auto my-xl p-m">
+<div class="surface-base br-m w-max-6 mx-auto my-xl p-m">
   <div class="stack-h items-center justify-between mb-s">
     <h3 class="fs-l">Orders</h3>
     <button class="v-button" data-variant="plain" data-size="small">

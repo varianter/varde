@@ -24,7 +24,7 @@ This one leverages a popover, a details list, and a form
     stagger-items="soft"
   >
     <div class="stack-h gap-m items-start">
-      <div class="w-max-4">
+      <div class="w-max-2">
         <h1 class="lh-tight">Get started with Varde</h1>
         <p class="ink-subtle mt-xs">It's really simple – anyone could do it!</p>
       </div>

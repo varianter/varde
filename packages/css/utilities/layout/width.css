@@ -1,27 +1,19 @@
 :root {
-  /* Base configuration */
-  --width-base: 4rem;
-  --width-factor: 1.414;
-  --width-round: 0.25rem; /* round to nearest quarter rem for cleaner values */
+  --width-step: 8rem;
 
-  /* Primitive scale — pure steps, no semantics */
-  --width-0: var(--width-base);
-  --width-1: round(calc(var(--width-base) * pow(var(--width-factor), 1)), var(--width-round));
-  --width-2: round(calc(var(--width-base) * pow(var(--width-factor), 2)), var(--width-round));
-  --width-3: round(calc(var(--width-base) * pow(var(--width-factor), 3)), var(--width-round));
-  --width-4: round(calc(var(--width-base) * pow(var(--width-factor), 4)), var(--width-round));
-  --width-5: round(calc(var(--width-base) * pow(var(--width-factor), 5)), var(--width-round));
-  --width-6: round(calc(var(--width-base) * pow(var(--width-factor), 6)), var(--width-round));
-  --width-7: round(calc(var(--width-base) * pow(var(--width-factor), 7)), var(--width-round));
-  --width-8: round(calc(var(--width-base) * pow(var(--width-factor), 8)), var(--width-round));
-  --width-9: round(calc(var(--width-base) * pow(var(--width-factor), 9)), var(--width-round));
-  --width-10: round(calc(var(--width-base) * pow(var(--width-factor), 10)), var(--width-round));
+  --width-1: calc(var(--width-step) * 1);
+  --width-2: calc(var(--width-step) * 2);
+  --width-3: calc(var(--width-step) * 3);
+  --width-4: calc(var(--width-step) * 4);
+  --width-5: calc(var(--width-step) * 5);
+  --width-6: calc(var(--width-step) * 6);
+  --width-7: calc(var(--width-step) * 7);
+  --width-8: calc(var(--width-step) * 8);
+  --width-9: calc(var(--width-step) * 9);
+  --width-10: calc(var(--width-step) * 10);
 }
 
 /* Max-width utilities */
-.w-max-0 {
-  max-width: var(--width-0);
-}
 .w-max-1 {
   max-width: var(--width-1);
 }
