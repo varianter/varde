@@ -371,6 +371,11 @@ class CodeExample extends HTMLElement {
     if (preview) {
       const render = () => {
         preview.innerHTML = this._jar.toString();
+        for (const inert of preview.querySelectorAll("script")) {
+          const script = document.createElement("script");
+          script.textContent = `{${inert.textContent}}`;
+          inert.replaceWith(script);
+        }
       };
       this._jar.onUpdate(render);
       render();
