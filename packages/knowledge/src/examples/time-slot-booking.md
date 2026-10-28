@@ -118,7 +118,7 @@ tags: [booking]
   >
     <div
       style="width: 20ch;"
-      class="p-3xs b-all bc-subtle surface-base stack-v gap-3xs br-m shadow-mid w-max-5 of-clip m-2xs fs-s"
+      class="p-3xs b-all bc-subtle surface-base stack-v gap-3xs br-m shadow-mid w-max-3 of-clip m-2xs fs-s"
     >
       <div class="stack-h gap-2xs p-3xs">
         <span class="fw-medium">Aktivitet</span>

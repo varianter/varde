@@ -6,7 +6,7 @@ tags: [color-mode]
 ---
 
 ```html
-<div class="stack-v gap-s w-max-7">
+<div class="stack-v gap-s w-max-6">
   <color-mode palette="green">
     <div class="surface-dyed py-4xs px-xs b-all bc-subtle br-l">
       <div class="stack-h gap-xs justify-center">

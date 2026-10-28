@@ -8,7 +8,7 @@ tags: [forms]
 Each group is a native `<details>` element, so it opens and closes without JS. The counts are static here; keeping them in sync with the checkboxes takes a few lines of JS.
 
 ```html
-<div class="stack-v gap-s surface-base p-s br-l w-max-7">
+<div class="stack-v gap-s surface-base p-s br-l w-max-6">
   <div class="stack-h items-center gap-s">
     <p>Choose what members of this role can see and change.</p>
     <p class="ml-auto fs-s ink-subtle">3 of 22 enabled</p>

@@ -23,7 +23,7 @@ A horizontal top bar with a logotype, plain-text links, an active state picked o
 A sidebar with a search field, grouped section labels, an active row lifted with `surface-tinted`, and two expandable sections (built with native `<details>`/`<summary>` — no JS needed) that reveal a nested list of links.
 
 ```html
-<nav class="stack-v surface-base b-all bc-subtle br-l p-2xs w-max-4">
+<nav class="stack-v surface-base b-all bc-subtle br-l p-2xs w-max-2">
   <input
     type="search"
     class="v-input w-full mb-xs"
@@ -127,7 +127,7 @@ A collapsed, icon-only rail — the same links as the sidebar above, reduced to 
 
 ```html
 <nav
-  class="stack-v items-center gap-3xs surface-base b-all bc-subtle br-l p-2xs w-max-0"
+  class="stack-v items-center gap-3xs surface-base b-all bc-subtle br-l p-2xs w-fit"
   style="min-height: 20rem;"
   aria-label="Hovedmeny"
 >

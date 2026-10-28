@@ -105,7 +105,7 @@ export default function ColorModesPage() {
     <article class="stack-v gap-xl mx-auto py-xl px-xl" style="max-width: 1400px;">
       <header class="pt-2xl pb-xl">
         <h2 class="fs-3xl fw-bold">{title}</h2>
-        <p class="fs-l ink-subtle w-max-7">{description}</p>
+        <p class="fs-l ink-subtle w-max-6">{description}</p>
       </header>
 
       <div

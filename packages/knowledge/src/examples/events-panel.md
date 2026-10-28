@@ -12,7 +12,7 @@ tags: [color-mode, composition]
   class="br-2xl items-start of-hidden stack-h surface-dyed"
   style=""
 >
-  <div class="gap-s p-s self-stretch stack-v w-max-6 w-min-0" style="">
+  <div class="gap-s p-s self-stretch stack-v w-max-4 w-min-0" style="">
     <h2 class="fs-4xl fw-bold lh-tight mt-xl" style="overflow-wrap: anywhere;">
       Arrangementer
     </h2>

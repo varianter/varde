@@ -13,7 +13,7 @@ One statement, one supporting line, one byline. The whole block is lit by a `col
 
 ```html
 <color-mode palette="periwinkle" class="d-block surface-tinted br-l p-xl">
-  <div class="stack-v gap-s w-max-7">
+  <div class="stack-v gap-s w-max-6">
     <p class="fs-xs tt-uppercase ink-subtle">Issue 04 · Winter 2026</p>
     <h1 class="fs-4xl fw-bold">The quiet art of making space</h1>
     <p class="fs-xl ink-subtle lh-normal">
@@ -34,7 +34,7 @@ One statement, one supporting line, one byline. The whole block is lit by a `col
 A quote earns its size. A thick left rule does the work of quotation marks; the attribution stays quiet underneath.
 
 ```html
-<figure class="stack-v gap-m w-max-7">
+<figure class="stack-v gap-m w-max-6">
   <blockquote class="fs-3xl fw-medium lh-normal b-l bw-thick bc-prominent pl-m">
     “Restraint reads as confidence only when it is deliberate.”
   </blockquote>
@@ -46,10 +46,10 @@ A quote earns its size. A thick left rule does the work of quotation marks; the 
 
 ## Long-form article
 
-The reading experience. A narrow measure (`w-max-6`), a standfirst that leads, body text with a little extra air (`lh-relaxed`), and a subhead that interrupts rather than competes.
+The reading experience. A narrow measure (`w-max-4`), a standfirst that leads, body text with a little extra air (`lh-relaxed`), and a subhead that interrupts rather than competes.
 
 ```html
-<article class="stack-v gap-m w-max-6">
+<article class="stack-v gap-m w-max-4">
   <header class="stack-v gap-2xs">
     <p class="fs-xs tt-uppercase ink-subtle">Essay</p>
     <h2 class="fs-2xl fw-bold">Less is a decision</h2>

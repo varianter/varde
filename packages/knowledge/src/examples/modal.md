@@ -7,7 +7,7 @@ tags: [forms]
 
 ```html
 <div
-  class="surface-base w-max-7 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
+  class="surface-base w-max-6 b-all b-fait br-xl shadow-mid p-s stack-v gap-s of-clip"
 >
   <div class="v-typeset">
     <h4 class="fw-bold fs-xs tt-uppercase">Create token</h4>

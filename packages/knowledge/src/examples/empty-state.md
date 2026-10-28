@@ -7,7 +7,7 @@ tags: [composition]
 
 ```html
 <div
-  class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center w-max-7"
+  class="surface-base b-all bc-subtle br-xl p-xl stack-v items-center w-max-6"
 >
   <span class="v-icon fs-2xl ink-subtle" data-v-icon="plus"></span>
   <h3 class="fs-l fw-bold mt-m">No projects yet</h3>
