@@ -73,7 +73,7 @@ export function SearchDialog() {
                 />
               </div>
             </div>
-            <div class="of-scroll pt-xs" style="max-height: min(70svh, 640px);">
+            <div class="of-auto pt-xs" style="max-height: min(70svh, 640px);">
               <div
                 id="search-results"
                 class="w-full stack-v gap-3xs px-xs pb-m"

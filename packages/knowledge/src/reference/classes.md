@@ -67,7 +67,10 @@ Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp 
 | Axis               | On the container                                                 | On a single child                                                                    |
 | ------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | Cross (`align-*`)  | `items-start` `items-end` `items-center` `items-stretch`         | `self-start` `self-end` `self-center` `self-stretch`                                 |
-| Main (`justify-*`) | `justify-start` `justify-end` `justify-center` `justify-between` | `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch` |
+| Main (`justify-*`) | `justify-start` `justify-end` `justify-center` `justify-between` `justify-around` `justify-evenly` | `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch` |
+| Lines (`content-*`) | `content-start` `content-end` `content-center` `content-between` `content-stretch` | — |
+
+`content-*` sets `align-content`, which positions wrapped lines or grid tracks. `place-center` sets `place-items: center`.
 
 `justify-self-*` only works in grid. In flex, distribute main-axis space with `justify-*` on the container, `.grow`, or auto margins.
 
@@ -88,10 +91,24 @@ Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp 
 
 | Class                                     | CSS                     |
 | ----------------------------------------- | ----------------------- |
+| `.pos-static`                             | `position: static`      |
+| `.pos-relative`                           | `position: relative`    |
 | `.pos-sticky`                             | `position: sticky`      |
 | `.pos-absolute`                           | `position: absolute`    |
 | `.pos-fixed`                              | `position: fixed`       |
 | `.top-0` `.bottom-0` `.left-0` `.right-0` | `0` offset on that edge |
+| `.inset-0`                                | `0` offset on all edges |
+
+**Stacking:**
+
+| Class      | CSS                  |
+| ---------- | -------------------- |
+| `.isolate` | `isolation: isolate` |
+| `.z-below` | `z-index: -1`        |
+| `.z-0`     | `z-index: 0`         |
+| `.z-1`     | `z-index: 1`         |
+
+Put `.isolate` on the container so its children's z-index stays local to it.
 
 ## Typography
 
@@ -120,6 +137,8 @@ Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp 
 | `.ta-right`     | `text-align: right`                  |
 | `.tt-uppercase` | `text-transform: uppercase`          |
 | `.t-tabular`    | `font-variant-numeric: tabular-nums` |
+| `.t-nowrap`     | `white-space: nowrap`                |
+| `.t-truncate`   | Single line, cut off with an ellipsis |
 
 **Line height:**
 
@@ -232,6 +251,14 @@ Reset a single corner with `.br-tl-none`, `.br-tr-none`, `.br-bl-none`, or `.br-
 | `.w-min-0`             | `min-width: 0`                      |
 | `.w-max-1`–`.w-max-10` | `max-width` in 8rem steps          |
 
+## Heights
+
+| Class      | Value            |
+| ---------- | ---------------- |
+| `.h-full`  | `height: 100%`   |
+| `.h-auto`  | `height: auto`   |
+| `.h-min-0` | `min-height: 0`  |
+
 ## Components
 
 ### Button
@@ -315,5 +342,10 @@ Built-in icons: `plus`, `pencil`, `chevron-down`, `chevron-up`, `chevron-left`, 
 | `.of-hidden`     | `overflow: hidden`                                 |
 | `.of-clip`       | `overflow: clip`                                   |
 | `.of-scroll`     | `overflow: scroll`                                 |
+| `.of-auto`       | `overflow: auto`                                   |
+| `.of-x-hidden` `.of-x-clip` `.of-x-auto` | `overflow-x` only                  |
+| `.of-y-hidden` `.of-y-clip` `.of-y-auto` | `overflow-y` only                  |
 | `.aspect-square` | `aspect-ratio: 1 / 1`                              |
 | `.list`          | `list-style-position: inside`, square `ul` bullets |
+
+The scrolling classes (`.of-scroll`, `.of-auto`, `.of-x-auto`, `.of-y-auto`) also set `scroll-behavior: smooth`, at zero specificity so it's easy to override.

@@ -44,6 +44,32 @@
   .justify-between {
     justify-content: space-between;
   }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  .content-start {
+    align-content: start;
+  }
+  .content-end {
+    align-content: end;
+  }
+  .content-center {
+    align-content: center;
+  }
+  .content-between {
+    align-content: space-between;
+  }
+  .content-stretch {
+    align-content: stretch;
+  }
+
+  .place-center {
+    place-items: center;
+  }
 
   .justify-self-start {
     justify-self: start;

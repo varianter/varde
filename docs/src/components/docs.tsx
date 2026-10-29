@@ -82,7 +82,7 @@ export function ExamplePanel({ children, resize = false }: { children: Child; re
     <color-mode
       palette="inherit"
       data-component="ExamplePanel"
-      class="stack-v gap-s surface-tinted p-l br-m of-scroll"
+      class="stack-v gap-s surface-tinted p-l br-m of-auto"
       style={resize ? "resize: horizontal;" : undefined}
     >
       {children}
