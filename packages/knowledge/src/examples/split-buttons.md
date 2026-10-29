@@ -8,10 +8,10 @@ tags: [buttons]
 Not sure if it is possible, but here we go!
 https://vercel.com/geist/split-button
 
-Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h nowrap`, when using a
+Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h flex-nowrap`, when using a
 
 ```html
-<div class="stack-h nowrap">
+<div class="stack-h flex-nowrap">
   <button class="v-button br-tr-none br-br-none px-l">Save</button>
   <div class="bg-currentcolor self-stretch"></div>
   <button
@@ -35,7 +35,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
   </button>
 </div>
 
-<div class="stack-h nowrap">
+<div class="stack-h flex-nowrap">
   <button data-variant="tinted" class="v-button br-tr-none br-br-none px-l">
     Save
   </button>
@@ -62,7 +62,7 @@ Edit: turns out it's somewhat possible. We're using two buttons in a `stack-h no
   </button>
 </div>
 
-<div class="stack-h nowrap">
+<div class="stack-h flex-nowrap">
   <button data-variant="outlined" class="v-button br-tr-none br-br-none px-l">
     Save
   </button>

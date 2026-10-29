@@ -23,7 +23,7 @@ The default `.stack-v` is a vertical flex column. Use it for any top-to-bottom f
 
 ## Horizontal stacks
 
-Three horizontal variants control cross-axis alignment. All wrap by default — use `.nowrap` only when you're certain items should never wrap.
+Three horizontal variants control cross-axis alignment. All wrap by default — use `.flex-nowrap` only when you're certain items should never wrap.
 
 `.stack-h` — centered (default)
 
@@ -116,10 +116,10 @@ Three horizontal variants control cross-axis alignment. All wrap by default — 
 </div>
 ```
 
-`.nowrap` — forced single line (use sparingly)
+`.flex-nowrap` — forced single line (use sparingly)
 
 ```html resize
-<div class="stack-h nowrap gap-s of-scroll">
+<div class="stack-h flex-nowrap gap-s of-scroll">
   <div class="fs-s fw-medium px-xs py-2xs br-m demo-box surface-dyed">
     <span class="ink-default fw-bold">Alpha</span>
   </div>
@@ -191,7 +191,7 @@ Control how items grow and shrink within a stack.
 `.shrink` — flex-shrink: 1
 
 ```html resize
-<div class="stack-h nowrap gap-s">
+<div class="stack-h flex-nowrap gap-s">
   <div class="grow">
     <div class="fs-s fw-medium px-xs py-2xs br-m demo-box surface-dyed">
       <span class="ink-default fw-bold">.grow</span>

@@ -24,7 +24,10 @@
     flex: 1;
   }
 
-  .nowrap {
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-nowrap {
     flex-wrap: nowrap;
   }
 }

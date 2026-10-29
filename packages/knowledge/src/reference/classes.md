@@ -55,12 +55,13 @@ Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp 
 
 **Flex modifiers:**
 
-| Class     | CSS                 |
-| --------- | ------------------- |
-| `.grow`   | `flex-grow: 1`      |
-| `.shrink` | `flex-shrink: 1`    |
-| `.flex-1` | `flex: 1`           |
-| `.nowrap` | `flex-wrap: nowrap` |
+| Class          | CSS                 |
+| -------------- | ------------------- |
+| `.grow`        | `flex-grow: 1`      |
+| `.shrink`      | `flex-shrink: 1`    |
+| `.flex-1`      | `flex: 1`           |
+| `.flex-wrap`   | `flex-wrap: wrap`   |
+| `.flex-nowrap` | `flex-wrap: nowrap` |
 
 **Alignment:**
 

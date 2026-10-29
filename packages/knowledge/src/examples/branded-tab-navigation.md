@@ -10,7 +10,7 @@ A branded tab strip where the active tab joins the panel below. The custom CSS d
 ```html
 <color-mode palette="purple" class="stack-v">
   <nav
-    class="stack-h nowrap items-start gap-3xs pos-relative"
+    class="stack-h flex-nowrap items-start gap-3xs pos-relative"
     role="tablist"
     data-sliding-tabs
   >
@@ -201,7 +201,7 @@ Without `inverted`, the background and the panel use `surface-dyed`, so the sele
 ```html
 <color-mode palette="purple" class="stack-v">
   <nav
-    class="stack-h nowrap items-start gap-3xs pos-relative"
+    class="stack-h flex-nowrap items-start gap-3xs pos-relative"
     role="tablist"
     data-sliding-tabs
   >

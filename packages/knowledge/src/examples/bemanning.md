@@ -151,7 +151,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
         >
           <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -180,7 +180,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
         <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
           >
             <div
               class="v-icon"
@@ -191,7 +191,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
           </color-mode>
           <color-mode
             palette="yellow"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
           >
             <div
               class="v-icon"
@@ -244,7 +244,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
         >
           <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -273,7 +273,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
         <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
           >
             <div
               class="v-icon"
@@ -402,7 +402,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
       >
         <color-mode
           palette="blue"
-          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+          class="ml-auto p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
         >
           <div class="v-icon" style="font-size: 8px;" data-v-icon="plus"></div>
           <div class="lh-tight">7.5</div>
@@ -543,7 +543,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
         <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
           >
             <div
               class="v-icon"
@@ -664,7 +664,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
         <div class="stack-h justify-end gap-3xs">
           <color-mode
             palette="purple"
-            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h nowrap gap-4xs"
+            class=" p-4xs pr-3xs surface-dyed fs-xs br-s b-all bc-subtle stack-h flex-nowrap gap-4xs"
           >
             <div
               class="v-icon"
@@ -714,7 +714,7 @@ Tip: Use the **"Filter"-button** to show filters. Mind you, this is static HTML,
   style="width: 420px;"
 >
   <div
-    class="stack-v nowrap gap-s px-m pt-0 pb-m surface-tinted  of-scroll shadow-high m-s"
+    class="stack-v gap-s px-m pt-0 pb-m surface-tinted  of-scroll shadow-high m-s"
     style="
       min-height: 100svh;
       max-height: 100svh;

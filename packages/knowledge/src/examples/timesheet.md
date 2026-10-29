@@ -19,7 +19,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
       Legg til rad
     </button>
   </color-mode>
-  <div class="stack-h nowrap b-all bc-default br-l ml-auto p-4xs">
+  <div class="stack-h flex-nowrap b-all bc-default br-l ml-auto p-4xs">
     <button
       class="v-button aspect-square p-0"
       data-variant="plain"
@@ -28,7 +28,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
     >
       <div class="v-icon" data-v-icon="chevron-left"></div>
     </button>
-    <span class="stack-h nowrap gap-2xs px-xs fw-medium">
+    <span class="stack-h flex-nowrap gap-2xs px-xs fw-medium">
       <svg
         width="16"
         height="16"
@@ -65,7 +65,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
   <div class="grid-subgrid grid-all-columns b-b bc-subtle fs-s">
     <div></div>
     <div class="ta-right py-xs ink-subtle">
-      <div class="stack-h nowrap gap-4xs justify-end">
+      <div class="stack-h flex-nowrap gap-4xs justify-end">
         <svg
           width="12"
           height="12"
@@ -82,7 +82,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
       21. sep
     </div>
     <div class="ta-right py-xs ink-subtle">
-      <div class="stack-h nowrap gap-4xs justify-end">
+      <div class="stack-h flex-nowrap gap-4xs justify-end">
         <svg
           width="12"
           height="12"
@@ -99,7 +99,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
       22. sep
     </div>
     <div class="ta-right py-xs ink-subtle">
-      <div class="stack-h nowrap gap-4xs justify-end">
+      <div class="stack-h flex-nowrap gap-4xs justify-end">
         <svg
           width="12"
           height="12"
@@ -352,7 +352,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
 </div>
 
 <div class="stack-h gap-s mt-l">
-  <div class="stack-h nowrap">
+  <div class="stack-h flex-nowrap">
     <button class="v-button br-tr-none br-br-none" data-variant="outlined">
       Kopier fra forrige uke (kun prosjekter)
     </button>
@@ -364,7 +364,7 @@ A week of hours per project. Today's column is highlighted with a `color-mode`, 
       <div class="v-icon" data-v-icon="chevron-down"></div>
     </button>
   </div>
-  <div class="stack-h nowrap ml-auto">
+  <div class="stack-h flex-nowrap ml-auto">
     <button class="v-button br-tr-none br-br-none" data-variant="outlined">
       Send uken til godkjenning
     </button>
