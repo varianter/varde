@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.1.0](https://github.com/varianter/varde/compare/varde-v2.0.1...varde-v2.1.0) (2026-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* `.nowrap` is renamed to `.flex-nowrap`.
+* add overflow, height, stacking, alignment and text utilities
+* `.isolatation` is renamed to `.isolate`.
+* max-width classes keep their names but change size.
+
+### Features
+
+* add overflow, height, stacking, alignment and text utilities ([0bd43df](https://github.com/varianter/varde/commit/0bd43df5e701a26ed20c15df18f323756e8aa0fc))
+* add t-wrap-anywhere utility ([6eab3af](https://github.com/varianter/varde/commit/6eab3af08cae9af8f008086e8cb738cd5356616c))
+* linear max-width scale in 8rem steps ([40e5604](https://github.com/varianter/varde/commit/40e56040de86ce3c2b0f4f0fb006a47a52969ee1))
+* rename nowrap to flex-nowrap, add flex-wrap ([6083ebd](https://github.com/varianter/varde/commit/6083ebd4622ea3db3fd25147db278c6f0bf9e1f8))
+
+
+### Bug Fixes
+
+* `pos-relative` set `position: sticky`. ([0bd43df](https://github.com/varianter/varde/commit/0bd43df5e701a26ed20c15df18f323756e8aa0fc))
+* **css:** stop stack-v from wrapping ([667f207](https://github.com/varianter/varde/commit/667f20720c1d97bdc36fbb0f5bef915d334c0171))
+* **docs:** run scripts in live example previews ([439160e](https://github.com/varianter/varde/commit/439160ee091bce52ef2d543af5b85e93ffc6aba9))
+
 ## [2.0.1](https://github.com/varianter/varde/compare/varde-v2.0.0...varde-v2.0.1) (2026-10-23)
 
 
