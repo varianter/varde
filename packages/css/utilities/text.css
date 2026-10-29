@@ -45,4 +45,13 @@
   .t-tabular {
     font-variant-numeric: tabular-nums;
   }
+
+  .t-nowrap {
+    white-space: nowrap;
+  }
+  .t-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

@@ -19,7 +19,7 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
   const codeBlock = `<pre class="microjar my-l fs-s px-m py-m v-untypeset" data-pagefind-ignore><code data-language="${lang}">${escapeHtml(code)}</code></pre>`;
   if (noPreview) return codeBlock;
 
-  const previewClass = `d-block code-example__preview p-s surface-base v-untypeset${resize ? " of-scroll" : ""}`;
+  const previewClass = `d-block code-example__preview p-s surface-base v-untypeset${resize ? " of-auto" : ""}`;
   const previewStyle = resize ? ' style="resize: horizontal;"' : "";
   const preview =
     lang === "html"
@@ -31,7 +31,7 @@ function codeExample(lang: string, code: string, meta: string | null | undefined
     preview,
     `<details class="b-t bc-subtle surface-tinted"${open}>`,
     `<summary class="px-s py-2xs my-xs mx-xs v-button" data-size="small" data-variant="outlined"><div>Show editor</div></summary>`,
-    `<div class="px-s of-scroll" style="background-color: var(--syntax-bg);">`,
+    `<div class="px-s of-auto" style="background-color: var(--syntax-bg);">`,
     `<pre class="microjar fs-s px-m py-m -mx-s w-max-content"><code data-language="${lang}">${escapeHtml(code)}</code></pre>`,
     `</div>`,
     `</details>`,

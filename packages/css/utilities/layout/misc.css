@@ -9,7 +9,42 @@
 
   .of-scroll {
     overflow: scroll;
+  }
+  .of-auto {
+    overflow: auto;
+  }
+  .of-x-hidden {
+    overflow-x: hidden;
+  }
+  .of-x-clip {
+    overflow-x: clip;
+  }
+  .of-x-auto {
+    overflow-x: auto;
+  }
+  .of-y-hidden {
+    overflow-y: hidden;
+  }
+  .of-y-clip {
+    overflow-y: clip;
+  }
+  .of-y-auto {
+    overflow-y: auto;
+  }
+
+  :where(.of-scroll, .of-auto, .of-x-auto, .of-y-auto) {
     scroll-behavior: smooth;
+  }
+
+  .h-full {
+    height: 100%;
+  }
+  .h-auto {
+    height: auto;
+  }
+  /* flex child escape hatch */
+  .h-min-0 {
+    min-height: 0;
   }
 
   .aspect-square {
@@ -46,11 +81,24 @@
     grid-column: 1 / -1;
   }
 
-  .isolatation {
+  .isolate {
     isolation: isolate;
   }
+  .z-below {
+    z-index: -1;
+  }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-1 {
+    z-index: 1;
+  }
+
+  .pos-static {
+    position: static;
+  }
   .pos-relative {
-    position: sticky;
+    position: relative;
   }
   .pos-sticky {
     position: sticky;
@@ -62,6 +110,9 @@
     position: fixed;
   }
 
+  .inset-0 {
+    inset: 0;
+  }
   .top-0 {
     top: 0;
   }
