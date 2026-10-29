@@ -3,12 +3,15 @@
   .stack-h {
     display: flex;
     justify-content: flex-start;
-    flex-flow: column wrap;
+  }
+
+  .stack-v {
+    flex-flow: column nowrap;
   }
 
   .stack-h {
     align-items: center;
-    flex-direction: row;
+    flex-flow: row wrap;
   }
 
   .grow {

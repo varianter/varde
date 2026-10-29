@@ -8,7 +8,7 @@ tags: [color-mode, composition]
 A branded tab strip where the active tab joins the panel below. The custom CSS does three things. `position-anchor` pins one inverted background to the active tab, so it slides when the selection changes. Its `::before` and `::after` draw the curved corners with a masked `radial-gradient`. `--tab-overlap` tucks the panel under the strip, so the background covers the panel's corner on the first tab. A short script moves `aria-selected` and `inverted` to the clicked tab.
 
 ```html
-<color-mode palette="purple" class="stack-v nowrap">
+<color-mode palette="purple" class="stack-v">
   <nav
     class="stack-h nowrap items-start gap-3xs pos-relative"
     role="tablist"
@@ -199,7 +199,7 @@ A branded tab strip where the active tab joins the panel below. The custom CSS d
 Without `inverted`, the background and the panel use `surface-dyed`, so the selection keeps the page's polarity instead of flipping it. The script copies `inverted` to the active tab only when the background has it, so the CSS and script above drive both strips.
 
 ```html
-<color-mode palette="purple" class="stack-v nowrap">
+<color-mode palette="purple" class="stack-v">
   <nav
     class="stack-h nowrap items-start gap-3xs pos-relative"
     role="tablist"

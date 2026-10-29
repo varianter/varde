@@ -1,6 +1,6 @@
 ---
 title: Layout
-description: Flex-based layout primitives. Stack things vertically or horizontally, control sizing, and distribute space. All stacks use flex-wrap by default — no media queries needed. Items wrap naturally when space runs out, adapting to zoom, font size changes, and container resizing.
+description: Flex-based layout primitives. Stack things vertically or horizontally, control sizing, and distribute space. Horizontal stacks wrap by default — no media queries needed. Items wrap naturally when space runs out, adapting to zoom, font size changes, and container resizing.
 ---
 
 ## Vertical stack
