@@ -64,11 +64,11 @@ Margin and padding also accept one-up pairs (`4xs-3xs` … `2xl-3xl`) that ramp 
 
 **Alignment:**
 
-| Axis               | On the container                                                 | On a single child                                                                    |
-| ------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Cross (`align-*`)  | `items-start` `items-end` `items-center` `items-stretch`         | `self-start` `self-end` `self-center` `self-stretch`                                 |
-| Main (`justify-*`) | `justify-start` `justify-end` `justify-center` `justify-between` `justify-around` `justify-evenly` | `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch` |
-| Lines (`content-*`) | `content-start` `content-end` `content-center` `content-between` `content-stretch` | — |
+| Axis                | On the container                                                                                   | On a single child                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Cross (`align-*`)   | `items-start` `items-end` `items-center` `items-stretch`                                           | `self-start` `self-end` `self-center` `self-stretch`                                 |
+| Main (`justify-*`)  | `justify-start` `justify-end` `justify-center` `justify-between` `justify-around` `justify-evenly` | `justify-self-start` `justify-self-end` `justify-self-center` `justify-self-stretch` |
+| Lines (`content-*`) | `content-start` `content-end` `content-center` `content-between` `content-stretch`                 | —                                                                                    |
 
 `content-*` sets `align-content`, which positions wrapped lines or grid tracks. `place-center` sets `place-items: center`.
 
@@ -127,18 +127,19 @@ Put `.isolate` on the container so its children's z-index stays local to it.
 
 **Weight, alignment, and transform:**
 
-| Class           | Value                                |
-| --------------- | ------------------------------------ |
-| `.fw-regular`   | `font-weight: 400`                   |
-| `.fw-medium`    | `font-weight: 525`                   |
-| `.fw-bold`      | `font-weight: 650`                   |
-| `.ta-left`      | `text-align: left`                   |
-| `.ta-center`    | `text-align: center`                 |
-| `.ta-right`     | `text-align: right`                  |
-| `.tt-uppercase` | `text-transform: uppercase`          |
-| `.t-tabular`    | `font-variant-numeric: tabular-nums` |
-| `.t-nowrap`     | `white-space: nowrap`                |
-| `.t-truncate`   | Single line, cut off with an ellipsis |
+| Class            | Value                                 |
+| ---------------- | ------------------------------------- |
+| `.fw-regular`    | `font-weight: 400`                    |
+| `.fw-medium`     | `font-weight: 525`                    |
+| `.fw-bold`       | `font-weight: 650`                    |
+| `.ta-left`       | `text-align: left`                    |
+| `.ta-center`     | `text-align: center`                  |
+| `.ta-right`      | `text-align: right`                   |
+| `.tt-uppercase`  | `text-transform: uppercase`           |
+| `.t-tabular`     | `font-variant-numeric: tabular-nums`  |
+| `.t-nowrap`      | `white-space: nowrap`                 |
+| `.t-truncate`    | Single line, cut off with an ellipsis |
+| `.t-wrap-anywhere` | `overflow-wrap: anywhere`             |
 
 **Line height:**
 
@@ -241,23 +242,23 @@ Reset a single corner with `.br-tl-none`, `.br-tr-none`, `.br-bl-none`, or `.br-
 
 ## Widths
 
-| Class                  | Value                               |
-| ---------------------- | ----------------------------------- |
-| `.w-full`              | `width: 100%`                       |
-| `.w-auto`              | `width: auto`                       |
-| `.w-fit`               | `width: fit-content`                |
-| `.w-min-content`       | `width: min-content`                |
-| `.w-max-content`       | `width: max-content`                |
-| `.w-min-0`             | `min-width: 0`                      |
-| `.w-max-1`–`.w-max-10` | `max-width` in 8rem steps          |
+| Class                  | Value                     |
+| ---------------------- | ------------------------- |
+| `.w-full`              | `width: 100%`             |
+| `.w-auto`              | `width: auto`             |
+| `.w-fit`               | `width: fit-content`      |
+| `.w-min-content`       | `width: min-content`      |
+| `.w-max-content`       | `width: max-content`      |
+| `.w-min-0`             | `min-width: 0`            |
+| `.w-max-1`–`.w-max-10` | `max-width` in 8rem steps |
 
 ## Heights
 
-| Class      | Value            |
-| ---------- | ---------------- |
-| `.h-full`  | `height: 100%`   |
-| `.h-auto`  | `height: auto`   |
-| `.h-min-0` | `min-height: 0`  |
+| Class      | Value           |
+| ---------- | --------------- |
+| `.h-full`  | `height: 100%`  |
+| `.h-auto`  | `height: auto`  |
+| `.h-min-0` | `min-height: 0` |
 
 ## Components
 
@@ -337,15 +338,15 @@ Built-in icons: `plus`, `pencil`, `chevron-down`, `chevron-up`, `chevron-left`, 
 
 ## Misc
 
-| Class            | Value                                              |
-| ---------------- | -------------------------------------------------- |
-| `.of-hidden`     | `overflow: hidden`                                 |
-| `.of-clip`       | `overflow: clip`                                   |
-| `.of-scroll`     | `overflow: scroll`                                 |
-| `.of-auto`       | `overflow: auto`                                   |
-| `.of-x-hidden` `.of-x-clip` `.of-x-auto` | `overflow-x` only                  |
-| `.of-y-hidden` `.of-y-clip` `.of-y-auto` | `overflow-y` only                  |
-| `.aspect-square` | `aspect-ratio: 1 / 1`                              |
-| `.list`          | `list-style-position: inside`, square `ul` bullets |
+| Class                                    | Value                                              |
+| ---------------------------------------- | -------------------------------------------------- |
+| `.of-hidden`                             | `overflow: hidden`                                 |
+| `.of-clip`                               | `overflow: clip`                                   |
+| `.of-scroll`                             | `overflow: scroll`                                 |
+| `.of-auto`                               | `overflow: auto`                                   |
+| `.of-x-hidden` `.of-x-clip` `.of-x-auto` | `overflow-x` only                                  |
+| `.of-y-hidden` `.of-y-clip` `.of-y-auto` | `overflow-y` only                                  |
+| `.aspect-square`                         | `aspect-ratio: 1 / 1`                              |
+| `.list`                                  | `list-style-position: inside`, square `ul` bullets |
 
 The scrolling classes (`.of-scroll`, `.of-auto`, `.of-x-auto`, `.of-y-auto`) also set `scroll-behavior: smooth`, at zero specificity so it's easy to override.

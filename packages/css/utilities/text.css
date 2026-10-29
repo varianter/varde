@@ -54,4 +54,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .t-wrap-anywhere {
+    overflow-wrap: anywhere;
+  }
 }
